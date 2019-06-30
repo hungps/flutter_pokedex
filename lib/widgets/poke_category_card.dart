@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pokedex/models/category.dart';
 
 class PokeCategoryCard extends StatelessWidget {
-  final String title;
-  final Color backgroundColor;
-  final Color shadowColor;
+  final Category category;
+  final Function onPress;
 
-  const PokeCategoryCard({
+  const PokeCategoryCard(
+    this.category, {
     Key key,
-    @required this.title,
-    @required this.backgroundColor,
-    @required this.shadowColor,
+    this.onPress,
   }) : super(key: key);
 
   Widget _buildCardContent() {
@@ -20,7 +19,7 @@ class PokeCategoryCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Text(
-          title,
+          category.name,
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
@@ -63,7 +62,7 @@ class PokeCategoryCard extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: shadowColor,
+              color: category.color,
               offset: Offset(0, 3),
               blurRadius: 23,
             ),
@@ -83,11 +82,16 @@ class PokeCategoryCard extends StatelessWidget {
         return Stack(
           children: <Widget>[
             _buildShadow(itemWidth),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: backgroundColor,
-              ),
+            MaterialButton(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              padding: EdgeInsets.all(0),
+              color: category.color,
+              splashColor: Colors.white10,
+              highlightColor: Colors.white10,
+              elevation: 0,
+              highlightElevation: 2,
+              disabledColor: category.color,
+              onPressed: onPress,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Stack(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/screens/home/home.dart';
+import 'package:pokedex/screens/pokedex/pokedex.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.lightGrey,
         primarySwatch: Colors.blue,
       ),
-      routes: {"/": (context) => Home()},
+      routes: {
+        "/": (context) => Home(),
+        "/pokedex": (context) => Pokedex(),
+      },
     );
   }
 }

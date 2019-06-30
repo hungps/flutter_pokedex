@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 class PokeContainer extends StatelessWidget {
   final List<Widget> children;
   final double height;
+  final bool appBar;
   final Decoration decoration;
 
   const PokeContainer({
@@ -12,12 +13,17 @@ class PokeContainer extends StatelessWidget {
     @required this.children,
     this.height,
     this.decoration,
+    this.appBar = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final pokeSize = MediaQuery.of(context).size.width * 0.66;
     final screenSize = MediaQuery.of(context).size;
+
+    final pokeSize = screenSize.width * 0.66;
+    final pokeTop = -(screenSize.width * 0.154);
+    final pokeRight = -(screenSize.width * 0.23);
+    final appBarTop = pokeSize / 2 + pokeTop - IconTheme.of(context).size / 2;
 
     return Container(
       width: screenSize.width,
@@ -25,8 +31,8 @@ class PokeContainer extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Positioned(
-            top: -58,
-            right: -86,
+            top: pokeTop,
+            right: pokeRight,
             child: SvgPicture.asset(
               "assets/images/pokeball.svg",
               width: pokeSize,
@@ -35,8 +41,26 @@ class PokeContainer extends StatelessWidget {
             ),
           ),
           Column(
+            mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: children,
+            children: [
+              if (appBar)
+                Padding(
+                  padding: EdgeInsets.only(left: 26, right: 26, top: appBarTop),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      InkWell(
+                        child: Icon(Icons.arrow_back),
+                        onTap: Navigator.of(context).pop,
+                      ),
+                      Icon(Icons.menu),
+                    ],
+                  ),
+                ),
+              if (children != null) ...children,
+            ],
           ),
         ],
       ),
