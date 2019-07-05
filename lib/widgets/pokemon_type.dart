@@ -20,7 +20,7 @@ class PokemonType extends StatelessWidget {
         label,
         style: TextStyle(
           fontSize: 8,
-          height: 0.7,
+          height: 0.8,
           color: Colors.white,
         ),
       ),
