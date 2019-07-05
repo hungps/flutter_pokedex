@@ -7,9 +7,9 @@ class Pokemon {
   final Color color;
 
   const Pokemon({
-    this.name,
-    this.types,
-    this.image,
-    this.color,
+    @required this.name,
+    this.types = const [],
+    @required this.image,
+    @required this.color,
   });
 }

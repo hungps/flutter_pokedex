@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pokedex/data/pokemons.dart';
+import 'package:pokedex/screens/pokedex/widgets/generation_modal.dart';
+import 'package:pokedex/screens/pokedex/widgets/search_modal.dart';
 import 'package:pokedex/widgets/fab.dart';
 import 'package:pokedex/widgets/poke_container.dart';
 import 'package:pokedex/widgets/pokemon_card.dart';
@@ -27,6 +29,22 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
     super.initState();
   }
 
+  void _showSearchModal() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => SearchBottomModal(),
+    );
+  }
+
+  void _showGenerationModal() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => GenerationModal(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +67,7 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
               SizedBox(height: 32),
               Expanded(
                 child: GridView.builder(
+                  physics: BouncingScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 1.4,
@@ -85,22 +104,32 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
           FabItem(
             "Favourite Pokemon",
             Icons.favorite,
-            onPress: () {},
+            onPress: () {
+              _controller.reverse();
+            },
           ),
           FabItem(
             "All Type",
             Icons.filter_vintage,
-            onPress: () {},
+            onPress: () {
+              _controller.reverse();
+            },
           ),
           FabItem(
             "All Gen",
             Icons.flash_on,
-            onPress: () {},
+            onPress: () {
+              _controller.reverse();
+              _showGenerationModal();
+            },
           ),
           FabItem(
             "Search",
             Icons.search,
-            onPress: () {},
+            onPress: () {
+              _controller.reverse();
+              _showSearchModal();
+            },
           ),
         ],
         animation: _animation,

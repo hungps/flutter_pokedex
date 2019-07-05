@@ -77,12 +77,16 @@ class ExpandedAnimationFab extends AnimatedWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        ListView.separated(
-          shrinkWrap: true,
-          separatorBuilder: (_, __) => SizedBox(height: 12),
-          padding: EdgeInsets.symmetric(vertical: 12),
-          itemCount: items.length,
-          itemBuilder: buildItem,
+        IgnorePointer(
+          ignoring: _animation.value == 0,
+          child: ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            separatorBuilder: (_, __) => SizedBox(height: 12),
+            padding: EdgeInsets.symmetric(vertical: 12),
+            itemCount: items.length,
+            itemBuilder: buildItem,
+          ),
         ),
         FloatingActionButton(
           backgroundColor: AppColors.indigo,

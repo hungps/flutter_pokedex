@@ -60,6 +60,7 @@ class _HomeState extends State<Home> {
   Widget _buildNews() {
     return Expanded(
       child: ListView(
+        physics: BouncingScrollPhysics(),
         controller: _scrollController,
         children: <Widget>[
           Padding(

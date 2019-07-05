@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 
 class SearchBar extends StatelessWidget {
+  final EdgeInsets margin;
+
+  const SearchBar({
+    Key key,
+    this.margin = const EdgeInsets.symmetric(horizontal: 28),
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 18),
-      margin: EdgeInsets.symmetric(horizontal: 28),
+      margin: margin,
       decoration: ShapeDecoration(
         shape: StadiumBorder(),
         color: Theme.of(context).scaffoldBackgroundColor,
