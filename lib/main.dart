@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/screens/home/home.dart';
 import 'package:pokedex/screens/pokedex/pokedex.dart';
+import 'package:pokedex/screens/pokemon_info/pokemon_info.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => Home(),
         "/pokedex": (context) => Pokedex(),
+        "/pokemon-info": (context) => PokemonInfo(),
       },
     );
   }

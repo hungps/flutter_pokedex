@@ -73,13 +73,17 @@ class PokemonCard extends StatelessWidget {
         ),
       ),
       Positioned(
-        bottom: 7,
-        right: 7,
-        child: Image.asset(
-          pokemon.image,
-          fit: BoxFit.contain,
-          width: itemHeight * 0.69,
-          height: itemHeight * 0.64,
+        bottom: 8,
+        right: 12,
+        child: Hero(
+          tag: pokemon.image,
+          child: Image.asset(
+            pokemon.image,
+            fit: BoxFit.contain,
+            width: itemHeight * 0.6,
+            height: itemHeight * 0.6,
+            alignment: Alignment.bottomRight,
+          ),
         ),
       ),
       Positioned(
@@ -106,22 +110,30 @@ class PokemonCard extends StatelessWidget {
         return Container(
           padding: EdgeInsets.all(0),
           decoration: BoxDecoration(
-              color: pokemon.color,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: pokemon.color.withOpacity(0.12),
-                  blurRadius: 15,
-                  offset: Offset(0, 8),
-                ),
-              ]),
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: pokemon.color.withOpacity(0.12),
+                blurRadius: 15,
+                offset: Offset(0, 8),
+              ),
+            ],
+          ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: Stack(
-              children: [
-                _buildCardContent(),
-                ..._buildDecorations(itemHeight),
-              ],
+            child: Material(
+              color: pokemon.color,
+              child: InkWell(
+                onTap: onPress,
+                splashColor: Colors.white10,
+                highlightColor: Colors.white10,
+                child: Stack(
+                  children: [
+                    _buildCardContent(),
+                    ..._buildDecorations(itemHeight),
+                  ],
+                ),
+              ),
             ),
           ),
         );

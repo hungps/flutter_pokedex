@@ -76,7 +76,13 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
                   ),
                   padding: EdgeInsets.only(left: 28, right: 28, bottom: 58),
                   itemCount: pokemons.length,
-                  itemBuilder: (context, index) => PokemonCard(pokemons[index], index: index),
+                  itemBuilder: (context, index) => PokemonCard(
+                    pokemons[index],
+                    index: index,
+                    onPress: () {
+                      Navigator.of(context).pushNamed("/pokemon-info");
+                    },
+                  ),
                 ),
               ),
             ],
