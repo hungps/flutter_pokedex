@@ -2,8 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_about.dart';
+import 'package:pokedex/screens/pokemon_info/widgets/tab_base_stats.dart';
+
+class TabData {
+  final String label;
+  final Widget child;
+
+  TabData(this.label, this.child);
+}
 
 class PokemonTabInfo extends StatelessWidget {
+  final List<TabData> _tabs = [
+    TabData("About", PokemonAbout()),
+    TabData("Base Stats", PokemonBaseStats()),
+    TabData("Evolution", Container(color: Colors.green)),
+    TabData("Moves", Container(color: Colors.orange)),
+  ];
+
   Widget _buildTabBar() {
     return TabBar(
       labelColor: AppColors.black,
@@ -12,45 +27,36 @@ class PokemonTabInfo extends StatelessWidget {
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,
       indicatorColor: AppColors.indigo,
-      tabs: <Widget>[
-        Tab(text: "About"),
-        Tab(text: "Base Stats"),
-        Tab(text: "Evolution"),
-        Tab(text: "Moves"),
-      ],
+      tabs: _tabs.map((tab) => Text(tab.label)).toList(),
     );
   }
 
   Widget _buildTabContent() {
     return Expanded(
       child: TabBarView(
-        children: <Widget>[
-          PokemonAbout(),
-          Container(color: Colors.blue),
-          Container(color: Colors.green),
-          Container(color: Colors.orange),
-        ],
+        children: _tabs.map((tab) => tab.child).toList(),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.536,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+    return DefaultTabController(
+      length: 4,
+      initialIndex: 0,
+      child: Container(
+        width: screenWidth,
+        height: screenHeight * 0.536,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
         ),
-      ),
-      child: DefaultTabController(
-        length: 4,
-        initialIndex: 0,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
