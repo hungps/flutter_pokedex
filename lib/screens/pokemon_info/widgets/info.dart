@@ -9,8 +9,8 @@ class PokemonOverallInfo extends StatefulWidget {
 }
 
 class _PokemonOverallInfoState extends State<PokemonOverallInfo> {
-  PageController _pageController;
   int _currentPage = 0;
+  PageController _pageController;
 
   @override
   void initState() {

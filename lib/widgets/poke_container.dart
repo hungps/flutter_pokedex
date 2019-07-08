@@ -3,11 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PokeContainer extends StatelessWidget {
-  final List<Widget> children;
-  final double height;
-  final bool appBar;
-  final Decoration decoration;
-
   const PokeContainer({
     Key key,
     @required this.children,
@@ -15,6 +10,11 @@ class PokeContainer extends StatelessWidget {
     this.decoration,
     this.appBar = false,
   }) : super(key: key);
+
+  final bool appBar;
+  final List<Widget> children;
+  final Decoration decoration;
+  final double height;
 
   @override
   Widget build(BuildContext context) {

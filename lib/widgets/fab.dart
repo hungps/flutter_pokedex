@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 
 class FabItem {
-  final String title;
+  const FabItem(this.title, this.icon, {this.onPress});
+
   final IconData icon;
   final Function onPress;
-
-  const FabItem(this.title, this.icon, {this.onPress});
+  final String title;
 }
 
 class FabMenuItem extends StatelessWidget {
-  final FabItem item;
-
   const FabMenuItem(this.item, {Key key}) : super(key: key);
+
+  final FabItem item;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +39,14 @@ class FabMenuItem extends StatelessWidget {
 }
 
 class ExpandedAnimationFab extends AnimatedWidget {
-  final List<FabItem> items;
-  final Function onPress;
-
   const ExpandedAnimationFab({
     @required this.items,
     this.onPress,
     Animation animation,
   }) : super(listenable: animation);
+
+  final List<FabItem> items;
+  final Function onPress;
 
   get _animation => listenable;
 
@@ -82,7 +82,7 @@ class ExpandedAnimationFab extends AnimatedWidget {
           child: ListView.separated(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (_, __) => SizedBox(height: 12),
+            separatorBuilder: (_, __) => SizedBox(height: 9),
             padding: EdgeInsets.symmetric(vertical: 12),
             itemCount: items.length,
             itemBuilder: buildItem,

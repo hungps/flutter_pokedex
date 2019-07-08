@@ -5,9 +5,9 @@ import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/models/generation.dart';
 
 class GenerationCard extends StatelessWidget {
-  final Generation generation;
-
   const GenerationCard(this.generation, {Key key}) : super(key: key);
+
+  final Generation generation;
 
   @override
   Widget build(BuildContext context) {

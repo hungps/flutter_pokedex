@@ -14,6 +14,13 @@ class _HomeState extends State<Home> {
   TrackingScrollController _scrollController;
 
   @override
+  dispose() {
+    _scrollController?.removeListener(onScroll);
+
+    super.dispose();
+  }
+
+  @override
   initState() {
     _scrollController = TrackingScrollController();
     _scrollController.addListener(onScroll);
@@ -22,13 +29,6 @@ class _HomeState extends State<Home> {
   }
 
   onScroll() {}
-
-  @override
-  dispose() {
-    _scrollController?.removeListener(onScroll);
-
-    super.dispose();
-  }
 
   Widget _buildCard() {
     return PokeContainer(

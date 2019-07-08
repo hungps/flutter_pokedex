@@ -16,16 +16,16 @@ String capitalizeFirstChar(String text) {
 }
 
 class PokemonCard extends StatelessWidget {
-  final int index;
-  final Pokemon pokemon;
-  final Function onPress;
-
   const PokemonCard(
     this.pokemon, {
     @required this.index,
     Key key,
     this.onPress,
   }) : super(key: key);
+
+  final int index;
+  final Function onPress;
+  final Pokemon pokemon;
 
   List<Widget> _buildTypes() {
     final widgetTypes = pokemon.types

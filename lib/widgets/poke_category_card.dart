@@ -4,14 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/models/category.dart';
 
 class PokeCategoryCard extends StatelessWidget {
-  final Category category;
-  final Function onPress;
-
   const PokeCategoryCard(
     this.category, {
     Key key,
     this.onPress,
   }) : super(key: key);
+
+  final Category category;
+  final Function onPress;
 
   Widget _buildCardContent() {
     return Align(

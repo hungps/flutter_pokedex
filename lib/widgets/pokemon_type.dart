@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PokemonType extends StatelessWidget {
-  final bool large;
-  final String label;
-
   const PokemonType(this.label, {Key key, this.large = false}) : super(key: key);
+
+  final String label;
+  final bool large;
 
   @override
   Widget build(BuildContext context) {

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 
 class PokeNews extends StatelessWidget {
-  final String title;
-  final String time;
-  final Image thumbnail;
-
   const PokeNews({
     Key key,
     @required this.title,
     @required this.time,
     @required this.thumbnail,
   }) : super(key: key);
+
+  final Image thumbnail;
+  final String time;
+  final String title;
 
   @override
   Widget build(BuildContext context) {

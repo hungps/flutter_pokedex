@@ -13,8 +13,8 @@ class Pokedex extends StatefulWidget {
 }
 
 class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
   Animation<double> _animation;
+  AnimationController _controller;
 
   @override
   void initState() {
