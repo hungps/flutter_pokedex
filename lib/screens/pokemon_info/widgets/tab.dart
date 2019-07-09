@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_about.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_base_stats.dart';
+import 'package:pokedex/screens/pokemon_info/widgets/tab_evolution.dart';
 
 class TabData {
   final String label;
@@ -15,7 +16,7 @@ class PokemonTabInfo extends StatelessWidget {
   final List<TabData> _tabs = [
     TabData("About", PokemonAbout()),
     TabData("Base Stats", PokemonBaseStats()),
-    TabData("Evolution", Container(color: Colors.green)),
+    TabData("Evolution", PokemonEvolution()),
     TabData("Moves", Container(color: Colors.orange)),
   ];
 
