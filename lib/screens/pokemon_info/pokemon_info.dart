@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/decoration_box.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/info.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab.dart';
+import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PokemonInfo extends StatefulWidget {
@@ -48,10 +49,11 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
         return newValue < 0 ? 0.0 : newValue;
       }),
       builder: (context, snapshot) {
+        final value = (snapshot.data ?? 1.0);
         return IgnorePointer(
-          ignoring: (snapshot.data ?? 1) < 1,
+          ignoring: value < 1,
           child: Opacity(
-            opacity: snapshot.data ?? 1.0,
+            opacity: value,
             child: PokemonOverallInfo(),
           ),
         );
@@ -100,9 +102,14 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
               onPanelSlide: _scrollProgressStreamController.add,
               color: Colors.transparent,
               isDraggable: true,
+              boxShadow: [],
               minHeight: minCardHeight,
               maxHeight: maxCardHeight,
-              panel: PokemonTabInfo(),
+              panel: StreamProvider<bool>(
+                builder: (context) =>
+                    _scrollProgressStreamController.stream.map((value) => value.floor() == 1),
+                child: PokemonTabInfo(),
+              ),
             ),
           ),
           Column(
