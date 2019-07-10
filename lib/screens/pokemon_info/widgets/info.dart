@@ -28,23 +28,6 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> {
     super.initState();
   }
 
-  Widget _buildAppBar() {
-    return Padding(
-      padding: EdgeInsets.only(left: 26, right: 26, top: 56, bottom: 22),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          InkWell(
-            child: Icon(Icons.arrow_back, color: Colors.white),
-            onTap: Navigator.of(context).pop,
-          ),
-          Icon(Icons.favorite_border, color: Colors.white),
-        ],
-      ),
-    );
-  }
-
   Widget _buildPokemonName() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 26, vertical: 9),
@@ -150,10 +133,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        _buildAppBar(),
         _buildPokemonName(),
         _buildPokemonTypes(),
         SizedBox(height: 25),

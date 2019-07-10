@@ -127,7 +127,7 @@ class PokemonAbout extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: EdgeInsets.symmetric(vertical: 19),
-      physics: BouncingScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
         _buildDescription(),
         _buildHeightWeight(),

@@ -43,14 +43,12 @@ class PokemonTabInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return DefaultTabController(
       length: 4,
       initialIndex: 0,
       child: Container(
         width: screenWidth,
-        height: screenHeight * 0.536,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -62,7 +60,7 @@ class PokemonTabInfo extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SizedBox(height: screenHeight * 0.03),
+            SizedBox(height: 30),
             _buildTabBar(),
             _buildTabContent(),
           ],
