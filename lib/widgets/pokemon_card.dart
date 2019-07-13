@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/models/pokemon.dart';
 import 'package:pokedex/widgets/pokemon_type.dart';
 
 String _formattedPokeIndex(int index) {
-  return "#${(index / 100).toStringAsFixed(2).replaceAll(".", "")}";
+  return "#${((index + 1) / 100).toStringAsFixed(2).replaceAll(".", "")}";
 }
 
 String capitalizeFirstChar(String text) {
@@ -29,7 +28,12 @@ class PokemonCard extends StatelessWidget {
 
   List<Widget> _buildTypes() {
     final widgetTypes = pokemon.types
-        .map((type) => PokemonType(capitalizeFirstChar(type)))
+        .map(
+          (type) => Hero(
+            tag: pokemon.name + type,
+            child: PokemonType(capitalizeFirstChar(type)),
+          ),
+        )
         .expand((item) => [item, SizedBox(height: 6)]);
 
     return widgetTypes.take(widgetTypes.length - 1).toList();
@@ -43,13 +47,19 @@ class PokemonCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              pokemon.name,
-              style: TextStyle(
-                fontSize: 14,
-                height: 0.7,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            Hero(
+              tag: pokemon.name,
+              child: Material(
+                color: Colors.transparent,
+                child: Text(
+                  pokemon.name,
+                  style: TextStyle(
+                    fontSize: 14,
+                    height: 0.7,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -65,8 +75,8 @@ class PokemonCard extends StatelessWidget {
       Positioned(
         bottom: -itemHeight * 0.136,
         right: -itemHeight * 0.034,
-        child: SvgPicture.asset(
-          "assets/images/pokeball.svg",
+        child: Image.asset(
+          "assets/images/pokeball.png",
           width: itemHeight * 0.754,
           height: itemHeight * 0.754,
           color: Colors.white.withOpacity(0.14),

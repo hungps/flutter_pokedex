@@ -4,6 +4,7 @@ import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_about.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_base_stats.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_evolution.dart';
+import 'package:provider/provider.dart';
 
 class TabData {
   final String label;
@@ -24,7 +25,7 @@ class PokemonTabInfo extends StatelessWidget {
     return TabBar(
       labelColor: AppColors.black,
       unselectedLabelColor: AppColors.grey,
-      labelPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 6),
+      labelPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 16),
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,
       indicatorColor: AppColors.indigo,
@@ -43,6 +44,7 @@ class PokemonTabInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final scrollController = Provider.of<AnimationController>(context);
 
     return DefaultTabController(
       length: 4,
@@ -60,7 +62,10 @@ class PokemonTabInfo extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SizedBox(height: 30),
+            AnimatedBuilder(
+              animation: scrollController,
+              builder: (context, _) => SizedBox(height: (1 - scrollController.value) * 16 + 6),
+            ),
             _buildTabBar(),
             _buildTabContent(),
           ],

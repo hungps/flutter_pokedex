@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/data/pokemons.dart';
 import 'package:pokedex/models/pokemon.dart';
+import 'package:provider/provider.dart';
 
 class PokemonBall extends StatelessWidget {
   final Pokemon pokemon;
@@ -20,8 +20,8 @@ class PokemonBall extends StatelessWidget {
         Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            SvgPicture.asset(
-              "assets/images/pokeball.svg",
+            Image.asset(
+              "assets/images/pokeball.png",
               width: pokeballSize,
               height: pokeballSize,
               color: AppColors.lightGrey,
@@ -73,18 +73,32 @@ class PokemonEvolution extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.symmetric(vertical: 31, horizontal: 28),
-      children: <Widget>[
-        Text(
-          "Evolution Chain",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
-        ),
-        SizedBox(height: 28),
-        _buildRow(current: pokemons[0], next: pokemons[1], level: 16),
-        _buildDivider(),
-        _buildRow(current: pokemons[1], next: pokemons[2], level: 34),
-      ],
+    final cardController = Provider.of<AnimationController>(context);
+
+    return AnimatedBuilder(
+      animation: cardController,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "Evolution Chain",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
+          ),
+          SizedBox(height: 28),
+          _buildRow(current: pokemons[0], next: pokemons[1], level: 16),
+          _buildDivider(),
+          _buildRow(current: pokemons[1], next: pokemons[2], level: 34),
+        ],
+      ),
+      builder: (context, widget) {
+        final scrollable = cardController.value.floor() == 1;
+
+        return SingleChildScrollView(
+          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.symmetric(vertical: 31, horizontal: 28),
+          child: widget,
+        );
+      },
     );
   }
 }

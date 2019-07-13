@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:provider/provider.dart';
 
@@ -87,7 +86,7 @@ class PokemonAbout extends StatelessWidget {
           Expanded(
             child: Row(
               children: <Widget>[
-                SvgPicture.asset("assets/images/male.svg", width: 12, height: 12),
+                Image.asset("assets/images/male.png", width: 12, height: 12),
                 SizedBox(width: 4),
                 Text("87.5%", style: TextStyle(height: 0.8)),
               ],
@@ -97,7 +96,7 @@ class PokemonAbout extends StatelessWidget {
             flex: 2,
             child: Row(
               children: <Widget>[
-                SvgPicture.asset("assets/images/female.svg", width: 12, height: 12),
+                Image.asset("assets/images/female.png", width: 12, height: 12),
                 SizedBox(width: 4),
                 Text("12.5%", style: TextStyle(height: 0.8)),
               ],
@@ -124,12 +123,14 @@ class PokemonAbout extends StatelessWidget {
     ]);
   }
 
-  Widget _buildLocation({double mapHeight}) {
+  Widget _buildLocation() {
     return _buildSection(
       "Location",
-      child: Container(
-        height: mapHeight,
-        decoration: BoxDecoration(color: AppColors.teal, borderRadius: BorderRadius.circular(12)),
+      child: AspectRatio(
+        aspectRatio: 2.253,
+        child: Container(
+          decoration: BoxDecoration(color: AppColors.teal, borderRadius: BorderRadius.circular(12)),
+        ),
       ),
     );
   }
@@ -148,26 +149,32 @@ class PokemonAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final cardController = Provider.of<AnimationController>(context);
 
-    final scrollable = Provider.of<bool>(context);
+    return AnimatedBuilder(
+      animation: cardController,
+      child: Column(
+        children: <Widget>[
+          _buildDescription(),
+          SizedBox(height: 28),
+          _buildHeightWeight(),
+          SizedBox(height: 31),
+          _buildBreeding(),
+          SizedBox(height: 35),
+          _buildLocation(),
+          SizedBox(height: 26),
+          _buildTraining(),
+        ],
+      ),
+      builder: (context, child) {
+        final scrollable = cardController.value.floor() == 1;
 
-    print(scrollable);
-
-    return ListView(
-      padding: EdgeInsets.symmetric(vertical: 19, horizontal: 27),
-      physics: (scrollable ?? false) ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
-      children: <Widget>[
-        _buildDescription(),
-        SizedBox(height: 28),
-        _buildHeightWeight(),
-        SizedBox(height: 31),
-        _buildBreeding(),
-        SizedBox(height: 35),
-        _buildLocation(mapHeight: screenHeight * 0.17),
-        SizedBox(height: 26),
-        _buildTraining(),
-      ],
+        return SingleChildScrollView(
+          padding: EdgeInsets.symmetric(vertical: 19, horizontal: 27),
+          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          child: child,
+        );
+      },
     );
   }
 }

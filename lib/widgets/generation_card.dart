@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/configs/AppColors.dart';
 import 'package:pokedex/models/generation.dart';
 
@@ -58,8 +57,8 @@ class GenerationCard extends StatelessWidget {
             Positioned(
               bottom: -height * 0.136,
               right: -height * 0.03,
-              child: SvgPicture.asset(
-                "assets/images/pokeball.svg",
+              child: Image.asset(
+                "assets/images/pokeball.png",
                 width: height * 0.754,
                 height: height * 0.754,
                 color: AppColors.black.withOpacity(0.05),

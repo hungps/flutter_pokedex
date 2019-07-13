@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 
 class PokeContainer extends StatelessWidget {
   const PokeContainer({
@@ -33,8 +32,8 @@ class PokeContainer extends StatelessWidget {
           Positioned(
             top: pokeTop,
             right: pokeRight,
-            child: SvgPicture.asset(
-              "assets/images/pokeball.svg",
+            child: Image.asset(
+              "assets/images/pokeball.png",
               width: pokeSize,
               height: pokeSize,
               color: Color(0xFF303943).withOpacity(0.05),

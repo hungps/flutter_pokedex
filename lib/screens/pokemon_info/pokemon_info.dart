@@ -1,12 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:pokedex/screens/pokemon_info/widgets/decoration_box.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/info.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab.dart';
+import 'package:pokedex/widgets/slide_up_panel.dart';
 import 'package:provider/provider.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PokemonInfo extends StatefulWidget {
   @override
@@ -14,111 +10,72 @@ class PokemonInfo extends StatefulWidget {
 }
 
 class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
-  final StreamController<double> _scrollProgressStreamController =
-      StreamController<double>.broadcast();
+  static const double _pokemonSlideOverflow = 20;
+
+  GlobalKey _pokemonInfoKey = GlobalKey();
+
+  AnimationController _cardController;
+  AnimationController _cardHeightController;
+
+  double _cardMinHeight = 0.0;
+  double _cardMaxHeight = 0.0;
+
+  @override
+  void initState() {
+    _cardController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    _cardHeightController = AnimationController(vsync: this, duration: Duration(milliseconds: 220));
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final screenHeight = MediaQuery.of(context).size.height;
+      final appBarHeight = 60 + 22 + IconTheme.of(context).size;
+
+      final RenderBox pokemonInfoBox = _pokemonInfoKey.currentContext.findRenderObject();
+
+      _cardMinHeight = screenHeight - pokemonInfoBox.size.height + _pokemonSlideOverflow;
+      _cardMaxHeight = screenHeight - appBarHeight;
+
+      _cardHeightController.forward();
+    });
+
+    super.initState();
+  }
 
   @override
   void dispose() {
-    _scrollProgressStreamController.close();
+    _cardController.dispose();
+    _cardHeightController.dispose();
 
     super.dispose();
   }
 
-  Widget _buildAppBar() {
-    return Padding(
-      padding: EdgeInsets.only(left: 26, right: 26, top: 56, bottom: 22),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          InkWell(
-            child: Icon(Icons.arrow_back, color: Colors.white),
-            onTap: Navigator.of(context).pop,
-          ),
-          Icon(Icons.favorite_border, color: Colors.white),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPokemonInfo() {
-    return StreamBuilder<double>(
-      stream: _scrollProgressStreamController.stream.map((value) {
-        final newValue = 1 - 2 * value;
-
-        return newValue < 0 ? 0.0 : newValue;
-      }),
-      builder: (context, snapshot) {
-        final value = (snapshot.data ?? 1.0);
-        return IgnorePointer(
-          ignoring: value < 1,
-          child: Opacity(
-            opacity: value,
-            child: PokemonOverallInfo(),
-          ),
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    final appBarHeight = 56 + 22 + IconTheme.of(context).size;
-    final minCardHeight = screenHeight * 0.536;
-    final maxCardHeight = screenHeight - appBarHeight;
-
-    return Scaffold(
-      backgroundColor: Color(0xFF48D0B0),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: -screenHeight * 0.055,
-            left: -screenHeight * 0.055,
-            child: DecorationBox(),
-          ),
-          Positioned(
-            top: 4,
-            left: screenHeight * 0.3,
-            child: StreamBuilder(
-              stream: _scrollProgressStreamController.stream,
-              builder: (context, snapshot) => Opacity(
-                opacity: 1 - (snapshot.data ?? 0.0),
-                child: SvgPicture.asset(
-                  "assets/images/dotted.svg",
-                  width: screenHeight * 0.07,
-                  height: screenHeight * 0.07 * 0.54,
-                  color: Colors.white.withOpacity(0.3),
-                ),
-              ),
+    return ListenableProvider(
+      builder: (context) => _cardController,
+      child: Scaffold(
+        backgroundColor: Color(0xFF48D0B0),
+        body: Stack(
+          children: <Widget>[
+            AnimatedBuilder(
+              animation: _cardHeightController,
+              child: PokemonTabInfo(),
+              builder: (context, child) {
+                return SlidingUpPanel(
+                  controller: _cardController,
+                  minHeight: _cardMinHeight * _cardHeightController.value,
+                  maxHeight: _cardMaxHeight,
+                  child: child,
+                );
+              },
             ),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: SlidingUpPanel(
-              onPanelSlide: _scrollProgressStreamController.add,
-              color: Colors.transparent,
-              isDraggable: true,
-              boxShadow: [],
-              minHeight: minCardHeight,
-              maxHeight: maxCardHeight,
-              panel: StreamProvider<bool>(
-                builder: (context) =>
-                    _scrollProgressStreamController.stream.map((value) => value.floor() == 1),
-                child: PokemonTabInfo(),
+            IntrinsicHeight(
+              child: Container(
+                key: _pokemonInfoKey,
+                child: PokemonOverallInfo(),
               ),
-            ),
-          ),
-          Column(
-            children: <Widget>[
-              _buildAppBar(),
-              _buildPokemonInfo(),
-            ],
-          ),
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

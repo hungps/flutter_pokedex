@@ -29,13 +29,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.11"
-  convert:
-    dependency: transitive
-    description:
-      name: convert
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -48,13 +41,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_svg:
-    dependency: "direct main"
-    description:
-      name: flutter_svg
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.13.0+2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -81,34 +67,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.1"
-  path_parsing:
-    dependency: transitive
-    description:
-      name: path_parsing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.4"
   pedantic:
     dependency: transitive
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.0"
-  petitparser:
-    dependency: transitive
-    description:
-      name: petitparser
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.3.0"
+    version: "1.8.0+1"
   provider:
     dependency: "direct main"
     description:
@@ -128,13 +93,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  sliding_up_panel:
-    dependency: "direct main"
-    description:
-      name: sliding_up_panel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.4"
   source_span:
     dependency: transitive
     description:
@@ -191,13 +149,5 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-  xml:
-    dependency: transitive
-    description:
-      name: xml
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.5.0"
 sdks:
-  dart: ">=2.3.0 <3.0.0"
-  flutter: ">=1.5.9-pre.94 <2.0.0"
+  dart: ">=2.2.2 <3.0.0"
