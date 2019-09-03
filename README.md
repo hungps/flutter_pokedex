@@ -29,7 +29,7 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 ## Todos
 
 - [x] Home
-- [ ] Home - Apply Sliver effect in home screen
+- [x] Home - Apply Sliver effect in home screen
 - [x] Pokedex
 - [x] Pokedex - FAB
 - [x] Pokedex - Add FAB animation

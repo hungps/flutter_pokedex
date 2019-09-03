@@ -23,19 +23,17 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  provider:
+  provider: ^3.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -62,10 +60,10 @@ flutter:
     - family: CircularStd
       fonts:
         - asset: assets/fonts/CircularStd-Book.ttf
-        
+
         - asset: assets/fonts/CircularStd-Medium.ttf
           weight: 600
-        
+
         - asset: assets/fonts/CircularStd-Black.ttf
           weight: 700
 
