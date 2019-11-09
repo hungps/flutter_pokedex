@@ -5,8 +5,11 @@ import 'dart:convert' as json;
 
 import '../configs/AppColors.dart';
 import '../configs/AppColors.dart';
+import '../configs/AppColors.dart';
+import '../configs/AppColors.dart';
 import '../models/pokemon.dart';
 import '../models/pokemon.dart';
+
 const List<Pokemon> pokemons = [
   Pokemon(
     name: "Bulbasaur",
@@ -69,41 +72,50 @@ const List<Pokemon> pokemons = [
     color: AppColors.lightYellow,
   ),
 ];
-Future<List<Pokemon>> getPokemonsList(context) async
-{
-  List<Pokemon> pokemons =[];
 
-  String jsonString = await DefaultAssetBundle.of(context).loadString("assets/pokemons.json");
-  dynamic jsonData  = json.jsonDecode(jsonString);
-  for(var currentPokemon in jsonData)
-    {
-      String name = currentPokemon['name'];
-      String imageUrl = currentPokemon['imageurl'];
-      List<dynamic> dynamictypesOfPokemon = currentPokemon['typeofpokemon'];
-      List<String> typesOfPokemon =[];
-      for(var dynamicType in dynamictypesOfPokemon)
-        typesOfPokemon.add(dynamicType.toString());
-      Color color = getPokemonColor(typesOfPokemon[0]);
-      Pokemon pokemon = Pokemon(
-        name: name,
-        image: imageUrl,
-        types: typesOfPokemon,
-        color: color
-      );
-      pokemons.add(pokemon);
-    }
+Future<List<Pokemon>> getPokemonsList(context) async {
+  List<Pokemon> pokemons = [];
+
+  String jsonString =
+      await DefaultAssetBundle.of(context).loadString("assets/pokemons.json");
+  dynamic jsonData = json.jsonDecode(jsonString);
+  for (var currentPokemon in jsonData) {
+    String name = currentPokemon['name'];
+    String imageUrl = currentPokemon['imageurl'];
+    List<dynamic> dynamictypesOfPokemon = currentPokemon['typeofpokemon'];
+    List<String> typesOfPokemon = [];
+    for (var dynamicType in dynamictypesOfPokemon)
+      typesOfPokemon.add(dynamicType.toString());
+    Color color = getPokemonColor(typesOfPokemon[0]);
+    Pokemon pokemon = Pokemon(
+        name: name, image: imageUrl, types: typesOfPokemon, color: color);
+    pokemons.add(pokemon);
+  }
   return pokemons;
 }
-getPokemonColor(typeOfPokemon)
-{
+
+getPokemonColor(typeOfPokemon) {
   //TODO add more colors
 
-   switch(typeOfPokemon)
-   {
-     case 'Grass' : return AppColors.lightTeal;
-     case 'Fire' : return AppColors.lightRed;
-     case 'Water' : return AppColors.lightBlue;
-     case 'Electric' : return AppColors.lightYellow;
-     default : return AppColors.brown;
-   }
+  switch (typeOfPokemon) {
+    case 'Grass':
+    case 'Bug':
+      return AppColors.lightTeal;
+    case 'Fire':
+      return AppColors.lightRed;
+    case 'Water':
+    case 'Fighting':
+    case 'Normal':
+      return AppColors.lightBlue;
+    case 'Electric':
+    case 'Psychic':
+      return AppColors.lightYellow;
+    case 'Poison':
+    case 'Ghost':
+      return AppColors.lightPurple;
+    case 'Ground':
+    case 'Rock':
+      return AppColors.lightBrown;
+    default :return  AppColors.lightBlue;
+  }
 }

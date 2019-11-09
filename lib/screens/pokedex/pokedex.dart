@@ -79,7 +79,6 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
               SizedBox(height: 32),
               Expanded(
                 child: GridView.builder(
-                  cacheExtent: 5,
                   physics: BouncingScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
