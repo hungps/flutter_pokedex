@@ -4,10 +4,6 @@ import 'package:pokedex/models/pokemon.dart';
 import 'dart:convert' as json;
 
 import '../configs/AppColors.dart';
-import '../configs/AppColors.dart';
-import '../configs/AppColors.dart';
-import '../configs/AppColors.dart';
-import '../models/pokemon.dart';
 import '../models/pokemon.dart';
 
 const List<Pokemon> pokemons = [
@@ -73,6 +69,7 @@ const List<Pokemon> pokemons = [
   ),
 ];
 
+// Parses Pokemon.json File
 Future<List<Pokemon>> getPokemonsList(context) async {
   List<Pokemon> pokemons = [];
 
@@ -82,9 +79,10 @@ Future<List<Pokemon>> getPokemonsList(context) async {
   for (var currentPokemon in jsonData) {
     String name = currentPokemon['name'];
     String imageUrl = currentPokemon['imageurl'];
-    List<dynamic> dynamictypesOfPokemon = currentPokemon['typeofpokemon'];
+    List<dynamic> dynamicTypesOfPokemon = currentPokemon['typeofpokemon'];
     List<String> typesOfPokemon = [];
-    for (var dynamicType in dynamictypesOfPokemon)
+    //Converting dynamic list to string list
+    for (var dynamicType in dynamicTypesOfPokemon)
       typesOfPokemon.add(dynamicType.toString());
     Color color = getPokemonColor(typesOfPokemon[0]);
     Pokemon pokemon = Pokemon(
@@ -94,8 +92,9 @@ Future<List<Pokemon>> getPokemonsList(context) async {
   return pokemons;
 }
 
+
+// A function to get Color for container of pokemon
 getPokemonColor(typeOfPokemon) {
-  //TODO add more colors
 
   switch (typeOfPokemon) {
     case 'Grass':
