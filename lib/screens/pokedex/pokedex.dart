@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pokedex/data/pokemons.dart';
@@ -7,6 +8,9 @@ import 'package:pokedex/widgets/fab.dart';
 import 'package:pokedex/widgets/poke_container.dart';
 import 'package:pokedex/widgets/pokemon_card.dart';
 
+import '../../data/pokemons.dart';
+import '../../models/pokemon.dart';
+
 class Pokedex extends StatefulWidget {
   @override
   _PokedexState createState() => _PokedexState();
@@ -15,7 +19,7 @@ class Pokedex extends StatefulWidget {
 class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _controller;
-
+  List<Pokemon> _pokemons ;
   @override
   void initState() {
     _controller = AnimationController(
@@ -25,7 +29,12 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
 
     final curvedAnimation = CurvedAnimation(curve: Curves.easeInOut, parent: _controller);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
-
+    getPokemonsList(context).then((result)
+    {
+      setState(() {
+        _pokemons = result;
+      });
+    });
     super.initState();
   }
 
@@ -47,6 +56,9 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    if(_pokemons== null)
+      return Container();
+    else
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -67,6 +79,7 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
               SizedBox(height: 32),
               Expanded(
                 child: GridView.builder(
+                  cacheExtent: 5,
                   physics: BouncingScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -75,9 +88,9 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
                     mainAxisSpacing: 10,
                   ),
                   padding: EdgeInsets.only(left: 28, right: 28, bottom: 58),
-                  itemCount: pokemons.length,
+                  itemCount: _pokemons.length,
                   itemBuilder: (context, index) => PokemonCard(
-                    pokemons[index],
+                    _pokemons[index],
                     index: index,
                     onPress: () {
                       Navigator.of(context).pushNamed("/pokemon-info");

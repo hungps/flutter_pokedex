@@ -87,7 +87,7 @@ class PokemonCard extends StatelessWidget {
         right: 12,
         child: Hero(
           tag: pokemon.image,
-          child: Image.asset(
+          child: Image.network(
             pokemon.image,
             fit: BoxFit.contain,
             width: itemHeight * 0.6,
