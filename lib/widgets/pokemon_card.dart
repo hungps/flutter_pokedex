@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/models/pokemon.dart';
-import 'package:pokedex/widgets/pokemon_type.dart';
+
+import '../models/pokemon.dart';
+import 'pokemon_type.dart';
 
 String _formattedPokeIndex(int index) {
   return "#${((index + 1) / 100).toStringAsFixed(2).replaceAll(".", "")}";
@@ -88,17 +89,16 @@ class PokemonCard extends StatelessWidget {
         right: 12,
         child: Hero(
           tag: pokemon.image,
-          child:
-          CachedNetworkImage(
+          child: CachedNetworkImage(
             imageUrl: pokemon.image,
-            imageBuilder: (context,imageProvider)=> Image(
+            imageBuilder: (context, imageProvider) => Image(
               image: imageProvider,
               fit: BoxFit.contain,
-              width: itemHeight*0.6,
-              height: itemHeight*0.6,
+              width: itemHeight * 0.6,
+              height: itemHeight * 0.6,
               alignment: Alignment.bottomRight,
             ),
-          )
+          ),
         ),
       ),
       Positioned(

@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:pokedex/configs/AppColors.dart';
-import 'package:pokedex/models/pokemon.dart';
 import 'dart:convert' as json;
+
+import 'package:flutter/cupertino.dart';
 
 import '../configs/AppColors.dart';
 import '../models/pokemon.dart';
@@ -73,48 +72,55 @@ const List<Pokemon> pokemons = [
 Future<List<Pokemon>> getPokemonsList(context) async {
   List<Pokemon> pokemons = [];
 
-  String jsonString =
-      await DefaultAssetBundle.of(context).loadString("assets/pokemons.json");
+  String jsonString = await DefaultAssetBundle.of(context).loadString("assets/pokemons.json");
   dynamic jsonData = json.jsonDecode(jsonString);
+
   for (var currentPokemon in jsonData) {
     String name = currentPokemon['name'];
     String imageUrl = currentPokemon['imageurl'];
     List<dynamic> dynamicTypesOfPokemon = currentPokemon['typeofpokemon'];
     List<String> typesOfPokemon = [];
+
     //Converting dynamic list to string list
-    for (var dynamicType in dynamicTypesOfPokemon)
+    for (var dynamicType in dynamicTypesOfPokemon) {
       typesOfPokemon.add(dynamicType.toString());
+    }
+
     Color color = getPokemonColor(typesOfPokemon[0]);
-    Pokemon pokemon = Pokemon(
-        name: name, image: imageUrl, types: typesOfPokemon, color: color);
+    Pokemon pokemon = Pokemon(name: name, image: imageUrl, types: typesOfPokemon, color: color);
     pokemons.add(pokemon);
   }
   return pokemons;
 }
 
-
 // A function to get Color for container of pokemon
-getPokemonColor(typeOfPokemon) {
-
+Color getPokemonColor(typeOfPokemon) {
   switch (typeOfPokemon) {
     case 'Grass':
     case 'Bug':
       return AppColors.lightTeal;
+
     case 'Fire':
       return AppColors.lightRed;
+
     case 'Water':
     case 'Fighting':
     case 'Normal':
       return AppColors.lightBlue;
+
     case 'Electric':
     case 'Psychic':
       return AppColors.lightYellow;
+
     case 'Poison':
     case 'Ghost':
       return AppColors.lightPurple;
+
     case 'Ground':
     case 'Rock':
       return AppColors.lightBrown;
-    default :return  AppColors.lightBlue;
+
+    default:
+      return AppColors.lightBlue;
   }
 }
