@@ -24,8 +24,5 @@ class Pokemon {
   final String category;
   final String about;
   final List<String> evolutions;
- int returnIndex()
- {
-   return int.parse(id.substring(1))-1;
- }
+
 }
