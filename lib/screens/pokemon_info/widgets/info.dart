@@ -50,16 +50,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
         vsync: this, duration: Duration(milliseconds: 5000));
     _rotateController.repeat();
 
-    _pageController = PageController(viewportFraction: 0.6,initialPage: index );
-    _pageController.addListener(() {
-      int next = _pageController.page.round();
 
-      if (_currentPage != next) {
-        setState(() {
-          _currentPage = next;
-        });
-      }
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final RenderBox targetTextBox =
@@ -293,7 +284,6 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
                       width: screenHeight * 0.28,
                       height: screenHeight * 0.28,
                       alignment: Alignment.bottomCenter,
-                      //color: _currentPage == index ? null : Color(0xFF28A889),
                     ),
                   ),
                 ),
@@ -315,11 +305,22 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
     final screenHeight = MediaQuery.of(context).size.height;
     final pokeSize = screenWidth * 0.448;
       index = pokemonInfoArguments.index;
-      pokemons = pokemonInfoArguments.pokemons;
+    _currentPage=index;
+
+    pokemons = pokemonInfoArguments.pokemons;
       pokemon =
       pokemonInfoArguments.pokemons[pokemonInfoArguments.index];
 
+    _pageController = PageController(viewportFraction: 0.6,initialPage: index );
+    _pageController.addListener(() {
+      int next = _pageController.page.round();
 
+      if (_currentPage != next) {
+        setState(() {
+          _currentPage = next;
+        });
+      }
+    });
 
     final pokeTop =
         -(pokeSize / 2 - (IconTheme.of(context).size / 2 + _appBarTopPadding));
