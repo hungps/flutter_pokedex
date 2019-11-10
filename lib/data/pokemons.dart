@@ -85,9 +85,17 @@ Future<List<Pokemon>> getPokemonsList(context) async {
     for (var dynamicType in dynamicTypesOfPokemon) {
       typesOfPokemon.add(dynamicType.toString());
     }
-
+    String about = currentPokemon['xdescription'];
+    String height = currentPokemon['height'];
+    String weight = currentPokemon['weight'];
+    List<dynamic> dynamicEvolutionsOfPokemon = currentPokemon['evolutions'];
+    List<String> evolutions= [];
+    for(var dynamicEvolution in dynamicEvolutionsOfPokemon)
+      evolutions.add(dynamicEvolution.toString());
     Color color = getPokemonColor(typesOfPokemon[0]);
-    Pokemon pokemon = Pokemon(name: name, image: imageUrl, types: typesOfPokemon, color: color);
+    String id = currentPokemon['id'];
+    String category = currentPokemon['category'];
+    Pokemon pokemon = Pokemon(name: name, image: imageUrl, types: typesOfPokemon, color: color,evolutions: evolutions,about : about,height: height,weight: weight,category: category,id :id);
     pokemons.add(pokemon);
   }
   return pokemons;

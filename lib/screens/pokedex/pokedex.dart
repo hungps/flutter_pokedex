@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pokedex/screens/pokemon_info/pokemon_info_arguments.dart';
 
 import '../../data/pokemons.dart';
+import '../../models/pokemon.dart';
 import '../../models/pokemon.dart';
 import '../../widgets/fab.dart';
 import '../../widgets/poke_container.dart';
@@ -92,7 +94,10 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
                       _pokemons[index],
                       index: index,
                       onPress: () {
-                        Navigator.of(context).pushNamed("/pokemon-info");
+                        Navigator.of(context).pushNamed("/pokemon-info",arguments: PokemonInfoArguments(
+                          index: index,
+                          pokemons: _pokemons
+                        ));
                       },
                     ),
                   ),

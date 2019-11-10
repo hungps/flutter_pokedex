@@ -6,6 +6,9 @@ import 'package:pokedex/screens/pokemon_info/widgets/tab_base_stats.dart';
 import 'package:pokedex/screens/pokemon_info/widgets/tab_evolution.dart';
 import 'package:provider/provider.dart';
 
+import '../../../models/pokemon.dart';
+import '../../../models/pokemon.dart';
+
 class TabData {
   final String label;
   final Widget child;
@@ -45,7 +48,6 @@ class PokemonTabInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final scrollController = Provider.of<AnimationController>(context);
-
     return DefaultTabController(
       length: 4,
       initialIndex: 0,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pokedex/configs/AppColors.dart';
+import 'package:pokedex/models/pokemon.dart';
+import 'package:pokedex/screens/pokemon_info/pokemon_info_arguments.dart';
 import 'package:provider/provider.dart';
 
 class PokemonAbout extends StatelessWidget {
@@ -29,14 +31,14 @@ class PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildDescription() {
+  Widget _buildDescription(String about) {
     return Text(
-      "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+      about,
       style: TextStyle(height: 1.3),
     );
   }
 
-  Widget _buildHeightWeight() {
+  Widget _buildHeightWeight(String height,String weight) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
@@ -59,7 +61,7 @@ class PokemonAbout extends StatelessWidget {
               children: <Widget>[
                 _buildLabel("Height"),
                 SizedBox(height: 11),
-                Text("2’3.6” (0.70 cm)", style: TextStyle(height: 0.8))
+                Text("$height", style: TextStyle(height: 0.8))
               ],
             ),
           ),
@@ -69,7 +71,7 @@ class PokemonAbout extends StatelessWidget {
               children: <Widget>[
                 _buildLabel("Weight"),
                 SizedBox(height: 11),
-                Text("15.2 lbs (6.9 kg)", style: TextStyle(height: 0.8))
+                Text("$weight", style: TextStyle(height: 0.8))
               ],
             ),
           ),
@@ -150,14 +152,16 @@ class PokemonAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cardController = Provider.of<AnimationController>(context);
-
+    final index = Provider.of<PokemonInfoArguments>(context).index;
+    final pokemons = Provider.of<PokemonInfoArguments>(context).pokemons;
+    final pokemon = pokemons[index];
     return AnimatedBuilder(
       animation: cardController,
       child: Column(
         children: <Widget>[
-          _buildDescription(),
+          _buildDescription(pokemon.about),
           SizedBox(height: 28),
-          _buildHeightWeight(),
+          _buildHeightWeight(pokemon.height,pokemon.weight),
           SizedBox(height: 31),
           _buildBreeding(),
           SizedBox(height: 35),
