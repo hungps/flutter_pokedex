@@ -5,7 +5,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](LICENSE)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 
-
 Pokedex app built with Flutter
 
 ## Download
@@ -40,6 +39,7 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 - [x] Pokedex - FAB
 - [x] Pokedex - Add FAB animation
 - [ ] Pokedex - Add grid loading animation
+- [x] Pokedex - Add more Pokemons to the pokedex by [balvinderz](https://github.com/balvinderz)
 - [x] Pokemon Info
 - [x] Pokemon Info - About
 - [x] Pokemon Info - Base Stats
