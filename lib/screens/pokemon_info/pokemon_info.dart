@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/screens/pokemon_info/widgets/info.dart';
-import 'package:pokedex/screens/pokemon_info/widgets/tab.dart';
-import 'package:pokedex/widgets/slide_up_panel.dart';
 import 'package:provider/provider.dart';
 
+import '../../models/pokemon.dart';
+import '../../widgets/slide_up_panel.dart';
+import 'pokemon_info_arguments.dart';
+import 'widgets/info.dart';
+import 'widgets/tab.dart';
+
 class PokemonInfo extends StatefulWidget {
+  final PokemonInfoArguments pokemonInfoArguments;
+
+  const PokemonInfo({this.pokemonInfoArguments});
+
   @override
   _PokemonInfoState createState() => _PokemonInfoState();
 }
@@ -16,7 +23,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
 
   AnimationController _cardController;
   AnimationController _cardHeightController;
-
+  Color color;
   double _cardMinHeight = 0.0;
   double _cardMaxHeight = 0.0;
 
@@ -48,33 +55,52 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     super.dispose();
   }
 
+  void changeColor(Color changedColor) {
+    setState(() {
+      color = changedColor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Pokemon pokemon = widget.pokemonInfoArguments.pokemons[widget.pokemonInfoArguments.index];
+
     return ListenableProvider(
       builder: (context) => _cardController,
-      child: Scaffold(
-        backgroundColor: Color(0xFF48D0B0),
-        body: Stack(
-          children: <Widget>[
-            AnimatedBuilder(
-              animation: _cardHeightController,
-              child: PokemonTabInfo(),
-              builder: (context, child) {
-                return SlidingUpPanel(
-                  controller: _cardController,
-                  minHeight: _cardMinHeight * _cardHeightController.value,
-                  maxHeight: _cardMaxHeight,
-                  child: child,
-                );
-              },
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<PokemonInfoArguments>.value(value: widget.pokemonInfoArguments),
+          ListenableProvider.value(value: _cardController)
+        ],
+        child: Scaffold(
+          body: AnimatedContainer(
+            duration: Duration(milliseconds: 300),
+            color: pokemon.color,
+            child: Stack(
+              children: <Widget>[
+                AnimatedBuilder(
+                  animation: _cardHeightController,
+                  child: PokemonTabInfo(),
+                  builder: (context, child) {
+                    return SlidingUpPanel(
+                      controller: _cardController,
+                      minHeight: _cardMinHeight * _cardHeightController.value,
+                      maxHeight: _cardMaxHeight,
+                      child: child,
+                    );
+                  },
+                ),
+                IntrinsicHeight(
+                  child: Container(
+                    key: _pokemonInfoKey,
+                    child: PokemonOverallInfo(
+                      changeColor: changeColor,
+                    ),
+                  ),
+                )
+              ],
             ),
-            IntrinsicHeight(
-              child: Container(
-                key: _pokemonInfoKey,
-                child: PokemonOverallInfo(),
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );

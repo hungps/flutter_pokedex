@@ -6,6 +6,7 @@ import '../../models/pokemon.dart';
 import '../../widgets/fab.dart';
 import '../../widgets/poke_container.dart';
 import '../../widgets/pokemon_card.dart';
+import '../pokemon_info/pokemon_info_arguments.dart';
 import 'widgets/generation_modal.dart';
 import 'widgets/search_modal.dart';
 
@@ -56,27 +57,25 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    if (_pokemons == null)
-      return Container();
-    else
-      return Scaffold(
-        body: Stack(
-          children: <Widget>[
-            PokeContainer(
-              appBar: true,
-              children: <Widget>[
-                SizedBox(height: 34),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 26.0),
-                  child: Text(
-                    "Pokedex",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    ),
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          PokeContainer(
+            appBar: true,
+            children: <Widget>[
+              SizedBox(height: 34),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26.0),
+                child: Text(
+                  "Pokedex",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 32),
+              ),
+              SizedBox(height: 32),
+              if (_pokemons.length > 0)
                 Expanded(
                   child: GridView.builder(
                     physics: BouncingScrollPhysics(),
@@ -92,73 +91,76 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
                       _pokemons[index],
                       index: index,
                       onPress: () {
-                        Navigator.of(context).pushNamed("/pokemon-info");
+                        Navigator.of(context).pushNamed(
+                          "/pokemon-info",
+                          arguments: PokemonInfoArguments(index: index, pokemons: _pokemons),
+                        );
                       },
                     ),
                   ),
                 ),
-              ],
-            ),
-            AnimatedBuilder(
-              animation: _animation,
-              builder: (_, __) {
-                return IgnorePointer(
-                  ignoring: _animation.value == 0,
-                  child: InkWell(
-                    onTap: () {
-                      _controller.reverse();
-                    },
-                    child: Container(
-                      color: Colors.black.withOpacity(_animation.value * 0.5),
-                    ),
+            ],
+          ),
+          AnimatedBuilder(
+            animation: _animation,
+            builder: (_, __) {
+              return IgnorePointer(
+                ignoring: _animation.value == 0,
+                child: InkWell(
+                  onTap: () {
+                    _controller.reverse();
+                  },
+                  child: Container(
+                    color: Colors.black.withOpacity(_animation.value * 0.5),
                   ),
-                );
-              },
-            ),
-          ],
-        ),
-        floatingActionButton: ExpandedAnimationFab(
-          items: [
-            FabItem(
-              "Favourite Pokemon",
-              Icons.favorite,
-              onPress: () {
-                _controller.reverse();
-              },
-            ),
-            FabItem(
-              "All Type",
-              Icons.filter_vintage,
-              onPress: () {
-                _controller.reverse();
-              },
-            ),
-            FabItem(
-              "All Gen",
-              Icons.flash_on,
-              onPress: () {
-                _controller.reverse();
-                _showGenerationModal();
-              },
-            ),
-            FabItem(
-              "Search",
-              Icons.search,
-              onPress: () {
-                _controller.reverse();
-                _showSearchModal();
-              },
-            ),
-          ],
-          animation: _animation,
-          onPress: () {
-            if (_controller.isCompleted) {
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      floatingActionButton: ExpandedAnimationFab(
+        items: [
+          FabItem(
+            "Favourite Pokemon",
+            Icons.favorite,
+            onPress: () {
               _controller.reverse();
-            } else {
-              _controller.forward();
-            }
-          },
-        ),
-      );
+            },
+          ),
+          FabItem(
+            "All Type",
+            Icons.filter_vintage,
+            onPress: () {
+              _controller.reverse();
+            },
+          ),
+          FabItem(
+            "All Gen",
+            Icons.flash_on,
+            onPress: () {
+              _controller.reverse();
+              _showGenerationModal();
+            },
+          ),
+          FabItem(
+            "Search",
+            Icons.search,
+            onPress: () {
+              _controller.reverse();
+              _showSearchModal();
+            },
+          ),
+        ],
+        animation: _animation,
+        onPress: () {
+          if (_controller.isCompleted) {
+            _controller.reverse();
+          } else {
+            _controller.forward();
+          }
+        },
+      ),
+    );
   }
 }

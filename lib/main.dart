@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
         return FadeRoute(page: Pokedex());
 
       case '/pokemon-info':
-        return FadeRoute(page: PokemonInfo());
+        return FadeRoute(
+          page: PokemonInfo(pokemonInfoArguments: settings.arguments),
+        );
 
       default:
         return null;

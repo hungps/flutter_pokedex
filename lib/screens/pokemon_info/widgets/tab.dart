@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/AppColors.dart';
-import 'package:pokedex/screens/pokemon_info/widgets/tab_about.dart';
-import 'package:pokedex/screens/pokemon_info/widgets/tab_base_stats.dart';
-import 'package:pokedex/screens/pokemon_info/widgets/tab_evolution.dart';
 import 'package:provider/provider.dart';
+
+import '../../../configs/AppColors.dart';
+import 'tab_about.dart';
+import 'tab_base_stats.dart';
+import 'tab_evolution.dart';
 
 class TabData {
   final String label;
@@ -45,7 +46,6 @@ class PokemonTabInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final scrollController = Provider.of<AnimationController>(context);
-
     return DefaultTabController(
       length: 4,
       initialIndex: 0,

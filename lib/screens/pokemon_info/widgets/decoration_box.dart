@@ -19,7 +19,7 @@ class DecorationBox extends StatelessWidget {
             begin: Alignment(-0.2, -0.2),
             end: Alignment(1.5, -0.3),
             colors: [
-              Color(0xFF48D0B0).withOpacity(0.3),
+              Colors.white.withOpacity(0.3),
               Colors.white.withOpacity(0),
             ],
           ),
