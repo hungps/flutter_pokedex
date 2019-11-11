@@ -39,7 +39,8 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 - [x] Pokedex - FAB
 - [x] Pokedex - Add FAB animation
 - [ ] Pokedex - Add grid loading animation
-- [x] Pokedex - Add more Pokemons to the pokedex by [balvinderz](https://github.com/balvinderz)
+- [x] Pokedex - Add more Pokemons by [balvinderz](https://github.com/balvinderz)
+- [ ] Pokedex - Add load more
 - [x] Pokemon Info
 - [x] Pokemon Info - About
 - [x] Pokemon Info - Base Stats
@@ -47,7 +48,10 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 - [ ] Pokemon Info - Moves (no design)
 - [x] Pokemon Info - Make tab area expandable
 - [x] Pokemon Info - Add animations
-- [ ] Pokemon Info - Add more Pokemons
+- [x] Pokemon Info - Add more Pokemons by [balvinderz](https://github.com/balvinderz)
+- [ ] Pokemon Info - Add missing data in About tab
+- [ ] Pokemon Info - Add Base Stats data
+- [ ] Pokemon Info - Add Evolution data
 
 ## Thanks
 
