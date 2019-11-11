@@ -20,7 +20,13 @@ class Pokemon {
     @required this.specialAttack,
     @required this.specialDefense,
     @required this.speed,
-    @required this.total
+    @required this.total,
+    @required this.malePercentage,
+    @required this.femalePercentage,
+    @required this.genderless,
+    @required this.cycles,
+    @required this.eggGroups,
+    @required this.baseExp
   });
 
   final String id;
@@ -39,6 +45,12 @@ class Pokemon {
   final int speed;
   final int hp;
   final int total;
+  final String femalePercentage;
+  final String malePercentage;
+  final bool genderless ;
+  final String cycles;
+  final String eggGroups;
+  final String baseExp;
   Color get color => getPokemonColor(types[0]);
 
   Pokemon.fromJson(dynamic json)
@@ -57,6 +69,11 @@ class Pokemon {
         speed=json['speed'],
         specialDefense=json['special_defense'],
         specialAttack = json['special_attack'],
-        total = json['total'];
-
+        total = json['total'],
+        malePercentage =json['male_percentage'],
+        femalePercentage=json['female_percentage'],
+        genderless = json['genderless']==1 ? true :false,
+        cycles = json['cycles'],
+        eggGroups =json['egg_groups'],
+        baseExp= json['base_exp'];
 }
