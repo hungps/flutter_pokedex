@@ -6,7 +6,7 @@ import 'package:pokedex/screens/home/widgets/search_bar.dart';
 import 'package:pokedex/widgets/poke_container.dart';
 
 class Home extends StatefulWidget {
-  static const cardHeightFraction = 0.65;
+  static const cardHeightFraction = 0.7;
 
   @override
   _HomeState createState() => _HomeState();

@@ -1,30 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/screens/pokemon_info/pokemon_info_arguments.dart';
-import 'package:pokedex/screens/pokemon_info/pokemon_info_arguments.dart';
-import 'package:pokedex/widgets/animated_fade.dart';
-import 'package:pokedex/widgets/animated_rotation.dart';
-import 'package:pokedex/widgets/animated_slide.dart';
-import 'package:pokedex/widgets/pokemon_type.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/pokemon.dart';
-import '../pokemon_info_arguments.dart';
-import '../pokemon_info_arguments.dart';
+import '../../../widgets/animated_fade.dart';
+import '../../../widgets/animated_rotation.dart';
+import '../../../widgets/animated_slide.dart';
+import '../../../widgets/pokemon_type.dart';
 import '../pokemon_info_arguments.dart';
 import 'decoration_box.dart';
 
 class PokemonOverallInfo extends StatefulWidget {
-  Function changeColor;
-  PokemonOverallInfo({this.changeColor});
+  final Function changeColor;
+
+  const PokemonOverallInfo({this.changeColor});
 
   @override
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
-class _PokemonOverallInfoState extends State<PokemonOverallInfo>
-    with TickerProviderStateMixin {
+class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
   static const double _appBarHorizontalPadding = 28.0;
   static const double _appBarTopPadding = 60.0;
   static const double _appBarBottomPadding = 22.0;
@@ -36,32 +32,24 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
   List<Pokemon> pokemons;
   GlobalKey _currentTextKey = GlobalKey();
   GlobalKey _targetTextKey = GlobalKey();
-    PokemonInfoArguments pokemonInfoArguments;
+  PokemonInfoArguments pokemonInfoArguments;
   double textDiffTop = 0.0;
   Pokemon pokemon;
   double textDiffLeft = 0.0;
-  int index=-1;
+  int index = -1;
   @override
   void initState() {
-    _slideController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 360));
+    _slideController = AnimationController(vsync: this, duration: Duration(milliseconds: 360));
     _slideController.forward();
-    _rotateController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 5000));
+    _rotateController = AnimationController(vsync: this, duration: Duration(milliseconds: 5000));
     _rotateController.repeat();
 
-
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox targetTextBox =
-          _targetTextKey.currentContext.findRenderObject();
-      final Offset targetTextPosition =
-          targetTextBox.localToGlobal(Offset.zero);
+      final RenderBox targetTextBox = _targetTextKey.currentContext.findRenderObject();
+      final Offset targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
 
-      final RenderBox currentTextBox =
-          _currentTextKey.currentContext.findRenderObject();
-      final Offset currentTextPosition =
-          currentTextBox.localToGlobal(Offset.zero);
+      final RenderBox currentTextBox = _currentTextKey.currentContext.findRenderObject();
+      final Offset currentTextPosition = currentTextBox.localToGlobal(Offset.zero);
 
       textDiffLeft = targetTextPosition.dx - currentTextPosition.dx;
       textDiffTop = targetTextPosition.dy - currentTextPosition.dy;
@@ -122,8 +110,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
 
   Widget _buildPokemonName(Pokemon pokemon) {
     final cardScrollController = Provider.of<AnimationController>(context);
-    final fadeAnimation =
-        Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
+    final fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 26),
@@ -184,8 +171,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
 
   Widget _buildPokemonTypes(Pokemon pokemon) {
     final cardScrollController = Provider.of<AnimationController>(context);
-    final fadeAnimation =
-        Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
+    final fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
 
     return AnimatedFade(
       animation: fadeAnimation,
@@ -224,7 +210,11 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
     );
   }
 
-  Widget _buildPokemonSlider(BuildContext context, Pokemon pokemon,List<Pokemon> pokemons,) {
+  Widget _buildPokemonSlider(
+    BuildContext context,
+    Pokemon pokemon,
+    List<Pokemon> pokemons,
+  ) {
     final cardScrollController = Provider.of<AnimationController>(context);
     final fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
@@ -248,23 +238,20 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
             Align(
               alignment: Alignment.bottomCenter,
               child: AnimatedRotation(
-                  animation: _rotateController,
-                  child: CachedNetworkImage(
-                    imageUrl: pokemon.image,
-                    imageBuilder: (context, image) => Image(
-                      image: image,
-                      width: screenHeight * 0.24,
-                      height: screenHeight * 0.24,
-                      color: Colors.white.withOpacity(0.14),
-                    ),
-                  )),
+                animation: _rotateController,
+                child: Image.asset(
+                  "assets/images/pokeball.png",
+                  width: screenHeight * 0.24,
+                  height: screenHeight * 0.24,
+                  color: Colors.white.withOpacity(0.14),
+                ),
+              ),
             ),
             PageView.builder(
-
               physics: BouncingScrollPhysics(),
               controller: _pageController,
               itemCount: pokemons.length,
-              onPageChanged: (index){
+              onPageChanged: (index) {
                 pokemonInfoArguments.setIndex(index);
                 widget.changeColor(pokemons[index].color);
               },
@@ -299,19 +286,17 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
   Widget build(BuildContext context) {
     pokemonInfoArguments = Provider.of<PokemonInfoArguments>(context);
     final cardScrollController = Provider.of<AnimationController>(context);
-    final dottedAnimation =
-        Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
+    final dottedAnimation = Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final pokeSize = screenWidth * 0.448;
-      index = pokemonInfoArguments.index;
-    _currentPage=index;
+    index = pokemonInfoArguments.index;
+    _currentPage = index;
 
     pokemons = pokemonInfoArguments.pokemons;
-      pokemon =
-      pokemonInfoArguments.pokemons[pokemonInfoArguments.index];
+    pokemon = pokemonInfoArguments.pokemons[pokemonInfoArguments.index];
 
-    _pageController = PageController(viewportFraction: 0.6,initialPage: index );
+    _pageController = PageController(viewportFraction: 0.6, initialPage: index);
     _pageController.addListener(() {
       int next = _pageController.page.round();
 
@@ -322,12 +307,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
       }
     });
 
-    final pokeTop =
-        -(pokeSize / 2 - (IconTheme.of(context).size / 2 + _appBarTopPadding));
-    final pokeRight = -(pokeSize / 2 -
-        (IconTheme.of(context).size / 2 + _appBarHorizontalPadding));
-
-
+    final pokeTop = -(pokeSize / 2 - (IconTheme.of(context).size / 2 + _appBarTopPadding));
+    final pokeRight = -(pokeSize / 2 - (IconTheme.of(context).size / 2 + _appBarHorizontalPadding));
 
     return Stack(
       children: [
@@ -373,7 +354,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
             SizedBox(height: 9),
             _buildPokemonTypes(pokemon),
             SizedBox(height: 25),
-            _buildPokemonSlider(context, pokemon,pokemons),
+            _buildPokemonSlider(context, pokemon, pokemons),
           ],
         ),
       ],

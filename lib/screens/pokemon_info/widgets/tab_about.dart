@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pokedex/configs/AppColors.dart';
-import 'package:pokedex/models/pokemon.dart';
-import 'package:pokedex/screens/pokemon_info/pokemon_info_arguments.dart';
 import 'package:provider/provider.dart';
+
+import '../../../configs/AppColors.dart';
+import '../pokemon_info_arguments.dart';
 
 class PokemonAbout extends StatelessWidget {
   Widget _buildSection(String text, {List<Widget> children, Widget child}) {
@@ -38,7 +38,7 @@ class PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildHeightWeight(String height,String weight) {
+  Widget _buildHeightWeight(String height, String weight) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
@@ -161,7 +161,7 @@ class PokemonAbout extends StatelessWidget {
         children: <Widget>[
           _buildDescription(pokemon.about),
           SizedBox(height: 28),
-          _buildHeightWeight(pokemon.height,pokemon.weight),
+          _buildHeightWeight(pokemon.height, pokemon.weight),
           SizedBox(height: 31),
           _buildBreeding(),
           SizedBox(height: 35),
