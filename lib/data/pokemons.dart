@@ -95,7 +95,8 @@ Color getPokemonColor(String typeOfPokemon) {
     case 'ground':
     case 'rock':
       return AppColors.lightBrown;
-
+    case 'dark':
+      return AppColors.black;
     default:
       return AppColors.lightBlue;
   }

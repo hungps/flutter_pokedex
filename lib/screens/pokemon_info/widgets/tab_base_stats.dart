@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/AppColors.dart';
+import 'package:pokedex/models/pokemon.dart';
 import 'package:pokedex/widgets/progress.dart';
 import 'package:provider/provider.dart';
+
+import '../pokemon_info_arguments.dart';
 
 class Stat extends StatelessWidget {
   const Stat({
@@ -56,17 +59,19 @@ class PokemonBaseStats extends StatefulWidget {
   _PokemonBaseStatsState createState() => _PokemonBaseStatsState();
 }
 
-class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerProviderStateMixin {
+class _PokemonBaseStatsState extends State<PokemonBaseStats>
+    with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _controller;
-  final List<Stat> _stats = [
+
+  /*final List<Stat> _stats = [
     Stat(label: "Attack", value: "60", progress: 60 / 100),
     Stat(label: "Defense", value: "48", progress: 48 / 100),
     Stat(label: "Sp. Atk", value: "65", progress: 65 / 100),
     Stat(label: "Sp. Def", value: "65", progress: 65 / 100),
     Stat(label: "Speed", value: "45", progress: 45 / 100),
     Stat(label: "Total", value: "317", progress: 317 / 500),
-  ];
+  ]; */
 
   @override
   void dispose() {
@@ -94,8 +99,53 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     _controller.forward();
   }
 
+  List<Stat> generateStatWidget(Pokemon pokemon) {
+    List<Stat> stats = [];
+    Stat stat = Stat(
+        label: "Hp",
+        value: "${pokemon.hp}",
+        progress: pokemon.hp / 100);
+    stats.add(stat);stat = Stat(
+        label: "Atttack",
+        value: "${pokemon.attack}",
+        progress: pokemon.attack / 100);
+    stats.add(stat);
+    stat = Stat(
+        label: "Defense",
+        value: "${pokemon.defense}",
+        progress: pokemon.defense / 100);
+    stats.add(stat);
+    stat = Stat(
+        label: "Sp. Atk",
+        value: "${pokemon.specialAttack}",
+        progress: pokemon.specialAttack / 100);
+    stats.add(stat);
+
+    stat = Stat(
+        label: "Sp. Def",
+        value: "${pokemon.specialDefense}",
+        progress: pokemon.specialDefense / 100);
+    stats.add(stat);
+    stat = Stat(
+        label: "Speed",
+        value: "${pokemon.speed}",
+        progress: pokemon.speed / 100);
+    stats.add(stat);
+    stat = Stat(
+        label: "Total",
+        value: "${pokemon.total}",
+        progress: pokemon.total / 600);
+    stats.add(stat);
+
+    return stats;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final index = Provider.of<PokemonInfoArguments>(context).index;
+    final pokemons = Provider.of<PokemonInfoArguments>(context).pokemons;
+    final pokemon = pokemons[index];
+    List<Stat> stats = generateStatWidget(pokemon);
     return ListenableProvider<Animation>(
       builder: (context) => _animation,
       child: Container(
@@ -104,7 +154,7 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            ..._stats.expand((stat) => [stat, SizedBox(height: 14)]),
+            ...stats.expand((stat) => [stat, SizedBox(height: 14)]),
             SizedBox(height: 27),
             Text(
               "Type defenses",

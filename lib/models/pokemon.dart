@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:pokedex/data/pokemons.dart';
 
@@ -12,6 +14,13 @@ class Pokemon {
     @required this.weight,
     @required this.evolutions,
     @required this.category,
+    @required this.hp,
+    @required this.attack,
+    @required this.defense,
+    @required this.specialAttack,
+    @required this.specialDefense,
+    @required this.speed,
+    @required this.total
   });
 
   final String id;
@@ -23,7 +32,13 @@ class Pokemon {
   final String weight;
   final List<String> evolutions;
   final String category;
-
+  final int attack;
+  final int defense;
+  final int specialDefense;
+  final int specialAttack;
+  final int speed;
+  final int hp;
+  final int total;
   Color get color => getPokemonColor(types[0]);
 
   Pokemon.fromJson(dynamic json)
@@ -35,5 +50,13 @@ class Pokemon {
         height = json["height"],
         weight = json["weight"],
         evolutions = json["evolutions"].cast<String>(),
-        category = json["category"];
+        category = json["category"],
+        hp = json['hp'],
+        attack= json['attack'],
+        defense= json['defense'],
+        speed=json['speed'],
+        specialDefense=json['special_defense'],
+        specialAttack = json['special_attack'],
+        total = json['total'];
+
 }
