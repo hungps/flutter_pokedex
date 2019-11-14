@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:pokedex/data/pokemons.dart';
-
+import 'dart:collection';
 class Pokemon {
   const Pokemon({
     @required this.id,
@@ -12,7 +12,6 @@ class Pokemon {
     @required this.about,
     @required this.height,
     @required this.weight,
-    @required this.evolutions,
     @required this.category,
     @required this.hp,
     @required this.attack,
@@ -26,7 +25,9 @@ class Pokemon {
     @required this.genderless,
     @required this.cycles,
     @required this.eggGroups,
-    @required this.baseExp
+    @required this.baseExp,
+    @required this.evolvedFrom,
+    @required this.reason
   });
 
   final String id;
@@ -36,7 +37,6 @@ class Pokemon {
   final String about;
   final String height;
   final String weight;
-  final List<String> evolutions;
   final String category;
   final int attack;
   final int defense;
@@ -50,6 +50,8 @@ class Pokemon {
   final bool genderless ;
   final String cycles;
   final String eggGroups;
+  final String evolvedFrom;
+  final String reason;
   final String baseExp;
   Color get color => getPokemonColor(types[0]);
 
@@ -61,7 +63,6 @@ class Pokemon {
         about = json["xdescription"],
         height = json["height"],
         weight = json["weight"],
-        evolutions = json["evolutions"].cast<String>(),
         category = json["category"],
         hp = json['hp'],
         attack= json['attack'],
@@ -75,5 +76,8 @@ class Pokemon {
         genderless = json['genderless']==1 ? true :false,
         cycles = json['cycles'],
         eggGroups =json['egg_groups'],
-        baseExp= json['base_exp'];
+        baseExp= json['base_exp'],
+        evolvedFrom = json['evolvedfrom'],
+        reason=json['reason'];
+
 }
