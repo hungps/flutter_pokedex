@@ -50,8 +50,8 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 - [x] Pokemon Info - Add animations
 - [x] Pokemon Info - Add more Pokemons by [balvinderz](https://github.com/balvinderz)
 - [ ] Pokemon Info - Add missing data in About tab
-- [ ] Pokemon Info - Add Base Stats data
-- [ ] Pokemon Info - Add Evolution data
+- [x] Pokemon Info - Add Base Stats data by [balvinderz](https://github.com/balvinderz)
+- [x] Pokemon Info - Add Evolution data by [balvinderz](https://github.com/balvinderz)
 
 ## Thanks
 
