@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,10 +7,10 @@ import 'tab_base_stats.dart';
 import 'tab_evolution.dart';
 
 class TabData {
-  final String label;
-  final Widget child;
-
   TabData(this.label, this.child);
+
+  final Widget child;
+  final String label;
 }
 
 class PokemonTabInfo extends StatelessWidget {

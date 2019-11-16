@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/AppColors.dart';
+
+import '../configs/AppColors.dart';
 
 class FabItem {
   const FabItem(this.title, this.icon, {this.onPress});

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/AppColors.dart';
-import 'package:pokedex/screens/home/widgets/category_list.dart';
-import 'package:pokedex/screens/home/widgets/news_list.dart';
-import 'package:pokedex/screens/home/widgets/search_bar.dart';
-import 'package:pokedex/widgets/poke_container.dart';
+
+import '../../configs/AppColors.dart';
+import '../../widgets/poke_container.dart';
+import 'widgets/category_list.dart';
+import 'widgets/news_list.dart';
+import 'widgets/search_bar.dart';
 
 class Home extends StatefulWidget {
   static const cardHeightFraction = 0.7;
@@ -13,10 +14,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  ScrollController _scrollController;
   double _cardHeight;
+  ScrollController _scrollController;
   bool _showTitle;
   bool _showToolbarColor;
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -26,13 +34,6 @@ class _HomeState extends State<Home> {
     _scrollController = ScrollController()..addListener(_onScroll);
 
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.removeListener(_onScroll);
-
-    super.dispose();
   }
 
   void _onScroll() {

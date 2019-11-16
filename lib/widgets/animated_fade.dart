@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AnimatedFade extends StatelessWidget {
-  final Widget child;
-  final Animation<double> animation;
-
   const AnimatedFade({
     @required this.child,
     @required this.animation,
   });
+
+  final Animation<double> animation;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

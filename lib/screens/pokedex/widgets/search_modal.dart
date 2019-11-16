@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pokedex/screens/home/widgets/search_bar.dart';
+
+import '../../home/widgets/search_bar.dart';
 
 class SearchBottomModal extends StatelessWidget {
   @override

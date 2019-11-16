@@ -1,4 +1,4 @@
-import 'package:pokedex/models/generation.dart';
+import '../models/generation.dart';
 
 const List<Generation> generations = [
   Generation(

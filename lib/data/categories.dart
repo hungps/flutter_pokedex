@@ -1,5 +1,5 @@
-import 'package:pokedex/configs/AppColors.dart';
-import 'package:pokedex/models/category.dart';
+import '../configs/AppColors.dart';
+import '../models/category.dart';
 
 const List<Category> categories = [
   Category(name: "Pokedex", color: AppColors.teal),

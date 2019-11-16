@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/widgets/poke_news.dart';
+
+import '../../../widgets/poke_news.dart';
 
 class NewsList extends StatelessWidget {
   @override

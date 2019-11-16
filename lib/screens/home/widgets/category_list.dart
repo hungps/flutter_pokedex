@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pokedex/data/categories.dart';
-import 'package:pokedex/widgets/poke_category_card.dart';
+
+import '../../../data/categories.dart';
+import '../../../widgets/poke_category_card.dart';
 
 class CategoryList extends StatelessWidget {
   @override

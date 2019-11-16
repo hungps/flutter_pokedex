@@ -12,31 +12,42 @@ import '../pokemon_info_arguments.dart';
 import 'decoration_box.dart';
 
 class PokemonOverallInfo extends StatefulWidget {
-  final Function changeColor;
-
   const PokemonOverallInfo({this.changeColor});
+
+  final Function changeColor;
 
   @override
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
 class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
+  int index = -1;
+  Pokemon pokemon;
+  PokemonInfoArguments pokemonInfoArguments;
+  List<Pokemon> pokemons;
+  double textDiffLeft = 0.0;
+  double textDiffTop = 0.0;
+
+  static const double _appBarBottomPadding = 22.0;
   static const double _appBarHorizontalPadding = 28.0;
   static const double _appBarTopPadding = 60.0;
-  static const double _appBarBottomPadding = 22.0;
 
   int _currentPage = 0;
-  PageController _pageController;
-  AnimationController _slideController;
-  AnimationController _rotateController;
-  List<Pokemon> pokemons;
   GlobalKey _currentTextKey = GlobalKey();
+  PageController _pageController;
+  AnimationController _rotateController;
+  AnimationController _slideController;
   GlobalKey _targetTextKey = GlobalKey();
-  PokemonInfoArguments pokemonInfoArguments;
-  double textDiffTop = 0.0;
-  Pokemon pokemon;
-  double textDiffLeft = 0.0;
-  int index = -1;
+
+  @override
+  dispose() {
+    _slideController.dispose();
+    _rotateController.dispose();
+    _pageController.dispose();
+
+    super.dispose();
+  }
+
   @override
   void initState() {
     _slideController = AnimationController(vsync: this, duration: Duration(milliseconds: 360));
@@ -56,15 +67,6 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     });
 
     super.initState();
-  }
-
-  @override
-  dispose() {
-    _slideController.dispose();
-    _rotateController.dispose();
-    _pageController.dispose();
-
-    super.dispose();
   }
 
   Widget _buildAppBar() {

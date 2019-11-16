@@ -8,24 +8,32 @@ import 'widgets/info.dart';
 import 'widgets/tab.dart';
 
 class PokemonInfo extends StatefulWidget {
-  final PokemonInfoArguments pokemonInfoArguments;
-
   const PokemonInfo({this.pokemonInfoArguments});
+
+  final PokemonInfoArguments pokemonInfoArguments;
 
   @override
   _PokemonInfoState createState() => _PokemonInfoState();
 }
 
 class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
-  static const double _pokemonSlideOverflow = 20;
+  Color color;
 
-  GlobalKey _pokemonInfoKey = GlobalKey();
+  static const double _pokemonSlideOverflow = 20;
 
   AnimationController _cardController;
   AnimationController _cardHeightController;
-  Color color;
-  double _cardMinHeight = 0.0;
   double _cardMaxHeight = 0.0;
+  double _cardMinHeight = 0.0;
+  GlobalKey _pokemonInfoKey = GlobalKey();
+
+  @override
+  void dispose() {
+    _cardController.dispose();
+    _cardHeightController.dispose();
+
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -45,14 +53,6 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     });
 
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _cardController.dispose();
-    _cardHeightController.dispose();
-
-    super.dispose();
   }
 
   void changeColor(Color changedColor) {

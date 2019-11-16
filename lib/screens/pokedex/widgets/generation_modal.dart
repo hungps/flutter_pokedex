@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pokedex/data/generations.dart';
-import 'package:pokedex/widgets/generation_card.dart';
+
+import '../../../data/generations.dart';
+import '../../../widgets/generation_card.dart';
 
 class GenerationModal extends StatelessWidget {
   @override

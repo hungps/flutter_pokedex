@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AnimatedSlide extends StatelessWidget {
-  final Widget child;
-  final Animation<double> animation;
-
   const AnimatedSlide({
     Key key,
     @required this.child,
     @required this.animation,
   });
+
+  final Animation<double> animation;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

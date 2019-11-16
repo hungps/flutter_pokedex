@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SlidingUpPanel extends StatefulWidget {
-  final Widget child;
-  final double minHeight;
-  final double maxHeight;
-  final AnimationController controller;
-
   const SlidingUpPanel({
     Key key,
     @required this.child,
@@ -14,12 +9,22 @@ class SlidingUpPanel extends StatefulWidget {
     @required this.controller,
   }) : super(key: key);
 
+  final Widget child;
+  final AnimationController controller;
+  final double maxHeight;
+  final double minHeight;
+
   @override
   State<StatefulWidget> createState() => _SlidingUpPanelState();
 }
 
 class _SlidingUpPanelState extends State<SlidingUpPanel> {
-  AnimationController get _controller => widget.controller;
+  @override
+  void dispose() {
+    _controller.removeListener(updateLayout);
+
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -28,43 +33,12 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _controller.removeListener(updateLayout);
-
-    super.dispose();
-  }
+  AnimationController get _controller => widget.controller;
 
   updateLayout() {
     setState(() {
       // Refresh the layout
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: GestureDetector(
-        onVerticalDragUpdate: _onDrag,
-        onVerticalDragEnd: _onDragEnd,
-        child: Container(
-          height: _controller.value * (widget.maxHeight - widget.minHeight) + widget.minHeight,
-          child: Stack(
-            children: <Widget>[
-              Positioned(
-                top: 0.0,
-                width: MediaQuery.of(context).size.width,
-                child: Container(
-                  height: widget.maxHeight,
-                  child: widget.child,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 
   void _onDrag(DragUpdateDetails details) {
@@ -99,5 +73,31 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> {
   //open the panel
   void _open() {
     _controller.fling(velocity: 1.0);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: GestureDetector(
+        onVerticalDragUpdate: _onDrag,
+        onVerticalDragEnd: _onDragEnd,
+        child: Container(
+          height: _controller.value * (widget.maxHeight - widget.minHeight) + widget.minHeight,
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 0.0,
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  height: widget.maxHeight,
+                  child: widget.child,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

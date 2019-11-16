@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:pokedex/data/pokemons.dart';
-import 'dart:collection';
+
+import '../data/pokemons.dart';
+
 class Pokemon {
   const Pokemon({
     @required this.id,
@@ -27,33 +26,8 @@ class Pokemon {
     @required this.eggGroups,
     @required this.baseExp,
     @required this.evolvedFrom,
-    @required this.reason
+    @required this.reason,
   });
-
-  final String id;
-  final String name;
-  final String image;
-  final List<String> types;
-  final String about;
-  final String height;
-  final String weight;
-  final String category;
-  final int attack;
-  final int defense;
-  final int specialDefense;
-  final int specialAttack;
-  final int speed;
-  final int hp;
-  final int total;
-  final String femalePercentage;
-  final String malePercentage;
-  final bool genderless ;
-  final String cycles;
-  final String eggGroups;
-  final String evolvedFrom;
-  final String reason;
-  final String baseExp;
-  Color get color => getPokemonColor(types[0]);
 
   Pokemon.fromJson(dynamic json)
       : id = json["id"],
@@ -65,19 +39,44 @@ class Pokemon {
         weight = json["weight"],
         category = json["category"],
         hp = json['hp'],
-        attack= json['attack'],
-        defense= json['defense'],
-        speed=json['speed'],
-        specialDefense=json['special_defense'],
+        attack = json['attack'],
+        defense = json['defense'],
+        speed = json['speed'],
+        specialDefense = json['special_defense'],
         specialAttack = json['special_attack'],
         total = json['total'],
-        malePercentage =json['male_percentage'],
-        femalePercentage=json['female_percentage'],
-        genderless = json['genderless']==1 ? true :false,
+        malePercentage = json['male_percentage'],
+        femalePercentage = json['female_percentage'],
+        genderless = json['genderless'] == 1,
         cycles = json['cycles'],
-        eggGroups =json['egg_groups'],
-        baseExp= json['base_exp'],
+        eggGroups = json['egg_groups'],
+        baseExp = json['base_exp'],
         evolvedFrom = json['evolvedfrom'],
-        reason=json['reason'];
+        reason = json['reason'];
 
+  final String about;
+  final int attack;
+  final String baseExp;
+  final String category;
+  final String cycles;
+  final int defense;
+  final String eggGroups;
+  final String evolvedFrom;
+  final String femalePercentage;
+  final bool genderless;
+  final String height;
+  final int hp;
+  final String id;
+  final String image;
+  final String malePercentage;
+  final String name;
+  final String reason;
+  final int specialAttack;
+  final int specialDefense;
+  final int speed;
+  final int total;
+  final List<String> types;
+  final String weight;
+
+  Color get color => getPokemonColor(types[0]);
 }

@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class AnimatedRotation extends StatelessWidget {
-  final Widget child;
-  final Animation<double> animation;
-
   const AnimatedRotation({
     Key key,
     @required this.child,
     @required this.animation,
   });
+
+  final Animation<double> animation;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
