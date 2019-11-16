@@ -18,7 +18,13 @@ class PokemonTabInfo extends StatelessWidget {
     TabData("About", PokemonAbout()),
     TabData("Base Stats", PokemonBaseStats()),
     TabData("Evolution", PokemonEvolution()),
-    TabData("Moves", Container(color: Colors.orange)),
+    TabData(
+      "Moves",
+      Container(
+        alignment: Alignment.topCenter,
+        child: Text("Under development"),
+      ),
+    ),
   ];
 
   Widget _buildTabBar() {

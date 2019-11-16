@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../../configs/AppColors.dart';
 import '../../../models/pokemon.dart';
-import '../pokemon_info_arguments.dart';
 
 class PokemonAbout extends StatelessWidget {
   Widget _buildSection(String text, {List<Widget> children, Widget child}) {
@@ -165,24 +164,23 @@ class PokemonAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cardController = Provider.of<AnimationController>(context);
-    final index = Provider.of<PokemonInfoArguments>(context).index;
-    final pokemons = Provider.of<PokemonInfoArguments>(context).pokemons;
-    final pokemon = pokemons[index];
 
     return AnimatedBuilder(
       animation: cardController,
-      child: Column(
-        children: <Widget>[
-          _buildDescription(pokemon.about),
-          SizedBox(height: 28),
-          _buildHeightWeight(pokemon.height, pokemon.weight),
-          SizedBox(height: 31),
-          _buildBreeding(pokemon),
-          SizedBox(height: 35),
-          _buildLocation(),
-          SizedBox(height: 26),
-          _buildTraining(pokemon.baseExp),
-        ],
+      child: Consumer<PokemonModel>(
+        builder: (_, model, child) => Column(
+          children: <Widget>[
+            _buildDescription(model.pokemon.about),
+            SizedBox(height: 28),
+            _buildHeightWeight(model.pokemon.height, model.pokemon.weight),
+            SizedBox(height: 31),
+            _buildBreeding(model.pokemon),
+            SizedBox(height: 35),
+            _buildLocation(),
+            SizedBox(height: 26),
+            _buildTraining(model.pokemon.baseExp),
+          ],
+        ),
       ),
       builder: (context, child) {
         final scrollable = cardController.value.floor() == 1;

@@ -12,6 +12,15 @@ Future<List<Pokemon>> getPokemonsList(BuildContext context) async {
 
   List<Pokemon> pokemons = jsonData.map((json) => Pokemon.fromJson(json)).toList();
 
+  for (final pokemon in pokemons) {
+    List<Pokemon> evolutions = pokemon.evolutions
+        .map((item) => item.id)
+        .map((id) => pokemons.firstWhere((item) => item.id == id))
+        .toList();
+
+    pokemon.evolutions.setAll(0, evolutions);
+  }
+
   return pokemons;
 }
 

@@ -1,32 +1,36 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../data/pokemons.dart';
 
 class Pokemon {
   const Pokemon({
     @required this.id,
-    @required this.name,
-    @required this.image,
+    this.name,
+    this.image,
     this.types = const [],
-    @required this.about,
-    @required this.height,
-    @required this.weight,
-    @required this.category,
-    @required this.hp,
-    @required this.attack,
-    @required this.defense,
-    @required this.specialAttack,
-    @required this.specialDefense,
-    @required this.speed,
-    @required this.total,
-    @required this.malePercentage,
-    @required this.femalePercentage,
-    @required this.genderless,
-    @required this.cycles,
-    @required this.eggGroups,
-    @required this.baseExp,
-    @required this.evolvedFrom,
-    @required this.reason,
+    this.about,
+    this.height,
+    this.weight,
+    this.category,
+    this.hp,
+    this.attack,
+    this.defense,
+    this.specialAttack,
+    this.specialDefense,
+    this.speed,
+    this.total,
+    this.malePercentage,
+    this.femalePercentage,
+    this.genderless,
+    this.cycles,
+    this.eggGroups,
+    this.baseExp,
+    this.evolvedFrom,
+    this.reason,
+    this.evolutions = const [],
   });
 
   Pokemon.fromJson(dynamic json)
@@ -52,7 +56,9 @@ class Pokemon {
         eggGroups = json['egg_groups'],
         baseExp = json['base_exp'],
         evolvedFrom = json['evolvedfrom'],
-        reason = json['reason'];
+        reason = json['reason'],
+        evolutions =
+            json['evolutions'].map((id) => Pokemon(id: id as String)).cast<Pokemon>().toList();
 
   final String about;
   final int attack;
@@ -77,6 +83,36 @@ class Pokemon {
   final int total;
   final List<String> types;
   final String weight;
+  final List<Pokemon> evolutions;
 
   Color get color => getPokemonColor(types[0]);
+}
+
+class PokemonModel extends ChangeNotifier {
+  final List<Pokemon> _pokemons = [];
+  int _selectedIndex = 0;
+
+  UnmodifiableListView<Pokemon> get pokemons => UnmodifiableListView(_pokemons);
+
+  bool get hasData => _pokemons.length > 0;
+
+  Pokemon get pokemon => _pokemons[_selectedIndex];
+
+  int get index => _selectedIndex;
+
+  static PokemonModel of(BuildContext context, {bool listen = false}) =>
+      Provider.of<PokemonModel>(context, listen: listen);
+
+  void setPokemons(List<Pokemon> pokemons) {
+    _pokemons.clear();
+    _pokemons.addAll(pokemons);
+
+    notifyListeners();
+  }
+
+  void setSelectedIndex(int index) {
+    _selectedIndex = index;
+
+    notifyListeners();
+  }
 }

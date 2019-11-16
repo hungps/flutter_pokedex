@@ -3,22 +3,17 @@ import 'package:provider/provider.dart';
 
 import '../../models/pokemon.dart';
 import '../../widgets/slide_up_panel.dart';
-import 'pokemon_info_arguments.dart';
 import 'widgets/info.dart';
 import 'widgets/tab.dart';
 
 class PokemonInfo extends StatefulWidget {
-  const PokemonInfo({this.pokemonInfoArguments});
-
-  final PokemonInfoArguments pokemonInfoArguments;
+  const PokemonInfo();
 
   @override
   _PokemonInfoState createState() => _PokemonInfoState();
 }
 
 class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
-  Color color;
-
   static const double _pokemonSlideOverflow = 20;
 
   AnimationController _cardController;
@@ -55,27 +50,19 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     super.initState();
   }
 
-  void changeColor(Color changedColor) {
-    setState(() {
-      color = changedColor;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    Pokemon pokemon = widget.pokemonInfoArguments.pokemons[widget.pokemonInfoArguments.index];
-
     return ListenableProvider(
       builder: (context) => _cardController,
       child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider<PokemonInfoArguments>.value(value: widget.pokemonInfoArguments),
-          ListenableProvider.value(value: _cardController)
-        ],
+        providers: [ListenableProvider.value(value: _cardController)],
         child: Scaffold(
-          body: AnimatedContainer(
-            duration: Duration(milliseconds: 300),
-            color: pokemon.color,
+          body: Consumer<PokemonModel>(
+            builder: (_, model, child) => AnimatedContainer(
+              duration: Duration(milliseconds: 300),
+              color: model.pokemon.color,
+              child: child,
+            ),
             child: Stack(
               children: <Widget>[
                 AnimatedBuilder(
@@ -93,9 +80,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
                 IntrinsicHeight(
                   child: Container(
                     key: _pokemonInfoKey,
-                    child: PokemonOverallInfo(
-                      changeColor: changeColor,
-                    ),
+                    child: PokemonOverallInfo(),
                   ),
                 )
               ],

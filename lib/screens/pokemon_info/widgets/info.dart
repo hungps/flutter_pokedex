@@ -8,23 +8,16 @@ import '../../../widgets/animated_fade.dart';
 import '../../../widgets/animated_rotation.dart';
 import '../../../widgets/animated_slide.dart';
 import '../../../widgets/pokemon_type.dart';
-import '../pokemon_info_arguments.dart';
 import 'decoration_box.dart';
 
 class PokemonOverallInfo extends StatefulWidget {
-  const PokemonOverallInfo({this.changeColor});
-
-  final Function changeColor;
+  const PokemonOverallInfo();
 
   @override
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
 class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
-  int index = -1;
-  Pokemon pokemon;
-  PokemonInfoArguments pokemonInfoArguments;
-  List<Pokemon> pokemons;
   double textDiffLeft = 0.0;
   double textDiffTop = 0.0;
 
@@ -32,7 +25,6 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   static const double _appBarHorizontalPadding = 28.0;
   static const double _appBarTopPadding = 60.0;
 
-  int _currentPage = 0;
   GlobalKey _currentTextKey = GlobalKey();
   PageController _pageController;
   AnimationController _rotateController;
@@ -41,9 +33,9 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
 
   @override
   dispose() {
-    _slideController.dispose();
-    _rotateController.dispose();
-    _pageController.dispose();
+    _slideController?.dispose();
+    _rotateController?.dispose();
+    _pageController?.dispose();
 
     super.dispose();
   }
@@ -52,6 +44,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   void initState() {
     _slideController = AnimationController(vsync: this, duration: Duration(milliseconds: 360));
     _slideController.forward();
+
     _rotateController = AnimationController(vsync: this, duration: Duration(milliseconds: 5000));
     _rotateController.repeat();
 
@@ -67,6 +60,24 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     });
 
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_pageController == null) {
+      PokemonModel pokemonModel = PokemonModel.of(context);
+
+      _pageController = PageController(viewportFraction: 0.6, initialPage: pokemonModel.index);
+      _pageController.addListener(() {
+        int next = _pageController.page.round();
+
+        if (pokemonModel.index != next) {
+          pokemonModel.setSelectedIndex(next);
+        }
+      });
+    }
+
+    super.didChangeDependencies();
   }
 
   Widget _buildAppBar() {
@@ -185,25 +196,15 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
-                children: pokemon.types
-                    .map(
-                      (type) => Hero(
-                        tag: type,
-                        child: PokemonType(
-                          type,
-                          large: true,
-                        ),
-                      ),
-                    )
-                    .toList()),
+              children: pokemon.types
+                  .map((type) => Hero(tag: type, child: PokemonType(type, large: true)))
+                  .toList(),
+            ),
             AnimatedSlide(
               animation: _slideController,
               child: Text(
                 pokemon.category,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                ),
+                style: TextStyle(color: Colors.white, fontSize: 14),
               ),
             ),
           ],
@@ -212,11 +213,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     );
   }
 
-  Widget _buildPokemonSlider(
-    BuildContext context,
-    Pokemon pokemon,
-    List<Pokemon> pokemons,
-  ) {
+  Widget _buildPokemonSlider(BuildContext context, Pokemon pokemon, List<Pokemon> pokemons) {
+    final screenSize = MediaQuery.of(context).size;
     final cardScrollController = Provider.of<AnimationController>(context);
     final fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
@@ -229,12 +227,13 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
       ),
     );
 
-    final screenHeight = MediaQuery.of(context).size.height;
+    final selectedIndex = PokemonModel.of(context).index;
+
     return AnimatedFade(
       animation: fadeAnimation,
       child: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: screenHeight * 0.24,
+        width: screenSize.width,
+        height: screenSize.height * 0.24,
         child: Stack(
           children: <Widget>[
             Align(
@@ -243,8 +242,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 animation: _rotateController,
                 child: Image.asset(
                   "assets/images/pokeball.png",
-                  width: screenHeight * 0.24,
-                  height: screenHeight * 0.24,
+                  width: screenSize.height * 0.24,
+                  height: screenSize.height * 0.24,
                   color: Colors.white.withOpacity(0.14),
                 ),
               ),
@@ -254,25 +253,25 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
               controller: _pageController,
               itemCount: pokemons.length,
               onPageChanged: (index) {
-                pokemonInfoArguments.setIndex(index);
-                widget.changeColor(pokemons[index].color);
+                PokemonModel.of(context).setSelectedIndex(index);
               },
               itemBuilder: (context, index) => Hero(
-                tag: "$index",
+                tag: pokemons[index].image,
                 child: AnimatedPadding(
                   duration: Duration(milliseconds: 600),
                   curve: Curves.easeOutQuint,
                   padding: EdgeInsets.only(
-                    top: _currentPage == index ? 0 : screenHeight * 0.04,
-                    bottom: _currentPage == index ? 0 : screenHeight * 0.04,
+                    top: selectedIndex == index ? 0 : screenSize.height * 0.04,
+                    bottom: selectedIndex == index ? 0 : screenSize.height * 0.04,
                   ),
                   child: CachedNetworkImage(
                     imageUrl: pokemons[index].image,
                     imageBuilder: (context, image) => Image(
                       image: image,
-                      width: screenHeight * 0.28,
-                      height: screenHeight * 0.28,
+                      width: screenSize.height * 0.28,
+                      height: screenSize.height * 0.28,
                       alignment: Alignment.bottomCenter,
+                      color: selectedIndex == index ? null : Colors.black26,
                     ),
                   ),
                 ),
@@ -284,80 +283,71 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    pokemonInfoArguments = Provider.of<PokemonInfoArguments>(context);
+  List<Widget> _buildDecorations() {
+    final screenSize = MediaQuery.of(context).size;
+
     final cardScrollController = Provider.of<AnimationController>(context);
     final dottedAnimation = Tween(begin: 1.0, end: 0.0).animate(cardScrollController);
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final pokeSize = screenWidth * 0.448;
-    index = pokemonInfoArguments.index;
-    _currentPage = index;
 
-    pokemons = pokemonInfoArguments.pokemons;
-    pokemon = pokemonInfoArguments.pokemons[pokemonInfoArguments.index];
-
-    _pageController = PageController(viewportFraction: 0.6, initialPage: index);
-    _pageController.addListener(() {
-      int next = _pageController.page.round();
-
-      if (_currentPage != next) {
-        setState(() {
-          _currentPage = next;
-        });
-      }
-    });
-
+    final pokeSize = screenSize.width * 0.448;
     final pokeTop = -(pokeSize / 2 - (IconTheme.of(context).size / 2 + _appBarTopPadding));
     final pokeRight = -(pokeSize / 2 - (IconTheme.of(context).size / 2 + _appBarHorizontalPadding));
 
+    return [
+      Positioned(
+        top: pokeTop,
+        right: pokeRight,
+        child: AnimatedFade(
+          animation: cardScrollController,
+          child: AnimatedRotation(
+            animation: _rotateController,
+            child: Image.asset(
+              "assets/images/pokeball.png",
+              width: pokeSize,
+              height: pokeSize,
+              color: Colors.white.withOpacity(0.26),
+            ),
+          ),
+        ),
+      ),
+      Positioned(
+        top: -screenSize.height * 0.055,
+        left: -screenSize.height * 0.055,
+        child: DecorationBox(),
+      ),
+      Positioned(
+        top: 4,
+        left: screenSize.height * 0.3,
+        child: AnimatedFade(
+          animation: dottedAnimation,
+          child: Image.asset(
+            "assets/images/dotted.png",
+            width: screenSize.height * 0.07,
+            height: screenSize.height * 0.07 * 0.54,
+            color: Colors.white.withOpacity(0.3),
+          ),
+        ),
+      ),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(
-          top: pokeTop,
-          right: pokeRight,
-          child: AnimatedFade(
-            animation: cardScrollController,
-            child: AnimatedRotation(
-              animation: _rotateController,
-              child: Image.asset(
-                "assets/images/pokeball.png",
-                width: pokeSize,
-                height: pokeSize,
-                color: Colors.white.withOpacity(0.26),
-              ),
-            ),
+        ..._buildDecorations(),
+        Consumer<PokemonModel>(
+          builder: (_, model, child) => Column(
+            children: <Widget>[
+              _buildAppBar(),
+              SizedBox(height: 9),
+              _buildPokemonName(model.pokemon),
+              SizedBox(height: 9),
+              _buildPokemonTypes(model.pokemon),
+              SizedBox(height: 25),
+              _buildPokemonSlider(context, model.pokemon, model.pokemons),
+            ],
           ),
-        ),
-        Positioned(
-          top: -screenHeight * 0.055,
-          left: -screenHeight * 0.055,
-          child: DecorationBox(),
-        ),
-        Positioned(
-          top: 4,
-          left: screenHeight * 0.3,
-          child: AnimatedFade(
-            animation: dottedAnimation,
-            child: Image.asset(
-              "assets/images/dotted.png",
-              width: screenHeight * 0.07,
-              height: screenHeight * 0.07 * 0.54,
-              color: Colors.white.withOpacity(0.3),
-            ),
-          ),
-        ),
-        Column(
-          children: <Widget>[
-            _buildAppBar(),
-            SizedBox(height: 9),
-            _buildPokemonName(pokemon),
-            SizedBox(height: 9),
-            _buildPokemonTypes(pokemon),
-            SizedBox(height: 25),
-            _buildPokemonSlider(context, pokemon, pokemons),
-          ],
         ),
       ],
     );

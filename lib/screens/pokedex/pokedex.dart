@@ -1,42 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 import '../../data/pokemons.dart';
 import '../../models/pokemon.dart';
 import '../../widgets/fab.dart';
 import '../../widgets/poke_container.dart';
 import '../../widgets/pokemon_card.dart';
-import '../pokemon_info/pokemon_info_arguments.dart';
 import 'widgets/generation_modal.dart';
 import 'widgets/search_modal.dart';
 
 class Pokedex extends StatefulWidget {
+  const Pokedex();
+
   @override
   _PokedexState createState() => _PokedexState();
 }
 
 class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
   Animation<double> _animation;
-  AnimationController _controller;
-  List<Pokemon> _pokemons = [];
+  AnimationController _animationController;
 
   @override
   void initState() {
-    _controller = AnimationController(
+    _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 260),
     );
 
-    final curvedAnimation = CurvedAnimation(curve: Curves.easeInOut, parent: _controller);
+    final curvedAnimation = CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
 
-    getPokemonsList(context).then((result) {
-      setState(() {
-        _pokemons = result;
-      });
-    });
-
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    PokemonModel pokemonModel = PokemonModel.of(context, listen: true);
+
+    if (!pokemonModel.hasData) {
+      getPokemonsList(context).then(pokemonModel.setPokemons);
+    }
+
+    super.didChangeDependencies();
   }
 
   void _showSearchModal() {
@@ -55,6 +61,23 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
     );
   }
 
+  Widget _buildOverlayBackground() {
+    return AnimatedBuilder(
+      animation: _animation,
+      builder: (_, __) {
+        return IgnorePointer(
+          ignoring: _animation.value == 0,
+          child: InkWell(
+            onTap: () => _animationController.reverse(),
+            child: Container(
+              color: Colors.black.withOpacity(_animation.value * 0.5),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,18 +88,15 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
             children: <Widget>[
               SizedBox(height: 34),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 26.0),
+                padding: EdgeInsets.symmetric(horizontal: 26.0),
                 child: Text(
                   "Pokedex",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(height: 32),
-              if (_pokemons.length > 0)
-                Expanded(
+              Consumer<PokemonModel>(
+                builder: (context, pokemonModel, child) => Expanded(
                   child: GridView.builder(
                     physics: BouncingScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -86,37 +106,21 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
                       mainAxisSpacing: 10,
                     ),
                     padding: EdgeInsets.only(left: 28, right: 28, bottom: 58),
-                    itemCount: _pokemons.length,
+                    itemCount: pokemonModel.pokemons.length,
                     itemBuilder: (context, index) => PokemonCard(
-                      _pokemons[index],
+                      pokemonModel.pokemons[index],
                       index: index,
                       onPress: () {
-                        Navigator.of(context).pushNamed(
-                          "/pokemon-info",
-                          arguments: PokemonInfoArguments(index: index, pokemons: _pokemons),
-                        );
+                        pokemonModel.setSelectedIndex(index);
+                        Navigator.of(context).pushNamed("/pokemon-info");
                       },
                     ),
                   ),
                 ),
+              ),
             ],
           ),
-          AnimatedBuilder(
-            animation: _animation,
-            builder: (_, __) {
-              return IgnorePointer(
-                ignoring: _animation.value == 0,
-                child: InkWell(
-                  onTap: () {
-                    _controller.reverse();
-                  },
-                  child: Container(
-                    color: Colors.black.withOpacity(_animation.value * 0.5),
-                  ),
-                ),
-              );
-            },
-          ),
+          _buildOverlayBackground(),
         ],
       ),
       floatingActionButton: ExpandedAnimationFab(
@@ -125,21 +129,21 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
             "Favourite Pokemon",
             Icons.favorite,
             onPress: () {
-              _controller.reverse();
+              _animationController.reverse();
             },
           ),
           FabItem(
             "All Type",
             Icons.filter_vintage,
             onPress: () {
-              _controller.reverse();
+              _animationController.reverse();
             },
           ),
           FabItem(
             "All Gen",
             Icons.flash_on,
             onPress: () {
-              _controller.reverse();
+              _animationController.reverse();
               _showGenerationModal();
             },
           ),
@@ -147,19 +151,15 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
             "Search",
             Icons.search,
             onPress: () {
-              _controller.reverse();
+              _animationController.reverse();
               _showSearchModal();
             },
           ),
         ],
         animation: _animation,
-        onPress: () {
-          if (_controller.isCompleted) {
-            _controller.reverse();
-          } else {
-            _controller.forward();
-          }
-        },
+        onPress: _animationController.isCompleted
+            ? _animationController.reverse
+            : _animationController.forward,
       ),
     );
   }

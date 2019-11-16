@@ -5,23 +5,23 @@ import 'package:provider/provider.dart';
 import '../../../configs/AppColors.dart';
 import '../../../models/pokemon.dart';
 import '../../../widgets/progress.dart';
-import '../pokemon_info_arguments.dart';
 
 class Stat extends StatelessWidget {
   const Stat({
     Key key,
+    @required this.animation,
     @required this.label,
     @required this.value,
     this.progress,
   }) : super(key: key);
 
+  final Animation animation;
   final String label;
   final num value;
   final double progress;
 
   @override
   Widget build(BuildContext context) {
-    final Animation animation = Provider.of<Animation>(context);
     final progress = this.progress == null ? this.value / 100 : this.progress;
 
     return Row(
@@ -90,34 +90,38 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     _controller.forward();
   }
 
-  List<Stat> generateStatWidget(Pokemon pokemon) {
+  List<Widget> generateStatWidget(Pokemon pokemon) {
     return [
-      Stat(label: "Hp", value: pokemon.hp),
-      Stat(label: "Atttack", value: pokemon.attack),
-      Stat(label: "Defense", value: pokemon.defense),
-      Stat(label: "Sp. Atk", value: pokemon.specialAttack),
-      Stat(label: "Sp. Def", value: pokemon.specialDefense),
-      Stat(label: "Speed", value: pokemon.speed),
-      Stat(label: "Total", value: pokemon.total, progress: pokemon.total / 600),
+      Stat(animation: _animation, label: "Hp", value: pokemon.hp),
+      SizedBox(height: 14),
+      Stat(animation: _animation, label: "Atttack", value: pokemon.attack),
+      SizedBox(height: 14),
+      Stat(animation: _animation, label: "Defense", value: pokemon.defense),
+      SizedBox(height: 14),
+      Stat(animation: _animation, label: "Sp. Atk", value: pokemon.specialAttack),
+      SizedBox(height: 14),
+      Stat(animation: _animation, label: "Sp. Def", value: pokemon.specialDefense),
+      SizedBox(height: 14),
+      Stat(animation: _animation, label: "Speed", value: pokemon.speed),
+      SizedBox(height: 14),
+      Stat(
+          animation: _animation,
+          label: "Total",
+          value: pokemon.total,
+          progress: pokemon.total / 600),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
-    final index = Provider.of<PokemonInfoArguments>(context).index;
-    final pokemons = Provider.of<PokemonInfoArguments>(context).pokemons;
-    final pokemon = pokemons[index];
-    List<Stat> stats = generateStatWidget(pokemon);
-
-    return ListenableProvider<Animation>(
-      builder: (context) => _animation,
-      child: Container(
-        padding: EdgeInsets.all(24),
-        child: Column(
+    return Container(
+      padding: EdgeInsets.all(24),
+      child: Consumer<PokemonModel>(
+        builder: (_, model, child) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            ...stats.expand((stat) => [stat, SizedBox(height: 14)]),
+            ...generateStatWidget(model.pokemon),
             SizedBox(height: 27),
             Text(
               "Type defenses",
@@ -129,7 +133,7 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
             ),
             SizedBox(height: 15),
             Text(
-              "The effectiveness of each type on Charmander.",
+              "The effectiveness of each type on ${model.pokemon.name}.",
               style: TextStyle(color: AppColors.black.withOpacity(0.6)),
             ),
           ],

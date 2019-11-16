@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../../configs/AppColors.dart';
 import '../../../models/pokemon.dart';
-import '../pokemon_info_arguments.dart';
 
 class PokemonBall extends StatelessWidget {
   const PokemonBall(this.pokemon, {Key key}) : super(key: key);
@@ -46,23 +45,22 @@ class PokemonBall extends StatelessWidget {
 }
 
 class PokemonEvolution extends StatelessWidget {
-  List<Pokemon> pokemons;
-
   Widget _buildRow({current: Pokemon, next: Pokemon, reason: String}) {
     return Row(
       children: <Widget>[
         Expanded(child: PokemonBall(current)),
         Expanded(
-            child: Column(
-          children: <Widget>[
-            Icon(Icons.arrow_forward, color: AppColors.lightGrey),
-            SizedBox(height: 7),
-            Text(
-              reason,
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-            ),
-          ],
-        )),
+          child: Column(
+            children: <Widget>[
+              Icon(Icons.arrow_forward, color: AppColors.lightGrey),
+              SizedBox(height: 7),
+              Text(
+                reason,
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
         Expanded(child: PokemonBall(next)),
       ],
     );
@@ -78,62 +76,43 @@ class PokemonEvolution extends StatelessWidget {
     );
   }
 
-  List<Widget> buildEvolutionList(String pokemonId) {
-    List<String> ids = [];
-    List<Widget> widgets = [];
-    while (true) {
-      if (pokemons[getIndex(pokemonId)].evolvedFrom == "") break;
-
-      pokemonId = pokemons[getIndex(pokemonId)].evolvedFrom;
-      if (pokemonId == "") break;
+  List<Widget> buildEvolutionList(List<Pokemon> pokemons) {
+    if (pokemons.length < 2) {
+      return [
+        Center(child: Text("No evolution")),
+      ];
     }
-    ids.add(pokemonId);
-    while (ids.length != 0) {
-      String currentId = ids.last;
-      //get Parent of pokemon with id
-      for (Pokemon currentPokemon in pokemons) {
-        if (currentPokemon.evolvedFrom == currentId) {
-          Pokemon basePokemon = pokemons[getIndex(currentId)];
-          Pokemon nextPokemon = currentPokemon;
-          widgets
-              .add(_buildRow(current: basePokemon, next: nextPokemon, reason: nextPokemon.reason));
-          widgets.add(_buildDivider());
-          ids.add(currentPokemon.id);
-        }
-      }
-      ids.remove(currentId);
-    }
-    if (widgets.length != 0) // edge case . if there is no evolution
-      widgets.removeLast(); // removing the last divider
-    return widgets;
-  }
 
-  // returns index of pokemon in pokemons array
-  // eg #001 will return 0
-  int getIndex(String id) {
-    return int.parse(id.substring(1)) - 1;
+    return Iterable<int>.generate(pokemons.length - 1) // skip the last one
+        .map(
+          (index) => _buildRow(
+            current: pokemons[index],
+            next: pokemons[index + 1],
+            reason: pokemons[index + 1].reason,
+          ),
+        )
+        .expand((widget) => [widget, _buildDivider()])
+        .toList();
   }
 
   @override
   Widget build(BuildContext context) {
     final cardController = Provider.of<AnimationController>(context);
-    final index = Provider.of<PokemonInfoArguments>(context, listen: false).index;
-    pokemons = Provider.of<PokemonInfoArguments>(context, listen: false).pokemons;
 
-    final pokemon = pokemons[index];
-    final evolutions = buildEvolutionList(pokemon.id);
     return AnimatedBuilder(
       animation: cardController,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            "Evolution Chain",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
-          ),
-          SizedBox(height: 28),
-          if (evolutions.length != 0) ...evolutions else PokemonBall(pokemon),
-        ],
+      child: Consumer<PokemonModel>(
+        builder: (_, model, child) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Evolution Chain",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
+            ),
+            SizedBox(height: 28),
+            ...buildEvolutionList(model.pokemon.evolutions),
+          ],
+        ),
       ),
       builder: (context, widget) {
         final scrollable = cardController.value.floor() == 1;

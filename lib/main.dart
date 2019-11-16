@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/models/pokemon.dart';
+import 'package:provider/provider.dart';
 
 import 'configs/AppColors.dart';
 import 'screens/home/home.dart';
@@ -6,7 +8,15 @@ import 'screens/pokedex/pokedex.dart';
 import 'screens/pokemon_info/pokemon_info.dart';
 import 'widgets/fade_page_route.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(builder: (context) => PokemonModel()),
+          // ... other provider(s)
+        ],
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   Route _getRoute(RouteSettings settings) {
@@ -18,18 +28,28 @@ class MyApp extends StatelessWidget {
         return FadeRoute(page: Pokedex());
 
       case '/pokemon-info':
-        return FadeRoute(
-          page: PokemonInfo(pokemonInfoArguments: settings.arguments),
-        );
+        return FadeRoute(page: PokemonInfo());
 
       default:
         return null;
     }
   }
 
-  // This widget is the root of your application.
+  void preloadAssets(BuildContext context) {
+    precacheImage(AssetImage('assets/images/dotted.png'), context);
+    precacheImage(AssetImage('assets/images/female.png'), context);
+    precacheImage(AssetImage('assets/images/male.png'), context);
+    precacheImage(AssetImage('assets/images/pokeball.png'), context);
+    precacheImage(AssetImage('assets/images/thumbnail.png'), context);
+    precacheImage(AssetImage('assets/images/bulbasaur.png'), context);
+    precacheImage(AssetImage('assets/images/charmander.png'), context);
+    precacheImage(AssetImage('assets/images/squirtle.png'), context);
+  }
+
   @override
   Widget build(BuildContext context) {
+    preloadAssets(context);
+
     return MaterialApp(
       color: Colors.white,
       title: 'Flutter Demo',
