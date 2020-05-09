@@ -1,8 +1,17 @@
 {
   "editor.formatOnSave": true,
   "dart.flutterHotRestartOnSave": true,
-  "dart.previewFlutterGutterIcons": true,
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
-  "dart.enableMachineLearningCodeCompletion": true
+  "dart.lineLength": 100,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.rulers": [100],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "files.insertFinalNewline": true
+  }
 }
