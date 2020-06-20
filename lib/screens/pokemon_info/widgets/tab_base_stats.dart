@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/data/types.dart';
-import 'package:pokedex/models/type.dart';
+import 'package:pokedex/data/pokemons.dart';
+import 'package:pokedex/utils/string.dart';
 import 'package:pokedex/widgets/pokemon_type.dart';
 import 'package:provider/provider.dart';
 
@@ -63,7 +63,8 @@ class PokemonBaseStats extends StatefulWidget {
   _PokemonBaseStatsState createState() => _PokemonBaseStatsState();
 }
 
-class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerProviderStateMixin {
+class _PokemonBaseStatsState extends State<PokemonBaseStats>
+    with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _controller;
 
@@ -101,9 +102,15 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
       SizedBox(height: 14),
       Stat(animation: _animation, label: "Defense", value: pokemon.defense),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: "Sp. Atk", value: pokemon.specialAttack),
+      Stat(
+          animation: _animation,
+          label: "Sp. Atk",
+          value: pokemon.specialAttack),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: "Sp. Def", value: pokemon.specialDefense),
+      Stat(
+          animation: _animation,
+          label: "Sp. Def",
+          value: pokemon.specialDefense),
       SizedBox(height: 14),
       Stat(animation: _animation, label: "Speed", value: pokemon.speed),
       SizedBox(height: 14),
@@ -115,34 +122,17 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     ];
   }
 
-  String _removeTrailingZero(double n){
-    String s = n.toString().replaceAll(RegExp(r"([.]*0)(?!.*\d)"), "");
-    return s;
-  }
-
-  double _getTypeEffectiveness(Pokemon pokemon, String type){
-    double effectiveness = 1;
-    for(String pokemonType in pokemon.types){
-      Type ty = getTypeFromString(pokemonType);
-      if(ty.immune.contains(type)){
-        return 0;
-      }
-      if(ty.superEffective.contains(type)){
-        effectiveness *= 2;
-      }
-      if(ty.notEffective.contains(type)){
-        effectiveness *= 0.5;
-      }
-    }
-    return effectiveness;
-  }
-
-  List<Widget> generateEffectivenessWidget(Pokemon pokemon){
-    Map<String, double> effectiveness = Map.fromIterable(listOfTypes, key: (type) => type, value: (type) => _getTypeEffectiveness(pokemon, type));
+  List<Widget> buildEffectivenesses(Pokemon pokemon) {
+    Map<String, double> effectiveness = getTypeEffectiveness(pokemon);
     List<Widget> list = new List();
-    effectiveness.forEach((key, value) { 
+    effectiveness.forEach((key, value) {
       list.add(
-            PokemonType(key, large: true, colored: true, extra: "x" + _removeTrailingZero(value),),
+        PokemonType(
+          key,
+          large: true,
+          colored: true,
+          extra: 'x' + removeTrailingZero(value),
+        ),
       );
     });
     return list;
@@ -174,10 +164,9 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
             ),
             SizedBox(height: 15),
             Wrap(
-              spacing: 5,
-              runSpacing: 5,
-              children: generateEffectivenessWidget(model.pokemon)
-            ),
+                spacing: 5,
+                runSpacing: 5,
+                children: buildEffectivenesses(model.pokemon)),
           ],
         ),
       ),
