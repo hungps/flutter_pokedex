@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/progress.dart';
+import 'package:pokedex/utils/string.dart';
 
 class Stat extends StatelessWidget {
   const Stat({
@@ -59,8 +61,7 @@ class PokemonBaseStats extends StatefulWidget {
   _PokemonBaseStatsState createState() => _PokemonBaseStatsState();
 }
 
-class _PokemonBaseStatsState extends State<PokemonBaseStats>
-    with SingleTickerProviderStateMixin {
+class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _controller;
 
@@ -96,23 +97,13 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats>
     return [
       Stat(animation: _animation, label: 'Hp', value: pokemon.stats.hp),
       SizedBox(height: 14),
-      Stat(
-          animation: _animation, label: 'Atttack', value: pokemon.stats.attack),
+      Stat(animation: _animation, label: 'Atttack', value: pokemon.stats.attack),
       SizedBox(height: 14),
-      Stat(
-          animation: _animation,
-          label: 'Defense',
-          value: pokemon.stats.defense),
+      Stat(animation: _animation, label: 'Defense', value: pokemon.stats.defense),
       SizedBox(height: 14),
-      Stat(
-          animation: _animation,
-          label: 'Sp. Atk',
-          value: pokemon.stats.specialAttack),
+      Stat(animation: _animation, label: 'Sp. Atk', value: pokemon.stats.specialAttack),
       SizedBox(height: 14),
-      Stat(
-          animation: _animation,
-          label: 'Sp. Def',
-          value: pokemon.stats.specialDefense),
+      Stat(animation: _animation, label: 'Sp. Def', value: pokemon.stats.specialDefense),
       SizedBox(height: 14),
       Stat(animation: _animation, label: 'Speed', value: pokemon.stats.speed),
       SizedBox(height: 14),
@@ -123,6 +114,21 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats>
         progress: 100 / 600,
       ),
     ];
+  }
+
+  List<Widget> _buildEffectivenesses() {
+    final effectiveness = pokemon.typeEffectiveness;
+    final list = effectiveness.keys
+        .map(
+          (type) => PokemonType(
+            type,
+            large: true,
+            colored: true,
+            extra: 'x' + removeTrailingZero(effectiveness[type]),
+          ),
+        )
+        .toList();
+    return list;
   }
 
   @override
@@ -145,9 +151,14 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats>
           ),
           SizedBox(height: 15),
           Text(
-            // 'The effectiveness of each type on ${model.pokemon.name}.',
-            'The effectiveness of each type on ',
+            'The effectiveness of each type on ${pokemon.name}.',
             style: TextStyle(color: AppColors.black.withOpacity(0.6)),
+          ),
+          SizedBox(height: 15),
+          Wrap(
+            spacing: 5,
+            runSpacing: 5,
+            children: _buildEffectivenesses(),
           ),
         ],
       ),

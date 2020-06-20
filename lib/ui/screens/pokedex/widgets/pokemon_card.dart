@@ -131,7 +131,7 @@ class _CardContent extends StatelessWidget {
               tag: pokemon.number + type.value,
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 3),
-                child: PokemonType(type.value),
+                child: PokemonType(type),
               ),
             ),
           ),
