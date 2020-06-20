@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/data/types.dart';
+import 'package:pokedex/models/type.dart';
+import 'package:pokedex/widgets/pokemon_type.dart';
 import 'package:provider/provider.dart';
 
 import '../../../configs/AppColors.dart';
@@ -94,7 +97,7 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     return [
       Stat(animation: _animation, label: "Hp", value: pokemon.hp),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: "Atttack", value: pokemon.attack),
+      Stat(animation: _animation, label: "Attack", value: pokemon.attack),
       SizedBox(height: 14),
       Stat(animation: _animation, label: "Defense", value: pokemon.defense),
       SizedBox(height: 14),
@@ -112,6 +115,39 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     ];
   }
 
+  String _removeTrailingZero(double n){
+    String s = n.toString().replaceAll(RegExp(r"([.]*0)(?!.*\d)"), "");
+    return s;
+  }
+
+  double _getTypeEffectiveness(Pokemon pokemon, String type){
+    double effectiveness = 1;
+    for(String pokemonType in pokemon.types){
+      Type ty = getTypeFromString(pokemonType);
+      if(ty.immune.contains(type)){
+        return 0;
+      }
+      if(ty.superEffective.contains(type)){
+        effectiveness *= 2;
+      }
+      if(ty.notEffective.contains(type)){
+        effectiveness *= 0.5;
+      }
+    }
+    return effectiveness;
+  }
+
+  List<Widget> generateEffectivenessWidget(Pokemon pokemon){
+    Map<String, double> effectiveness = Map.fromIterable(listOfTypes, key: (type) => type, value: (type) => _getTypeEffectiveness(pokemon, type));
+    List<Widget> list = new List();
+    effectiveness.forEach((key, value) { 
+      list.add(
+            PokemonType(key, large: true, colored: true, extra: "x" + _removeTrailingZero(value),),
+      );
+    });
+    return list;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -124,7 +160,7 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
             ...generateStatWidget(model.pokemon),
             SizedBox(height: 27),
             Text(
-              "Type defenses",
+              "Type effectiveness",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -135,6 +171,12 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
             Text(
               "The effectiveness of each type on ${model.pokemon.name}.",
               style: TextStyle(color: AppColors.black.withOpacity(0.6)),
+            ),
+            SizedBox(height: 15),
+            Wrap(
+              spacing: 5,
+              runSpacing: 5,
+              children: generateEffectivenessWidget(model.pokemon)
             ),
           ],
         ),

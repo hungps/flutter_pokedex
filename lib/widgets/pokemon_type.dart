@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/data/pokemons.dart';
 
 class PokemonType extends StatelessWidget {
-  const PokemonType(this.label, {Key key, this.large = false}) : super(key: key);
+  const PokemonType(this.label, {Key key, this.large = false, this.colored = false, this.extra = ""}) : super(key: key);
 
   final String label;
+  final String extra;
   final bool large;
+  final bool colored;
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +20,32 @@ class PokemonType extends StatelessWidget {
         ),
         decoration: ShapeDecoration(
           shape: StadiumBorder(),
-          color: Colors.white.withOpacity(0.2),
+          color: (colored ? getPokemonColor2(label) : Colors.white).withOpacity(0.2),
         ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: large ? 12 : 8,
-            height: 0.8,
-            fontWeight: large ? FontWeight.bold : FontWeight.normal,
-            color: Colors.white,
-          ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: large ? 12 : 8,
+                height: 0.8,
+                fontWeight: large ? FontWeight.bold : FontWeight.normal,
+                color: (colored ? getPokemonColor2(label) : Colors.white),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(width: 5,),
+            Text(
+              extra,
+              style: TextStyle(
+                fontSize: large ? 12 : 8,
+                height: 0.8,
+                fontWeight: large ? FontWeight.bold : FontWeight.normal,
+                color: (colored ? getPokemonColor2(label) : Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
