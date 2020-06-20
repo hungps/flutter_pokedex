@@ -41,41 +41,19 @@ class Pokemon {
 }
 
 extension PokemonX on Pokemon {
-  Color get color {
-    if (types.isEmpty) {
-      return AppColors.lightBlue;
-    }
+  Color get color => types?.first?.color ?? AppColors.lightBlue;
 
-    switch (types[0]) {
-      case PokemonTypes.grass:
-      case PokemonTypes.bug:
-        return AppColors.lightTeal;
+  Map<PokemonTypes, double> get typeEffectiveness {
+    final effectiveness =
+        PokemonTypes.values.where((element) => element != PokemonTypes.unknown).map(
+              (type) => MapEntry(
+                type,
+                types
+                    .map((pokemonType) => pokemonType.effectiveness[type] ?? 1.0)
+                    .reduce((total, effectiveness) => total * effectiveness),
+              ),
+            );
 
-      case PokemonTypes.fire:
-        return AppColors.lightRed;
-
-      case PokemonTypes.water:
-      case PokemonTypes.fighting:
-      case PokemonTypes.normal:
-        return AppColors.lightBlue;
-
-      case PokemonTypes.electric:
-      case PokemonTypes.psychic:
-        return AppColors.lightYellow;
-
-      case PokemonTypes.poison:
-      case PokemonTypes.ghost:
-        return AppColors.lightPurple;
-
-      case PokemonTypes.ground:
-      case PokemonTypes.rock:
-        return AppColors.lightBrown;
-
-      case PokemonTypes.dark:
-        return AppColors.black;
-
-      default:
-        return AppColors.lightBlue;
-    }
+    return Map.fromEntries(effectiveness);
   }
 }
