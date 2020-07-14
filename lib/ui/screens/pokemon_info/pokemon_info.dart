@@ -21,8 +21,7 @@ class PokemonInfo extends StatefulWidget {
   _PokemonInfoState createState() => _PokemonInfoState();
 }
 
-class _PokemonInfoState extends State<PokemonInfo>
-    with TickerProviderStateMixin {
+class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
   static const double _pokemonSlideOverflow = 20;
 
   final GlobalKey _pokemonInfoKey = GlobalKey();
@@ -64,8 +63,7 @@ class _PokemonInfoState extends State<PokemonInfo>
       final screenHeight = context.screenSize.height;
       final appBarHeight = PokeAppBar().preferredSize.height;
 
-      final pokemonInfoBox =
-          _pokemonInfoKey.currentContext.findRenderObject() as RenderBox;
+      final pokemonInfoBox = _pokemonInfoKey.currentContext.findRenderObject() as RenderBox;
 
       _cardMinHeight = screenHeight - pokemonInfoBox.size.height;
       _cardMaxHeight = screenHeight - appBarHeight - context.padding.top;
@@ -128,15 +126,18 @@ class _PokemonInfoState extends State<PokemonInfo>
     return Positioned(
       top: pokeTop,
       right: pokeRight,
-      child: AnimatedFade(
-        animation: _cardController,
-        child: RotationTransition(
-          turns: _rotateController,
-          child: Image(
-            image: AppImages.pokeball,
-            width: pokeSize,
-            height: pokeSize,
-            color: Colors.white.withOpacity(0.26),
+      child: IgnorePointer(
+        ignoring: true,
+        child: AnimatedFade(
+          animation: _cardController,
+          child: RotationTransition(
+            turns: _rotateController,
+            child: Image(
+              image: AppImages.pokeball,
+              width: pokeSize,
+              height: pokeSize,
+              color: Colors.white.withOpacity(0.26),
+            ),
           ),
         ),
       ),
@@ -150,8 +151,7 @@ class _PokemonInfoState extends State<PokemonInfo>
       right: 0,
       child: Container(
         key: _pokemonInfoKey,
-        child: PokemonOverallInfo(
-            widget.pokemon, _cardController, _rotateController),
+        child: PokemonOverallInfo(widget.pokemon, _cardController, _rotateController),
       ),
     );
   }
@@ -162,8 +162,7 @@ class _PokemonInfoState extends State<PokemonInfo>
       child: PokemonTabInfo(_cardController),
       builder: (_, child) {
         return SlidingUpPanel(
-          minHeight: _cardMinHeight * _cardHeightController.value +
-              _pokemonSlideOverflow,
+          minHeight: _cardMinHeight * _cardHeightController.value + _pokemonSlideOverflow,
           maxHeight: _cardMaxHeight,
           boxShadow: null,
           color: Colors.transparent,
