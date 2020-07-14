@@ -7,7 +7,7 @@ import 'widgets/news_list.dart';
 import 'widgets/search_bar.dart';
 
 class Home extends StatefulWidget {
-  static const cardHeightFraction = 0.7;
+  static const cardHeightFraction = 0.75;
 
   @override
   _HomeState createState() => _HomeState();
@@ -52,13 +52,15 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildCard() {
+    final screenSize = MediaQuery.of(context).size;
+
     return PokeContainer(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
       ),
       children: <Widget>[
-        SizedBox(height: 117),
+        SizedBox(height: screenSize.height * 0.144),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 28),
           child: Text(
@@ -70,9 +72,9 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: screenSize.height * 0.049),
         SearchBar(),
-        SizedBox(height: 42),
+        SizedBox(height: screenSize.height * 0.051),
         CategoryList(),
       ],
     );
