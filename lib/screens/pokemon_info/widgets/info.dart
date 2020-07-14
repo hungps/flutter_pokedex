@@ -297,15 +297,18 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
       Positioned(
         top: pokeTop,
         right: pokeRight,
-        child: AnimatedFade(
-          animation: cardScrollController,
-          child: AnimatedRotation(
-            animation: _rotateController,
-            child: Image.asset(
-              "assets/images/pokeball.png",
-              width: pokeSize,
-              height: pokeSize,
-              color: Colors.white.withOpacity(0.26),
+        child: IgnorePointer(
+          ignoring: true,
+          child: AnimatedFade(
+            animation: cardScrollController,
+            child: AnimatedRotation(
+              animation: _rotateController,
+              child: Image.asset(
+                "assets/images/pokeball.png",
+                width: pokeSize,
+                height: pokeSize,
+                color: Colors.white.withOpacity(0.26),
+              ),
             ),
           ),
         ),
