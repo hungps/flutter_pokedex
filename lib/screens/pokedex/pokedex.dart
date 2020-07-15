@@ -157,9 +157,11 @@ class _PokedexState extends State<Pokedex> with SingleTickerProviderStateMixin {
           ),
         ],
         animation: _animation,
-        onPress: _animationController.isCompleted
-            ? _animationController.reverse
-            : _animationController.forward,
+        onPress: () {
+          _animationController.isCompleted
+              ? _animationController.reverse()
+              : _animationController.forward();
+        },
       ),
     );
   }
