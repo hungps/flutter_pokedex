@@ -82,10 +82,10 @@ class _HomeState extends State<Home> {
 
   Widget _buildNews() {
     return ListView(
-      physics: BouncingScrollPhysics(),
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(left: 28, right: 28, top: 0, bottom: 22),
+          padding:
+              const EdgeInsets.only(left: 28, right: 28, top: 0, bottom: 22),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

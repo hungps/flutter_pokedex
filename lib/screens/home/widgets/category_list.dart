@@ -6,6 +6,7 @@ import '../../../widgets/poke_category_card.dart';
 class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final screenSize = MediaQuery.of(context).size;
 
     return GridView.builder(
@@ -17,7 +18,7 @@ class CategoryList extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 12,
       ),
-      padding: EdgeInsets.only(left: 28, right: 28, bottom: 30),
+      padding: EdgeInsets.only(left: 28, right: 28, bottom: 25),
       itemCount: categories.length,
       itemBuilder: (context, index) => PokeCategoryCard(
         categories[index],

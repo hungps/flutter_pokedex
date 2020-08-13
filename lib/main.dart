@@ -53,9 +53,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       color: Colors.white,
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'CircularStd',
-        textTheme: Theme.of(context).textTheme.apply(displayColor: AppColors.black),
+        textTheme:
+            Theme.of(context).textTheme.apply(displayColor: AppColors.black),
         scaffoldBackgroundColor: AppColors.lightGrey,
         primarySwatch: Colors.blue,
       ),
