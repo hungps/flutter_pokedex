@@ -1,9 +1,12 @@
 part of '../home.dart';
 
 class _HeaderAppBar extends StatelessWidget {
-  static const double heightFraction = 0.66;
+  static const double heightFraction = 0.75;
 
-  const _HeaderAppBar({this.height, this.showTitle});
+  const _HeaderAppBar({
+    @required this.height,
+    @required this.showTitle,
+  });
 
   final double height;
   final bool showTitle;
@@ -15,7 +18,9 @@ class _HeaderAppBar extends StatelessWidget {
 
     return Text(
       'Pokedex',
-      style: TextStyle(fontWeight: FontWeight.bold),
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
     );
   }
 
@@ -29,7 +34,11 @@ class _HeaderAppBar extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 12,
       ),
-      padding: EdgeInsets.only(left: 28, right: 28, bottom: 58),
+      padding: EdgeInsets.only(
+        left: 28,
+        right: 28,
+        bottom: 28,
+      ),
       itemCount: categories.length,
       itemBuilder: (context, index) => PokeCategoryCard(
         categories[index],
@@ -38,7 +47,9 @@ class _HeaderAppBar extends StatelessWidget {
     );
   }
 
-  Widget _buildCard() {
+  Widget _buildCard(BuildContext context) {
+    final screenHeight = context.screenSize.height;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -52,7 +63,7 @@ class _HeaderAppBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(height: 117),
+              VSpacer(screenHeight * 0.144),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 28),
                 child: Text(
@@ -64,10 +75,9 @@ class _HeaderAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 40, bottom: 42),
-                child: SearchBar(),
-              ),
+              VSpacer(screenHeight * 0.049),
+              SearchBar(),
+              VSpacer(screenHeight * 0.051),
               _buildCategories(),
             ],
           ),
@@ -93,7 +103,7 @@ class _HeaderAppBar extends StatelessWidget {
         collapseMode: CollapseMode.pin,
         centerTitle: true,
         title: _buildTitle(showTitle),
-        background: _buildCard(),
+        background: _buildCard(context),
       ),
     );
   }

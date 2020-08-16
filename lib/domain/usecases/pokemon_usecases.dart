@@ -1,18 +1,23 @@
+import 'package:flutter/material.dart';
+
 import '../../core/usecase.dart';
 import '../../data/repositories/pokemon_repository.dart';
 import '../entities/pokemon.dart';
 
 class GetPokemonsParams {
+  const GetPokemonsParams({
+    @required this.page,
+    @required this.limit,
+  });
+
   final int page;
   final int limit;
-
-  const GetPokemonsParams({this.page, this.limit});
 }
 
 class GetPokemonsUseCase extends UseCase<List<Pokemon>, GetPokemonsParams> {
-  final PokemonRepository repository;
-
   const GetPokemonsUseCase(this.repository);
+
+  final PokemonRepository repository;
 
   @override
   Future<List<Pokemon>> call(GetPokemonsParams params) {

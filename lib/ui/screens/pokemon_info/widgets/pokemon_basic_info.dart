@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
 import 'package:pokedex/providers/providers.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
-import 'package:pokedex/ui/widgets/animated_rotation.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';
 import 'package:pokedex/ui/widgets/poke_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
@@ -18,20 +18,21 @@ class PokemonOverallInfo extends StatefulWidget {
   final AnimationController controller;
   final AnimationController rotateController;
 
-  const PokemonOverallInfo(this.pokemon, this.controller, this.rotateController);
+  const PokemonOverallInfo(
+      this.pokemon, this.controller, this.rotateController);
 
   @override
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
-class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
+class _PokemonOverallInfoState extends State<PokemonOverallInfo>
+    with TickerProviderStateMixin {
   static const double _pokemonSliderViewportFraction = 0.6;
   static const int _endReachedThreshold = 4;
 
   final GlobalKey _currentTextKey = GlobalKey();
   final GlobalKey _targetTextKey = GlobalKey();
 
-//  PokedexBloc _bloc;
   double textDiffLeft = 0.0;
   double textDiffTop = 0.0;
   PageController _pageController;
@@ -49,16 +50,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     );
     _slideController.forward();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox targetTextBox = _targetTextKey.currentContext.findRenderObject();
-      final targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
-
-      final currentTextBox = _currentTextKey.currentContext.findRenderObject() as RenderBox;
-      final currentTextPosition = currentTextBox.localToGlobal(Offset.zero);
-
-      textDiffLeft = targetTextPosition.dx - currentTextPosition.dx;
-      textDiffTop = targetTextPosition.dy - currentTextPosition.dy;
-    });
+    _calculatePokemonNamePosition();
 
     super.initState();
   }
@@ -81,6 +73,49 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     super.dispose();
   }
 
+  void _calculatePokemonNamePosition() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox targetTextBox =
+          _targetTextKey.currentContext.findRenderObject();
+      final targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
+
+      final currentTextBox =
+          _currentTextKey.currentContext.findRenderObject() as RenderBox;
+      final currentTextPosition = currentTextBox.localToGlobal(Offset.zero);
+
+      final newDiffLeft = targetTextPosition.dx - currentTextPosition.dx;
+      final newDiffTop = targetTextPosition.dy - currentTextPosition.dy;
+
+      if (newDiffLeft != textDiffLeft || newDiffTop != textDiffTop) {
+        print({newDiffLeft, newDiffTop});
+        setState(() {
+          textDiffLeft = newDiffLeft;
+          textDiffTop = newDiffTop;
+        });
+      }
+    });
+  }
+
+  AppBar _buildAppBar() {
+    return PokeAppBar(
+      // A placeholder for easily calculate the translate of the pokemon name
+      title: Consumer((_, read) {
+        _calculatePokemonNamePosition();
+
+        return Text(
+          read(currentPokemonStateProvider).pokemon.name,
+          key: _targetTextKey,
+          style: TextStyle(
+            color: Colors.transparent,
+            fontWeight: FontWeight.w900,
+            fontSize: 22,
+          ),
+        );
+      }),
+      rightIcon: Icons.favorite_border,
+    );
+  }
+
   Widget _buildPokemonName() {
     final fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(controller);
 
@@ -99,7 +134,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
               return Transform.translate(
                 offset: Offset(textDiffLeft * value, textDiffTop * value),
                 child: Consumer((_, read) {
-                  final pokemonName = read(currentPokemonStateProvider).pokemon.name;
+                  final pokemonName =
+                      read(currentPokemonStateProvider).pokemon.name;
 
                   return Hero(
                     tag: pokemonName,
@@ -189,7 +225,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   }
 
   Widget _buildPokemonSlider() {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = context.screenSize;
     final fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(
       CurvedAnimation(
         parent: controller,
@@ -210,8 +246,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
           children: <Widget>[
             Align(
               alignment: Alignment.bottomCenter,
-              child: AnimatedRotation(
-                animation: widget.rotateController,
+              child: RotationTransition(
+                turns: widget.rotateController,
                 child: Image(
                   image: AppImages.pokeball,
                   width: screenSize.height * 0.24,
@@ -233,7 +269,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 onPageChanged: (index) {
                   currentPokemonState.setPokemon(index, pokemons[index]);
 
-                  final thresholdReached = index >= pokemons.length - _endReachedThreshold;
+                  final thresholdReached =
+                      index >= pokemons.length - _endReachedThreshold;
 
                   if (pokemonsState.canLoadMore && thresholdReached) {
                     pokemonsState.getPokemons();
@@ -245,8 +282,12 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                     duration: Duration(milliseconds: 600),
                     curve: Curves.easeOutQuint,
                     padding: EdgeInsets.only(
-                      top: currentPokemonState.index == index ? 0 : screenSize.height * 0.04,
-                      bottom: currentPokemonState.index == index ? 0 : screenSize.height * 0.04,
+                      top: currentPokemonState.index == index
+                          ? 0
+                          : screenSize.height * 0.04,
+                      bottom: currentPokemonState.index == index
+                          ? 0
+                          : screenSize.height * 0.04,
                     ),
                     child: CachedNetworkImage(
                       imageUrl: pokemons[index].image,
@@ -255,7 +296,9 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                         width: screenSize.height * 0.28,
                         height: screenSize.height * 0.28,
                         alignment: Alignment.bottomCenter,
-                        color: currentPokemonState.index == index ? null : Colors.black26,
+                        color: currentPokemonState.index == index
+                            ? null
+                            : Colors.black26,
                       ),
                     ),
                   ),
@@ -273,19 +316,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        PokeAppBar(
-          // A placeholder for easily calculate the translate of the pokemon name
-          title: Text(
-            pokemon.name,
-            key: _targetTextKey,
-            style: TextStyle(
-              color: Colors.transparent,
-              fontWeight: FontWeight.w900,
-              fontSize: 22,
-            ),
-          ),
-          rightIcon: Icons.favorite_border,
-        ),
+        _buildAppBar(),
         SizedBox(height: 9),
         _buildPokemonName(),
         SizedBox(height: 9),

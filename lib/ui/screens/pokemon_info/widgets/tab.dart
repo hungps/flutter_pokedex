@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/providers/providers.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_about.dart';
@@ -8,7 +9,10 @@ import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_base_stats.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_evolution.dart';
 
 class TabData {
-  const TabData({this.label, this.builder});
+  const TabData({
+    this.label,
+    this.builder,
+  });
 
   final Widget Function(Pokemon pokemon, Animation animation) builder;
   final String label;
@@ -59,7 +63,9 @@ class PokemonTabInfo extends StatelessWidget {
         final currentPokemon = read(currentPokemonStateProvider).pokemon;
 
         return TabBarView(
-          children: _tabs.map((tab) => tab.builder(currentPokemon, _animation)).toList(),
+          children: _tabs
+              .map((tab) => tab.builder(currentPokemon, _animation))
+              .toList(),
         );
       }),
     );
@@ -67,7 +73,7 @@ class PokemonTabInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = context.screenSize.width;
     return DefaultTabController(
       length: 4,
       initialIndex: 0,
@@ -86,7 +92,8 @@ class PokemonTabInfo extends StatelessWidget {
           children: <Widget>[
             AnimatedBuilder(
               animation: _animation,
-              builder: (context, _) => SizedBox(height: (1 - _animation.value) * 16 + 6),
+              builder: (context, _) =>
+                  SizedBox(height: (1 - _animation.value) * 16 + 6),
             ),
             _buildTabBar(),
             _buildTabContent(),

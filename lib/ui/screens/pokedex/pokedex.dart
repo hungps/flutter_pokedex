@@ -6,14 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/core/extensions/animation.dart';
+import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/providers/providers.dart';
 import 'package:pokedex/routes.dart';
-import 'package:pokedex/ui/screens/pokedex/modals/generation_modal.dart';
-import 'package:pokedex/ui/screens/pokedex/modals/search_modal.dart';
+import 'package:pokedex/ui/modals/generation_modal.dart';
+import 'package:pokedex/ui/modals/search_modal.dart';
+import 'package:pokedex/ui/screens/pokedex/widgets/pokemon_card.dart';
 import 'package:pokedex/ui/widgets/fab.dart';
 import 'package:pokedex/ui/widgets/poke_container.dart';
-import 'package:pokedex/ui/widgets/pokemon_card.dart';
 
 part 'package:pokedex/ui/screens/pokedex/widgets/fab_menu.dart';
 part 'package:pokedex/ui/screens/pokedex/widgets/fab_overlay_background.dart';
@@ -27,7 +28,8 @@ class PokedexScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _PokedexScreenState();
 }
 
-class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProviderStateMixin {
+class _PokedexScreenState extends State<PokedexScreen>
+    with SingleTickerProviderStateMixin {
   static const double _endReachedThreshold = 200;
 
   final ScrollController _scrollController = ScrollController();
@@ -78,7 +80,8 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
   void _onScroll() {
     if (!_scrollController.hasClients) return;
 
-    final thresholdReached = _scrollController.position.extentAfter < _endReachedThreshold;
+    final thresholdReached =
+        _scrollController.position.extentAfter < _endReachedThreshold;
     final isLoading = pokemonsStateProvider.read(context).loading;
     final canLoadMore = pokemonsStateProvider.read(context).canLoadMore;
 
@@ -137,7 +140,9 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
           controller: _scrollController,
           onRefresh: _onRefresh,
           onSelectPokemon: (index, pokemon) {
-            currentPokemonStateProvider.read(context).setPokemon(index, pokemon);
+            currentPokemonStateProvider
+                .read(context)
+                .setPokemon(index, pokemon);
             AppNavigator.push(Routes.pokemonInfo, pokemon);
           },
         );
@@ -150,7 +155,8 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
     return Scaffold(
       body: PokeballBackground(
         buildChildren: (props) {
-          final appBarTop = props.size / 2 + props.top - IconTheme.of(context).size / 2;
+          final appBarTop =
+              props.size / 2 + props.top - IconTheme.of(context).size / 2;
 
           return [
             Column(

@@ -6,12 +6,11 @@ import 'package:pokedex/ui/widgets/progress.dart';
 
 class Stat extends StatelessWidget {
   const Stat({
-    Key key,
     @required this.animation,
     @required this.label,
     @required this.value,
     this.progress,
-  }) : super(key: key);
+  });
 
   final Animation animation;
   final String label;
@@ -60,7 +59,8 @@ class PokemonBaseStats extends StatefulWidget {
   _PokemonBaseStatsState createState() => _PokemonBaseStatsState();
 }
 
-class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerProviderStateMixin {
+class _PokemonBaseStatsState extends State<PokemonBaseStats>
+    with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _controller;
 
@@ -96,13 +96,23 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     return [
       Stat(animation: _animation, label: 'Hp', value: pokemon.stats.hp),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: 'Atttack', value: pokemon.stats.attack),
+      Stat(
+          animation: _animation, label: 'Atttack', value: pokemon.stats.attack),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: 'Defense', value: pokemon.stats.defense),
+      Stat(
+          animation: _animation,
+          label: 'Defense',
+          value: pokemon.stats.defense),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: 'Sp. Atk', value: pokemon.stats.specialAttack),
+      Stat(
+          animation: _animation,
+          label: 'Sp. Atk',
+          value: pokemon.stats.specialAttack),
       SizedBox(height: 14),
-      Stat(animation: _animation, label: 'Sp. Def', value: pokemon.stats.specialDefense),
+      Stat(
+          animation: _animation,
+          label: 'Sp. Def',
+          value: pokemon.stats.specialDefense),
       SizedBox(height: 14),
       Stat(animation: _animation, label: 'Speed', value: pokemon.stats.speed),
       SizedBox(height: 14),

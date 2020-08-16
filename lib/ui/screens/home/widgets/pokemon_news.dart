@@ -3,7 +3,12 @@ part of '../home.dart';
 class _PokemonNews extends StatelessWidget {
   Widget _buildHeader() {
     return Padding(
-      padding: EdgeInsets.only(left: 28, right: 28, top: 0, bottom: 22),
+      padding: EdgeInsets.only(
+        left: 28,
+        right: 28,
+        top: 0,
+        bottom: 22,
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

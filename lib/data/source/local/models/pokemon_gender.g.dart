@@ -9,10 +9,13 @@ part of 'pokemon_gender.dart';
 class PokemonGenderHiveModelAdapter
     extends TypeAdapter<PokemonGenderHiveModel> {
   @override
+  final int typeId = 2;
+
+  @override
   PokemonGenderHiveModel read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
-    var fields = <int, dynamic>{
-      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return PokemonGenderHiveModel()
       ..genderless = fields[0] as bool
@@ -31,4 +34,14 @@ class PokemonGenderHiveModelAdapter
       ..writeByte(2)
       ..write(obj.female);
   }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PokemonGenderHiveModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

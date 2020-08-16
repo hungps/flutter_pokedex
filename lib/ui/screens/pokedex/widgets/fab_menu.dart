@@ -2,14 +2,13 @@ part of '../pokedex.dart';
 
 class _FabMenu extends StatelessWidget {
   const _FabMenu({
-    Key key,
     @required this.animation,
     @required this.toggle,
     this.onFavouritePress,
     this.onAllTypePress,
     this.onAllGenPress,
     this.onSearchPress,
-  }) : super(key: key);
+  });
 
   final Animation animation;
   final Function onAllGenPress;

@@ -6,68 +6,32 @@ import 'package:pokedex/domain/entities/category.dart';
 class PokeCategoryCard extends StatelessWidget {
   const PokeCategoryCard(
     this.category, {
-    Key key,
     this.onPress,
-  }) : super(key: key);
+  });
 
   final Category category;
   final Function onPress;
 
-  Widget _buildCardContent() {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: Text(
-          category.name,
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
+  Widget _buildCircleDecoration({@required double height}) {
+    return Positioned(
+      top: -height * 0.616,
+      left: -height * 0.53,
+      child: CircleAvatar(
+        radius: (height * 1.03) / 2,
+        backgroundColor: Colors.white.withOpacity(0.14),
       ),
     );
   }
 
-  List<Widget> _buildDecorations(double itemHeight) {
-    return [
-      Positioned(
-        top: -itemHeight * 0.616,
-        left: -itemHeight * 0.53,
-        child: CircleAvatar(
-          radius: itemHeight * 1.03 / 2,
-          backgroundColor: Colors.white.withOpacity(0.14),
-        ),
-      ),
-      Positioned(
-        top: -itemHeight * 0.16,
-        right: -itemHeight * 0.25,
-        child: Image(
-          image: AppImages.pokeball,
-          width: itemHeight * 1.388,
-          height: itemHeight * 1.388,
-          color: Colors.white.withOpacity(0.14),
-        ),
-      ),
-    ];
-  }
-
-  Widget _buildShadow(double itemWidth) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        width: itemWidth * 0.82,
-        height: 11,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: category.color,
-              offset: Offset(0, 3),
-              blurRadius: 23,
-            ),
-          ],
-        ),
+  Widget _buildPokemonDecoration({@required double height}) {
+    return Positioned(
+      top: -height * 0.16,
+      right: -height * 0.25,
+      child: Image(
+        image: AppImages.pokeball,
+        width: height * 1.388,
+        height: height * 1.388,
+        color: Colors.white.withOpacity(0.14),
       ),
     );
   }
@@ -81,9 +45,13 @@ class PokeCategoryCard extends StatelessWidget {
 
         return Stack(
           children: <Widget>[
-            _buildShadow(itemWidth),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: _Shadows(color: category.color, width: itemWidth * 0.82),
+            ),
             MaterialButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
               padding: EdgeInsets.all(0),
               color: category.color,
               splashColor: Colors.white10,
@@ -96,8 +64,9 @@ class PokeCategoryCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Stack(
                   children: [
-                    _buildCardContent(),
-                    ..._buildDecorations(itemHeight),
+                    _buildPokemonDecoration(height: itemHeight),
+                    _buildCircleDecoration(height: itemHeight),
+                    _CardContent(category.name),
                   ],
                 ),
               ),
@@ -105,6 +74,54 @@ class PokeCategoryCard extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+}
+
+class _CardContent extends StatelessWidget {
+  const _CardContent(this.name);
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Text(
+          name,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Shadows extends StatelessWidget {
+  const _Shadows({this.color, this.width});
+
+  final Color color;
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width * 0.82,
+      height: 11,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: color,
+            offset: Offset(0, 3),
+            blurRadius: 23,
+          ),
+        ],
+      ),
     );
   }
 }

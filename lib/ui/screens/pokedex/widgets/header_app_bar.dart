@@ -1,10 +1,13 @@
 part of '../pokedex.dart';
 
 class _HeaderAppBar extends StatelessWidget {
+  const _HeaderAppBar({
+    this.top = 0.0,
+    this.appBarKey,
+  });
+
   final double top;
   final GlobalKey appBarKey;
-
-  const _HeaderAppBar({Key key, this.top, this.appBarKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

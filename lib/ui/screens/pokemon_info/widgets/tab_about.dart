@@ -6,10 +6,10 @@ import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
 
 class PokemonAbout extends StatelessWidget {
+  const PokemonAbout(this._pokemon, this._animation);
+
   final Pokemon _pokemon;
   final Animation _animation;
-
-  const PokemonAbout(this._pokemon, this._animation);
 
   Widget _buildSection(String text, {List<Widget> children, Widget child}) {
     return Column(
@@ -100,7 +100,8 @@ class PokemonAbout extends StatelessWidget {
                 children: <Widget>[
                   Image(image: AppImages.male, width: 12, height: 12),
                   SizedBox(width: 4),
-                  Text('${_pokemon.gender.male}%', style: TextStyle(height: 0.8)),
+                  Text('${_pokemon.gender.male}%',
+                      style: TextStyle(height: 0.8)),
                 ],
               ),
             ),
@@ -211,7 +212,9 @@ class PokemonAbout extends StatelessWidget {
 
         return SingleChildScrollView(
           padding: EdgeInsets.symmetric(vertical: 19, horizontal: 27),
-          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          physics: scrollable
+              ? BouncingScrollPhysics()
+              : NeverScrollableScrollPhysics(),
           child: child,
         );
       },

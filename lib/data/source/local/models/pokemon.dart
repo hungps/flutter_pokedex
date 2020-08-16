@@ -5,9 +5,8 @@ import 'pokemon_stats.dart';
 
 part 'pokemon.g.dart';
 
-@HiveType()
+@HiveType(typeId: 1)
 class PokemonHiveModel extends HiveObject {
-  static const int boxTypeId = 0;
   static const String boxKey = 'pokemon';
 
   @HiveField(0)

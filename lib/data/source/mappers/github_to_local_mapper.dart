@@ -14,7 +14,11 @@ extension GithubPokemonModelToLocalX on GithubPokemonModel {
     ..height = height?.trim() ?? ''
     ..weight = weight?.trim() ?? ''
     ..genera = category?.trim() ?? ''
-    ..eggGroups = eggGroups?.split(RegExp(r',\s*?'))?.map((e) => e?.trim() ?? '')?.toList() ?? []
+    ..eggGroups = eggGroups
+            ?.split(RegExp(r',\s*?'))
+            ?.map((e) => e?.trim() ?? '')
+            ?.toList() ??
+        []
     ..gender = (PokemonGenderHiveModel()
       ..male = genderMalePercentage?.parseDouble() ?? 0.0
       ..female = genderFemalePercentage?.parseDouble() ?? 0.0

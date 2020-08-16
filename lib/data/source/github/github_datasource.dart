@@ -7,9 +7,9 @@ class GithubDataSource {
   static const String url =
       'https://gist.githubusercontent.com/scitbiz/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/pokemons.json';
 
-  final NetworkManager networkManager;
-
   GithubDataSource(this.networkManager);
+
+  final NetworkManager networkManager;
 
   Future<List<GithubPokemonModel>> getPokemons() async {
     final response = await networkManager.request(RequestMethod.get, url);

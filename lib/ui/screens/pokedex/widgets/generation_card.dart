@@ -5,7 +5,7 @@ import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/generation.dart';
 
 class GenerationCard extends StatelessWidget {
-  const GenerationCard(this.generation, {Key key}) : super(key: key);
+  const GenerationCard(this.generation);
 
   final Generation generation;
 

@@ -2,13 +2,12 @@ part of '../pokedex.dart';
 
 class _PokemonGrid extends StatelessWidget {
   _PokemonGrid({
-    Key key,
     @required this.pokemons,
     @required this.canLoadMore,
     @required this.controller,
     @required this.onRefresh,
     @required this.onSelectPokemon,
-  }) : super(key: key);
+  });
 
   final ScrollController controller;
   final List<Pokemon> pokemons;
@@ -18,8 +17,7 @@ class _PokemonGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomOffset = MediaQuery.of(context).padding.bottom;
-    final paddingBottom = max(bottomOffset, 28.0);
+    final paddingBottom = max(context.padding.bottom, 28.0);
 
     return CustomScrollView(
       controller: controller,

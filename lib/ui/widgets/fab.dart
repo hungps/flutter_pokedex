@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class FabItem {
   const FabItem(this.title, this.icon, {this.onPress});
@@ -41,20 +42,21 @@ class FabMenuItem extends StatelessWidget {
 class ExpandedAnimationFab extends AnimatedWidget {
   const ExpandedAnimationFab({
     @required this.items,
+    @required Animation animation,
     this.onPress,
-    Animation animation,
   }) : super(listenable: animation);
 
   final List<FabItem> items;
   final Function onPress;
 
-  Animation<double> get _animation => listenable;
+  Animation<double> get animation => listenable;
 
-  Widget buildItem(BuildContext context, int index) {
-    final screenWidth = MediaQuery.of(context).size.width;
+  Widget _buildItem(BuildContext context, int index) {
+    final screenWidth = context.screenSize.width;
 
     final transform = Matrix4.translationValues(
-      -(screenWidth - _animation.value * screenWidth) * ((items.length - index) / 4),
+      -(screenWidth - animation.value * screenWidth) *
+          ((items.length - index) / 4),
       0.0,
       0.0,
     );
@@ -64,7 +66,7 @@ class ExpandedAnimationFab extends AnimatedWidget {
       child: Transform(
         transform: transform,
         child: Opacity(
-          opacity: _animation.value,
+          opacity: animation.value,
           child: FabMenuItem(items[index]),
         ),
       ),
@@ -78,21 +80,21 @@ class ExpandedAnimationFab extends AnimatedWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         IgnorePointer(
-          ignoring: _animation.value == 0,
+          ignoring: animation.value == 0,
           child: ListView.separated(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             separatorBuilder: (_, __) => SizedBox(height: 9),
             padding: EdgeInsets.symmetric(vertical: 12),
             itemCount: items.length,
-            itemBuilder: buildItem,
+            itemBuilder: _buildItem,
           ),
         ),
         FloatingActionButton(
           backgroundColor: AppColors.indigo,
           child: AnimatedIcon(
             icon: AnimatedIcons.menu_close,
-            progress: _animation,
+            progress: animation,
           ),
           onPressed: onPress,
         ),

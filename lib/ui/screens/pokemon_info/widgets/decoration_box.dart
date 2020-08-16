@@ -1,18 +1,21 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class DecorationBox extends StatelessWidget {
+  static const double boxSizeFraction = 0.176;
+
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final boxSize = context.screenSize.height * boxSizeFraction;
 
     return Transform.rotate(
       angle: pi * 5 / 12,
       alignment: Alignment.center,
       child: Container(
-        width: screenHeight * 0.176,
-        height: screenHeight * 0.176,
+        width: boxSize,
+        height: boxSize,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           gradient: LinearGradient(

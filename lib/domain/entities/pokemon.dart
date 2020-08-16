@@ -1,10 +1,29 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 import '../../configs/colors.dart';
 import 'pokemon_props.dart';
 import 'pokemon_types.dart';
 
 class Pokemon {
+  const Pokemon({
+    @required this.number,
+    @required this.name,
+    this.description,
+    this.types,
+    @required this.image,
+    this.height,
+    this.weight,
+    this.genera,
+    this.eggGroups,
+    this.gender,
+    this.stats,
+    this.baseExp,
+    this.evolutions,
+    this.evolutionReason,
+  });
+
   final String number;
   final String name;
   final String description;
@@ -19,23 +38,6 @@ class Pokemon {
   final double baseExp;
   final List<Pokemon> evolutions;
   final String evolutionReason;
-
-  Pokemon({
-    this.number,
-    this.name,
-    this.description,
-    this.types,
-    this.image,
-    this.height,
-    this.weight,
-    this.genera,
-    this.eggGroups,
-    this.gender,
-    this.stats,
-    this.baseExp,
-    this.evolutions,
-    this.evolutionReason,
-  });
 }
 
 extension PokemonX on Pokemon {

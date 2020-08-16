@@ -8,10 +8,13 @@ part of 'pokemon.dart';
 
 class PokemonHiveModelAdapter extends TypeAdapter<PokemonHiveModel> {
   @override
+  final int typeId = 1;
+
+  @override
   PokemonHiveModel read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
-    var fields = <int, dynamic>{
-      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return PokemonHiveModel()
       ..number = fields[0] as String
@@ -63,4 +66,14 @@ class PokemonHiveModelAdapter extends TypeAdapter<PokemonHiveModel> {
       ..writeByte(13)
       ..write(obj.evolutionReason);
   }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PokemonHiveModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

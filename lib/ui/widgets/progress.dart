@@ -3,9 +3,9 @@ import 'package:pokedex/configs/colors.dart';
 
 class ProgressBar extends StatelessWidget {
   const ProgressBar({
-    @required this.progress,
     this.color = AppColors.red,
     this.backgroundColor = AppColors.lighterGrey,
+    @required this.progress,
   });
 
   final Color backgroundColor;

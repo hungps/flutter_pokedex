@@ -1,8 +1,10 @@
 part of '../pokedex.dart';
 
 class _FabOverlayBackground extends AnimatedWidget {
-  const _FabOverlayBackground({Animation animation, this.onPressOut})
-      : super(listenable: animation);
+  const _FabOverlayBackground({
+    @required Animation animation,
+    this.onPressOut,
+  }) : super(listenable: animation);
 
   final Function onPressOut;
 

@@ -31,8 +31,10 @@ class PokemonDefaultRepository extends PokemonRepository {
       page: page,
       limit: limit,
     );
-    final pokemonEntities =
-        pokemonHiveModels.where((element) => element != null).map((e) => e.toEntity()).toList();
+    final pokemonEntities = pokemonHiveModels
+        .where((element) => element != null)
+        .map((e) => e.toEntity())
+        .toList();
 
     return pokemonEntities;
   }

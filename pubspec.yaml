@@ -21,8 +21,8 @@ dependencies:
     sdk: flutter
   cached_network_image: ^2.2.0+1
   sliding_up_panel: ^1.0.2
-  hive: 1.2.0
-  hive_flutter: ^0.3.0+2
+  hive: ^1.4.3
+  hive_flutter: ^0.3.1
   dio: ^3.0.9
   dio_http_cache: ^0.2.7
   json_annotation: ^3.0.1
@@ -33,7 +33,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^1.10.0
   json_serializable: ^3.3.0
-  hive_generator: 0.5.2
+  hive_generator: ^0.7.1
   pedantic: ^1.9.0
 
 # For information on the generic Dart part of this file, see the

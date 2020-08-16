@@ -3,9 +3,8 @@ import 'package:pokedex/configs/colors.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
-    Key key,
     this.margin = const EdgeInsets.symmetric(horizontal: 28),
-  }) : super(key: key);
+  });
 
   final EdgeInsets margin;
 

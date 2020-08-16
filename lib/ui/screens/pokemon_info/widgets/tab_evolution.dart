@@ -2,16 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 
 class PokemonBall extends StatelessWidget {
-  const PokemonBall(this.pokemon, {Key key}) : super(key: key);
+  const PokemonBall(this.pokemon);
 
   final Pokemon pokemon;
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = context.screenSize.height;
     final pokeballSize = screenHeight * 0.1;
     final pokemonSize = pokeballSize * 0.85;
 
@@ -113,7 +114,8 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
         children: <Widget>[
           Text(
             'Evolution Chain',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
           ),
           SizedBox(height: 28),
           ...buildEvolutionList(widget.pokemon.evolutions),
@@ -123,7 +125,9 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
         final scrollable = widget.animation.value.floor() == 1;
 
         return SingleChildScrollView(
-          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          physics: scrollable
+              ? BouncingScrollPhysics()
+              : NeverScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(vertical: 31, horizontal: 28),
           child: child,
         );

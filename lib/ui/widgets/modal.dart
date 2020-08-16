@@ -1,13 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class Modal extends StatelessWidget {
+  static const Radius _borderRadius = Radius.circular(30.0);
+
+  const Modal({
+    this.title,
+    @required this.child,
+  });
+
   final String title;
   final Widget child;
 
-  const Modal({Key key, this.title, this.child}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 14),
+      decoration: BoxDecoration(
+        color: AppColors.whiteGrey,
+        borderRadius: BorderRadius.only(
+          topLeft: _borderRadius,
+          topRight: _borderRadius,
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _DragLine(),
+          _Title(title),
+          child,
+        ],
+      ),
+    );
+  }
+}
 
-  Widget _buildDragLine(double width) {
+class _DragLine extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final width = context.screenSize.width * 0.2;
+
     return Container(
       width: width,
       height: 3,
@@ -17,49 +50,28 @@ class Modal extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildTitle() {
-    if (title == null) {
+class _Title extends StatelessWidget {
+  const _Title(this.text);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    if (text == null) {
       return SizedBox();
     }
 
     return Padding(
       padding: EdgeInsets.only(top: 18, bottom: 8),
       child: Text(
-        title,
+        text,
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w900,
         ),
       ),
     );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    final dragLineWidth = MediaQuery.of(context).size.width * 0.2;
-
-    return Container(
-      padding: EdgeInsets.only(top: 14),
-      decoration: BoxDecoration(
-        color: AppColors.whiteGrey,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          _buildDragLine(dragLineWidth),
-          _buildTitle(),
-          child,
-        ],
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildBody(context);
   }
 }

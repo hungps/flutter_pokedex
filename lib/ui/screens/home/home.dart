@@ -10,6 +10,7 @@ import 'package:pokedex/ui/widgets/poke_category_card.dart';
 import 'package:pokedex/ui/widgets/poke_container.dart';
 import 'package:pokedex/ui/widgets/poke_news.dart';
 import 'package:pokedex/ui/widgets/search_bar.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
 
 part 'widgets/header_app_bar.dart';
 part 'widgets/pokemon_news.dart';

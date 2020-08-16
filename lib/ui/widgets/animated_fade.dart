@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
-class AnimatedFade extends StatelessWidget {
+class AnimatedFade extends AnimatedWidget {
   const AnimatedFade({
     @required this.child,
     @required this.animation,
-  });
+  }) : super(listenable: animation);
 
   final Animation<double> animation;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: animation,
-      child: child,
-      builder: (context, widget) => IgnorePointer(
-        ignoring: animation.value < 1,
-        child: Opacity(
-          opacity: animation.value,
-          child: widget,
-        ),
+    final opacity = animation.value;
+
+    return IgnorePointer(
+      ignoring: opacity < 1,
+      child: Opacity(
+        opacity: opacity,
+        child: child,
       ),
     );
   }

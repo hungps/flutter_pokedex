@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
-
-import 'utils.dart';
+import 'package:pokedex/core/utils.dart';
 
 class NetworkManager {
   final Dio dio;
@@ -38,7 +37,17 @@ class NetworkManager {
   }
 }
 
-enum RequestMethod { get, head, post, put, delete, connect, options, trace, patch }
+enum RequestMethod {
+  get,
+  head,
+  post,
+  put,
+  delete,
+  connect,
+  options,
+  trace,
+  patch,
+}
 
 extension RequestMethodX on RequestMethod {
   String get value => getEnumValue(this).toUpperCase();

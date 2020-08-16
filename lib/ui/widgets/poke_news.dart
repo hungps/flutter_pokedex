@@ -3,15 +3,37 @@ import 'package:pokedex/configs/colors.dart';
 
 class PokeNews extends StatelessWidget {
   const PokeNews({
-    Key key,
     @required this.title,
     @required this.time,
     @required this.thumbnail,
-  }) : super(key: key);
+  });
 
   final ImageProvider thumbnail;
   final String time;
   final String title;
+
+  Widget _buildContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 6),
+        Text(
+          time,
+          style: TextStyle(
+            fontSize: 10,
+            color: AppColors.black.withOpacity(0.6),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,26 +44,7 @@ class PokeNews extends StatelessWidget {
         children: <Widget>[
           Flexible(
             flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 6),
-                Text(
-                  time,
-                  style: TextStyle(
-                    fontSize: 10,
-                    color: AppColors.black.withOpacity(0.6),
-                  ),
-                ),
-              ],
-            ),
+            child: _buildContent(),
           ),
           SizedBox(width: 36),
           Flexible(

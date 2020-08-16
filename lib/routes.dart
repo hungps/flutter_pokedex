@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'ui/screens/home/home.dart';
-import 'ui/screens/pokedex/pokedex.dart';
-import 'ui/screens/pokemon_info/pokemon_info.dart';
-import 'ui/screens/splash/splash.dart';
-import 'ui/widgets/fade_page_route.dart';
+import 'package:pokedex/core/fade_page_route.dart';
+import 'package:pokedex/ui/screens/home/home.dart';
+import 'package:pokedex/ui/screens/pokedex/pokedex.dart';
+import 'package:pokedex/ui/screens/pokemon_info/pokemon_info.dart';
+import 'package:pokedex/ui/screens/splash/splash.dart';
 
 enum Routes { splash, home, pokedex, pokemonInfo }
 

@@ -11,14 +11,7 @@ class PokemonGender {
 }
 
 class PokemonStats {
-  final int attack;
-  final int specialAttack;
-  final int defense;
-  final int specialDefense;
-  final int hp;
-  final int speed;
-
-  PokemonStats({
+  const PokemonStats({
     this.attack,
     this.specialAttack,
     this.defense,
@@ -26,4 +19,11 @@ class PokemonStats {
     this.hp,
     this.speed,
   });
+
+  final int attack;
+  final int specialAttack;
+  final int defense;
+  final int specialDefense;
+  final int hp;
+  final int speed;
 }

@@ -35,7 +35,11 @@ const List<Generation> generations = [
   ),
   Generation(
     title: 'Generation V',
-    pokemons: ['assets/images/snivy.png', 'assets/images/tepig.png', 'assets/images/oshawott.png'],
+    pokemons: [
+      'assets/images/snivy.png',
+      'assets/images/tepig.png',
+      'assets/images/oshawott.png'
+    ],
   ),
   Generation(
     title: 'Generation VI',
@@ -47,7 +51,11 @@ const List<Generation> generations = [
   ),
   Generation(
     title: 'Generation VII',
-    pokemons: ['assets/images/rowlet.png', 'assets/images/litten.png', 'assets/images/popplio.png'],
+    pokemons: [
+      'assets/images/rowlet.png',
+      'assets/images/litten.png',
+      'assets/images/popplio.png'
+    ],
   ),
   Generation(
     title: 'Generation VIII',
