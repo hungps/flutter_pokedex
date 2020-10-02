@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:pokedex/domain/entities/type_color.dart';
 
 import '../../configs/colors.dart';
 import 'pokemon_props.dart';
@@ -46,36 +47,6 @@ extension PokemonX on Pokemon {
       return AppColors.lightBlue;
     }
 
-    switch (types[0]) {
-      case PokemonTypes.grass:
-      case PokemonTypes.bug:
-        return AppColors.lightTeal;
-
-      case PokemonTypes.fire:
-        return AppColors.lightRed;
-
-      case PokemonTypes.water:
-      case PokemonTypes.fighting:
-      case PokemonTypes.normal:
-        return AppColors.lightBlue;
-
-      case PokemonTypes.electric:
-      case PokemonTypes.psychic:
-        return AppColors.lightYellow;
-
-      case PokemonTypes.poison:
-      case PokemonTypes.ghost:
-        return AppColors.lightPurple;
-
-      case PokemonTypes.ground:
-      case PokemonTypes.rock:
-        return AppColors.lightBrown;
-
-      case PokemonTypes.dark:
-        return AppColors.black;
-
-      default:
-        return AppColors.lightBlue;
-    }
+    return colorGenerator(types[0]);
   }
 }

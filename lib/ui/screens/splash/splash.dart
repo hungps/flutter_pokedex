@@ -24,7 +24,17 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Pokedex'),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Image(
+            image: AppImages.pikloader,
+            width: 100,
+          ),
+          Text(
+            'Pokedex',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
+          )
+        ]),
       ),
     );
   }
