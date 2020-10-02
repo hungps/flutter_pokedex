@@ -6,8 +6,7 @@ part of 'pokemon_gender.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class PokemonGenderHiveModelAdapter
-    extends TypeAdapter<PokemonGenderHiveModel> {
+class PokemonGenderHiveModelAdapter extends TypeAdapter<PokemonGenderHiveModel> {
   @override
   final int typeId = 2;
 

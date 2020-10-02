@@ -1,0 +1,1896 @@
+[
+    {
+        "name": "absorb",
+        "type": "grass",
+        "category": "special",
+        "power": 20,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effects": [
+            "Absorb deals damage and the user will recover 50% of the HP drained."
+        ]
+    },
+    {
+        "name": "acid",
+        "type": "poison",
+        "category": "physical",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effect": {
+            "chance": 0.1,
+            "stat": "defense",
+            "stages": -1
+        }
+    },
+    {
+        "name": "acid armor",
+        "type": "poison",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 40,
+        "effect": {
+            "stat": "defense",
+            "stages": 2
+        }
+    },
+    {
+        "name": "agility",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effect": {
+            "stat": "speed",
+            "stages": 2
+        }
+    },
+    {
+        "name": "amnesia",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 20,
+        "effect": {
+            "stat": "special",
+            "stages": 2
+        }
+    },
+    {
+        "name": "aurora beam",
+        "type": "ice",
+        "category": "special",
+        "power": 65,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "chance": 0.1,
+            "stat": "attack",
+            "stages": -1
+        }
+    },
+    {
+        "name": "barrage",
+        "type": "normal",
+        "category": "physical",
+        "power": 15,
+        "accuracy": 0.85,
+        "pp": 20,
+        "changes": [
+            "In Generations 1-3, Barrage ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "barrier",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effect": {
+            "stat": "defense",
+            "stages": 2
+        }
+    },
+    {
+        "name": "bide",
+        "type": "normal",
+        "category": "physical",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "The user of Bide stores energy for 2 turns. At the end of the second turn the Pokémon unleashes energy, dealing twice the HP damage it received.",
+            "Bide deals fixed, typeless damage, so will hit Ghost-type Pokémon. It also ignores changes to the Accuracy and Evasion stats and can hit Pokémon in the invulnerable stage of Bounce, Dig, Dive, Fly, Shadow Force or Sky Drop."
+        ],
+        "changes": [
+            "In Generations 1-3, Bide is not an increased priority move. It also stores energy for 2-3 turns."
+        ]
+    },
+    {
+        "name": "bind",
+        "type": "normal",
+        "category": "physical",
+        "power": 15,
+        "accuracy": 0.85,
+        "pp": 20,
+        "effects": [
+            "Bind inflicts damage on the first turn then traps the opponent, causing them to lose 1⁄16 of their maximum HP after each turn, for 4-5 turns."
+        ],
+        "changes": [
+            "In Generations 1-4, Bind has 75% accuracy. Its after-effects last for 2-5 turns instead of 4-5.",
+            "In Generation 1, Bind simply inflicts its base power damage for 2-5 turns. While in effect, the target is unable to attack."
+        ]
+    },
+    {
+        "name": "bite",
+        "type": "normal",
+        "category": "physical",
+        "power": 60,
+        "accuracy": 1.0,
+        "pp": 25,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "blizzard",
+        "type": "ice",
+        "category": "special",
+        "power": 120,
+        "accuracy": 0.9,
+        "pp": 5,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "freeze"
+        }
+    },
+    {
+        "name": "body slam",
+        "type": "normal",
+        "category": "physical",
+        "power": 85,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "bone club",
+        "type": "ground",
+        "category": "physical",
+        "power": 65,
+        "accuracy": 0.85,
+        "pp": 20,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "bonemerang",
+        "type": "ground",
+        "category": "physical",
+        "power": 50,
+        "accuracy": 0.9,
+        "pp": 10,
+        "effects": [
+            "Bonemerang deals damage and will strike twice (with 50 base power each time).Each strike of Bonemerang is treated like a separate attack:"
+        ],
+        "changes": [
+            "In Generations 1-3, Bonemerang ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "bubble",
+        "type": "water",
+        "category": "special",
+        "power": 20,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effect": {
+            "chance": 0.1,
+            "stat": "speed",
+            "stages": -1
+        }
+    },
+    {
+        "name": "bubble beam",
+        "type": "water",
+        "category": "special",
+        "power": 65,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "chance": 0.1,
+            "stat": "speed",
+            "stages": -1
+        }
+    },
+    {
+        "name": "clamp",
+        "type": "water",
+        "category": "physical",
+        "power": 35,
+        "accuracy": 0.85,
+        "pp": 10,
+        "effects": [
+            "Clamp inflicts damage on the first turn then traps the opponent, causing them to lose 1⁄16 of their maximum HP after each turn, for 4-5 turns. If the user holds a Grip Claw then it is always 5 turns."
+        ],
+        "changes": [
+            "In Generations 1-4, Clamp has 75% accuracy. Its after-effects last for 2-5 turns instead of 4-5.",
+            "In Generation 1, Clamp simply inflicts its base power damage for 2-5 turns. While in effect, the target is unable to attack."
+        ]
+    },
+    {
+        "name": "comet punch",
+        "type": "normal",
+        "category": "physical",
+        "power": 18,
+        "accuracy": 0.85,
+        "pp": 15,
+        "changes": [
+            "In Generations 1-3, Comet Punch ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "confuse ray",
+        "type": "ghost",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effect": {
+            "statusCondition": "confused"
+        }
+    },
+    {
+        "name": "confusion",
+        "type": "psychic",
+        "category": "special",
+        "power": 50,
+        "accuracy": 1.0,
+        "pp": 25,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "confused"
+        }
+    },
+    {
+        "name": "constrict",
+        "type": "normal",
+        "category": "physical",
+        "power": 10,
+        "accuracy": 1.0,
+        "pp": 35,
+        "effect": {
+            "chance": 0.1,
+            "stat": "speed",
+            "stages": -1
+        }
+    },
+    {
+        "name": "conversion",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "changes": [
+            "In Generation 1, Conversion changes the user's type to the target Pokémon's type."
+        ]
+    },
+    {
+        "name": "counter",
+        "type": "fighting",
+        "category": "physical",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 20,
+        "priority": -1,
+        "effects": [
+            "When hit by a Physical Attack, user strikes back with 2x power."
+        ]
+    },
+    {
+        "name": "crabhammer",
+        "type": "water",
+        "category": "physical",
+        "power": 90,
+        "accuracy": 0.85,
+        "pp": 10,
+        "highCriticalHitRatio": true
+    },
+    {
+        "name": "cut",
+        "type": "normal",
+        "category": "physical",
+        "power": 50,
+        "accuracy": 0.95,
+        "pp": 30
+    },
+    {
+        "name": "defense curl",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 40,
+        "effect": {
+            "stat": "defense",
+            "stages": 1
+        }
+    },
+    {
+        "name": "dig",
+        "type": "ground",
+        "category": "physical",
+        "power": 60,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effects": [
+            "The user of Dig will burrow its way underground on the first turn, disappearing from view and becoming invulnerable to most attacks. On the second turn, Dig deals damage."
+        ]
+    },
+    {
+        "name": "disable",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.55,
+        "pp": 20,
+        "effects": [
+            "Disable causes the previous move the target used to be disabled for 1-8 turns, which prevents the move's use."
+        ]
+    },
+    {
+        "name": "dizzy punch",
+        "type": "normal",
+        "category": "physical",
+        "power": 70,
+        "accuracy": 1.0,
+        "pp": 10
+    },
+    {
+        "name": "double kick",
+        "type": "fighting",
+        "category": "physical",
+        "power": 30,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effects": [
+            "Double Kick deals damage and will strike twice (with 30 base power each time).Each strike of Double Kick is treated like a separate attack:"
+        ],
+        "changes": [
+            "In Generations 1-3, Double Kick ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "double slap",
+        "type": "normal",
+        "category": "physical",
+        "power": 15,
+        "accuracy": 0.85,
+        "pp": 10,
+        "effects": [],
+        "changes": [
+            "In Generations 1-3, Double Slap ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest.",
+            "In Generations 1-5, this move's name was formatted as DoubleSlap."
+        ]
+    },
+    {
+        "name": "double team",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 15,
+        "effect": {
+            "stat": "evasiveness",
+            "stages": 1
+        }
+    },
+    {
+        "name": "double-edge",
+        "type": "normal",
+        "category": "physical",
+        "power": 100,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effects": [
+            "Double-Edge deals damage, but the user receives 1⁄3 of the damage it inflicted in recoil. In other words, if the attack does 90 HP damage to the opponent, the user will lose 30 HP."
+        ],
+        "changes": [
+            "In Generations 1-2, the recoil is 1⁄4 of the damage inflicted."
+        ]
+    },
+    {
+        "name": "dragon rage",
+        "type": "dragon",
+        "category": "special",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effects": [
+            "Dragon Rage always deals 40 HP damage to the target, regardless of typing. It has no additional effect."
+        ]
+    },
+    {
+        "name": "dream eater",
+        "type": "psychic",
+        "category": "special",
+        "power": 100,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effects": [
+            "Dream Eater deals damage only on sleeping foes and the user will recover 50% of the HP drained."
+        ]
+    },
+    {
+        "name": "drill peck",
+        "type": "flying",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 1.0,
+        "pp": 20
+    },
+    {
+        "name": "earthquake",
+        "type": "ground",
+        "category": "physical",
+        "power": 100,
+        "accuracy": 1.0,
+        "pp": 10
+    },
+    {
+        "name": "egg bomb",
+        "type": "normal",
+        "category": "physical",
+        "power": 100,
+        "accuracy": 0.75,
+        "pp": 10
+    },
+    {
+        "name": "ember",
+        "type": "fire",
+        "category": "special",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 25,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "burn"
+        }
+    },
+    {
+        "name": "explosion",
+        "type": "normal",
+        "category": "physical",
+        "power": 170,
+        "accuracy": 1.0,
+        "pp": 5,
+        "effects": [
+            "Explosion deals high damage, but causes the user to faint."
+        ],
+        "changes": [
+            "In Generations 1-4, the opponent's defense stat is temporarily halved when calculating the damage. This gives Explosion an effective power of 340."
+        ]
+    },
+    {
+        "name": "fire blast",
+        "type": "fire",
+        "category": "special",
+        "power": 120,
+        "accuracy": 0.85,
+        "pp": 5,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "burn"
+        }
+    },
+    {
+        "name": "fire punch",
+        "type": "fire",
+        "category": "physical",
+        "power": 75,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "burn"
+        }
+    },
+    {
+        "name": "fire spin",
+        "type": "fire",
+        "category": "special",
+        "power": 35,
+        "accuracy": 0.85,
+        "pp": 15,
+        "effects": [
+            "Fire Spin inflicts damage on the first turn then traps the opponent, causing them to lose 1⁄16 of their maximum HP after each turn, for 4-5 turns. If the user holds a Grip Claw then it is always 5 turns."
+        ],
+        "changes": [
+            "In Generations 1-4, Fire Spin has a base power of 15 and 70% accuracy. Its after-effects last for 2-5 turns instead of 4-5.",
+            "In Generation 1, Fire Spin simply inflicts its base power damage for 2-5 turns. While in effect, the target is unable to attack."
+        ]
+    },
+    {
+        "name": "fissure",
+        "type": "ground",
+        "category": "physical",
+        "power": null,
+        "accuracy": null,
+        "pp": 5,
+        "effects": [
+            "If it hits, Fissure is guaranteed to make the opponent faint. It is more likely to hit Pokémon that are of a lower level than the user.",
+            "Its accuracy (as a percentage) is calculated as below, ignoring all other accuracy and evasion modifiers:"
+        ],
+        "changes": [
+            "In Generation 1, Fissure has 30% accuracy and can hit Pokémon of any level, but does not affect Pokémon faster than the user."
+        ]
+    },
+    {
+        "name": "flamethrower",
+        "type": "fire",
+        "category": "special",
+        "power": 95,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "burn"
+        }
+    },
+    {
+        "name": "flash",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.7,
+        "pp": 20,
+        "effect": {
+            "stat": "accuracy",
+            "stages": -1
+        }
+    },
+    {
+        "name": "fly",
+        "type": "flying",
+        "category": "physical",
+        "power": 70,
+        "accuracy": 0.95,
+        "pp": 15,
+        "effects": [
+            "The user of Fly will fly up high on the first turn, disappearing from view and becoming invulnerable to most attacks. On the second turn, Fly deals damage.",
+            "While in the air, the Pokémon can only be hit by the moves Gust, Twister, Thunder, Sky Uppercut and Smack Down, with Gust and Twister dealing twice normal damage. Moves from No Guard Pokémon, or any move following an identify move can also hit for regular power."
+        ]
+    },
+    {
+        "name": "focus energy",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "highCriticalHitRatio": true
+    },
+    {
+        "name": "fury attack",
+        "type": "normal",
+        "category": "physical",
+        "power": 15,
+        "accuracy": 0.85,
+        "pp": 20,
+        "effects": [],
+        "changes": [
+            "In Generations 1-3, Fury Attack ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "fury swipes",
+        "type": "normal",
+        "category": "physical",
+        "power": 18,
+        "accuracy": 0.8,
+        "pp": 15,
+        "effects": [],
+        "changes": [
+            "In Generations 1-3, Fury Swipes ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "glare",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.75,
+        "pp": 30,
+        "effect": {
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "growl",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 40,
+        "effect": {
+            "stat": "attack",
+            "stages": -1
+        }
+    },
+    {
+        "name": "growth",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 40,
+        "effect": {
+            "stat": "special",
+            "stages": 1
+        }
+    },
+    {
+        "name": "guillotine",
+        "type": "normal",
+        "category": "physical",
+        "power": null,
+        "accuracy": null,
+        "pp": 5,
+        "effects": [
+            "If it hits, Guillotine is guaranteed to make the opponent faint. It is more likely to hit Pokémon that are of a lower level than the user.",
+            "Its accuracy (as a percentage) is calculated as below, ignoring all other accuracy and evasion modifiers:"
+        ],
+        "changes": [
+            "In Generation 1, Guillotine has 30% accuracy, but does not affect opponents faster than the user."
+        ]
+    },
+    {
+        "name": "gust",
+        "type": "normal",
+        "category": "special",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 35
+    },
+    {
+        "name": "harden",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effect": {
+            "stat": "defense",
+            "stages": 1
+        }
+    },
+    {
+        "name": "haze",
+        "type": "ice",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effects": [
+            "Resets all stat changes."
+        ]
+    },
+    {
+        "name": "headbutt",
+        "type": "normal",
+        "category": "physical",
+        "power": 70,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "high jump kick",
+        "type": "fighting",
+        "category": "physical",
+        "power": 85,
+        "accuracy": 0.9,
+        "pp": 20,
+        "effects": [
+            "High Jump Kick deals damage, however, if it misses the user keeps going and crashes, losing 1⁄2 of its maximum HP. High Jump Kick cannot be used if Gravity is in effect."
+        ],
+        "changes": [
+            "In Generation 1, the crash damage is always 1 HP."
+        ]
+    },
+    {
+        "name": "horn attack",
+        "type": "normal",
+        "category": "physical",
+        "power": 65,
+        "accuracy": 1.0,
+        "pp": 25
+    },
+    {
+        "name": "horn drill",
+        "type": "normal",
+        "category": "physical",
+        "power": null,
+        "accuracy": null,
+        "pp": 5,
+        "effects": [
+            "If it hits, Horn Drill is guaranteed to make the opponent faint. It is more likely to hit Pokémon that are of a lower level than the user.",
+            "Its accuracy (as a percentage) is calculated as below, ignoring all other accuracy and evasion modifiers:"
+        ],
+        "changes": [
+            "In Generation 1, Horn Drill has 30% accuracy, but does not affect opponents faster than the user."
+        ]
+    },
+    {
+        "name": "hydro pump",
+        "type": "water",
+        "category": "special",
+        "power": 120,
+        "accuracy": 0.8,
+        "pp": 5
+    },
+    {
+        "name": "hyper beam",
+        "type": "normal",
+        "category": "special",
+        "power": 150,
+        "accuracy": 0.9,
+        "pp": 5,
+        "effects": [
+            "Hyper Beam deals damage, but the user must recharge on the next turn (bringing its effective power down to 75 per turn)."
+        ],
+        "changes": [
+            "In Generation 1, if Hyper Beam KOs a Pokemon, it does not need to recharge."
+        ]
+    },
+    {
+        "name": "hyper fang",
+        "type": "normal",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 0.9,
+        "pp": 15,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "hypnosis",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.6,
+        "pp": 20,
+        "effect": {
+            "statusCondition": "sleep"
+        }
+    },
+    {
+        "name": "ice beam",
+        "type": "ice",
+        "category": "special",
+        "power": 95,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "freeze"
+        }
+    },
+    {
+        "name": "ice punch",
+        "type": "ice",
+        "category": "physical",
+        "power": 75,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "freeze"
+        }
+    },
+    {
+        "name": "jump kick",
+        "type": "fighting",
+        "category": "physical",
+        "power": 70,
+        "accuracy": 0.95,
+        "pp": 25,
+        "effects": [
+            "Jump Kick deals damage, however, if it misses the user keeps going and crashes, losing 1⁄2 of its maximum HP. Jump Kick cannot be used if Gravity is in effect."
+        ],
+        "changes": [
+            "In Generation 1, the crash damage is always 1 HP. From Generation 2 to Generation 4, the crash damage is 1⁄8 of the damage the attack would have inflicted (which could be all of the user's own HP)."
+        ]
+    },
+    {
+        "name": "karate chop",
+        "type": "normal",
+        "category": "physical",
+        "power": 50,
+        "accuracy": 1.0,
+        "pp": 25,
+        "highCriticalHitRatio": true
+    },
+    {
+        "name": "kinesis",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.8,
+        "pp": 15,
+        "effect": {
+            "stat": "accuracy",
+            "stages": -1
+        }
+    },
+    {
+        "name": "leech life",
+        "type": "bug",
+        "category": "physical",
+        "power": 20,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effects": [
+            "Leech Life deals damage and the user will recover 50% of the HP drained."
+        ]
+    },
+    {
+        "name": "leech seed",
+        "type": "grass",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.9,
+        "pp": 10,
+        "effects": [
+            "Leech Seed plants a seed on the target that drains 1⁄8 of its maximum HP at the end of each turn and restores it to the user, or any Pokemon that takes its place. It does not work on Grass-type Pokemon; it does technically work against Pokemon with the Magic Guard ability, but no HP will be sapped."
+        ],
+        "changes": [
+            "In Generation 1, Leech Seed saps 1⁄16 of the target's HP. If the target is also badly poisoned, the damage increases by 1⁄16 each turn, in the same way as bad poison (and in addition to poison damage).",
+            "In Generation 1 and Generation 2 only, Haze will also clear the effects of Leech Seed."
+        ]
+    },
+    {
+        "name": "leer",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effect": {
+            "stat": "defense",
+            "stages": -1
+        }
+    },
+    {
+        "name": "lick",
+        "type": "ghost",
+        "category": "physical",
+        "power": 20,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "light screen",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effects": [
+            "Light Screen reduces damage from Special attacks by 50%, for 5 turns. Its effects apply to all Pokémon on the user's side of the field."
+        ]
+    },
+    {
+        "name": "lovely kiss",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.75,
+        "pp": 10,
+        "effect": {
+            "statusCondition": "sleep"
+        }
+    },
+    {
+        "name": "low kick",
+        "type": "fighting",
+        "category": "physical",
+        "power": 50,
+        "accuracy": 0.9,
+        "pp": 20,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "meditate",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 40,
+        "effect": {
+            "stat": "attack",
+            "stages": 1
+        }
+    },
+    {
+        "name": "mega drain",
+        "type": "grass",
+        "category": "special",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effects": [
+            "Mega Drain deals damage and the user will recover 50% of the HP drained.",
+            "If the user is holding a Big Root, the move instead recovers 65% of the damage dealt (30% more than normal). If used on a Pokemon with the ability Liquid Ooze, the user instead loses the HP it would have otherwise gained."
+        ]
+    },
+    {
+        "name": "mega kick",
+        "type": "normal",
+        "category": "physical",
+        "power": 120,
+        "accuracy": 0.75,
+        "pp": 5
+    },
+    {
+        "name": "mega punch",
+        "type": "normal",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 0.85,
+        "pp": 20
+    },
+    {
+        "name": "metronome",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "User performs any move in the game at random."
+        ]
+    },
+    {
+        "name": "mimic",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "Mimic copies the last move used by the target (replacing Mimic). The copied move always has 5 PP. The effect only lasts while the user is in battle: if the user switches out or when the battle ends, the move becomes Mimic again.",
+            "Mimic cannot copy Chatter, Metronome, Sketch or Struggle."
+        ],
+        "changes": [
+            "In Generation 1, Mimic allows the user to choose any of the opponent's moves to copy."
+        ]
+    },
+    {
+        "name": "minimize",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 20,
+        "effect": {
+            "stat": "evasiveness",
+            "stages": 1
+        }
+    },
+    {
+        "name": "mirror move",
+        "type": "flying",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 20,
+        "effects": [
+            "User performs the opponent's last move."
+        ]
+    },
+    {
+        "name": "mist",
+        "type": "ice",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effects": [
+            "User's stats cannot be changed for a period of time."
+        ]
+    },
+    {
+        "name": "night shade",
+        "type": "ghost",
+        "category": "special",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effects": [
+            "The damage of Night Shade is equal to the user's level. So at level 100 the Pokémon will inflict 100 HP damage."
+        ],
+        "changes": [
+            "In Generation 1, Night Shade also hits Normal- and Psychic-type Pokémon despite their immunity to Ghost-type attacks."
+        ]
+    },
+    {
+        "name": "pay day",
+        "type": "normal",
+        "category": "physical",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 20
+    },
+    {
+        "name": "peck",
+        "type": "flying",
+        "category": "physical",
+        "power": 35,
+        "accuracy": 1.0,
+        "pp": 35
+    },
+    {
+        "name": "petal dance",
+        "type": "grass",
+        "category": "special",
+        "power": 120,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effects": [
+            "The user of Petal Dance attacks for 2-3 turns, during which it cannot switch out, and then becomes confused. Confused Pokémon have a 50% chance of hurting themselves each turn, for 1-4 turns. The damage received is as if the Pokémon attacks itself with a typeless 40 base power Physical attack.",
+            "If Petal Dance is disrupted (e.g. if the move misses or the user cannot attack due to paralysis) then it will stop and not cause confusion.",
+            "Pokémon with the ability Own Tempo or those behind a Substitute cannot be confused."
+        ],
+        "changes": [
+            "In Generations 1-3 Petal Dance has a base power of 70. In Generation 4 its base power is 90.",
+            "In Generations 1-4, Petal Dance has 20 PP. Furthermore, sleep, freezing and flinching will pause but not disrupt Petal Dance.",
+            "In Generation 1, Petal Dance lasts for 3-4 turns."
+        ]
+    },
+    {
+        "name": "pin missile",
+        "type": "bug",
+        "category": "physical",
+        "power": 14,
+        "accuracy": 0.85,
+        "pp": 20,
+        "changes": [
+            "In Generations 1-3, Pin Missile ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "poison gas",
+        "type": "poison",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.55,
+        "pp": 40,
+        "effect": {
+            "statusCondition": "poison"
+        }
+    },
+    {
+        "name": "poison powder",
+        "type": "poison",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.75,
+        "pp": 35,
+        "effect": {
+            "statusCondition": "poison"
+        }
+    },
+    {
+        "name": "poison sting",
+        "type": "poison",
+        "category": "physical",
+        "power": 15,
+        "accuracy": 1.0,
+        "pp": 35,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "poison"
+        }
+    },
+    {
+        "name": "pound",
+        "type": "normal",
+        "category": "physical",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 35
+    },
+    {
+        "name": "psybeam",
+        "type": "psychic",
+        "category": "special",
+        "power": 65,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "confused"
+        }
+    },
+    {
+        "name": "psychic",
+        "type": "psychic",
+        "category": "special",
+        "power": 90,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effect": {
+            "chance": 0.3,
+            "stat": "special",
+            "stages": -1
+        }
+    },
+    {
+        "name": "psywave",
+        "type": "psychic",
+        "category": "special",
+        "power": null,
+        "accuracy": 0.8,
+        "pp": 15,
+        "effects": [
+            "Psywave inflicts a random amount of HP damage, varying between 50% and 150% of the user's level. In other words, at level 100 the damage will be 50-150 HP.",
+            "The damage is typeless (not affected by type advantages/disadvantages) but it still does not affect Dark type Pokemon."
+        ]
+    },
+    {
+        "name": "quick attack",
+        "type": "normal",
+        "category": "physical",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 30,
+        "priority": 1
+    },
+    {
+        "name": "rage",
+        "type": "normal",
+        "category": "physical",
+        "power": 20,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effects": [
+            "Rage deals damage, and if the user is hit by a direct attack - any time after Rage is first used but before a different move is used - the user's Attack is raised by one stage. The game will state the Pokemon's rage is building rather than explicitly assert the stat increase. Stats can be raised to a maximum of +6 stages each.",
+            "The Attack increases will continue as long as Rage is the last move used, even if it misses, the user is incapacitated (paralyzed, sleeping, etc) or the player uses an item. The Attack increase activates for every blow of multi-hit moves such as DoubleSlap or Fury Swipes.",
+            "As an example, if a Pokemon uses Rage then the opponent hits the user in the same turn, the user's Attack increases. If the user moves last it will not increase that turn, but will in the next turn if the opponent hits the user again."
+        ],
+        "changes": [
+            "In Generation 1, after Rage is selected it will continue to be used until the end of the battle or the user faints.",
+            "In Generations 2-3, if the user is slower than the opponent, the Attack rise only occurs if Rage is selected in that turn - if a different move is selected (or an item used) and the Pokemon is hit before it uses the new move, its Attack does not increase."
+        ]
+    },
+    {
+        "name": "razor leaf",
+        "type": "grass",
+        "category": "physical",
+        "power": 55,
+        "accuracy": 0.95,
+        "pp": 25,
+        "highCriticalHitRatio": true
+    },
+    {
+        "name": "razor wind",
+        "type": "normal",
+        "category": "special",
+        "power": 80,
+        "accuracy": 0.75,
+        "pp": 10,
+        "effects": [
+            "The user of Razor Wind will whip up a whirlwind on the first turn. On the second turn, Razor Wind deals damage."
+        ]
+    },
+    {
+        "name": "recover",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 20,
+        "effects": [
+            "Recover restores up to 50% of the user's maximum HP."
+        ]
+    },
+    {
+        "name": "reflect",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 20,
+        "effects": [
+            "Reflect reduces damage from Physical attacks by 50%, for 5 turns. Its effects apply to all Pokémon on the user's side of the field."
+        ]
+    },
+    {
+        "name": "rest",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "User sleeps for 2 turns, but user is fully healed."
+        ]
+    },
+    {
+        "name": "roar",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 20
+    },
+    {
+        "name": "rock slide",
+        "type": "rock",
+        "category": "physical",
+        "power": 75,
+        "accuracy": 0.9,
+        "pp": 10,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "rock throw",
+        "type": "rock",
+        "category": "physical",
+        "power": 50,
+        "accuracy": 0.65,
+        "pp": 15
+    },
+    {
+        "name": "rolling kick",
+        "type": "fighting",
+        "category": "physical",
+        "power": 60,
+        "accuracy": 0.85,
+        "pp": 15,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "sand attack",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "stat": "accuracy",
+            "stages": -1
+        }
+    },
+    {
+        "name": "scratch",
+        "type": "normal",
+        "category": "physical",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 35
+    },
+    {
+        "name": "screech",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.85,
+        "pp": 40,
+        "effect": {
+            "stat": "defense",
+            "stages": -2
+        }
+    },
+    {
+        "name": "seismic toss",
+        "type": "fighting",
+        "category": "physical",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effects": [
+            "The damage of Seismic Toss is equal to the user's level. So at level 100 the Pokémon will inflict 100 HP damage."
+        ],
+        "changes": [
+            "In Generation 1 Seismic Toss can hit Ghost-type Pokémon despite their immunity to Fighting-type attacks."
+        ]
+    },
+    {
+        "name": "self-destruct",
+        "type": "normal",
+        "category": "physical",
+        "power": 200,
+        "accuracy": 1.0,
+        "pp": 5,
+        "effects": [
+            "Self-Destruct deals high damage, but causes the user to faint."
+        ]
+    },
+    {
+        "name": "sharpen",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effect": {
+            "stat": "attack",
+            "stages": 1
+        }
+    },
+    {
+        "name": "sing",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.55,
+        "pp": 15,
+        "effect": {
+            "statusCondition": "sleep"
+        }
+    },
+    {
+        "name": "skull bash",
+        "type": "normal",
+        "category": "physical",
+        "power": 100,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effects": [
+            "The user of Skull Bash will tuck in its head on the first turn and raise its Defense by one stage. On the second turn, Skull Bash deals damage."
+        ],
+        "changes": [
+            "In Generation 1, Skull Bash does not raise the user's Defense."
+        ]
+    },
+    {
+        "name": "sky attack",
+        "type": "flying",
+        "category": "physical",
+        "power": 140,
+        "accuracy": 0.9,
+        "pp": 5,
+        "effects": [
+            "The user of Sky Attack will become cloaked in a harsh light on the first turn. On the second turn, Sky Attack deals damage."
+        ]
+    },
+    {
+        "name": "slam",
+        "type": "normal",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 0.75,
+        "pp": 20
+    },
+    {
+        "name": "slash",
+        "type": "normal",
+        "category": "physical",
+        "power": 70,
+        "accuracy": 1.0,
+        "pp": 20,
+        "highCriticalHitRatio": true
+    },
+    {
+        "name": "sleep powder",
+        "type": "grass",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.75,
+        "pp": 15,
+        "effect": {
+            "statusCondition": "sleep"
+        }
+    },
+    {
+        "name": "sludge",
+        "type": "poison",
+        "category": "special",
+        "power": 65,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "poison"
+        }
+    },
+    {
+        "name": "smog",
+        "type": "poison",
+        "category": "special",
+        "power": 20,
+        "accuracy": 0.7,
+        "pp": 20,
+        "effect": {
+            "chance": 0.4,
+            "statusCondition": "poison"
+        }
+    },
+    {
+        "name": "smokescreen",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "stat": "accuracy",
+            "stages": -1
+        }
+    },
+    {
+        "name": "soft-boiled",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "Soft-Boiled recovers up to 50% of the user's maximum HP."
+        ]
+    },
+    {
+        "name": "solar beam",
+        "type": "grass",
+        "category": "special",
+        "power": 120,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effects": [
+            "The user of Solar Beam will absorb light on the first turn. On the second turn, Solar Beam deals damage."
+        ]
+    },
+    {
+        "name": "sonic boom",
+        "type": "normal",
+        "category": "special",
+        "power": null,
+        "accuracy": 0.9,
+        "pp": 20,
+        "effects": [
+            "Sonic Boom always deals 20 HP damage to the target, regardless of typing (although Ghost type Pokémon are still immune). It has no additional effect."
+        ],
+        "changes": [
+            "In Generation 1, Sonic Boom hits Ghost types regardless of their immunity to Normal type moves."
+        ]
+    },
+    {
+        "name": "spike cannon",
+        "type": "normal",
+        "category": "physical",
+        "power": 20,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effects": [],
+        "changes": [
+            "In Generations 1-3, Spike Cannon ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "splash",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 40
+    },
+    {
+        "name": "spore",
+        "type": "grass",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "statusCondition": "sleep"
+        }
+    },
+    {
+        "name": "stomp",
+        "type": "normal",
+        "category": "physical",
+        "power": 65,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "chance": 0.3,
+            "statusCondition": "flinch"
+        }
+    },
+    {
+        "name": "strength",
+        "type": "normal",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 1.0,
+        "pp": 15
+    },
+    {
+        "name": "string shot",
+        "type": "bug",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.95,
+        "pp": 40,
+        "effect": {
+            "stat": "speed",
+            "stages": -1
+        }
+    },
+    {
+        "name": "struggle",
+        "type": "normal",
+        "category": "physical",
+        "power": 50,
+        "accuracy": 1.0,
+        "pp": null,
+        "effects": [
+            "Only usable when all PP are gone. Hurts the user."
+        ]
+    },
+    {
+        "name": "stun spore",
+        "type": "grass",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.75,
+        "pp": 30,
+        "effect": {
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "submission",
+        "type": "fighting",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 0.8,
+        "pp": 25,
+        "effects": [
+            "Submission deals damage, but the user receives 1⁄4 of the damage it inflicts in recoil. In other words, if the attack does 100 HP damage to the opponent, the user will lose 25 HP."
+        ]
+    },
+    {
+        "name": "substitute",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "Uses HP to creates a decoy that takes hits."
+        ]
+    },
+    {
+        "name": "super fang",
+        "type": "normal",
+        "category": "physical",
+        "power": null,
+        "accuracy": 0.9,
+        "pp": 10,
+        "effects": [
+            "Always takes off half of the opponent's HP."
+        ]
+    },
+    {
+        "name": "supersonic",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.55,
+        "pp": 20,
+        "effect": {
+            "statusCondition": "confused"
+        }
+    },
+    {
+        "name": "surf",
+        "type": "water",
+        "category": "special",
+        "power": 95,
+        "accuracy": 1.0,
+        "pp": 15
+    },
+    {
+        "name": "swift",
+        "type": "normal",
+        "category": "special",
+        "power": 60,
+        "accuracy": null,
+        "pp": 20,
+        "changes": [
+            "In Generation 1, Swift can hit Pokémon during the invulnerable stage of Dig and Fly."
+        ]
+    },
+    {
+        "name": "swords dance",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 30,
+        "effect": {
+            "stat": "attack",
+            "stages": 2
+        }
+    },
+    {
+        "name": "tackle",
+        "type": "normal",
+        "category": "physical",
+        "power": 35,
+        "accuracy": 0.95,
+        "pp": 35
+    },
+    {
+        "name": "tail whip",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effect": {
+            "stat": "defense",
+            "stages": -1
+        }
+    },
+    {
+        "name": "take down",
+        "type": "normal",
+        "category": "physical",
+        "power": 90,
+        "accuracy": 0.85,
+        "pp": 20,
+        "effects": [
+            "Take Down deals damage, but the user receives 1⁄4 of the damage it inflicted in recoil. In other words, if the attack does 100 HP damage to the opponent, the user will lose 25 HP."
+        ]
+    },
+    {
+        "name": "teleport",
+        "type": "psychic",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 20
+    },
+    {
+        "name": "thrash",
+        "type": "normal",
+        "category": "physical",
+        "power": 120,
+        "accuracy": 1.0,
+        "pp": 10,
+        "effects": [
+            "The user of Thrash attacks for 2-3 turns, during which it cannot switch out, and then becomes confused. Confused Pokémon have a 50% chance of hurting themselves each turn, for 1-4 turns. The damage received is as if the Pokémon attacks itself with a typeless 40 base power Physical attack.",
+            "If Thrash is disrupted (e.g. if the move misses or the user cannot attack due to paralysis) then it will stop and not cause confusion.",
+            "Pokémon with the ability Own Tempo or those behind a Substitute cannot be confused."
+        ],
+        "changes": [
+            "In Generations 1-4, Thrash has 20 PP and a base power of 90. Furthermore, sleep, freezing and flinching will pause but not disrupt Thrash.",
+            "In Generation 1, Thrash lasts for 3-4 turns."
+        ]
+    },
+    {
+        "name": "thunder",
+        "type": "electric",
+        "category": "special",
+        "power": 120,
+        "accuracy": 0.7,
+        "pp": 10,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "thunder punch",
+        "type": "electric",
+        "category": "physical",
+        "power": 75,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "thunder shock",
+        "type": "electric",
+        "category": "special",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 30,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "thunder wave",
+        "type": "electric",
+        "category": "status",
+        "power": null,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effect": {
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "thunderbolt",
+        "type": "electric",
+        "category": "special",
+        "power": 95,
+        "accuracy": 1.0,
+        "pp": 15,
+        "effect": {
+            "chance": 0.1,
+            "statusCondition": "paralysis"
+        }
+    },
+    {
+        "name": "toxic",
+        "type": "poison",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.85,
+        "pp": 10,
+        "changes": [
+            "In Generation 1, Toxic also increases the damage taken by Leech Seed."
+        ],
+        "effect": {
+            "statusCondition": "badly poison"
+        }
+    },
+    {
+        "name": "transform",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 10,
+        "effects": [
+            "User takes on the form and attacks of the opponent."
+        ]
+    },
+    {
+        "name": "tri attack",
+        "type": "normal",
+        "category": "special",
+        "power": 80,
+        "accuracy": 1.0,
+        "pp": 10
+    },
+    {
+        "name": "twineedle",
+        "type": "bug",
+        "category": "physical",
+        "power": 25,
+        "accuracy": 1.0,
+        "pp": 20,
+        "effects": [
+            "Twineedle deals damage and will strike twice (with 25 base power each time). It has a 20% chance of poisoning the target. Poison or Steel type Pokémon, those with the ability Immunity or those behind a Substitute cannot be poisoned.Each strike of Twineedle is treated like a separate attack:"
+        ],
+        "changes": [
+            "In Generations 1-2, Twineedle can poison Poison and Steel types.In Generations 2-4, if a Focus Sash or Focus Band activates before the final hit, subsequent hits do not cause the holder to faint.",
+            "In Generations 1-3, Twineedle ends immediately if any hit breaks a Substitute.",
+            "In Generation 1, each hit will always deal the same damage - if the first critical hits, so will the rest."
+        ]
+    },
+    {
+        "name": "vice grip",
+        "type": "normal",
+        "category": "physical",
+        "power": 55,
+        "accuracy": 1.0,
+        "pp": 30
+    },
+    {
+        "name": "vine whip",
+        "type": "grass",
+        "category": "physical",
+        "power": 35,
+        "accuracy": 1.0,
+        "pp": 10
+    },
+    {
+        "name": "water gun",
+        "type": "water",
+        "category": "special",
+        "power": 40,
+        "accuracy": 1.0,
+        "pp": 25
+    },
+    {
+        "name": "waterfall",
+        "type": "water",
+        "category": "physical",
+        "power": 80,
+        "accuracy": 1.0,
+        "pp": 15
+    },
+    {
+        "name": "whirlwind",
+        "type": "normal",
+        "category": "status",
+        "power": null,
+        "accuracy": 0.85,
+        "pp": 20
+    },
+    {
+        "name": "wing attack",
+        "type": "flying",
+        "category": "physical",
+        "power": 35,
+        "accuracy": 1.0,
+        "pp": 35
+    },
+    {
+        "name": "withdraw",
+        "type": "water",
+        "category": "status",
+        "power": null,
+        "accuracy": null,
+        "pp": 40,
+        "effect": {
+            "stat": "defense",
+            "stages": 1
+        }
+    },
+    {
+        "name": "wrap",
+        "type": "normal",
+        "category": "physical",
+        "power": 15,
+        "accuracy": 0.9,
+        "pp": 20,
+        "effects": [
+            "Wrap inflicts damage on the first turn then traps the opponent, causing them to lose 1⁄16 of their maximum HP after each turn, for 4-5 turns. If the user holds a Grip Claw then it is always 5 turns."
+        ],
+        "changes": [
+            "In Generations 1-4, Wrap has 85% accuracy. Its after-effects last for 2-5 turns instead of 4-5.",
+            "In Generation 1, Wrap simply inflicts its base power damage for 2-5 turns. While in effect, the target is unable to attack."
+        ]
+    }
+]

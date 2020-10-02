@@ -126,11 +126,13 @@ class _CardContent extends StatelessWidget {
   List<Widget> _buildTypes() {
     return pokemon.types
         .map(
-          (type) => Hero(
-            tag: pokemon.number + type.value,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 3),
-              child: PokemonType(type.value),
+          (type) => Flexible(
+            child: Hero(
+              tag: pokemon.number + type.value,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 3),
+                child: PokemonType(type.value),
+              ),
             ),
           ),
         )
