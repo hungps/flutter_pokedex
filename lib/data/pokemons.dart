@@ -13,9 +13,10 @@ Future<List<Pokemon>> getPokemonsList(BuildContext context) async {
       await DefaultAssetBundle.of(context).loadString("assets/pokemons.json");
   List<dynamic> jsonData = json.jsonDecode(jsonString);
 
+  // Convert the json file to a list with custom class defined as Pokemon
   List<Pokemon> pokemons =
       jsonData.map((json) => Pokemon.fromJson(json)).toList();
-
+// Pokemon evolution results are converted into a list
   for (final pokemon in pokemons) {
     List<Pokemon> evolutions = pokemon.evolutions
         .map((item) => item.id)
@@ -28,6 +29,7 @@ Future<List<Pokemon>> getPokemonsList(BuildContext context) async {
   return pokemons;
 }
 
+// Function that return the types that the pokemon is strong/weak against
 Map<String, double> getTypeEffectiveness(Pokemon pokemon) {
   Map<String, double> effectivenessMap = new Map();
   for (EffectiveType effectiveType in effectiveTypes) {

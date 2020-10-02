@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../data/pokemons.dart';
 
+//Class called Pokemon that holds the necessary details about a pokemon
 class Pokemon {
   const Pokemon({
     @required this.id,
@@ -57,8 +58,10 @@ class Pokemon {
         baseExp = json['base_exp'],
         evolvedFrom = json['evolvedfrom'],
         reason = json['reason'],
-        evolutions =
-            json['evolutions'].map((id) => Pokemon(id: id as String)).cast<Pokemon>().toList();
+        evolutions = json['evolutions']
+            .map((id) => Pokemon(id: id as String))
+            .cast<Pokemon>()
+            .toList();
 
   final String about;
   final int attack;
@@ -88,6 +91,7 @@ class Pokemon {
   Color get color => getPokemonColor(types[0]);
 }
 
+// Provider created that listens to changes in selection of pokemons
 class PokemonModel extends ChangeNotifier {
   final List<Pokemon> _pokemons = [];
   int _selectedIndex = 0;

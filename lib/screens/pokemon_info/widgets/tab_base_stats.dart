@@ -140,8 +140,9 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(24),
+    final cardController = Provider.of<AnimationController>(context);
+    return AnimatedBuilder(
+      animation: cardController,
       child: Consumer<PokemonModel>(
         builder: (_, model, child) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -157,12 +158,12 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats>
                 height: 0.8,
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 25),
             Text(
               "The effectiveness of each type on ${model.pokemon.name}.",
               style: TextStyle(color: AppColors.black.withOpacity(0.6)),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 25),
             Wrap(
                 spacing: 5,
                 runSpacing: 5,
@@ -170,6 +171,17 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats>
           ],
         ),
       ),
+      builder: (context, child) {
+        final scrollable = cardController.value.floor() == 1;
+
+        return SingleChildScrollView(
+          padding: EdgeInsets.symmetric(vertical: 19, horizontal: 27),
+          physics: scrollable
+              ? BouncingScrollPhysics()
+              : NeverScrollableScrollPhysics(),
+          child: child,
+        );
+      },
     );
   }
 }

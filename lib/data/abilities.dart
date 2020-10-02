@@ -1,5 +1,6 @@
 import 'package:pokedex/models/ability.dart';
 
+// The abilities of the pokemons are described in form of a list
 const List<Ability> abilities = [
   Ability(
     id: 1,

@@ -7,7 +7,7 @@ class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-
+// The six options displayed in the home screen is built using this builder method
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -21,6 +21,7 @@ class CategoryList extends StatelessWidget {
       itemCount: categories.length,
       itemBuilder: (context, index) => PokeCategoryCard(
         categories[index],
+        // For now, all the grid buttons lead you to the pokedex list rather than some other screen
         onPress: () => Navigator.of(context).pushNamed("/pokedex"),
       ),
     );

@@ -6,8 +6,9 @@ import 'widgets/category_list.dart';
 import 'widgets/news_list.dart';
 import 'widgets/search_bar.dart';
 
+// Home Page
 class Home extends StatefulWidget {
-  static const cardHeightFraction = 0.75;
+  static const cardHeightFraction = 0.76;
 
   @override
   _HomeState createState() => _HomeState();
@@ -36,6 +37,7 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
+// A scroll Dependent function created that alters the color and title of the toolbar by changing booleans as we used a Sliver App Bar
   void _onScroll() {
     if (!_scrollController.hasClients) return;
 
@@ -51,6 +53,7 @@ class _HomeState extends State<Home> {
     }
   }
 
+  // Builds the Categories related Region of the home page which will be present in the Sliver App Bar
   Widget _buildCard() {
     final screenSize = MediaQuery.of(context).size;
 
@@ -80,12 +83,14 @@ class _HomeState extends State<Home> {
     );
   }
 
+// Builds News Region of the home Page
   Widget _buildNews() {
     return ListView(
       physics: BouncingScrollPhysics(),
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(left: 28, right: 28, top: 0, bottom: 22),
+          padding:
+              const EdgeInsets.only(left: 28, right: 28, top: 0, bottom: 22),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

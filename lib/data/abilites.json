@@ -1,11 +1,11 @@
 [
   {
-    "id":1,
-    "name":"stench",
-    "description":"Has a 10% chance of making target Pokemon flinch with each hit.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 1,
+    "name": "stench",
+    "description": "Has a 10% chance of making target Pokemon flinch with each hit.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Grimer",
       "Muk",
       "Stunky",
@@ -13,45 +13,41 @@
       "Trubbish",
       "Garbodor"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Gloom"
     ]
   },
   {
-    "id":2,
-    "name":"drizzle",
-    "description":"Summons rain that lasts indefinitely upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 2,
+    "name": "drizzle",
+    "description": "Summons rain that lasts indefinitely upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Kyogre"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Pelipper"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Politoed"
     ]
   },
   {
-    "id":3,
-    "name":"speed-boost",
-    "description":"Raises Speed one stage after each turn.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 3,
+    "name": "speed-boost",
+    "description": "Raises Speed one stage after each turn.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Yanma",
       "Ninjask",
       "Yanmega",
       "Blaziken-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Torchic",
       "Combusken",
       "Blaziken",
@@ -63,34 +59,34 @@
     ]
   },
   {
-    "id":4,
-    "name":"battle-armor",
-    "description":"Protects against critical hits.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 4,
+    "name": "battle-armor",
+    "description": "Protects against critical hits.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Anorith",
       "Armaldo",
       "Skorupi",
       "Drapion",
       "Type-null"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Kabuto",
       "Kabutops"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Cubone",
       "Marowak"
     ]
   },
   {
-    "id":5,
-    "name":"sturdy",
-    "description":"Prevents being KOed from full HP, leaving 1 HP instead.  Protects against the one-hit KO moves regardless of HP.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 5,
+    "name": "sturdy",
+    "description": "Prevents being KOed from full HP, leaving 1 HP instead.  Protects against the one-hit KO moves regardless of HP.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Sudowoodo",
       "Pineco",
       "Forretress",
@@ -112,7 +108,7 @@
       "Crustle",
       "Cosmoem"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Geodude",
       "Graveler",
       "Golem",
@@ -128,7 +124,7 @@
       "Graveler-alola",
       "Golem-alola"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Relicanth",
       "Regirock",
       "Tyrunt",
@@ -140,24 +136,24 @@
     ]
   },
   {
-    "id":6,
-    "name":"damp",
-    "description":"Prevents self destruct, explosion, and aftermath from working while the Pokemon is in battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 6,
+    "name": "damp",
+    "description": "Prevents self destruct, explosion, and aftermath from working while the Pokemon is in battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Psyduck",
       "Golduck",
       "Wooper",
       "Quagsire"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Poliwag",
       "Poliwhirl",
       "Poliwrath",
       "Politoed"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Paras",
       "Parasect",
       "Horsea",
@@ -171,12 +167,12 @@
     ]
   },
   {
-    "id":7,
-    "name":"limber",
-    "description":"Prevents paralysis.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 7,
+    "name": "limber",
+    "description": "Prevents paralysis.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Persian",
       "Hitmonlee",
       "Ditto",
@@ -185,23 +181,23 @@
       "Liepard",
       "Hawlucha"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Stunfisk",
       "Mareanie",
       "Toxapex"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Buneary",
       "Lopunny"
     ]
   },
   {
-    "id":8,
-    "name":"sand-veil",
-    "description":"Increases evasion to 1.25x during a sandstorm.  Protects against sandstorm damage.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 8,
+    "name": "sand-veil",
+    "description": "Increases evasion to 1.25x during a sandstorm.  Protects against sandstorm damage.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Sandshrew",
       "Sandslash",
       "Diglett",
@@ -214,13 +210,13 @@
       "Diglett-alola",
       "Dugtrio-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Gligar",
       "Gliscor",
       "Helioptile",
       "Heliolisk"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Geodude",
       "Graveler",
       "Golem",
@@ -233,12 +229,12 @@
     ]
   },
   {
-    "id":9,
-    "name":"static",
-    "description":"Has a 30% chance of paralyzing attacking Pokemon on contact.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 9,
+    "name": "static",
+    "description": "Has a 30% chance of paralyzing attacking Pokemon on contact.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Pikachu",
       "Raichu",
       "Electabuzz",
@@ -265,42 +261,40 @@
       "Pikachu-alola-cap",
       "Pikachu-partner-cap"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Voltorb",
       "Electrode"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Zapdos"
     ]
   },
   {
-    "id":10,
-    "name":"volt-absorb",
-    "description":"Absorbs electric moves, healing for 1/4 max HP.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 10,
+    "name": "volt-absorb",
+    "description": "Absorbs electric moves, healing for 1/4 max HP.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Jolteon",
       "Chinchou",
       "Lanturn",
       "Zeraora",
       "Thundurus-therian"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Minun",
       "Pachirisu"
     ]
   },
   {
-    "id":11,
-    "name":"water-absorb",
-    "description":"Absorbs water moves, healing for 1/4 max HP.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 11,
+    "name": "water-absorb",
+    "description": "Absorbs water moves, healing for 1/4 max HP.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Poliwag",
       "Poliwhirl",
       "Poliwrath",
@@ -312,13 +306,13 @@
       "Jellicent",
       "Volcanion"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Wooper",
       "Quagsire",
       "Mantine",
       "Mantyke"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Chinchou",
       "Lanturn",
       "Cacnea",
@@ -332,12 +326,12 @@
     ]
   },
   {
-    "id":12,
-    "name":"oblivious",
-    "description":"Prevents infatuation and protects against captivate.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 12,
+    "name": "oblivious",
+    "description": "Prevents infatuation and protects against captivate.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Slowpoke",
       "Slowbro",
       "Jynx",
@@ -351,7 +345,7 @@
       "Whiscash",
       "Mamoswine"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Lickitung",
       "Wailmer",
       "Wailord",
@@ -360,7 +354,7 @@
       "Bounsweet",
       "Steenee"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Spheal",
       "Sealeo",
       "Walrein",
@@ -370,19 +364,17 @@
     ]
   },
   {
-    "id":13,
-    "name":"cloud-nine",
-    "description":"Negates all effects of weather, but does not prevent the weather itself.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 13,
+    "name": "cloud-nine",
+    "description": "Negates all effects of weather, but does not prevent the weather itself.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Psyduck",
       "Golduck"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Lickitung",
       "Swablu",
       "Altaria",
@@ -391,34 +383,34 @@
     ]
   },
   {
-    "id":14,
-    "name":"compound-eyes",
-    "description":"Increases moves' accuracy to 1.3x.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 14,
+    "name": "compound-eyes",
+    "description": "Increases moves' accuracy to 1.3x.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Butterfree",
       "Venonat",
       "Nincada",
       "Joltik",
       "Galvantula"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Yanma",
       "Scatterbug",
       "Vivillon"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Dustox"
     ]
   },
   {
-    "id":15,
-    "name":"insomnia",
-    "description":"Prevents sleep.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 15,
+    "name": "insomnia",
+    "description": "Prevents sleep.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Drowzee",
       "Hypno",
       "Hoothoot",
@@ -429,11 +421,11 @@
       "Honchkrow",
       "Mewtwo-mega-y"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Spinarak",
       "Ariados"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Delibird",
       "Pumpkaboo-average",
       "Gourgeist-average",
@@ -446,45 +438,39 @@
     ]
   },
   {
-    "id":16,
-    "name":"color-change",
-    "description":"Changes type to match when hit by a damaging move.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 16,
+    "name": "color-change",
+    "description": "Changes type to match when hit by a damaging move.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Kecleon"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":17,
-    "name":"immunity",
-    "description":"Prevents poison.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 17,
+    "name": "immunity",
+    "description": "Prevents poison.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Snorlax",
       "Zangoose"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Gligar"
     ]
   },
   {
-    "id":18,
-    "name":"flash-fire",
-    "description":"Protects against fire moves.  Once one has been blocked, the Pokemon's own Fire moves inflict 1.5x damage until it leaves battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 18,
+    "name": "flash-fire",
+    "description": "Protects against fire moves.  Once one has been blocked, the Pokemon's own Fire moves inflict 1.5x damage until it leaves battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Vulpix",
       "Ninetales",
       "Flareon",
@@ -493,7 +479,7 @@
       "Lampent",
       "Chandelure"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Growlithe",
       "Arcanine",
       "Ponyta",
@@ -502,19 +488,19 @@
       "Houndoom",
       "Heatmor"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Cyndaquil",
       "Quilava",
       "Typhlosion"
     ]
   },
   {
-    "id":19,
-    "name":"shield-dust",
-    "description":"Protects against incoming moves' extra effects.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 19,
+    "name": "shield-dust",
+    "description": "Protects against incoming moves' extra effects.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Caterpie",
       "Weedle",
       "Venomoth",
@@ -523,22 +509,20 @@
       "Scatterbug",
       "Vivillon"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Cutiefly",
       "Ribombee",
       "Ribombee-totem"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":20,
-    "name":"own-tempo",
-    "description":"Prevents confusion.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 20,
+    "name": "own-tempo",
+    "description": "Prevents confusion.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Lickitung",
       "Smeargle",
       "Spinda",
@@ -549,7 +533,7 @@
       "Mudsdale",
       "Rockruff-own-tempo"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Slowpoke",
       "Slowbro",
       "Slowking",
@@ -560,7 +544,7 @@
       "Petilil",
       "Lilligant"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Lotad",
       "Lombre",
       "Ludicolo",
@@ -569,31 +553,29 @@
     ]
   },
   {
-    "id":21,
-    "name":"suction-cups",
-    "description":"Prevents being forced out of battle by other Pokemon's moves.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 21,
+    "name": "suction-cups",
+    "description": "Prevents being forced out of battle by other Pokemon's moves.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Octillery",
       "Lileep",
       "Cradily"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Inkay",
       "Malamar"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":22,
-    "name":"intimidate",
-    "description":"Lowers opponents' Attack one stage upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 22,
+    "name": "intimidate",
+    "description": "Lowers opponents' Attack one stage upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Ekans",
       "Arbok",
       "Growlithe",
@@ -617,13 +599,13 @@
       "Landorus-therian",
       "Manectric-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Mawile",
       "Shinx",
       "Luxio",
       "Luxray"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Qwilfish",
       "Scraggy",
       "Scrafty",
@@ -633,68 +615,60 @@
     ]
   },
   {
-    "id":23,
-    "name":"shadow-tag",
-    "description":"Prevents opponents from fleeing or switching out.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 23,
+    "name": "shadow-tag",
+    "description": "Prevents opponents from fleeing or switching out.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Wobbuffet",
       "Wynaut",
       "Gengar-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Gothita",
       "Gothorita",
       "Gothitelle"
     ]
   },
   {
-    "id":24,
-    "name":"rough-skin",
-    "description":"Damages attacking Pokemon for 1/8 their max HP on contact.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 24,
+    "name": "rough-skin",
+    "description": "Damages attacking Pokemon for 1/8 their max HP on contact.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Carvanha",
       "Sharpedo",
       "Druddigon"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Gible",
       "Gabite",
       "Garchomp"
     ]
   },
   {
-    "id":25,
-    "name":"wonder-guard",
-    "description":"Protects against damaging moves that are not super effective.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 25,
+    "name": "wonder-guard",
+    "description": "Protects against damaging moves that are not super effective.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Shedinja"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":26,
-    "name":"levitate",
-    "description":"Evades ground moves.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 26,
+    "name": "levitate",
+    "description": "Evades ground moves.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Gastly",
       "Haunter",
       "Koffing",
@@ -737,20 +711,16 @@
       "Latios-mega",
       "Vikavolt-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":27,
-    "name":"effect-spore",
-    "description":"Has a 30% chance of inflcting either paralysis, poison, or sleep on attacking Pokemon on contact.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 27,
+    "name": "effect-spore",
+    "description": "Has a 30% chance of inflcting either paralysis, poison, or sleep on attacking Pokemon on contact.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Paras",
       "Parasect",
       "Shroomish",
@@ -758,21 +728,21 @@
       "Foongus",
       "Amoonguss"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Morelull",
       "Shiinotic"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Vileplume"
     ]
   },
   {
-    "id":28,
-    "name":"synchronize",
-    "description":"Copies burns, paralysis, and poison received onto the Pokemon that inflicted them.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 28,
+    "name": "synchronize",
+    "description": "Copies burns, paralysis, and poison received onto the Pokemon that inflicted them.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Abra",
       "Kadabra",
       "Alakazam",
@@ -785,23 +755,21 @@
       "Kirlia",
       "Gardevoir"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Munna",
       "Musharna",
       "Elgyem",
       "Beheeyem"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":29,
-    "name":"clear-body",
-    "description":"Prevents stats from being lowered by other Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 29,
+    "name": "clear-body",
+    "description": "Prevents stats from being lowered by other Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Tentacool",
       "Tentacruel",
       "Beldum",
@@ -813,22 +781,20 @@
       "Carbink",
       "Diancie"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Klink",
       "Klang",
       "Klinklang"
     ]
   },
   {
-    "id":30,
-    "name":"natural-cure",
-    "description":"Cures any major status ailment upon switching out.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 30,
+    "name": "natural-cure",
+    "description": "Cures any major status ailment upon switching out.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Chansey",
       "Blissey",
       "Celebi",
@@ -842,22 +808,22 @@
       "Phantump",
       "Trevenant"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Staryu",
       "Starmie",
       "Corsola"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Comfey"
     ]
   },
   {
-    "id":31,
-    "name":"lightning-rod",
-    "description":"Redirects single-target electric moves to this Pokemon where possible.  Absorbs Electric moves, raising Special Attack one stage.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 31,
+    "name": "lightning-rod",
+    "description": "Redirects single-target electric moves to this Pokemon where possible.  Absorbs Electric moves, raising Special Attack one stage.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Rhyhorn",
       "Rhydon",
       "Rhyperior",
@@ -865,7 +831,7 @@
       "Zebstrika",
       "Sceptile-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Cubone",
       "Marowak",
       "Electrike",
@@ -875,7 +841,7 @@
       "Marowak-totem",
       "Togedemaru-totem"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Pikachu",
       "Raichu",
       "Goldeen",
@@ -898,19 +864,19 @@
     ]
   },
   {
-    "id":32,
-    "name":"serene-grace",
-    "description":"Doubles the chance of moves' extra effects occurring.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 32,
+    "name": "serene-grace",
+    "description": "Doubles the chance of moves' extra effects occurring.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Dunsparce",
       "Jirachi",
       "Meloetta-aria",
       "Shaymin-sky",
       "Meloetta-pirouette"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Chansey",
       "Togepi",
       "Togetic",
@@ -918,18 +884,18 @@
       "Happiny",
       "Togekiss"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Deerling",
       "Sawsbuck"
     ]
   },
   {
-    "id":33,
-    "name":"swift-swim",
-    "description":"Doubles Speed during rain.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 33,
+    "name": "swift-swim",
+    "description": "Doubles Speed during rain.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Horsea",
       "Goldeen",
       "Seaking",
@@ -959,10 +925,10 @@
       "Seismitoad",
       "Swampert-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Qwilfish"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Psyduck",
       "Golduck",
       "Poliwag",
@@ -976,12 +942,12 @@
     ]
   },
   {
-    "id":34,
-    "name":"chlorophyll",
-    "description":"Doubles Speed during strong sunlight.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 34,
+    "name": "chlorophyll",
+    "description": "Doubles Speed during strong sunlight.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Oddish",
       "Gloom",
       "Vileplume",
@@ -1008,13 +974,13 @@
       "Deerling",
       "Sawsbuck"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Sewaddle",
       "Swadloon",
       "Leavanny",
       "Maractus"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Bulbasaur",
       "Ivysaur",
       "Venusaur",
@@ -1024,12 +990,12 @@
     ]
   },
   {
-    "id":35,
-    "name":"illuminate",
-    "description":"Doubles the wild encounter rate.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 35,
+    "name": "illuminate",
+    "description": "Doubles the wild encounter rate.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Staryu",
       "Starmie",
       "Volbeat",
@@ -1037,60 +1003,56 @@
       "Morelull",
       "Shiinotic"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Chinchou",
       "Lanturn"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":36,
-    "name":"trace",
-    "description":"Copies an opponent's ability upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 36,
+    "name": "trace",
+    "description": "Copies an opponent's ability upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Porygon",
       "Porygon2",
       "Alakazam-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Ralts",
       "Kirlia",
       "Gardevoir"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":37,
-    "name":"huge-power",
-    "description":"Doubles Attack in battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 37,
+    "name": "huge-power",
+    "description": "Doubles Attack in battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Mawile-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Marill",
       "Azumarill",
       "Azurill"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Bunnelby",
       "Diggersby"
     ]
   },
   {
-    "id":38,
-    "name":"poison-point",
-    "description":"Has a 30% chance of poisoning attacking Pokemon on contact.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 38,
+    "name": "poison-point",
+    "description": "Has a 30% chance of poisoning attacking Pokemon on contact.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Nidoran-f",
       "Nidorina",
       "Nidoqueen",
@@ -1105,22 +1067,20 @@
       "Skrelp",
       "Dragalge"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Roselia",
       "Budew",
       "Roserade"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":39,
-    "name":"inner-focus",
-    "description":"Prevents flinching.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 39,
+    "name": "inner-focus",
+    "description": "Prevents flinching.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Zubat",
       "Golbat",
       "Dragonite",
@@ -1134,7 +1094,7 @@
       "Oranguru",
       "Gallade-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Abra",
       "Kadabra",
       "Alakazam",
@@ -1146,7 +1106,7 @@
       "Pawniard",
       "Bisharp"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Drowzee",
       "Hypno",
       "Hitmonchan",
@@ -1161,38 +1121,34 @@
     ]
   },
   {
-    "id":40,
-    "name":"magma-armor",
-    "description":"Prevents freezing.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 40,
+    "name": "magma-armor",
+    "description": "Prevents freezing.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Slugma",
       "Magcargo",
       "Camerupt"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":41,
-    "name":"water-veil",
-    "description":"Prevents burns.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 41,
+    "name": "water-veil",
+    "description": "Prevents burns.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Wailmer",
       "Wailord"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Goldeen",
       "Seaking"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Mantine",
       "Huntail",
       "Buizel",
@@ -1203,12 +1159,12 @@
     ]
   },
   {
-    "id":42,
-    "name":"magnet-pull",
-    "description":"Prevents steel opponents from fleeing or switching out.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 42,
+    "name": "magnet-pull",
+    "description": "Prevents steel opponents from fleeing or switching out.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Magnemite",
       "Magneton",
       "Magnezone",
@@ -1216,21 +1172,19 @@
       "Graveler-alola",
       "Golem-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Nosepass",
       "Probopass"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":43,
-    "name":"soundproof",
-    "description":"Protects against sound-based moves.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 43,
+    "name": "soundproof",
+    "description": "Protects against sound-based moves.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Voltorb",
       "Electrode",
       "Mr-mime",
@@ -1239,13 +1193,13 @@
       "Exploud",
       "Mime-jr"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Jangmo-o",
       "Hakamo-o",
       "Kommo-o",
       "Kommo-o-totem"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Shieldon",
       "Bastiodon",
       "Snover",
@@ -1254,20 +1208,18 @@
     ]
   },
   {
-    "id":44,
-    "name":"rain-dish",
-    "description":"Heals for 1/16 max HP after each turn during rain.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 44,
+    "name": "rain-dish",
+    "description": "Heals for 1/16 max HP after each turn during rain.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Lotad",
       "Lombre",
       "Ludicolo"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Squirtle",
       "Wartortle",
       "Blastoise",
@@ -1281,31 +1233,29 @@
     ]
   },
   {
-    "id":45,
-    "name":"sand-stream",
-    "description":"Summons a sandstorm that lasts indefinitely upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 45,
+    "name": "sand-stream",
+    "description": "Summons a sandstorm that lasts indefinitely upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Tyranitar",
       "Hippopotas",
       "Hippowdon",
       "Tyranitar-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Gigalith"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":46,
-    "name":"pressure",
-    "description":"Increases the PP cost of moves targetting the Pokemon by one.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 46,
+    "name": "pressure",
+    "description": "Increases the PP cost of moves targetting the Pokemon by one.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Articuno",
       "Zapdos",
       "Moltres",
@@ -1330,10 +1280,10 @@
       "Deoxys-defense",
       "Deoxys-speed"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Aerodactyl"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Wailmer",
       "Wailord",
       "Pawniard",
@@ -1341,12 +1291,12 @@
     ]
   },
   {
-    "id":47,
-    "name":"thick-fat",
-    "description":"Halves damage from fire and ice moves.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 47,
+    "name": "thick-fat",
+    "description": "Halves damage from fire and ice moves.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Seel",
       "Dewgong",
       "Marill",
@@ -1363,11 +1313,11 @@
       "Purugly",
       "Venusaur-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Snorlax",
       "Munchlax"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Swinub",
       "Piloswine",
       "Mamoswine",
@@ -1379,17 +1329,17 @@
     ]
   },
   {
-    "id":48,
-    "name":"early-bird",
-    "description":"Makes sleep pass twice as quickly.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 48,
+    "name": "early-bird",
+    "description": "Makes sleep pass twice as quickly.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Kangaskhan",
       "Houndour",
       "Houndoom"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Doduo",
       "Dodrio",
       "Ledyba",
@@ -1401,18 +1351,18 @@
       "Nuzleaf",
       "Shiftry"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Sunkern",
       "Sunflora"
     ]
   },
   {
-    "id":49,
-    "name":"flame-body",
-    "description":"Has a 30% chance of burning attacking Pokemon on contact.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 49,
+    "name": "flame-body",
+    "description": "Has a 30% chance of burning attacking Pokemon on contact.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Magmar",
       "Magby",
       "Magmortar",
@@ -1421,14 +1371,14 @@
       "Fletchinder",
       "Talonflame"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Slugma",
       "Magcargo",
       "Litwick",
       "Lampent",
       "Chandelure"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Ponyta",
       "Rapidash",
       "Moltres",
@@ -1436,12 +1386,12 @@
     ]
   },
   {
-    "id":50,
-    "name":"run-away",
-    "description":"Ensures success fleeing from wild battles.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 50,
+    "name": "run-away",
+    "description": "Ensures success fleeing from wild battles.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Rattata",
       "Raticate",
       "Ponyta",
@@ -1457,11 +1407,11 @@
       "Buneary",
       "Patrat"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Dunsparce",
       "Snubbull"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Caterpie",
       "Weedle",
       "Oddish",
@@ -1473,12 +1423,12 @@
     ]
   },
   {
-    "id":51,
-    "name":"keen-eye",
-    "description":"Prevents accuracy from being lowered.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 51,
+    "name": "keen-eye",
+    "description": "Prevents accuracy from being lowered.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Pidgey",
       "Pidgeotto",
       "Pidgeot",
@@ -1506,7 +1456,7 @@
       "Meowstic-female",
       "Lycanroc-midnight"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Sentret",
       "Furret",
       "Hoothoot",
@@ -1515,7 +1465,7 @@
       "Patrat",
       "Watchog"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Glameow",
       "Stunky",
       "Skuntank",
@@ -1524,12 +1474,12 @@
     ]
   },
   {
-    "id":52,
-    "name":"hyper-cutter",
-    "description":"Prevents Attack from being lowered by other Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 52,
+    "name": "hyper-cutter",
+    "description": "Prevents Attack from being lowered by other Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Krabby",
       "Kingler",
       "Pinsir",
@@ -1542,20 +1492,16 @@
       "Crabrawler",
       "Crabominable"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":53,
-    "name":"pickup",
-    "description":"Picks up other Pokemon's used and Flung held items.  May also pick up an item after battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 53,
+    "name": "pickup",
+    "description": "Picks up other Pokemon's used and Flung held items.  May also pick up an item after battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Meowth",
       "Teddiursa",
       "Phanpy",
@@ -1574,42 +1520,40 @@
       "Gourgeist-super",
       "Meowth-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Aipom",
       "Pachirisu",
       "Ambipom",
       "Lillipup",
       "Dedenne"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Pikipek",
       "Trumbeak"
     ]
   },
   {
-    "id":54,
-    "name":"truant",
-    "description":"Skips every second turn.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 54,
+    "name": "truant",
+    "description": "Skips every second turn.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Slakoth",
       "Slaking"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Durant"
     ]
   },
   {
-    "id":55,
-    "name":"hustle",
-    "description":"Strengthens physical moves to inflict 1.5x damage, but decreases their accuracy to 0.8x.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 55,
+    "name": "hustle",
+    "description": "Strengthens physical moves to inflict 1.5x damage, but decreases their accuracy to 0.8x.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Togepi",
       "Togetic",
       "Corsola",
@@ -1619,14 +1563,14 @@
       "Deino",
       "Zweilous"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Delibird",
       "Durant",
       "Rattata-alola",
       "Raticate-alola",
       "Raticate-totem-alola"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Rattata",
       "Raticate",
       "Nidoran-f",
@@ -1638,12 +1582,12 @@
     ]
   },
   {
-    "id":56,
-    "name":"cute-charm",
-    "description":"Has a 30% chance of infatuating attacking Pokemon on contact.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 56,
+    "name": "cute-charm",
+    "description": "Has a 30% chance of infatuating attacking Pokemon on contact.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Clefairy",
       "Clefable",
       "Jigglypuff",
@@ -1657,30 +1601,26 @@
       "Cinccino",
       "Sylveon"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Milotic",
       "Stufful"
     ]
   },
   {
-    "id":57,
-    "name":"plus",
-    "description":"Increases Special Attack to 1.5x when a friendly Pokemon has plus or minus.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 57,
+    "name": "plus",
+    "description": "Increases Special Attack to 1.5x when a friendly Pokemon has plus or minus.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Plusle",
       "Klink",
       "Klang",
       "Klinklang"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Mareep",
       "Flaaffy",
       "Ampharos",
@@ -1688,54 +1628,50 @@
     ]
   },
   {
-    "id":58,
-    "name":"minus",
-    "description":"Increases Special Attack to 1.5x when a friendly Pokemon has plus or minus.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 58,
+    "name": "minus",
+    "description": "Increases Special Attack to 1.5x when a friendly Pokemon has plus or minus.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Minun"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Klink",
       "Klang",
       "Klinklang"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Electrike",
       "Manectric"
     ]
   },
   {
-    "id":59,
-    "name":"forecast",
-    "description":"Changes castform's type and form to match the weather.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 59,
+    "name": "forecast",
+    "description": "Changes castform's type and form to match the weather.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Castform",
       "Castform-sunny",
       "Castform-rainy",
       "Castform-snowy"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":60,
-    "name":"sticky-hold",
-    "description":"Prevents a held item from being removed by other Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 60,
+    "name": "sticky-hold",
+    "description": "Prevents a held item from being removed by other Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Shellos",
       "Gastrodon"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Grimer",
       "Muk",
       "Gulpin",
@@ -1743,17 +1679,15 @@
       "Trubbish",
       "Accelgor"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":61,
-    "name":"shed-skin",
-    "description":"Has a 33% chance of curing any major status ailment after each turn.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 61,
+    "name": "shed-skin",
+    "description": "Has a 33% chance of curing any major status ailment after each turn.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Metapod",
       "Kakuna",
       "Dratini",
@@ -1768,22 +1702,20 @@
       "Scrafty",
       "Spewpa"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Ekans",
       "Arbok",
       "Karrablast"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":62,
-    "name":"guts",
-    "description":"Increases Attack to 1.5x with a major status ailment.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 62,
+    "name": "guts",
+    "description": "Increases Attack to 1.5x with a major status ailment.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Machop",
       "Machoke",
       "Machamp",
@@ -1797,14 +1729,14 @@
       "Conkeldurr",
       "Throh"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Rattata",
       "Raticate",
       "Heracross",
       "Makuhita",
       "Hariyama"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Flareon",
       "Shinx",
       "Luxio",
@@ -1812,47 +1744,43 @@
     ]
   },
   {
-    "id":63,
-    "name":"marvel-scale",
-    "description":"Increases Defense to 1.5x with a major status ailment.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 63,
+    "name": "marvel-scale",
+    "description": "Increases Defense to 1.5x with a major status ailment.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Milotic"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Dratini",
       "Dragonair"
     ]
   },
   {
-    "id":64,
-    "name":"liquid-ooze",
-    "description":"Damages opponents using leeching moves for as much as they would heal.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 64,
+    "name": "liquid-ooze",
+    "description": "Damages opponents using leeching moves for as much as they would heal.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Gulpin",
       "Swalot"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Tentacool",
       "Tentacruel"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":65,
-    "name":"overgrow",
-    "description":"Strengthens grass moves to inflict 1.5x damage at 1/3 max HP or less.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 65,
+    "name": "overgrow",
+    "description": "Strengthens grass moves to inflict 1.5x damage at 1/3 max HP or less.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Bulbasaur",
       "Ivysaur",
       "Venusaur",
@@ -1875,21 +1803,19 @@
       "Dartrix",
       "Decidueye"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Pansage",
       "Simisage"
     ]
   },
   {
-    "id":66,
-    "name":"blaze",
-    "description":"Strengthens fire moves to inflict 1.5x damage at 1/3 max HP or less.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 66,
+    "name": "blaze",
+    "description": "Strengthens fire moves to inflict 1.5x damage at 1/3 max HP or less.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Charmander",
       "Charmeleon",
       "Charizard",
@@ -1912,21 +1838,19 @@
       "Torracat",
       "Incineroar"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Pansear",
       "Simisear"
     ]
   },
   {
-    "id":67,
-    "name":"torrent",
-    "description":"Strengthens water moves to inflict 1.5x damage at 1/3 max HP or less.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 67,
+    "name": "torrent",
+    "description": "Strengthens water moves to inflict 1.5x damage at 1/3 max HP or less.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Squirtle",
       "Wartortle",
       "Blastoise",
@@ -1949,21 +1873,19 @@
       "Brionne",
       "Primarina"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Panpour",
       "Simipour"
     ]
   },
   {
-    "id":68,
-    "name":"swarm",
-    "description":"Strengthens bug moves to inflict 1.5x damage at 1/3 max HP or less.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 68,
+    "name": "swarm",
+    "description": "Strengthens bug moves to inflict 1.5x damage at 1/3 max HP or less.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Beedrill",
       "Scyther",
       "Ledyba",
@@ -1982,13 +1904,13 @@
       "Durant",
       "Grubbin"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Volbeat",
       "Venipede",
       "Whirlipede",
       "Scolipede"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Joltik",
       "Galvantula",
       "Larvesta",
@@ -1996,12 +1918,12 @@
     ]
   },
   {
-    "id":69,
-    "name":"rock-head",
-    "description":"Protects against recoil damage.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 69,
+    "name": "rock-head",
+    "description": "Protects against recoil damage.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Geodude",
       "Graveler",
       "Golem",
@@ -2014,7 +1936,7 @@
       "Shelgon",
       "Basculin-blue-striped"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Rhyhorn",
       "Rhydon",
       "Sudowoodo",
@@ -2024,66 +1946,62 @@
       "Relicanth",
       "Bonsly"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Tyrantrum",
       "Marowak-alola",
       "Marowak-totem"
     ]
   },
   {
-    "id":70,
-    "name":"drought",
-    "description":"Summons strong sunlight that lasts indefinitely upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 70,
+    "name": "drought",
+    "description": "Summons strong sunlight that lasts indefinitely upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Groudon",
       "Charizard-mega-y"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Torkoal"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Vulpix",
       "Ninetales"
     ]
   },
   {
-    "id":71,
-    "name":"arena-trap",
-    "description":"Prevents opponents from fleeing or switching out.  Eluded by flying-types and Pokemon in the air.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 71,
+    "name": "arena-trap",
+    "description": "Prevents opponents from fleeing or switching out.  Eluded by flying-types and Pokemon in the air.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Diglett",
       "Dugtrio",
       "Trapinch"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":72,
-    "name":"vital-spirit",
-    "description":"Prevents sleep.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 72,
+    "name": "vital-spirit",
+    "description": "Prevents sleep.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Mankey",
       "Primeape",
       "Delibird",
       "Vigoroth",
       "Lillipup"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Rockruff",
       "Lycanroc-midnight"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Electabuzz",
       "Magmar",
       "Tyrogue",
@@ -2094,53 +2012,47 @@
     ]
   },
   {
-    "id":73,
-    "name":"white-smoke",
-    "description":"Prevents stats from being lowered by other Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 73,
+    "name": "white-smoke",
+    "description": "Prevents stats from being lowered by other Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Torkoal"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Heatmor"
     ]
   },
   {
-    "id":74,
-    "name":"pure-power",
-    "description":"Doubles Attack in battle.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 74,
+    "name": "pure-power",
+    "description": "Doubles Attack in battle.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Meditite",
       "Medicham",
       "Medicham-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":75,
-    "name":"shell-armor",
-    "description":"Protects against critical hits.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 75,
+    "name": "shell-armor",
+    "description": "Protects against critical hits.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Shellder",
       "Cloyster",
       "Clamperl",
       "Turtonator",
       "Slowbro-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Krabby",
       "Kingler",
       "Lapras",
@@ -2153,7 +2065,7 @@
       "Escavalier",
       "Shelmet"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Torkoal",
       "Turtwig",
       "Grotle",
@@ -2164,66 +2076,60 @@
     ]
   },
   {
-    "id":76,
-    "name":"air-lock",
-    "description":"Negates all effects of weather, but does not prevent the weather itself.",
-    "longDescription":"",
-    "generationIntroduced":"3",
-    "pokemonFirstAbility":[
+    "id": 76,
+    "name": "air-lock",
+    "description": "Negates all effects of weather, but does not prevent the weather itself.",
+    "longDescription": "",
+    "generationIntroduced": "3",
+    "pokemonFirstAbility": [
       "Rayquaza"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":77,
-    "name":"tangled-feet",
-    "description":"Doubles evasion when confused.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 77,
+    "name": "tangled-feet",
+    "description": "Doubles evasion when confused.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Pidgey",
       "Pidgeotto",
       "Pidgeot",
       "Spinda",
       "Chatot"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Doduo",
       "Dodrio"
     ]
   },
   {
-    "id":78,
-    "name":"motor-drive",
-    "description":"Absorbs electric moves, raising Speed one stage.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 78,
+    "name": "motor-drive",
+    "description": "Absorbs electric moves, raising Speed one stage.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Electivire"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Blitzle",
       "Zebstrika"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Emolga"
     ]
   },
   {
-    "id":79,
-    "name":"rivalry",
-    "description":"Increases damage inflicted to 1.25x against Pokemon of the same gender, but decreases damage to 0.75x against the opposite gender.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 79,
+    "name": "rivalry",
+    "description": "Increases damage inflicted to 1.25x against Pokemon of the same gender, but decreases damage to 0.75x against the opposite gender.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Shinx",
       "Luxio",
       "Luxray",
@@ -2233,7 +2139,7 @@
       "Litleo",
       "Pyroar"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Nidoran-f",
       "Nidorina",
       "Nidoqueen",
@@ -2241,7 +2147,7 @@
       "Nidorino",
       "Nidoking"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Beautifly",
       "Pidove",
       "Tranquill",
@@ -2249,21 +2155,21 @@
     ]
   },
   {
-    "id":80,
-    "name":"steadfast",
-    "description":"Raises Speed one stage upon flinching.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 80,
+    "name": "steadfast",
+    "description": "Raises Speed one stage upon flinching.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Riolu",
       "Lucario",
       "Gallade",
       "Mewtwo-mega-x"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Tyrogue"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Machop",
       "Machoke",
       "Machamp",
@@ -2274,12 +2180,12 @@
     ]
   },
   {
-    "id":81,
-    "name":"snow-cloak",
-    "description":"Increases evasion to 1.25x during hail.  Protects against hail damage.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 81,
+    "name": "snow-cloak",
+    "description": "Increases evasion to 1.25x during hail.  Protects against hail damage.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Glaceon",
       "Froslass",
       "Cubchoo",
@@ -2289,24 +2195,24 @@
       "Vulpix-alola",
       "Ninetales-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Swinub",
       "Piloswine",
       "Mamoswine",
       "Vanillite",
       "Vanillish"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Articuno"
     ]
   },
   {
-    "id":82,
-    "name":"gluttony",
-    "description":"Makes the Pokemon eat any held Berry triggered by low HP below 1/2 its max HP.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 82,
+    "name": "gluttony",
+    "description": "Makes the Pokemon eat any held Berry triggered by low HP below 1/2 its max HP.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Pansage",
       "Simisage",
       "Pansear",
@@ -2318,14 +2224,14 @@
       "Raticate-alola",
       "Raticate-totem-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Shuckle",
       "Zigzagoon",
       "Linoone",
       "Grimer-alola",
       "Muk-alola"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Bellsprout",
       "Weepinbell",
       "Victreebel",
@@ -2338,20 +2244,18 @@
     ]
   },
   {
-    "id":83,
-    "name":"anger-point",
-    "description":"Raises Attack to the maximum of six stages upon receiving a critical hit.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 83,
+    "name": "anger-point",
+    "description": "Raises Attack to the maximum of six stages upon receiving a critical hit.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Mankey",
       "Primeape",
       "Tauros"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Camerupt",
       "Sandile",
       "Krokorok",
@@ -2361,22 +2265,20 @@
     ]
   },
   {
-    "id":84,
-    "name":"unburden",
-    "description":"Doubles Speed upon using or losing a held item.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 84,
+    "name": "unburden",
+    "description": "Doubles Speed upon using or losing a held item.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Drifloon",
       "Drifblim",
       "Purrloin",
       "Liepard",
       "Hawlucha"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Hitmonlee",
       "Treecko",
       "Grovyle",
@@ -2387,96 +2289,90 @@
     ]
   },
   {
-    "id":85,
-    "name":"heatproof",
-    "description":"Halves damage from fire moves and burns.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 85,
+    "name": "heatproof",
+    "description": "Halves damage from fire moves and burns.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Bronzor",
       "Bronzong"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":86,
-    "name":"simple",
-    "description":"Doubles the Pokemon's stat modifiers.  These doubled modifiers are still capped at -6 or 6 stages.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 86,
+    "name": "simple",
+    "description": "Doubles the Pokemon's stat modifiers.  These doubled modifiers are still capped at -6 or 6 stages.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Bidoof",
       "Bibarel"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Numel"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Woobat",
       "Swoobat"
     ]
   },
   {
-    "id":87,
-    "name":"dry-skin",
-    "description":"Causes 1/8 max HP in damage each turn during strong sunlight, but heals for 1/8 max HP during rain.  Increases damage from fire moves to 1.25x, but absorbs water moves, healing for 1/4 max HP.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 87,
+    "name": "dry-skin",
+    "description": "Causes 1/8 max HP in damage each turn during strong sunlight, but heals for 1/8 max HP during rain.  Increases damage from fire moves to 1.25x, but absorbs water moves, healing for 1/4 max HP.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Helioptile",
       "Heliolisk"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Paras",
       "Parasect",
       "Croagunk",
       "Toxicroak"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Jynx"
     ]
   },
   {
-    "id":88,
-    "name":"download",
-    "description":"Raises the attack stat corresponding to the opponents' weaker defense one stage upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 88,
+    "name": "download",
+    "description": "Raises the attack stat corresponding to the opponents' weaker defense one stage upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Genesect"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Porygon",
       "Porygon2",
       "Porygon-z"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":89,
-    "name":"iron-fist",
-    "description":"Strengthens punch-based moves to 1.2x their power.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 89,
+    "name": "iron-fist",
+    "description": "Strengthens punch-based moves to 1.2x their power.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Golett",
       "Golurk",
       "Pancham",
       "Pangoro"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Hitmonchan",
       "Crabrawler",
       "Crabominable"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Ledian",
       "Chimchar",
       "Monferno",
@@ -2487,39 +2383,37 @@
     ]
   },
   {
-    "id":90,
-    "name":"poison-heal",
-    "description":"Heals for 1/8 max HP after each turn when poisoned in place of damage.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 90,
+    "name": "poison-heal",
+    "description": "Heals for 1/8 max HP after each turn when poisoned in place of damage.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Shroomish",
       "Breloom"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Gliscor"
     ]
   },
   {
-    "id":91,
-    "name":"adaptability",
-    "description":"Increases the same-type attack bonus from 1.5x to 2x.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 91,
+    "name": "adaptability",
+    "description": "Increases the same-type attack bonus from 1.5x to 2x.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Porygon-z",
       "Lucario-mega",
       "Beedrill-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Eevee",
       "Basculin-red-striped",
       "Basculin-blue-striped"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Corphish",
       "Crawdaunt",
       "Feebas",
@@ -2531,22 +2425,22 @@
     ]
   },
   {
-    "id":92,
-    "name":"skill-link",
-    "description":"Extends two-to-five-hit moves and triple kick to their full length every time.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 92,
+    "name": "skill-link",
+    "description": "Extends two-to-five-hit moves and triple kick to their full length every time.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Heracross-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Shellder",
       "Cloyster",
       "Pikipek",
       "Trumbeak",
       "Toucannon"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Aipom",
       "Ambipom",
       "Minccino",
@@ -2554,18 +2448,18 @@
     ]
   },
   {
-    "id":93,
-    "name":"hydration",
-    "description":"Cures any major status ailment after each turn during rain.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 93,
+    "name": "hydration",
+    "description": "Cures any major status ailment after each turn during rain.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Phione",
       "Manaphy",
       "Shelmet",
       "Accelgor"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Seel",
       "Dewgong",
       "Wingull",
@@ -2576,7 +2470,7 @@
       "Sliggoo",
       "Goodra"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Lapras",
       "Vaporeon",
       "Smoochum",
@@ -2589,20 +2483,20 @@
     ]
   },
   {
-    "id":94,
-    "name":"solar-power",
-    "description":"Increases Special Attack to 1.5x but costs 1/8 max HP after each turn during strong sunlight.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 94,
+    "name": "solar-power",
+    "description": "Increases Special Attack to 1.5x but costs 1/8 max HP after each turn during strong sunlight.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Houndoom-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Sunkern",
       "Sunflora",
       "Tropius"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Charmander",
       "Charmeleon",
       "Charizard",
@@ -2611,22 +2505,20 @@
     ]
   },
   {
-    "id":95,
-    "name":"quick-feet",
-    "description":"Increases Speed to 1.5x with a major status ailment.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 95,
+    "name": "quick-feet",
+    "description": "Increases Speed to 1.5x with a major status ailment.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Granbull",
       "Teddiursa",
       "Ursaring",
       "Poochyena",
       "Mightyena"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Jolteon",
       "Zigzagoon",
       "Linoone",
@@ -2634,32 +2526,26 @@
     ]
   },
   {
-    "id":96,
-    "name":"normalize",
-    "description":"Makes the Pokemon's moves all act normal-type.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 96,
+    "name": "normalize",
+    "description": "Makes the Pokemon's moves all act normal-type.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Skitty",
       "Delcatty"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":97,
-    "name":"sniper",
-    "description":"Strengthens critical hits to inflict 3x damage rather than 2x.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 97,
+    "name": "sniper",
+    "description": "Strengthens critical hits to inflict 3x damage rather than 2x.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Horsea",
       "Seadra",
       "Remoraid",
@@ -2670,7 +2556,7 @@
       "Binacle",
       "Barbaracle"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Beedrill",
       "Spearow",
       "Fearow",
@@ -2679,15 +2565,13 @@
     ]
   },
   {
-    "id":98,
-    "name":"magic-guard",
-    "description":"Protects against damage not directly caused by a move.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 98,
+    "name": "magic-guard",
+    "description": "Protects against damage not directly caused by a move.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Clefairy",
       "Clefable",
       "Cleffa",
@@ -2696,29 +2580,29 @@
       "Duosion",
       "Reuniclus"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Abra",
       "Kadabra",
       "Alakazam"
     ]
   },
   {
-    "id":99,
-    "name":"no-guard",
-    "description":"Ensures all moves used by and against the Pokemon hit.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 99,
+    "name": "no-guard",
+    "description": "Ensures all moves used by and against the Pokemon hit.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Honedge",
       "Doublade",
       "Pidgeot-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Machop",
       "Machoke",
       "Machamp"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Karrablast",
       "Golett",
       "Golurk",
@@ -2726,33 +2610,29 @@
     ]
   },
   {
-    "id":100,
-    "name":"stall",
-    "description":"Makes the Pokemon move last within its move's priority bracket.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 100,
+    "name": "stall",
+    "description": "Makes the Pokemon move last within its move's priority bracket.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Sableye"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":101,
-    "name":"technician",
-    "description":"Strengthens moves of 60 base power or less to 1.5x their power.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 101,
+    "name": "technician",
+    "description": "Strengthens moves of 60 base power or less to 1.5x their power.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Ambipom",
       "Marshadow",
       "Scizor-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Meowth",
       "Persian",
       "Scyther",
@@ -2764,7 +2644,7 @@
       "Meowth-alola",
       "Persian-alola"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Mr-mime",
       "Breloom",
       "Kricketune",
@@ -2773,12 +2653,12 @@
     ]
   },
   {
-    "id":102,
-    "name":"leaf-guard",
-    "description":"Protects against major status ailments during strong sunlight.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 102,
+    "name": "leaf-guard",
+    "description": "Protects against major status ailments during strong sunlight.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Leafeon",
       "Swadloon",
       "Fomantis",
@@ -2788,14 +2668,14 @@
       "Tsareena",
       "Lurantis-totem"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Tangela",
       "Hoppip",
       "Skiploom",
       "Jumpluff",
       "Tangrowth"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Chikorita",
       "Bayleef",
       "Meganium",
@@ -2806,15 +2686,13 @@
     ]
   },
   {
-    "id":103,
-    "name":"klutz",
-    "description":"Prevents the Pokemon from using its held item in battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 103,
+    "name": "klutz",
+    "description": "Prevents the Pokemon from using its held item in battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Buneary",
       "Lopunny",
       "Woobat",
@@ -2824,23 +2702,23 @@
       "Stufful",
       "Bewear"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Audino"
     ]
   },
   {
-    "id":104,
-    "name":"mold-breaker",
-    "description":"Bypasses targets' abilities if they could hinder or prevent a move.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 104,
+    "name": "mold-breaker",
+    "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Cranidos",
       "Rampardos",
       "Gyarados-mega",
       "Ampharos-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Pinsir",
       "Axew",
       "Fraxure",
@@ -2848,7 +2726,7 @@
       "Pancham",
       "Pangoro"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Drilbur",
       "Excadrill",
       "Throh",
@@ -2860,15 +2738,13 @@
     ]
   },
   {
-    "id":105,
-    "name":"super-luck",
-    "description":"Raises moves' critical hit rates one stage.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 105,
+    "name": "super-luck",
+    "description": "Raises moves' critical hit rates one stage.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Murkrow",
       "Absol",
       "Honchkrow",
@@ -2876,27 +2752,27 @@
       "Tranquill",
       "Unfezant"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Togepi",
       "Togetic",
       "Togekiss"
     ]
   },
   {
-    "id":106,
-    "name":"aftermath",
-    "description":"Damages the attacker for 1/4 its max HP when knocked out by a contact move.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 106,
+    "name": "aftermath",
+    "description": "Damages the attacker for 1/4 its max HP when knocked out by a contact move.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Drifloon",
       "Drifblim"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Stunky",
       "Skuntank"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Voltorb",
       "Electrode",
       "Trubbish",
@@ -2904,63 +2780,61 @@
     ]
   },
   {
-    "id":107,
-    "name":"anticipation",
-    "description":"Notifies all trainers upon entering battle if an opponent has a super-effective move, self destruct, explosion, or a one-hit KO move.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 107,
+    "name": "anticipation",
+    "description": "Notifies all trainers upon entering battle if an opponent has a super-effective move, self destruct, explosion, or a one-hit KO move.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Wormadam-plant",
       "Croagunk",
       "Toxicroak",
       "Wormadam-sandy",
       "Wormadam-trash"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Barboach",
       "Whiscash"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Eevee",
       "Ferrothorn"
     ]
   },
   {
-    "id":108,
-    "name":"forewarn",
-    "description":"Reveals the opponents' strongest move upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 108,
+    "name": "forewarn",
+    "description": "Reveals the opponents' strongest move upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Munna",
       "Musharna"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Drowzee",
       "Hypno",
       "Jynx",
       "Smoochum"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":109,
-    "name":"unaware",
-    "description":"Ignores other Pokemon's stat modifiers for damage and accuracy calculation.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 109,
+    "name": "unaware",
+    "description": "Ignores other Pokemon's stat modifiers for damage and accuracy calculation.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Woobat",
       "Swoobat",
       "Cosmog"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Bidoof",
       "Bibarel"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Clefable",
       "Wooper",
       "Quagsire",
@@ -2968,21 +2842,19 @@
     ]
   },
   {
-    "id":110,
-    "name":"tinted-lens",
-    "description":"Doubles damage inflicted with not-very-effective moves.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 110,
+    "name": "tinted-lens",
+    "description": "Doubles damage inflicted with not-very-effective moves.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Venonat",
       "Venomoth",
       "Illumise",
       "Yanmega"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Butterfree",
       "Hoothoot",
       "Noctowl",
@@ -2991,52 +2863,46 @@
     ]
   },
   {
-    "id":111,
-    "name":"filter",
-    "description":"Decreases damage taken from super-effective moves by 1/4.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 111,
+    "name": "filter",
+    "description": "Decreases damage taken from super-effective moves by 1/4.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Aggron-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Mr-mime",
       "Mime-jr"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":112,
-    "name":"slow-start",
-    "description":"Halves Attack and Speed for five turns upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 112,
+    "name": "slow-start",
+    "description": "Halves Attack and Speed for five turns upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Regigigas"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":113,
-    "name":"scrappy",
-    "description":"Lets the Pokemon's normal and fighting moves hit ghost Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 113,
+    "name": "scrappy",
+    "description": "Lets the Pokemon's normal and fighting moves hit ghost Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Lopunny-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Kangaskhan",
       "Miltank"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Taillow",
       "Swellow",
       "Loudred",
@@ -3048,38 +2914,36 @@
     ]
   },
   {
-    "id":114,
-    "name":"storm-drain",
-    "description":"Redirects single-target water moves to this Pokemon where possible.  Absorbs Water moves, raising Special Attack one stage.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 114,
+    "name": "storm-drain",
+    "description": "Redirects single-target water moves to this Pokemon where possible.  Absorbs Water moves, raising Special Attack one stage.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Shellos",
       "Gastrodon",
       "Finneon",
       "Lumineon"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Lileep",
       "Cradily",
       "Maractus"
     ]
   },
   {
-    "id":115,
-    "name":"ice-body",
-    "description":"Heals for 1/16 max HP after each turn during hail.  Protects against hail damage.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 115,
+    "name": "ice-body",
+    "description": "Heals for 1/16 max HP after each turn during hail.  Protects against hail damage.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Vanillite",
       "Vanillish",
       "Vanilluxe"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Snorunt",
       "Glalie",
       "Spheal",
@@ -3088,7 +2952,7 @@
       "Bergmite",
       "Avalugg"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Seel",
       "Dewgong",
       "Regice",
@@ -3096,38 +2960,36 @@
     ]
   },
   {
-    "id":116,
-    "name":"solid-rock",
-    "description":"Decreases damage taken from super-effective moves by 1/4.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 116,
+    "name": "solid-rock",
+    "description": "Decreases damage taken from super-effective moves by 1/4.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Tirtouga",
       "Carracosta"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Camerupt",
       "Rhyperior"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":117,
-    "name":"snow-warning",
-    "description":"Summons hail that lasts indefinitely upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 117,
+    "name": "snow-warning",
+    "description": "Summons hail that lasts indefinitely upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Snover",
       "Abomasnow",
       "Abomasnow-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Vanilluxe"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Amaura",
       "Aurorus",
       "Vulpix-alola",
@@ -3135,31 +2997,29 @@
     ]
   },
   {
-    "id":118,
-    "name":"honey-gather",
-    "description":"The Pokemon may pick up honey after battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 118,
+    "name": "honey-gather",
+    "description": "The Pokemon may pick up honey after battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Combee",
       "Cutiefly",
       "Ribombee",
       "Ribombee-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Teddiursa"
     ]
   },
   {
-    "id":119,
-    "name":"frisk",
-    "description":"Reveals an opponent's held item upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 119,
+    "name": "frisk",
+    "description": "Reveals an opponent's held item upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Gothita",
       "Gothorita",
       "Gothitelle",
@@ -3167,7 +3027,7 @@
       "Noivern",
       "Exeggutor-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Stantler",
       "Shuppet",
       "Banette",
@@ -3182,7 +3042,7 @@
       "Gourgeist-large",
       "Gourgeist-super"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Wigglytuff",
       "Sentret",
       "Furret",
@@ -3194,19 +3054,19 @@
     ]
   },
   {
-    "id":120,
-    "name":"reckless",
-    "description":"Strengthens recoil moves to 1.2x their power.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 120,
+    "name": "reckless",
+    "description": "Strengthens recoil moves to 1.2x their power.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Basculin-red-striped",
       "Bouffalant"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Hitmonlee"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Rhyhorn",
       "Rhydon",
       "Starly",
@@ -3219,66 +3079,50 @@
     ]
   },
   {
-    "id":121,
-    "name":"multitype",
-    "description":"Changes arceus's type and form to match its held Plate.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 121,
+    "name": "multitype",
+    "description": "Changes arceus's type and form to match its held Plate.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Arceus"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":122,
-    "name":"flower-gift",
-    "description":"Increases friendly Pokemon's Attack and Special Defense to 1.5x during strong sunlight.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 122,
+    "name": "flower-gift",
+    "description": "Increases friendly Pokemon's Attack and Special Defense to 1.5x during strong sunlight.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Cherrim"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":123,
-    "name":"bad-dreams",
-    "description":"Damages sleeping opponents for 1/8 their max HP after each turn.",
-    "longDescription":"",
-    "generationIntroduced":"4",
-    "pokemonFirstAbility":[
+    "id": 123,
+    "name": "bad-dreams",
+    "description": "Damages sleeping opponents for 1/8 their max HP after each turn.",
+    "longDescription": "",
+    "generationIntroduced": "4",
+    "pokemonFirstAbility": [
       "Darkrai"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":124,
-    "name":"pickpocket",
-    "description":"Steals attacking Pokemon's held items on contact.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 124,
+    "name": "pickpocket",
+    "description": "Steals attacking Pokemon's held items on contact.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Sneasel",
       "Seedot",
       "Nuzleaf",
@@ -3289,17 +3133,17 @@
     ]
   },
   {
-    "id":125,
-    "name":"sheer-force",
-    "description":"Strengthens moves with extra effects to 1.3x their power, but prevents their extra effects.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 125,
+    "name": "sheer-force",
+    "description": "Strengthens moves with extra effects to 1.3x their power, but prevents their extra effects.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Darmanitan-standard",
       "Darmanitan-zen",
       "Camerupt-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Timburr",
       "Gurdurr",
       "Conkeldurr",
@@ -3307,7 +3151,7 @@
       "Rufflet",
       "Braviary"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Nidoqueen",
       "Nidoking",
       "Krabby",
@@ -3329,19 +3173,17 @@
     ]
   },
   {
-    "id":126,
-    "name":"contrary",
-    "description":"Inverts stat changes.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 126,
+    "name": "contrary",
+    "description": "Inverts stat changes.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Inkay",
       "Malamar"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Shuckle",
       "Spinda",
       "Snivy",
@@ -3353,21 +3195,19 @@
     ]
   },
   {
-    "id":127,
-    "name":"unnerve",
-    "description":"Prevents opposing Pokemon from eating held Berries.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 127,
+    "name": "unnerve",
+    "description": "Prevents opposing Pokemon from eating held Berries.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Joltik",
       "Galvantula",
       "Litleo",
       "Pyroar"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Ekans",
       "Arbok",
       "Meowth",
@@ -3387,19 +3227,17 @@
     ]
   },
   {
-    "id":128,
-    "name":"defiant",
-    "description":"Raises Attack two stages upon having any stat lowered.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 128,
+    "name": "defiant",
+    "description": "Raises Attack two stages upon having any stat lowered.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Pawniard",
       "Bisharp"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Mankey",
       "Primeape",
       "Farfetchd",
@@ -3414,78 +3252,68 @@
     ]
   },
   {
-    "id":129,
-    "name":"defeatist",
-    "description":"Halves Attack and Special Attack at 50% max HP or less.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 129,
+    "name": "defeatist",
+    "description": "Halves Attack and Special Attack at 50% max HP or less.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Archen",
       "Archeops"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":130,
-    "name":"cursed-body",
-    "description":"Has a 30% chance of Disabling any move that hits the Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 130,
+    "name": "cursed-body",
+    "description": "Has a 30% chance of Disabling any move that hits the Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Gengar",
       "Marowak-alola",
       "Marowak-totem"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Frillish",
       "Jellicent"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Shuppet",
       "Banette",
       "Froslass"
     ]
   },
   {
-    "id":131,
-    "name":"healer",
-    "description":"Has a 30% chance of curing each adjacent ally of any major status ailment after each turn.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 131,
+    "name": "healer",
+    "description": "Has a 30% chance of curing each adjacent ally of any major status ailment after each turn.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Audino",
       "Alomomola",
       "Spritzee",
       "Aromatisse",
       "Audino-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Chansey",
       "Bellossom",
       "Blissey"
     ]
   },
   {
-    "id":132,
-    "name":"friend-guard",
-    "description":"Decreases all direct damage taken by friendly Pokemon to 0.75x.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 132,
+    "name": "friend-guard",
+    "description": "Decreases all direct damage taken by friendly Pokemon to 0.75x.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Clefairy",
       "Jigglypuff",
       "Cleffa",
@@ -3497,20 +3325,18 @@
     ]
   },
   {
-    "id":133,
-    "name":"weak-armor",
-    "description":"Raises Speed and lowers Defense by one stage each upon being hit by a physical move.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 133,
+    "name": "weak-armor",
+    "description": "Raises Speed and lowers Defense by one stage each upon being hit by a physical move.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Roggenrola",
       "Boldore",
       "Garbodor"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Onix",
       "Omanyte",
       "Omastar",
@@ -3529,18 +3355,14 @@
     ]
   },
   {
-    "id":134,
-    "name":"heavy-metal",
-    "description":"Doubles the Pokemon's weight.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 134,
+    "name": "heavy-metal",
+    "description": "Doubles the Pokemon's weight.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Aron",
       "Lairon",
       "Aggron",
@@ -3549,18 +3371,14 @@
     ]
   },
   {
-    "id":135,
-    "name":"light-metal",
-    "description":"Halves the Pokemon's weight.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 135,
+    "name": "light-metal",
+    "description": "Halves the Pokemon's weight.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Scizor",
       "Beldum",
       "Metang",
@@ -3569,68 +3387,52 @@
     ]
   },
   {
-    "id":136,
-    "name":"multiscale",
-    "description":"Halves damage taken from full HP.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 136,
+    "name": "multiscale",
+    "description": "Halves damage taken from full HP.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Dragonite",
       "Lugia"
     ]
   },
   {
-    "id":137,
-    "name":"toxic-boost",
-    "description":"Increases Attack to 1.5x when poisoned.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 137,
+    "name": "toxic-boost",
+    "description": "Increases Attack to 1.5x when poisoned.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Zangoose"
     ]
   },
   {
-    "id":138,
-    "name":"flare-boost",
-    "description":"Increases Special Attack to 1.5x when burned.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 138,
+    "name": "flare-boost",
+    "description": "Increases Special Attack to 1.5x when burned.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Drifloon",
       "Drifblim"
     ]
   },
   {
-    "id":139,
-    "name":"harvest",
-    "description":"Has a 50% chance of restoring a used Berry after each turn if the Pokemon has held no items in the meantime.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 139,
+    "name": "harvest",
+    "description": "Has a 50% chance of restoring a used Berry after each turn if the Pokemon has held no items in the meantime.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Exeggcute",
       "Exeggutor",
       "Tropius",
@@ -3640,19 +3442,19 @@
     ]
   },
   {
-    "id":140,
-    "name":"telepathy",
-    "description":"Protects against friendly Pokemon's damaging moves.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 140,
+    "name": "telepathy",
+    "description": "Protects against friendly Pokemon's damaging moves.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Elgyem",
       "Beheeyem"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Oranguru"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Wobbuffet",
       "Ralts",
       "Kirlia",
@@ -3674,18 +3476,14 @@
     ]
   },
   {
-    "id":141,
-    "name":"moody",
-    "description":"Raises a random stat two stages and lowers another one stage after each turn.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 141,
+    "name": "moody",
+    "description": "Raises a random stat two stages and lowers another one stage after each turn.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Remoraid",
       "Octillery",
       "Smeargle",
@@ -3696,21 +3494,21 @@
     ]
   },
   {
-    "id":142,
-    "name":"overcoat",
-    "description":"Protects against damage from weather.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 142,
+    "name": "overcoat",
+    "description": "Protects against damage from weather.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Solosis",
       "Duosion",
       "Reuniclus"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Vullaby",
       "Mandibuzz"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Shellder",
       "Cloyster",
       "Pineco",
@@ -3732,21 +3530,21 @@
     ]
   },
   {
-    "id":143,
-    "name":"poison-touch",
-    "description":"Has a 30% chance of poisoning target Pokemon upon contact.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 143,
+    "name": "poison-touch",
+    "description": "Has a 30% chance of poisoning target Pokemon upon contact.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Grimer-alola",
       "Muk-alola"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Seismitoad",
       "Skrelp",
       "Dragalge"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Grimer",
       "Muk",
       "Croagunk",
@@ -3754,20 +3552,20 @@
     ]
   },
   {
-    "id":144,
-    "name":"regenerator",
-    "description":"Heals for 1/3 max HP upon switching out.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 144,
+    "name": "regenerator",
+    "description": "Heals for 1/3 max HP upon switching out.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Tornadus-therian"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Audino",
       "Mienfoo",
       "Mienshao"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Slowpoke",
       "Slowbro",
       "Tangela",
@@ -3786,12 +3584,12 @@
     ]
   },
   {
-    "id":145,
-    "name":"big-pecks",
-    "description":"Protects against Defense drops.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 145,
+    "name": "big-pecks",
+    "description": "Protects against Defense drops.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Pidove",
       "Tranquill",
       "Unfezant",
@@ -3799,11 +3597,11 @@
       "Mandibuzz",
       "Fletchling"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Ducklett",
       "Swanna"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Pidgey",
       "Pidgeotto",
       "Pidgeot",
@@ -3811,38 +3609,36 @@
     ]
   },
   {
-    "id":146,
-    "name":"sand-rush",
-    "description":"Doubles Speed during a sandstorm.  Protects against sandstorm damage.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 146,
+    "name": "sand-rush",
+    "description": "Doubles Speed during a sandstorm.  Protects against sandstorm damage.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Drilbur",
       "Excadrill"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Herdier",
       "Stoutland",
       "Lycanroc-midday"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Sandshrew",
       "Sandslash"
     ]
   },
   {
-    "id":147,
-    "name":"wonder-skin",
-    "description":"Lowers incoming non-damaging moves' base accuracy to exactly 50%.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 147,
+    "name": "wonder-skin",
+    "description": "Lowers incoming non-damaging moves' base accuracy to exactly 50%.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Sigilyph"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Venomoth",
       "Skitty",
       "Delcatty",
@@ -3850,18 +3646,14 @@
     ]
   },
   {
-    "id":148,
-    "name":"analytic",
-    "description":"Strengthens moves to 1.3x their power when moving last.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 148,
+    "name": "analytic",
+    "description": "Strengthens moves to 1.3x their power when moving last.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Magnemite",
       "Magneton",
       "Staryu",
@@ -3877,48 +3669,38 @@
     ]
   },
   {
-    "id":149,
-    "name":"illusion",
-    "description":"Takes the appearance of the last conscious party Pokemon upon being sent out until hit by a damaging move.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 149,
+    "name": "illusion",
+    "description": "Takes the appearance of the last conscious party Pokemon upon being sent out until hit by a damaging move.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Zorua",
       "Zoroark"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":150,
-    "name":"imposter",
-    "description":"Transforms upon entering battle.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 150,
+    "name": "imposter",
+    "description": "Transforms upon entering battle.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Ditto"
     ]
   },
   {
-    "id":151,
-    "name":"infiltrator",
-    "description":"Bypasses light screen, reflect, and safeguard.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 151,
+    "name": "infiltrator",
+    "description": "Bypasses light screen, reflect, and safeguard.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Cottonee",
       "Whimsicott",
       "Espurr",
@@ -3927,7 +3709,7 @@
       "Noivern",
       "Meowstic-female"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Zubat",
       "Golbat",
       "Crobat",
@@ -3945,39 +3727,33 @@
     ]
   },
   {
-    "id":152,
-    "name":"mummy",
-    "description":"Changes attacking Pokemon's abilities to Mummy on contact.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 152,
+    "name": "mummy",
+    "description": "Changes attacking Pokemon's abilities to Mummy on contact.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Yamask",
       "Cofagrigus"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":153,
-    "name":"moxie",
-    "description":"Raises Attack one stage upon KOing a Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 153,
+    "name": "moxie",
+    "description": "Raises Attack one stage upon KOing a Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Sandile",
       "Krokorok",
       "Krookodile",
       "Scraggy",
       "Scrafty"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Pinsir",
       "Gyarados",
       "Heracross",
@@ -3989,22 +3765,20 @@
     ]
   },
   {
-    "id":154,
-    "name":"justified",
-    "description":"Raises Attack one stage upon taking damage from a dark move.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 154,
+    "name": "justified",
+    "description": "Raises Attack one stage upon taking damage from a dark move.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Cobalion",
       "Terrakion",
       "Virizion",
       "Keldeo-ordinary",
       "Keldeo-resolute"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Growlithe",
       "Arcanine",
       "Absol",
@@ -4013,18 +3787,14 @@
     ]
   },
   {
-    "id":155,
-    "name":"rattled",
-    "description":"Raises Speed one stage upon being hit by a dark, ghost, or bug move.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 155,
+    "name": "rattled",
+    "description": "Raises Speed one stage upon being hit by a dark, ghost, or bug move.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Magikarp",
       "Ledyba",
       "Sudowoodo",
@@ -4041,45 +3811,43 @@
     ]
   },
   {
-    "id":156,
-    "name":"magic-bounce",
-    "description":"Reflects most non-damaging moves back at their user.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 156,
+    "name": "magic-bounce",
+    "description": "Reflects most non-damaging moves back at their user.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Absol-mega",
       "Sableye-mega",
       "Diancie-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Natu",
       "Xatu",
       "Espeon"
     ]
   },
   {
-    "id":157,
-    "name":"sap-sipper",
-    "description":"Absorbs grass moves, raising Attack one stage.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 157,
+    "name": "sap-sipper",
+    "description": "Absorbs grass moves, raising Attack one stage.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Skiddo",
       "Gogoat",
       "Goomy",
       "Sliggoo",
       "Goodra"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Deerling",
       "Sawsbuck",
       "Bouffalant",
       "Drampa"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Marill",
       "Azumarill",
       "Girafarig",
@@ -4091,12 +3859,12 @@
     ]
   },
   {
-    "id":158,
-    "name":"prankster",
-    "description":"Raises non-damaging moves' priority by one stage.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 158,
+    "name": "prankster",
+    "description": "Raises non-damaging moves' priority by one stage.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Cottonee",
       "Whimsicott",
       "Tornadus-incarnate",
@@ -4104,10 +3872,8 @@
       "Klefki",
       "Banette-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Murkrow",
       "Sableye",
       "Volbeat",
@@ -4119,21 +3885,21 @@
     ]
   },
   {
-    "id":159,
-    "name":"sand-force",
-    "description":"Strengthens rock, ground, and steel moves to 1.3x their power during a sandstorm.  Protects against sandstorm damage.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 159,
+    "name": "sand-force",
+    "description": "Strengthens rock, ground, and steel moves to 1.3x their power during a sandstorm.  Protects against sandstorm damage.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Landorus-incarnate",
       "Garchomp-mega",
       "Steelix-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Drilbur",
       "Excadrill"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Diglett",
       "Dugtrio",
       "Nosepass",
@@ -4150,158 +3916,124 @@
     ]
   },
   {
-    "id":160,
-    "name":"iron-barbs",
-    "description":"Damages attacking Pokemon for 1/8 their max HP on contact.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 160,
+    "name": "iron-barbs",
+    "description": "Damages attacking Pokemon for 1/8 their max HP on contact.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Ferroseed",
       "Ferrothorn",
       "Togedemaru",
       "Togedemaru-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":161,
-    "name":"zen-mode",
-    "description":"Changes darmanitan's form after each turn depending on its HP: Zen Mode below 50% max HP, and Standard Mode otherwise.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 161,
+    "name": "zen-mode",
+    "description": "Changes darmanitan's form after each turn depending on its HP: Zen Mode below 50% max HP, and Standard Mode otherwise.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Darmanitan-standard",
       "Darmanitan-zen"
     ]
   },
   {
-    "id":162,
-    "name":"victory-star",
-    "description":"Increases moves' accuracy to 1.1x for friendly Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 162,
+    "name": "victory-star",
+    "description": "Increases moves' accuracy to 1.1x for friendly Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Victini"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":163,
-    "name":"turboblaze",
-    "description":"Bypasses targets' abilities if they could hinder or prevent moves.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 163,
+    "name": "turboblaze",
+    "description": "Bypasses targets' abilities if they could hinder or prevent moves.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Reshiram",
       "Kyurem-white"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":164,
-    "name":"teravolt",
-    "description":"Bypasses targets' abilities if they could hinder or prevent moves.",
-    "longDescription":"",
-    "generationIntroduced":"5",
-    "pokemonFirstAbility":[
+    "id": 164,
+    "name": "teravolt",
+    "description": "Bypasses targets' abilities if they could hinder or prevent moves.",
+    "longDescription": "",
+    "generationIntroduced": "5",
+    "pokemonFirstAbility": [
       "Zekrom",
       "Kyurem-black"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":165,
-    "name":"aroma-veil",
-    "description":"Protects allies against moves that affect their mental state.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 165,
+    "name": "aroma-veil",
+    "description": "Protects allies against moves that affect their mental state.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Spritzee",
       "Aromatisse"
     ]
   },
   {
-    "id":166,
-    "name":"flower-veil",
-    "description":"Protects friendly grass Pokemon from having their stats lowered by other Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 166,
+    "name": "flower-veil",
+    "description": "Protects friendly grass Pokemon from having their stats lowered by other Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Flabebe",
       "Floette",
       "Florges",
       "Comfey",
       "Floette-eternal"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":167,
-    "name":"cheek-pouch",
-    "description":"Restores HP upon eating a Berry, in addition to the Berry's effect.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 167,
+    "name": "cheek-pouch",
+    "description": "Restores HP upon eating a Berry, in addition to the Berry's effect.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Dedenne"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Bunnelby",
       "Diggersby"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":168,
-    "name":"protean",
-    "description":"Changes the bearer's type to match each move it uses.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 168,
+    "name": "protean",
+    "description": "Changes the bearer's type to match each move it uses.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Kecleon",
       "Froakie",
       "Frogadier",
@@ -4309,36 +4041,30 @@
     ]
   },
   {
-    "id":169,
-    "name":"fur-coat",
-    "description":"Halves damage from physical attacks.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 169,
+    "name": "fur-coat",
+    "description": "Halves damage from physical attacks.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Furfrou",
       "Persian-alola"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":170,
-    "name":"magician",
-    "description":"Steals the target's held item when the bearer uses a damaging move.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 170,
+    "name": "magician",
+    "description": "Steals the target's held item when the bearer uses a damaging move.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Hoopa",
       "Hoopa-unbound"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Fennekin",
       "Braixen",
       "Delphox",
@@ -4346,36 +4072,32 @@
     ]
   },
   {
-    "id":171,
-    "name":"bulletproof",
-    "description":"Protects against bullet, ball, and bomb-based moves.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 171,
+    "name": "bulletproof",
+    "description": "Protects against bullet, ball, and bomb-based moves.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Jangmo-o",
       "Hakamo-o",
       "Kommo-o",
       "Kommo-o-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Chespin",
       "Quilladin",
       "Chesnaught"
     ]
   },
   {
-    "id":172,
-    "name":"competitive",
-    "description":"Raises Special Attack by two stages upon having any stat lowered.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 172,
+    "name": "competitive",
+    "description": "Raises Special Attack by two stages upon having any stat lowered.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Jigglypuff",
       "Wigglytuff",
       "Igglybuff",
@@ -4384,63 +4106,55 @@
       "Gothorita",
       "Gothitelle"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Meowstic-female"
     ]
   },
   {
-    "id":173,
-    "name":"strong-jaw",
-    "description":"Strengthens biting moves to 1.5x their power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 173,
+    "name": "strong-jaw",
+    "description": "Strengthens biting moves to 1.5x their power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Tyrunt",
       "Tyrantrum",
       "Sharpedo-mega"
     ],
-    "pokemonSecondAbility":[
+    "pokemonSecondAbility": [
       "Yungoos",
       "Gumshoos",
       "Bruxish",
       "Gumshoos-totem"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":174,
-    "name":"refrigerate",
-    "description":"Turns the bearer's normal moves into ice moves and strengthens them to 1.3x their power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 174,
+    "name": "refrigerate",
+    "description": "Turns the bearer's normal moves into ice moves and strengthens them to 1.3x their power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Amaura",
       "Aurorus",
       "Glalie-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":175,
-    "name":"sweet-veil",
-    "description":"Prevents friendly Pokemon from sleeping.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 175,
+    "name": "sweet-veil",
+    "description": "Prevents friendly Pokemon from sleeping.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Swirlix",
       "Slurpuff"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Cutiefly",
       "Ribombee",
       "Bounsweet",
@@ -4450,88 +4164,68 @@
     ]
   },
   {
-    "id":176,
-    "name":"stance-change",
-    "description":"Changes aegislash to Blade Forme before using a damaging move, or Shield Forme before using kings shield.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 176,
+    "name": "stance-change",
+    "description": "Changes aegislash to Blade Forme before using a damaging move, or Shield Forme before using kings shield.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Aegislash-shield",
       "Aegislash-blade"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":177,
-    "name":"gale-wings",
-    "description":"Raises flying moves' priority by one stage.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 177,
+    "name": "gale-wings",
+    "description": "Raises flying moves' priority by one stage.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Fletchling",
       "Fletchinder",
       "Talonflame"
     ]
   },
   {
-    "id":178,
-    "name":"mega-launcher",
-    "description":"Strengthens aura and pulse moves to 1.5x their power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 178,
+    "name": "mega-launcher",
+    "description": "Strengthens aura and pulse moves to 1.5x their power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Clauncher",
       "Clawitzer",
       "Blastoise-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":179,
-    "name":"grass-pelt",
-    "description":"Boosts Defense while grassy terrain is in effect.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 179,
+    "name": "grass-pelt",
+    "description": "Boosts Defense while grassy terrain is in effect.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Skiddo",
       "Gogoat"
     ]
   },
   {
-    "id":180,
-    "name":"symbiosis",
-    "description":"Passes the bearer's held item to an ally when the ally uses up its item.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 180,
+    "name": "symbiosis",
+    "description": "Passes the bearer's held item to an ally when the ally uses up its item.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Flabebe",
       "Floette",
       "Florges",
@@ -4540,12 +4234,12 @@
     ]
   },
   {
-    "id":181,
-    "name":"tough-claws",
-    "description":"Strengthens moves that make contact to 1.33x their power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 181,
+    "name": "tough-claws",
+    "description": "Strengthens moves that make contact to 1.33x their power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Binacle",
       "Barbaracle",
       "Charizard-mega-x",
@@ -4553,267 +4247,205 @@
       "Metagross-mega",
       "Lycanroc-dusk"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":182,
-    "name":"pixilate",
-    "description":"Turns the bearer's normal moves into fairy moves and strengthens them to 1.3x their power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 182,
+    "name": "pixilate",
+    "description": "Turns the bearer's normal moves into fairy moves and strengthens them to 1.3x their power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Gardevoir-mega",
       "Altaria-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Sylveon"
     ]
   },
   {
-    "id":183,
-    "name":"gooey",
-    "description":"Lowers attacking Pokemon's Speed by one stage on contact.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 183,
+    "name": "gooey",
+    "description": "Lowers attacking Pokemon's Speed by one stage on contact.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Goomy",
       "Sliggoo",
       "Goodra"
     ]
   },
   {
-    "id":184,
-    "name":"aerilate",
-    "description":"Turns the bearer's normal moves into flying moves and strengthens them to 1.3x their power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 184,
+    "name": "aerilate",
+    "description": "Turns the bearer's normal moves into flying moves and strengthens them to 1.3x their power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Pinsir-mega",
       "Salamence-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":185,
-    "name":"parental-bond",
-    "description":"Lets the bearer hit twice with damaging moves.  The second hit has half power.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 185,
+    "name": "parental-bond",
+    "description": "Lets the bearer hit twice with damaging moves.  The second hit has half power.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Kangaskhan-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":186,
-    "name":"dark-aura",
-    "description":"Strengthens dark moves to 1.33x their power for all friendly and opposing Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 186,
+    "name": "dark-aura",
+    "description": "Strengthens dark moves to 1.33x their power for all friendly and opposing Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Yveltal"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":187,
-    "name":"fairy-aura",
-    "description":"Strengthens fairy moves to 1.33x their power for all friendly and opposing Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 187,
+    "name": "fairy-aura",
+    "description": "Strengthens fairy moves to 1.33x their power for all friendly and opposing Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Xerneas"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":188,
-    "name":"aura-break",
-    "description":"Makes dark aura and fairy aura weaken moves of their respective types.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 188,
+    "name": "aura-break",
+    "description": "Makes dark aura and fairy aura weaken moves of their respective types.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Zygarde"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":189,
-    "name":"primordial-sea",
-    "description":"Creates heavy rain, which has all the properties of Rain Dance, cannot be replaced, and causes damaging Fire moves to fail.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 189,
+    "name": "primordial-sea",
+    "description": "Creates heavy rain, which has all the properties of Rain Dance, cannot be replaced, and causes damaging Fire moves to fail.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Kyogre-primal"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":190,
-    "name":"desolate-land",
-    "description":"Creates extremely harsh sunlight, which has all the properties of Sunny Day, cannot be replaced, and causes damaging Water moves to fail.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 190,
+    "name": "desolate-land",
+    "description": "Creates extremely harsh sunlight, which has all the properties of Sunny Day, cannot be replaced, and causes damaging Water moves to fail.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Groudon-primal"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":191,
-    "name":"delta-stream",
-    "description":"Creates a mysterious air current, which cannot be replaced and causes moves to never be super effective against Flying Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"6",
-    "pokemonFirstAbility":[
+    "id": 191,
+    "name": "delta-stream",
+    "description": "Creates a mysterious air current, which cannot be replaced and causes moves to never be super effective against Flying Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "6",
+    "pokemonFirstAbility": [
       "Rayquaza-mega"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":192,
-    "name":"stamina",
-    "description":"Raises this Pokemon's Defense by one stage when it takes damage from a move.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 192,
+    "name": "stamina",
+    "description": "Raises this Pokemon's Defense by one stage when it takes damage from a move.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Mudbray",
       "Mudsdale"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":193,
-    "name":"wimp-out",
-    "description":"This Pokemon automatically switches out when its HP drops below half.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 193,
+    "name": "wimp-out",
+    "description": "This Pokemon automatically switches out when its HP drops below half.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Wimpod"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":194,
-    "name":"emergency-exit",
-    "description":"This Pokemon automatically switches out when its HP drops below half.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 194,
+    "name": "emergency-exit",
+    "description": "This Pokemon automatically switches out when its HP drops below half.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Golisopod"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":195,
-    "name":"water-compaction",
-    "description":"Raises this Pokemon's Defense by two stages when it's hit by a Water move.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 195,
+    "name": "water-compaction",
+    "description": "Raises this Pokemon's Defense by two stages when it's hit by a Water move.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Sandygast",
       "Palossand"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":196,
-    "name":"merciless",
-    "description":"This Pokemon's moves critical hit against poisoned targets.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 196,
+    "name": "merciless",
+    "description": "This Pokemon's moves critical hit against poisoned targets.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Mareanie",
       "Toxapex"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":197,
-    "name":"shields-down",
-    "description":"Transforms this Minior between Core Form and Meteor Form.  Prevents major status ailments and drowsiness while in Meteor Form.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 197,
+    "name": "shields-down",
+    "description": "Transforms this Minior between Core Form and Meteor Form.  Prevents major status ailments and drowsiness while in Meteor Form.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Minior-red-meteor",
       "Minior-orange-meteor",
       "Minior-yellow-meteor",
@@ -4829,464 +4461,358 @@
       "Minior-indigo",
       "Minior-violet"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":198,
-    "name":"stakeout",
-    "description":"This Pokemon's moves have double power against Pokemon that switched in this turn.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 198,
+    "name": "stakeout",
+    "description": "This Pokemon's moves have double power against Pokemon that switched in this turn.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Yungoos",
       "Gumshoos",
       "Gumshoos-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":199,
-    "name":"water-bubble",
-    "description":"Halves damage from Fire moves, doubles damage of Water moves, and prevents burns.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 199,
+    "name": "water-bubble",
+    "description": "Halves damage from Fire moves, doubles damage of Water moves, and prevents burns.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Dewpider",
       "Araquanid",
       "Araquanid-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":200,
-    "name":"steelworker",
-    "description":"This Pokemon's Steel moves have 1.5x power.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 200,
+    "name": "steelworker",
+    "description": "This Pokemon's Steel moves have 1.5x power.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Dhelmise"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":201,
-    "name":"berserk",
-    "description":"Raises this Pokemon's Special Attack by one stage every time its HP drops below half.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 201,
+    "name": "berserk",
+    "description": "Raises this Pokemon's Special Attack by one stage every time its HP drops below half.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Drampa"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":202,
-    "name":"slush-rush",
-    "description":"During Hail, this Pokemon has double Speed.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 202,
+    "name": "slush-rush",
+    "description": "During Hail, this Pokemon has double Speed.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Cubchoo",
       "Beartic"
     ],
-    "pokemonHiddenAbility":[
+    "pokemonHiddenAbility": [
       "Sandshrew-alola",
       "Sandslash-alola"
     ]
   },
   {
-    "id":203,
-    "name":"long-reach",
-    "description":"This Pokemon's moves do not make contact.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 203,
+    "name": "long-reach",
+    "description": "This Pokemon's moves do not make contact.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Rowlet",
       "Dartrix",
       "Decidueye"
     ]
   },
   {
-    "id":204,
-    "name":"liquid-voice",
-    "description":"Sound-based moves become Water-type.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 204,
+    "name": "liquid-voice",
+    "description": "Sound-based moves become Water-type.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Popplio",
       "Brionne",
       "Primarina"
     ]
   },
   {
-    "id":205,
-    "name":"triage",
-    "description":"This Pokemon's healing moves have their priority increased by 3.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 205,
+    "name": "triage",
+    "description": "This Pokemon's healing moves have their priority increased by 3.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Comfey"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":206,
-    "name":"galvanize",
-    "description":"This Pokemon's Normal moves are Electric and have their power increased to 1.2x.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 206,
+    "name": "galvanize",
+    "description": "This Pokemon's Normal moves are Electric and have their power increased to 1.2x.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Geodude-alola",
       "Graveler-alola",
       "Golem-alola"
     ]
   },
   {
-    "id":207,
-    "name":"surge-surfer",
-    "description":"Doubles this Pokemon's Speed on Electric Terrain.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 207,
+    "name": "surge-surfer",
+    "description": "Doubles this Pokemon's Speed on Electric Terrain.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Raichu-alola"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":208,
-    "name":"schooling",
-    "description":"Wishiwashi becomes Schooling Form when its HP is 25% or higher.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 208,
+    "name": "schooling",
+    "description": "Wishiwashi becomes Schooling Form when its HP is 25% or higher.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Wishiwashi-solo",
       "Wishiwashi-school"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":209,
-    "name":"disguise",
-    "description":"Prevents the first instance of battle damage.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 209,
+    "name": "disguise",
+    "description": "Prevents the first instance of battle damage.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Mimikyu-disguised",
       "Mimikyu-busted",
       "Mimikyu-totem-disguised",
       "Mimikyu-totem-busted"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":210,
-    "name":"battle-bond",
-    "description":"Transforms this Pokemon into Ash-Greninja after fainting an opponent.  Water Shuriken's power is 20 and always hits three times.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 210,
+    "name": "battle-bond",
+    "description": "Transforms this Pokemon into Ash-Greninja after fainting an opponent.  Water Shuriken's power is 20 and always hits three times.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Greninja-battle-bond",
       "Greninja-ash"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":211,
-    "name":"power-construct",
-    "description":"Transforms 10% or 50% Zygarde into Complete Forme when its HP is below 50%.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 211,
+    "name": "power-construct",
+    "description": "Transforms 10% or 50% Zygarde into Complete Forme when its HP is below 50%.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Zygarde-10",
       "Zygarde-50",
       "Zygarde-complete"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":212,
-    "name":"corrosion",
-    "description":"This Pokemon can inflict poison on Poison and Steel Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 212,
+    "name": "corrosion",
+    "description": "This Pokemon can inflict poison on Poison and Steel Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Salandit",
       "Salazzle",
       "Salazzle-totem"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":213,
-    "name":"comatose",
-    "description":"This Pokemon always  acts as though it were Asleep.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 213,
+    "name": "comatose",
+    "description": "This Pokemon always  acts as though it were Asleep.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Komala"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":214,
-    "name":"queenly-majesty",
-    "description":"Opposing Pokemon cannot use priority attacks.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 214,
+    "name": "queenly-majesty",
+    "description": "Opposing Pokemon cannot use priority attacks.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Tsareena"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":215,
-    "name":"innards-out",
-    "description":"When this Pokemon faints from an opponent's move, that opponent takes damage equal to the HP this Pokemon had remaining.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 215,
+    "name": "innards-out",
+    "description": "When this Pokemon faints from an opponent's move, that opponent takes damage equal to the HP this Pokemon had remaining.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Pyukumuku"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":216,
-    "name":"dancer",
-    "description":"Whenever another Pokemon uses a dance move, this Pokemon will use the same move immediately afterwards.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 216,
+    "name": "dancer",
+    "description": "Whenever another Pokemon uses a dance move, this Pokemon will use the same move immediately afterwards.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Oricorio-baile",
       "Oricorio-pom-pom",
       "Oricorio-pau",
       "Oricorio-sensu"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":217,
-    "name":"battery",
-    "description":"Ally Pokemon's moves have their power increased to 1.3x.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 217,
+    "name": "battery",
+    "description": "Ally Pokemon's moves have their power increased to 1.3x.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Charjabug"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":218,
-    "name":"fluffy",
-    "description":"Damage from contact moves is halved.  Damage from Fire moves is doubled.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 218,
+    "name": "fluffy",
+    "description": "Damage from contact moves is halved.  Damage from Fire moves is doubled.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Stufful",
       "Bewear"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":219,
-    "name":"dazzling",
-    "description":"Opposing Pokemon cannot use priority attacks.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 219,
+    "name": "dazzling",
+    "description": "Opposing Pokemon cannot use priority attacks.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Bruxish"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":220,
-    "name":"soul-heart",
-    "description":"This Pokemon's Special Attack rises by one stage every time any Pokemon faints.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 220,
+    "name": "soul-heart",
+    "description": "This Pokemon's Special Attack rises by one stage every time any Pokemon faints.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Magearna",
       "Magearna-original"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":221,
-    "name":"tangling-hair",
-    "description":"When this Pokemon takes regular damage from a contact move, the attacking Pokemon's Speed lowers by one stage.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
+    "id": 221,
+    "name": "tangling-hair",
+    "description": "When this Pokemon takes regular damage from a contact move, the attacking Pokemon's Speed lowers by one stage.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [
       "Diglett-alola",
       "Dugtrio-alola"
     ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonHiddenAbility": []
   },
   {
-    "id":222,
-    "name":"receiver",
-    "description":"When an ally faints, this Pokemon gains its Ability.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 222,
+    "name": "receiver",
+    "description": "When an ally faints, this Pokemon gains its Ability.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Passimian"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":223,
-    "name":"power-of-alchemy",
-    "description":"When an ally faints, this Pokemon gains its Ability.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
-
-    ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
+    "id": 223,
+    "name": "power-of-alchemy",
+    "description": "When an ally faints, this Pokemon gains its Ability.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [],
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": [
       "Grimer-alola",
       "Muk-alola"
     ]
   },
   {
-    "id":224,
-    "name":"beast-boost",
-    "description":"Raises this Pokemon's highest stat by one stage when it faints another Pokemon.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 224,
+    "name": "beast-boost",
+    "description": "Raises this Pokemon's highest stat by one stage when it faints another Pokemon.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Nihilego",
       "Buzzwole",
       "Pheromosa",
@@ -5299,157 +4825,117 @@
       "Stakataka",
       "Blacephalon"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":225,
-    "name":"rks-system",
-    "description":"Changes this Pokemon's type to match its held Memory.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 225,
+    "name": "rks-system",
+    "description": "Changes this Pokemon's type to match its held Memory.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Silvally"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":226,
-    "name":"electric-surge",
-    "description":"When this Pokemon enters battle, it changes the terrain to Electric Terrain.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 226,
+    "name": "electric-surge",
+    "description": "When this Pokemon enters battle, it changes the terrain to Electric Terrain.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Tapu-koko"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":227,
-    "name":"psychic-surge",
-    "description":"When this Pokemon enters battle, it changes the terrain to Psychic Terrain.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 227,
+    "name": "psychic-surge",
+    "description": "When this Pokemon enters battle, it changes the terrain to Psychic Terrain.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Tapu-lele"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":228,
-    "name":"misty-surge",
-    "description":"When this Pokemon enters battle, it changes the terrain to Misty Terrain.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 228,
+    "name": "misty-surge",
+    "description": "When this Pokemon enters battle, it changes the terrain to Misty Terrain.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Tapu-fini"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":229,
-    "name":"grassy-surge",
-    "description":"When this Pokemon enters battle, it changes the terrain to Grassy Terrain.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 229,
+    "name": "grassy-surge",
+    "description": "When this Pokemon enters battle, it changes the terrain to Grassy Terrain.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Tapu-bulu"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":230,
-    "name":"full-metal-body",
-    "description":"Other Pokemon cannot lower this Pokemon's stats.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 230,
+    "name": "full-metal-body",
+    "description": "Other Pokemon cannot lower this Pokemon's stats.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Solgaleo"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":231,
-    "name":"shadow-shield",
-    "description":"When this Pokemon has full HP, regular damage from moves is halved.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 231,
+    "name": "shadow-shield",
+    "description": "When this Pokemon has full HP, regular damage from moves is halved.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Lunala"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":232,
-    "name":"prism-armor",
-    "description":"Reduces super-effective damage to 0.75x.",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 232,
+    "name": "prism-armor",
+    "description": "Reduces super-effective damage to 0.75x.",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Necrozma",
       "Necrozma-dusk",
       "Necrozma-dawn"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   },
   {
-    "id":233,
-    "name":"neuroforce",
-    "description":"XXX new effect for neuroforce",
-    "longDescription":"",
-    "generationIntroduced":"7",
-    "pokemonFirstAbility":[
+    "id": 233,
+    "name": "neuroforce",
+    "description": "XXX new effect for neuroforce",
+    "longDescription": "",
+    "generationIntroduced": "7",
+    "pokemonFirstAbility": [
       "Necrozma-ultra"
     ],
-    "pokemonSecondAbility":[
-
-    ],
-    "pokemonHiddenAbility":[
-
-    ]
+    "pokemonSecondAbility": [],
+    "pokemonHiddenAbility": []
   }
 ]

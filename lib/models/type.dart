@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+// Class that describes type and its effect from various types
 class EffectiveType {
   const EffectiveType({
     @required this.name,

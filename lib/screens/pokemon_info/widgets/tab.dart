@@ -69,7 +69,8 @@ class PokemonTabInfo extends StatelessWidget {
           children: <Widget>[
             AnimatedBuilder(
               animation: scrollController,
-              builder: (context, _) => SizedBox(height: (1 - scrollController.value) * 16 + 6),
+              builder: (context, _) =>
+                  SizedBox(height: (1 - scrollController.value) * 16 + 6),
             ),
             _buildTabBar(),
             _buildTabContent(),

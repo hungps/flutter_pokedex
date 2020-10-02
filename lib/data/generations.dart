@@ -1,5 +1,6 @@
 import '../models/generation.dart';
 
+// Generation Images described here that is seen when users click on "All Gen"
 const List<Generation> generations = [
   Generation(
     title: "Generation I",

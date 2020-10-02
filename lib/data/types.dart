@@ -1,5 +1,6 @@
 import '../models/type.dart';
 
+// A list that describes the types of pokemon
 const List<String> types = [
   'Normal',
   'Fire',
@@ -20,7 +21,7 @@ const List<String> types = [
   'Steel',
   'Fairy'
 ];
-
+// Provides how effective a type is against another in time of battle
 const List<EffectiveType> effectiveTypes = [
   EffectiveType(
     name: 'Normal',

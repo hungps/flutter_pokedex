@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+// Class created to describe Abilities of Pokemons
 class Ability {
   const Ability({
     @required this.id,
@@ -10,7 +11,7 @@ class Ability {
     @required this.pokemonFirstAbility,
     @required this.pokemonSecondAbility,
     @required this.pokemonHiddenAbility,
-});
+  });
 
   final int id;
   final String name;

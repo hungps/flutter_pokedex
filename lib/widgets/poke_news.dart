@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../configs/AppColors.dart';
 
+// A Widget Created To Be Used To Display Pokemon News in the Home Page
 class PokeNews extends StatelessWidget {
   const PokeNews({
     Key key,

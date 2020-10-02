@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../widgets/poke_news.dart';
 
+// Used to display the News Section in the Home Page
 class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

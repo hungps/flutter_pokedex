@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../configs/AppColors.dart';
 
+// A SearchBar present that is yet to be functional but whose purpose to aid in search of various items/pokemons
 class SearchBar extends StatelessWidget {
   const SearchBar({
     Key key,
