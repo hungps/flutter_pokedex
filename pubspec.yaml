@@ -50,6 +50,7 @@ flutter:
     - assets/items.json
     - assets/pokemons.json
     - assets/images/
+    - assets/gif/pika_loader.gif
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
