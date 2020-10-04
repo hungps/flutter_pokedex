@@ -57,7 +57,7 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 
 - [Saepul Nahwan](https://dribbble.com/saepulnahwan23) for his [Pokedex App design](https://dribbble.com/shots/6545819-Pokedex-App)
 - [BetooHellyson](http://betoohellyson.deviantart.com/) for the type icons
-- [Sabri Bey](https://www.deviantart.com/sabribey)
+- [Sabri Bey](https://www.deviantart.com/sabribey) for the splash gif
 - [Flutter](https://flutter.dev) for the great cross platform framework
 
 ## License
