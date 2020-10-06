@@ -34,7 +34,7 @@ class TypeList extends StatelessWidget {
                   Align(
                       child: Container(
                     height: 5,
-                    color: Colors.black87,
+                    color: Colors.white,
                   )),
                   Align(
                     alignment: Alignment.center,
