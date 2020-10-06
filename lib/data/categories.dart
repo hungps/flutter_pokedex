@@ -7,5 +7,5 @@ const List<Category> categories = [
   Category(name: 'Abilities', color: AppColors.blue),
   Category(name: 'Items', color: AppColors.yellow),
   Category(name: 'Locations', color: AppColors.purple),
-  Category(name: 'Type Charts', color: AppColors.brown),
+  Category(name: 'Type Effects', color: AppColors.brown),
 ];

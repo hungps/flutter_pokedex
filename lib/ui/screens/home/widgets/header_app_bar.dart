@@ -42,7 +42,9 @@ class _HeaderAppBar extends StatelessWidget {
       itemCount: categories.length,
       itemBuilder: (context, index) => PokeCategoryCard(
         categories[index],
-        onPress: () => AppNavigator.push(Routes.pokedex),
+        onPress: () => index == categories.length - 1
+            ? AppNavigator.push(Routes.typeScreen)
+            : AppNavigator.push(Routes.pokedex),
       ),
     );
   }

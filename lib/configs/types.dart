@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const List<Map<String, dynamic>> types = [
   {
     "name": "Normal",
@@ -22,7 +24,8 @@ const List<Map<String, dynamic>> types = [
         "Dark",
         "Fairy"
       ]
-    }
+    },
+    "color": Color(4291611852),
   },
   {
     "name": "Fire",
@@ -42,7 +45,8 @@ const List<Map<String, dynamic>> types = [
       ],
       "2": ["Bug", "Steel", "Grass", "Ice"],
       "0": []
-    }
+    },
+    "color": Color(4294743371),
   },
   {
     "name": "Water",
@@ -64,7 +68,8 @@ const List<Map<String, dynamic>> types = [
         "Fairy"
       ],
       "0": []
-    }
+    },
+    "color": Color(4288724223),
   },
   {
     "name": "Electric",
@@ -86,7 +91,8 @@ const List<Map<String, dynamic>> types = [
         "Dark",
         "Fairy"
       ]
-    }
+    },
+    "color": Color(4294951746),
   },
   {
     "name": "Grass",
@@ -95,7 +101,8 @@ const List<Map<String, dynamic>> types = [
       "0": [],
       "2": ["Ground", "Rock", "Water"],
       "0.5": ["Flying", "Poison", "Bug", "Steel", "Fire", "Grass", "Dragon"]
-    }
+    },
+    "color": Color(4288867709),
   },
   {
     "name": "Ice",
@@ -115,7 +122,8 @@ const List<Map<String, dynamic>> types = [
         "Dark",
         "Fairy"
       ]
-    }
+    },
+    "color": Color(4289325287),
   },
   {
     "name": "Fighting",
@@ -124,7 +132,8 @@ const List<Map<String, dynamic>> types = [
       "1": ["Fighting", "Ground", "Fire", "Water", "Grass", "Electric", "Dragon"],
       "2": ["Normal", "Rock", "Steel", "Ice", "Dark"],
       "0": ["Ghost"]
-    }
+    },
+    "color": Color(4294405194),
   },
   {
     "name": "Poison",
@@ -145,7 +154,8 @@ const List<Map<String, dynamic>> types = [
       ],
       "0": ["Steel"],
       "0.5": ["Poison", "Ground", "Rock", "Ghost"]
-    }
+    },
+    "color": Color(4291062724),
   },
   {
     "name": "Ground",
@@ -165,7 +175,8 @@ const List<Map<String, dynamic>> types = [
       ],
       "2": ["Poison", "Rock", "Steel", "Fire", "Electric"],
       "0.5": ["Bug", "Grass"]
-    }
+    },
+    "color": Color(4293389636),
   },
   {
     "name": "Flying",
@@ -187,7 +198,8 @@ const List<Map<String, dynamic>> types = [
       ],
       "2": ["Fighting", "Bug", "Grass"],
       "0": []
-    }
+    },
+    "color": Color(4289766865),
   },
   {
     "name": "Psychic",
@@ -210,7 +222,8 @@ const List<Map<String, dynamic>> types = [
         "Dragon",
         "Fairy"
       ]
-    }
+    },
+    "color": Color(4293886370),
   },
   {
     "name": "Bug",
@@ -219,7 +232,8 @@ const List<Map<String, dynamic>> types = [
       "2": ["Grass", "Psychic", "Dark"],
       "1": ["Normal", "Ground", "Rock", "Bug", "Water", "Electric", "Ice", "Dragon"],
       "0.5": ["Fighting", "Flying", "Poison", "Ghost", "Steel", "Fire", "Fairy"]
-    }
+    },
+    "color": Color(4291221047),
   },
   {
     "name": "Rock",
@@ -240,7 +254,8 @@ const List<Map<String, dynamic>> types = [
         "Fairy"
       ],
       "0.5": ["Fighting", "Ground", "Steel"]
-    }
+    },
+    "color": Color(4291408208),
   },
   {
     "name": "Ghost",
@@ -264,7 +279,8 @@ const List<Map<String, dynamic>> types = [
       "0.5": ["Dark"],
       "0": ["Normal"],
       "2": ["Ghost", "Psychic"]
-    }
+    },
+    "color": Color(4285945750),
   },
   {
     "name": "Dragon",
@@ -289,7 +305,8 @@ const List<Map<String, dynamic>> types = [
         "Dark"
       ],
       "0.5": ["Steel"]
-    }
+    },
+    "color": Color(4286339304),
   },
   {
     "name": "Dark",
@@ -312,7 +329,8 @@ const List<Map<String, dynamic>> types = [
         "Dragon"
       ],
       "0.5": ["Fighting", "Dark", "Fairy"]
-    }
+    },
+    "color": Color(4288382321),
   },
   {
     "name": "Steel",
@@ -333,7 +351,8 @@ const List<Map<String, dynamic>> types = [
       ],
       "0": [],
       "0.5": ["Steel", "Fire", "Water", "Electric"]
-    }
+    },
+    "color": Color(4291282126),
   },
   {
     "name": "Fairy",
@@ -355,6 +374,7 @@ const List<Map<String, dynamic>> types = [
       "0.5": ["Poison", "Steel", "Fire"],
       "0": [],
       "2": ["Fighting", "Dragon", "Dark"]
-    }
+    },
+    "color": Color(4293765852),
   }
 ];
