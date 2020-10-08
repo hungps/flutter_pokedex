@@ -1,74 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/routes.dart';
+import 'package:pokedex/ui/screens/types/typeGrid.dart';
 import 'package:pokedex/ui/widgets/poke_container.dart';
-
-class TypeList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final w = MediaQuery.of(context).size.width;
-    return Expanded(
-      child: GridView.builder(
-        itemCount: types.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-        ),
-        itemBuilder: (builder, i) {
-          return Card(
-            color: types[i]["color"],
-            shape: CircleBorder(),
-            child: InkWell(
-              customBorder: CircleBorder(),
-              onTap: () {},
-              child: Stack(
-                children: [
-                  Align(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.black87, width: 2.5)),
-                    ),
-                  ),
-                  Align(
-                      child: Container(
-                    height: 5,
-                    color: Colors.white,
-                  )),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      width: w / 7,
-                      decoration: BoxDecoration(
-                          color: Colors.white70,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.black87, width: 2.5)),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      "assets/images/type_${types[i]["name"].toString().toUpperCase()}.png",
-                      fit: BoxFit.fitWidth,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-          // Card(
-          //   color: types[i]["color"],
-          //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-          //   child: Image.asset(
-          //     "assets/images/type_${types[i]["name"].toString().toUpperCase()}.png",
-          //   ),
-          // );
-        },
-      ),
-    );
-  }
-}
 
 class TypeScreen extends StatelessWidget {
   @override
@@ -129,7 +66,7 @@ class TypeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              TypeList()
+              TypeGrid()
             ],
           ),
         ];
