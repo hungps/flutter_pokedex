@@ -6,7 +6,6 @@ import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/domain/entities/pokemon_types.dart';
 import 'package:pokedex/providers/providers.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';
@@ -18,15 +17,13 @@ class PokemonOverallInfo extends StatefulWidget {
   final AnimationController controller;
   final AnimationController rotateController;
 
-  const PokemonOverallInfo(
-      this.pokemon, this.controller, this.rotateController);
+  const PokemonOverallInfo(this.pokemon, this.controller, this.rotateController);
 
   @override
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
-class _PokemonOverallInfoState extends State<PokemonOverallInfo>
-    with TickerProviderStateMixin {
+class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
   static const double _pokemonSliderViewportFraction = 0.6;
   static const int _endReachedThreshold = 4;
 
@@ -75,19 +72,16 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
 
   void _calculatePokemonNamePosition() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox targetTextBox =
-          _targetTextKey.currentContext.findRenderObject();
+      final RenderBox targetTextBox = _targetTextKey.currentContext.findRenderObject();
       final targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
 
-      final currentTextBox =
-          _currentTextKey.currentContext.findRenderObject() as RenderBox;
+      final currentTextBox = _currentTextKey.currentContext.findRenderObject() as RenderBox;
       final currentTextPosition = currentTextBox.localToGlobal(Offset.zero);
 
       final newDiffLeft = targetTextPosition.dx - currentTextPosition.dx;
       final newDiffTop = targetTextPosition.dy - currentTextPosition.dy;
 
       if (newDiffLeft != textDiffLeft || newDiffTop != textDiffTop) {
-        print({newDiffLeft, newDiffTop});
         setState(() {
           textDiffLeft = newDiffLeft;
           textDiffTop = newDiffTop;
@@ -134,8 +128,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
               return Transform.translate(
                 offset: Offset(textDiffLeft * value, textDiffTop * value),
                 child: Consumer((_, read) {
-                  final pokemonName =
-                      read(currentPokemonStateProvider).pokemon.name;
+                  final pokemonName = read(currentPokemonStateProvider).pokemon.name;
 
                   return Hero(
                     tag: pokemonName,
@@ -205,7 +198,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
                     .map(
                       (type) => Hero(
                         tag: type,
-                        child: PokemonType(type.value, large: true),
+                        child: PokemonType(type, large: true),
                       ),
                     )
                     .toList(),
@@ -269,8 +262,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
                 onPageChanged: (index) {
                   currentPokemonState.setPokemon(index, pokemons[index]);
 
-                  final thresholdReached =
-                      index >= pokemons.length - _endReachedThreshold;
+                  final thresholdReached = index >= pokemons.length - _endReachedThreshold;
 
                   if (pokemonsState.canLoadMore && thresholdReached) {
                     pokemonsState.getPokemons();
@@ -282,12 +274,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
                     duration: Duration(milliseconds: 600),
                     curve: Curves.easeOutQuint,
                     padding: EdgeInsets.only(
-                      top: currentPokemonState.index == index
-                          ? 0
-                          : screenSize.height * 0.04,
-                      bottom: currentPokemonState.index == index
-                          ? 0
-                          : screenSize.height * 0.04,
+                      top: currentPokemonState.index == index ? 0 : screenSize.height * 0.04,
+                      bottom: currentPokemonState.index == index ? 0 : screenSize.height * 0.04,
                     ),
                     child: CachedNetworkImage(
                       imageUrl: pokemons[index].image,
@@ -296,9 +284,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo>
                         width: screenSize.height * 0.28,
                         height: screenSize.height * 0.28,
                         alignment: Alignment.bottomCenter,
-                        color: currentPokemonState.index == index
-                            ? null
-                            : Colors.black26,
+                        color: currentPokemonState.index == index ? null : Colors.black26,
                       ),
                     ),
                   ),

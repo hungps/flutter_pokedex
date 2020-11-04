@@ -42,11 +42,28 @@ class Pokemon {
 }
 
 extension PokemonX on Pokemon {
+<<<<<<< HEAD
   Color get color {
     if (types.isEmpty) {
       return AppColors.lightBlue;
     }
 
     return colorGenerator(types[0]);
+=======
+  Color get color => types?.first?.color ?? AppColors.lightBlue;
+
+  Map<PokemonTypes, double> get typeEffectiveness {
+    final effectiveness =
+        PokemonTypes.values.where((element) => element != PokemonTypes.unknown).map(
+              (type) => MapEntry(
+                type,
+                types
+                    .map((pokemonType) => pokemonType.effectiveness[type] ?? 1.0)
+                    .reduce((total, effectiveness) => total * effectiveness),
+              ),
+            );
+
+    return Map.fromEntries(effectiveness);
+>>>>>>> upstream/master
   }
 }

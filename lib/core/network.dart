@@ -28,7 +28,7 @@ class NetworkManager {
     return dio.request(
       url,
       data: data,
-      // queryParameters: queryParameters,
+      queryParameters: queryParameters,
       options: Options(
         method: method.value,
         headers: headers,
