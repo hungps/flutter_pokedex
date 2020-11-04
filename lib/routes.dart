@@ -6,20 +6,20 @@ import 'package:pokedex/ui/screens/pokemon_info/pokemon_info.dart';
 import 'package:pokedex/ui/screens/splash/splash.dart';
 import 'package:pokedex/ui/screens/types/type_screen.dart';
 
-enum Routes { splash, home, pokedex, pokemonInfo, typeScreen }
+enum Routes { splash, home, pokedex, pokemonInfo, typeEffects }
 
 class _Paths {
   static const String splash = '/';
   static const String home = '/home';
   static const String pokedex = '/home/pokedex';
   static const String pokemonInfo = '/home/pokemon';
-  static const String typeScreen = '/home/type';
+  static const String typeEffectsScreen = '/home/type';
   static const Map<Routes, String> _pathMap = {
     Routes.splash: _Paths.splash,
     Routes.home: _Paths.home,
     Routes.pokedex: _Paths.pokedex,
     Routes.pokemonInfo: _Paths.pokemonInfo,
-    Routes.typeScreen: _Paths.typeScreen,
+    Routes.typeEffects: _Paths.typeEffectsScreen,
   };
 
   static String of(Routes route) => _pathMap[route];
@@ -39,8 +39,8 @@ class AppNavigator {
       case _Paths.pokemonInfo:
         return FadeRoute(page: PokemonInfo(settings.arguments));
 
-      case _Paths.typeScreen:
-        return FadeRoute(page: TypeScreen());
+      case _Paths.typeEffectsScreen:
+        return FadeRoute(page: TypeEffectScreen());
 
       case _Paths.home:
       default:

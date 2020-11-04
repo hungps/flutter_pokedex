@@ -1,380 +1,147 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/domain/entities/pokemon_types.dart';
 
-const List<Map<String, dynamic>> types = [
-  {
-    "name": "Normal",
-    "effects": {
-      "2": [],
-      "0": ["Ghost"],
-      "0.5": ["Rock", "Steel"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Bug",
-        "Fire",
-        "Water",
-        "Grass",
-        "Electric",
-        "Psychic",
-        "Ice",
-        "Dragon",
-        "Dark",
-        "Fairy"
-      ]
-    },
-    "color": Color(4291611852),
-  },
-  {
-    "name": "Fire",
-    "effects": {
-      "0.5": ["Rock", "Fire", "Water", "Dragon"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Ghost",
-        "Electric",
-        "Psychic",
-        "Dark",
-        "Fairy"
-      ],
-      "2": ["Bug", "Steel", "Grass", "Ice"],
-      "0": []
-    },
-    "color": Color(4294743371),
-  },
-  {
-    "name": "Water",
-    "effects": {
-      "0.5": ["Water", "Grass", "Dragon"],
-      "2": ["Ground", "Rock", "Fire"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Flying",
-        "Poison",
-        "Bug",
-        "Ghost",
-        "Steel",
-        "Electric",
-        "Psychic",
-        "Ice",
-        "Dark",
-        "Fairy"
-      ],
-      "0": []
-    },
-    "color": Color(4288724223),
-  },
-  {
-    "name": "Electric",
-    "effects": {
-      "0.5": ["Grass", "Electric", "Dragon"],
-      "2": ["Flying", "Water"],
-      "0": ["Ground"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Poison",
-        "Rock",
-        "Bug",
-        "Ghost",
-        "Steel",
-        "Fire",
-        "Psychic",
-        "Ice",
-        "Dark",
-        "Fairy"
-      ]
-    },
-    "color": Color(4294951746),
-  },
-  {
-    "name": "Grass",
-    "effects": {
-      "1": ["Normal", "Fighting", "Ghost", "Electric", "Psychic", "Ice", "Dark", "Fairy"],
-      "0": [],
-      "2": ["Ground", "Rock", "Water"],
-      "0.5": ["Flying", "Poison", "Bug", "Steel", "Fire", "Grass", "Dragon"]
-    },
-    "color": Color(4288867709),
-  },
-  {
-    "name": "Ice",
-    "effects": {
-      "0.5": ["Steel", "Fire", "Water", "Ice"],
-      "2": ["Flying", "Ground", "Grass", "Dragon"],
-      "0": [],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Poison",
-        "Rock",
-        "Bug",
-        "Ghost",
-        "Electric",
-        "Psychic",
-        "Dark",
-        "Fairy"
-      ]
-    },
-    "color": Color(4289325287),
-  },
-  {
-    "name": "Fighting",
-    "effects": {
-      "0.5": ["Flying", "Poison", "Bug", "Psychic", "Fairy"],
-      "1": ["Fighting", "Ground", "Fire", "Water", "Grass", "Electric", "Dragon"],
-      "2": ["Normal", "Rock", "Steel", "Ice", "Dark"],
-      "0": ["Ghost"]
-    },
-    "color": Color(4294405194),
-  },
-  {
-    "name": "Poison",
-    "effects": {
-      "2": ["Grass", "Fairy"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Flying",
-        "Bug",
-        "Fire",
-        "Water",
-        "Electric",
-        "Psychic",
-        "Ice",
-        "Dragon",
-        "Dark"
-      ],
-      "0": ["Steel"],
-      "0.5": ["Poison", "Ground", "Rock", "Ghost"]
-    },
-    "color": Color(4291062724),
-  },
-  {
-    "name": "Ground",
-    "effects": {
-      "0": ["Flying"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Ground",
-        "Ghost",
-        "Water",
-        "Psychic",
-        "Ice",
-        "Dragon",
-        "Dark",
-        "Fairy"
-      ],
-      "2": ["Poison", "Rock", "Steel", "Fire", "Electric"],
-      "0.5": ["Bug", "Grass"]
-    },
-    "color": Color(4293389636),
-  },
-  {
-    "name": "Flying",
-    "effects": {
-      "0.5": ["Rock", "Steel", "Electric"],
-      "1": [
-        "Normal",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Ghost",
-        "Fire",
-        "Water",
-        "Psychic",
-        "Ice",
-        "Dragon",
-        "Dark",
-        "Fairy"
-      ],
-      "2": ["Fighting", "Bug", "Grass"],
-      "0": []
-    },
-    "color": Color(4289766865),
-  },
-  {
-    "name": "Psychic",
-    "effects": {
-      "0.5": ["Steel", "Psychic"],
-      "2": ["Fighting", "Poison"],
-      "0": ["Dark"],
-      "1": [
-        "Normal",
-        "Flying",
-        "Ground",
-        "Rock",
-        "Bug",
-        "Ghost",
-        "Fire",
-        "Water",
-        "Grass",
-        "Electric",
-        "Ice",
-        "Dragon",
-        "Fairy"
-      ]
-    },
-    "color": Color(4293886370),
-  },
-  {
-    "name": "Bug",
-    "effects": {
-      "0": [],
-      "2": ["Grass", "Psychic", "Dark"],
-      "1": ["Normal", "Ground", "Rock", "Bug", "Water", "Electric", "Ice", "Dragon"],
-      "0.5": ["Fighting", "Flying", "Poison", "Ghost", "Steel", "Fire", "Fairy"]
-    },
-    "color": Color(4291221047),
-  },
-  {
-    "name": "Rock",
-    "effects": {
-      "0": [],
-      "2": ["Flying", "Bug", "Fire", "Ice"],
-      "1": [
-        "Normal",
-        "Poison",
-        "Rock",
-        "Ghost",
-        "Water",
-        "Grass",
-        "Electric",
-        "Psychic",
-        "Dragon",
-        "Dark",
-        "Fairy"
-      ],
-      "0.5": ["Fighting", "Ground", "Steel"]
-    },
-    "color": Color(4291408208),
-  },
-  {
-    "name": "Ghost",
-    "effects": {
-      "1": [
-        "Fighting",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Rock",
-        "Bug",
-        "Steel",
-        "Fire",
-        "Water",
-        "Grass",
-        "Electric",
-        "Ice",
-        "Dragon",
-        "Fairy"
-      ],
-      "0.5": ["Dark"],
-      "0": ["Normal"],
-      "2": ["Ghost", "Psychic"]
-    },
-    "color": Color(4285945750),
-  },
-  {
-    "name": "Dragon",
-    "effects": {
-      "2": ["Dragon"],
-      "0": ["Fairy"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Rock",
-        "Bug",
-        "Ghost",
-        "Fire",
-        "Water",
-        "Grass",
-        "Electric",
-        "Psychic",
-        "Ice",
-        "Dark"
-      ],
-      "0.5": ["Steel"]
-    },
-    "color": Color(4286339304),
-  },
-  {
-    "name": "Dark",
-    "effects": {
-      "2": ["Ghost", "Psychic"],
-      "0": [],
-      "1": [
-        "Normal",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Rock",
-        "Bug",
-        "Steel",
-        "Fire",
-        "Water",
-        "Grass",
-        "Electric",
-        "Ice",
-        "Dragon"
-      ],
-      "0.5": ["Fighting", "Dark", "Fairy"]
-    },
-    "color": Color(4288382321),
-  },
-  {
-    "name": "Steel",
-    "effects": {
-      "2": ["Rock", "Ice", "Fairy"],
-      "1": [
-        "Normal",
-        "Fighting",
-        "Flying",
-        "Poison",
-        "Ground",
-        "Bug",
-        "Ghost",
-        "Grass",
-        "Psychic",
-        "Dragon",
-        "Dark"
-      ],
-      "0": [],
-      "0.5": ["Steel", "Fire", "Water", "Electric"]
-    },
-    "color": Color(4291282126),
-  },
-  {
-    "name": "Fairy",
-    "effects": {
-      "1": [
-        "Normal",
-        "Flying",
-        "Ground",
-        "Rock",
-        "Bug",
-        "Ghost",
-        "Water",
-        "Grass",
-        "Electric",
-        "Psychic",
-        "Ice",
-        "Fairy"
-      ],
-      "0.5": ["Poison", "Steel", "Fire"],
-      "0": [],
-      "2": ["Fighting", "Dragon", "Dark"]
-    },
-    "color": Color(4293765852),
-  }
+class PokeTypes {
+  const PokeTypes({
+    @required this.type,
+    @required this.superEffective,
+    @required this.notEffective,
+    @required this.nilEffective,
+    @required this.color,
+  });
+  final PokemonTypes type;
+  final List<String> superEffective;
+  final List<String> notEffective;
+  final List<String> nilEffective;
+  final Color color;
+}
+
+List<PokeTypes> tps = [];
+const List<PokeTypes> types = [
+  PokeTypes(
+    type: PokemonTypes.normal,
+    superEffective: [],
+    notEffective: ["Rock", "Steel"],
+    nilEffective: ["Ghost"],
+    color: Color(0xFFa8a8a8),
+  ),
+  PokeTypes(
+    type: PokemonTypes.fire,
+    superEffective: ["Bug", "Steel", "Grass", "Ice"],
+    notEffective: ["Rock", "Fire", "Water", "Dragon"],
+    nilEffective: [],
+    color: Color(0xFFf08030),
+  ),
+  PokeTypes(
+    type: PokemonTypes.water,
+    notEffective: ["Water", "Grass", "Dragon"],
+    superEffective: ["Ground", "Rock", "Fire"],
+    nilEffective: [],
+    color: Color(0xFF6890f0),
+  ),
+  PokeTypes(
+    type: PokemonTypes.electric,
+    notEffective: ["Grass", "Electric", "Dragon"],
+    superEffective: ["Flying", "Water"],
+    nilEffective: ["Ground"],
+    color: Color(0xFFf8b00f),
+  ),
+  PokeTypes(
+    type: PokemonTypes.grass,
+    nilEffective: [],
+    superEffective: ["Ground", "Rock", "Water"],
+    notEffective: ["Flying", "Poison", "Bug", "Steel", "Fire", "Grass", "Dragon"],
+    color: Color(0xFF78c851),
+  ),
+  PokeTypes(
+    type: PokemonTypes.ice,
+    notEffective: ["Steel", "Fire", "Water", "Ice"],
+    superEffective: ["Flying", "Ground", "Grass", "Dragon"],
+    nilEffective: [],
+    color: Color(0xFF98d9d8),
+  ),
+  PokeTypes(
+    type: PokemonTypes.fighting,
+    notEffective: ["Flying", "Poison", "Bug", "Psychic", "Fairy"],
+    superEffective: ["Normal", "Rock", "Steel", "Ice", "Dark"],
+    nilEffective: ["Ghost"],
+    color: Color(0xFFe83001),
+  ),
+  PokeTypes(
+    type: PokemonTypes.poison,
+    superEffective: ["Grass", "Fairy"],
+    nilEffective: ["Steel"],
+    notEffective: ["Poison", "Ground", "Rock", "Ghost"],
+    color: Color(0xFFa040a0),
+  ),
+  PokeTypes(
+    type: PokemonTypes.ground,
+    nilEffective: ["Flying"],
+    superEffective: ["Poison", "Rock", "Steel", "Fire", "Electric"],
+    notEffective: ["Bug", "Grass"],
+    color: Color(0xFFd8e02f),
+  ),
+  PokeTypes(
+    type: PokemonTypes.flying,
+    notEffective: ["Rock", "Steel", "Electric"],
+    superEffective: ["Fighting", "Bug", "Grass"],
+    nilEffective: [],
+    color: Color(0xFF9f94be),
+  ),
+  PokeTypes(
+    type: PokemonTypes.psychic,
+    notEffective: ["Steel", "Psychic"],
+    superEffective: ["Fighting", "Poison"],
+    nilEffective: ["Dark"],
+    color: Color(0xFFf85888),
+  ),
+  PokeTypes(
+    type: PokemonTypes.bug,
+    nilEffective: [],
+    superEffective: ["Grass", "Psychic", "Dark"],
+    notEffective: ["Fighting", "Flying", "Poison", "Ghost", "Steel", "Fire", "Fairy"],
+    color: Color(0xFFa8b821),
+  ),
+  PokeTypes(
+    type: PokemonTypes.rock,
+    nilEffective: [],
+    superEffective: ["Flying", "Bug", "Fire", "Ice"],
+    notEffective: ["Fighting", "Ground", "Steel"],
+    color: Color(0xFFb8a038),
+  ),
+  PokeTypes(
+    type: PokemonTypes.ghost,
+    notEffective: ["Dark"],
+    nilEffective: ["Normal"],
+    superEffective: ["Ghost", "Psychic"],
+    color: Color(0xFF5d4674),
+  ),
+  PokeTypes(
+    type: PokemonTypes.dragon,
+    superEffective: ["Dragon"],
+    nilEffective: ["Fairy"],
+    notEffective: ["Steel"],
+    color: Color(0xFF623bd5),
+  ),
+  PokeTypes(
+    type: PokemonTypes.dark,
+    superEffective: ["Ghost", "Psychic"],
+    nilEffective: [],
+    notEffective: ["Fighting", "Dark", "Fairy"],
+    color: Color(0xFF776554),
+  ),
+  PokeTypes(
+    type: PokemonTypes.steel,
+    superEffective: ["Rock", "Ice", "Fairy"],
+    nilEffective: [],
+    notEffective: ["Steel", "Fire", "Water", "Electric"],
+    color: Color(0xFFb1adbb),
+  ),
+  PokeTypes(
+    type: PokemonTypes.fairy,
+    notEffective: ["Poison", "Steel", "Fire"],
+    nilEffective: [],
+    superEffective: ["Fighting", "Dragon", "Dark"],
+    color: Color(0xFFf8b8e8),
+  )
 ];

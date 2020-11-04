@@ -8,6 +8,7 @@ class _Image extends AssetImage {
 
 class AppImages {
   static const bulbasaur = _Image('bulbasaur.png');
+  static const pikloader = _Image('pika_loader.gif');
   static const charmander = _Image('charmander.png');
   static const dotted = _Image('dotted.png');
   static const female = _Image('female.png');

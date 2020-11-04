@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/types.dart';
-import 'package:pokedex/ui/screens/types/typeCard.dart';
+import 'package:pokedex/ui/screens/types/type_card.dart';
 
-class TypeGrid extends StatelessWidget {
+class TypeEffectGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
@@ -15,7 +15,7 @@ class TypeGrid extends StatelessWidget {
           mainAxisSpacing: 10,
         ),
         itemBuilder: (builder, i) {
-          return TypeCard(w: w, i: i);
+          return TypeEffectCard(width: w, i: i);
         },
       ),
     );

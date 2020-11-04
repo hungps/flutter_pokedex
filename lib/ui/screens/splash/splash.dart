@@ -25,10 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset(
-            "assets/gif/pika_loader.gif",
-            width: 60,
-            fit: BoxFit.fitWidth,
+          Image(
+            image: AppImages.pikloader,
+            width: 100,
           ),
           Text(
             'Pokedex',
