@@ -43,6 +43,7 @@ class Pokemon {
 
 extension PokemonX on Pokemon {
 <<<<<<< HEAD
+<<<<<<< HEAD
   Color get color {
     if (types.isEmpty) {
       return AppColors.lightBlue;
@@ -50,6 +51,8 @@ extension PokemonX on Pokemon {
 
     return colorGenerator(types[0]);
 =======
+=======
+>>>>>>> 9aea3afa11a8d7fc9ec69f74ae71a85be18e521c
   Color get color => types?.first?.color ?? AppColors.lightBlue;
 
   Map<PokemonTypes, double> get typeEffectiveness {
@@ -64,6 +67,9 @@ extension PokemonX on Pokemon {
             );
 
     return Map.fromEntries(effectiveness);
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> 9aea3afa11a8d7fc9ec69f74ae71a85be18e521c
   }
 }
