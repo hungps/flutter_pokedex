@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 
+// A class that generates Bold Texts required for the individual types icon
 class BoldText extends StatelessWidget {
   const BoldText({
     Key key,

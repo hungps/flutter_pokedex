@@ -1,3 +1,4 @@
+// A list of types in the world of Pokemon
 const List<String> typeNames = [
   "normal",
   "fire",
@@ -18,6 +19,7 @@ const List<String> typeNames = [
   "steel",
   "fairy"
 ];
+// A map that consists of types and it's indices
 const Map<String, int> typeIndices = {
   "normal": 0,
   "fire": 1,
