@@ -2,57 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/core/utils.dart';
+import 'package:pokedex/ui/screens/types/type_entities/type_indices.dart';
 import 'package:pokedex/ui/screens/types/type_listview.dart';
 import 'package:pokedex/ui/screens/types/type_sheet.dart';
 
-Set<String> typeNames = {
-  "normal",
-  "fire",
-  "water",
-  "electric",
-  "grass",
-  "ice",
-  "fighting",
-  "poison",
-  "ground",
-  "flying",
-  "psychic",
-  "bug",
-  "rock",
-  "ghost",
-  "dragon",
-  "dark",
-  "steel",
-  "fairy"
-};
-List<String> normalTypeReturner(List<String> combined) {
-  var allset = typeNames;
-  for (var i = 0; i < combined.length; i++) {
-    allset.remove(combined[i].toLowerCase());
-  }
-  return allset.toList();
-}
-
-Map<String, int> typeIndices = {
-  "normal": 0,
-  "fire": 1,
-  "water": 2,
-  "electric": 3,
-  "grass": 4,
-  "ice": 5,
-  "fighting": 6,
-  "poison": 7,
-  "ground": 8,
-  "flying": 9,
-  "psychic": 10,
-  "bug": 11,
-  "rock": 12,
-  "ghost": 13,
-  "dragon": 14,
-  "dark": 15,
-  "steel": 16,
-  "fairy": 17
-};
+import 'bold_texts.dart';
 
 class PokeTypes extends StatelessWidget {
   const PokeTypes({
@@ -163,41 +117,6 @@ class TypeDisplayContainer extends StatelessWidget {
           color: col,
         ),
         child: BoldText(text: text));
-  }
-}
-
-class BoldText extends StatelessWidget {
-  const BoldText({
-    Key key,
-    @required this.text,
-  }) : super(key: key);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.whiteGrey, shadows: [
-        Shadow(
-            // bottomLeft
-            offset: Offset(-1, -1),
-            color: Colors.black),
-        Shadow(
-            // bottomRight
-            offset: Offset(1, -1),
-            color: Colors.black),
-        Shadow(
-            // topRight
-            offset: Offset(1, 1),
-            color: Colors.black),
-        Shadow(
-            // topLeft
-            offset: Offset(-1, 1),
-            color: Colors.black),
-      ]),
-      textAlign: TextAlign.center,
-    );
   }
 }
 
