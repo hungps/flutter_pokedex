@@ -15,7 +15,7 @@ class TypeEffectGrid extends StatelessWidget {
           mainAxisSpacing: 10,
         ),
         itemBuilder: (builder, i) {
-          return TypeEffectCard(width: w, i: i);
+          return TypeEffectCard(width: w, index: i);
         },
       ),
     );
