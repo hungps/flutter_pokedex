@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/ui/screens/types/type_card.dart';
 import 'package:pokedex/ui/screens/types/type_entities/type_funcs.dart';
 
 List<Widget> lister(int i, dynamic n, double w, String term) {
   var arr = effectreturner(i, n);
   return [
-    Padding(
-      padding: const EdgeInsets.all(8),
-      child: Text(
-        "Attacks to the types below will " + term,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 20),
+    Container(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Text(
+          term,
+          textAlign: TextAlign.left,
+          style: TextStyle(fontSize: 16, color: Colors.black54),
+        ),
       ),
     ),
     Container(
@@ -28,9 +32,9 @@ List<Widget> lister(int i, dynamic n, double w, String term) {
                   i: i,
                   path: "effects",
                   value: n,
-                  width: 100.0,
+                  width: 75.0,
                   j: j,
-                  height: 30,
+                  height: 25,
                   typeList: arr,
                 ),
               )

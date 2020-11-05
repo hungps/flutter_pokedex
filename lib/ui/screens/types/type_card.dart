@@ -12,11 +12,11 @@ class PokeTypes extends StatelessWidget {
   const PokeTypes({
     Key key,
     @required this.width,
-    @required this.i,
+    @required this.index,
   }) : super(key: key);
 
   final double width;
-  final int i;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class PokeTypes extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: TypeDisplayContainer(
-            i: i,
+            i: index,
             path: "name",
             value: null,
             width: null,
@@ -97,22 +97,24 @@ class TypeDisplayContainer extends StatelessWidget {
     assigner();
     return Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.only(left: 10, right: 10),
+        margin: EdgeInsets.only(left: 5, right: 5),
         width: width,
         height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           border: Border.all(color: AppColors.black.withAlpha(100)),
           boxShadow: [
-            BoxShadow(
-              color: AppColors.grey,
-              blurRadius: 25.0, // soften the shadow
-              spreadRadius: 7.0, //extend the shadow
-              offset: Offset(
-                15.0, // Move to right 10  horizontally
-                5.0, // Move to bottom 5 Vertically
-              ),
-            )
+            (width != 75)
+                ? BoxShadow(
+                    color: AppColors.grey,
+                    blurRadius: 25.0, // soften the shadow
+                    spreadRadius: 7.0, //extend the shadow
+                    offset: Offset(
+                      15.0, // Move to right 10  horizontally
+                      5.0, // Move to bottom 5 Vertically
+                    ),
+                  )
+                : BoxShadow()
           ],
           color: col,
         ),
@@ -124,31 +126,32 @@ class TypeEffectCard extends StatelessWidget {
   const TypeEffectCard({
     Key key,
     @required this.width,
-    @required this.i,
+    @required this.index,
   }) : super(key: key);
 
   final double width;
-  final int i;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: types[i].color,
+      color: types[index].color,
       shape: CircleBorder(),
       child: InkWell(
         customBorder: CircleBorder(),
         onTap: () {
-          print(types[i]);
+          print(types[index]);
           showModalBottomSheet(
+              isScrollControlled: true,
               elevation: 10,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20), topRight: Radius.circular(20))),
               context: context,
               builder: (b) {
-                return TypeEffectSheet(w: width, i: i);
+                return TypeEffectSheet(width: width, index: index);
               });
         },
-        child: PokeTypes(width: width, i: i),
+        child: PokeTypes(width: width, index: index),
       ),
     );
   }
