@@ -46,7 +46,7 @@ class PokeTypes extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: TypeDisplayContainer(
-            i: index,
+            index: index,
             path: "name",
             value: null,
             width: null,
@@ -63,7 +63,7 @@ class PokeTypes extends StatelessWidget {
 class TypeDisplayContainer extends StatelessWidget {
   const TypeDisplayContainer(
       {Key key,
-      @required this.i,
+      @required this.index,
       @required this.path,
       @required this.value,
       @required this.width,
@@ -72,7 +72,7 @@ class TypeDisplayContainer extends StatelessWidget {
       @required this.j})
       : super(key: key);
 
-  final int i;
+  final int index;
   final int j;
   final String path;
   final List<String> typeList;
@@ -86,8 +86,8 @@ class TypeDisplayContainer extends StatelessWidget {
     String text;
     void assigner() {
       if (path == "name") {
-        col = types[i].color;
-        text = getEnumValue(types[i].type).toUpperCase();
+        col = types[index].color;
+        text = getEnumValue(types[index].type).toUpperCase();
       } else {
         col = types[typeIndices[typeList[j].toLowerCase()]].color;
         text = getEnumValue(types[typeIndices[typeList[j].toLowerCase()]].type).toUpperCase();

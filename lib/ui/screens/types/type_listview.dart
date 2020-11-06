@@ -8,6 +8,7 @@ import 'package:pokedex/ui/screens/types/type_descrip.dart';
 import 'package:pokedex/ui/screens/types/type_entities/type_funcs.dart';
 import 'package:pokedex/ui/screens/types/type_entities/type_indices.dart';
 
+// Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
 class TypeFullList extends StatelessWidget {
   const TypeFullList({
     Key key,
@@ -30,14 +31,14 @@ class TypeFullList extends StatelessWidget {
           child: Container(
               alignment: Alignment.center,
               child: TypeDisplayContainer(
-                i: index,
+                index: index,
                 path: "name",
                 value: null,
                 width: 200.0,
                 j: null,
                 height: 70,
                 typeList: [],
-              )),
+              )), //type_card
         ),
         Center(
           child: Container(
@@ -74,6 +75,7 @@ class TypeFullList extends StatelessWidget {
   }
 }
 
+// Class responsible for creating the cards that redirects to other pages in the list view
 class Redirection extends StatelessWidget {
   const Redirection({
     Key key,

@@ -7,6 +7,7 @@ import 'package:pokedex/routes.dart';
 import 'package:pokedex/ui/screens/types/type_grid.dart';
 import 'package:pokedex/ui/widgets/poke_container.dart';
 
+// Class that is related to creating the whole type-effects page
 class TypeEffectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

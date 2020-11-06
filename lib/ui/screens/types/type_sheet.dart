@@ -3,6 +3,7 @@ import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/ui/screens/types/type_listview.dart';
 
+// Class responsible for generating the modal page when clicked on a type
 class TypeEffectSheet extends StatelessWidget {
   const TypeEffectSheet({
     Key key,
@@ -55,7 +56,7 @@ class TypeEffectSheet extends StatelessWidget {
                 //     color: AppColors.black.withOpacity(0.1),
                 //   ),
                 // ),
-                TypeFullList(index: index, width: width, scroller: s),
+                TypeFullList(index: index, width: width, scroller: s), //type_listview
               ],
             ),
           );
