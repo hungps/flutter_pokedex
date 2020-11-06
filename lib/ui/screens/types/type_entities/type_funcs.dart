@@ -1,5 +1,5 @@
 import 'package:pokedex/configs/types.dart';
-import 'package:pokedex/ui/screens/types/type_entities/type_indices.dart';
+import 'package:pokedex/ui/screens/types/type_entities/type_constants.dart';
 
 // A function that returns a list of types of pokemon that when attacked to, hit normally
 List<String> normalTypeReturner(List<String> combined) {
@@ -9,7 +9,6 @@ List<String> normalTypeReturner(List<String> combined) {
       normalSet.remove(combined[i].toLowerCase());
     }
   } // Removes the types that are already present as super/weak/nil effective from the set
-  print(normalSet);
   return normalSet.toList();
 }
 

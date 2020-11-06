@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/types.dart';
-import 'package:pokedex/ui/screens/types/type_card.dart';
 
+import 'modal_sheet.dart';
+
+// Class responsible for creating the grid of pokeballs that consists of the respective types
 class TypeEffectGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class TypeEffectGrid extends StatelessWidget {
           mainAxisSpacing: 10,
         ),
         itemBuilder: (builder, i) {
-          return TypeEffectCard(width: w, index: i);
+          return ModalSheet(width: w, index: i);
         },
       ),
     );
