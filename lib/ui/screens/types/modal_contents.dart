@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/ui/screens/types/redirector.dart';
-import 'package:pokedex/ui/screens/types/type_card.dart';
-import 'package:pokedex/ui/screens/types/type_descrip.dart';
+import 'package:pokedex/ui/screens/types/type_container.dart';
+import 'package:pokedex/ui/screens/types/type_entities/widget_list.dart';
 
 // Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
-class TypeFullList extends StatelessWidget {
-  const TypeFullList({
+class ModalContents extends StatelessWidget {
+  const ModalContents({
     Key key,
     @required this.index,
     @required this.width,

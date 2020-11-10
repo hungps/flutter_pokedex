@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
-import 'package:pokedex/ui/screens/types/type_listview.dart';
+import 'package:pokedex/ui/screens/types/modal_contents.dart';
 
 // Class responsible for generating the modal page when clicked on a type
-class TypeEffectSheet extends StatelessWidget {
-  const TypeEffectSheet({
+class ModalDraggable extends StatelessWidget {
+  const ModalDraggable({
     Key key,
     @required this.width,
     @required this.index,
@@ -36,7 +36,7 @@ class TypeEffectSheet extends StatelessWidget {
                     color: AppColors.black.withOpacity(0.1),
                   ),
                 ),
-                TypeFullList(index: index, width: width, scroller: s), //type_listview
+                ModalContents(index: index, width: width, scroller: s), //type_listview
               ],
             ),
           );

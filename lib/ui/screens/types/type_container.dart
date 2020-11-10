@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/core/utils.dart';
-import 'package:pokedex/ui/screens/types/type_entities/type_indices.dart';
+import 'package:pokedex/ui/screens/types/type_entities/type_constants.dart';
 
 import 'bold_texts.dart';
 

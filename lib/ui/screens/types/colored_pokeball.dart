@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/ui/screens/types/type_card.dart';
+import 'package:pokedex/ui/screens/types/type_container.dart';
 // A class that is responsible for the pokeball kind of grids that contain types
 
 class CircularContainer extends StatelessWidget {

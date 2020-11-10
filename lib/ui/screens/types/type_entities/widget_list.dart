@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/ui/screens/types/type_card.dart';
+import 'package:pokedex/ui/screens/types/type_container.dart';
 import 'package:pokedex/ui/screens/types/type_entities/type_funcs.dart';
 
 // A function that return a list of widgets that are used in displaying the effectiveness
