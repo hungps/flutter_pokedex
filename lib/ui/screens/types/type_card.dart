@@ -3,13 +3,12 @@ import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/core/utils.dart';
 import 'package:pokedex/ui/screens/types/type_entities/type_indices.dart';
-import 'package:pokedex/ui/screens/types/type_listview.dart';
-import 'package:pokedex/ui/screens/types/type_sheet.dart';
 
 import 'bold_texts.dart';
 
-class PokeTypes extends StatelessWidget {
-  const PokeTypes({
+// A class that is responsible for the pokeball kind of grids that contain types
+class CircularContainer extends StatelessWidget {
+  const CircularContainer({
     Key key,
     @required this.width,
     @required this.index,
@@ -60,6 +59,7 @@ class PokeTypes extends StatelessWidget {
   }
 }
 
+// The Class that is responsible for the type images
 class TypeDisplayContainer extends StatelessWidget {
   const TypeDisplayContainer(
       {Key key,
@@ -119,40 +119,5 @@ class TypeDisplayContainer extends StatelessWidget {
           color: col,
         ),
         child: BoldText(text: text));
-  }
-}
-
-class TypeEffectCard extends StatelessWidget {
-  const TypeEffectCard({
-    Key key,
-    @required this.width,
-    @required this.index,
-  }) : super(key: key);
-
-  final double width;
-  final int index;
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: types[index].color,
-      shape: CircleBorder(),
-      child: InkWell(
-        customBorder: CircleBorder(),
-        onTap: () {
-          print(types[index]);
-          showModalBottomSheet(
-              isScrollControlled: true,
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-              context: context,
-              builder: (b) {
-                return TypeEffectSheet(width: width, index: index);
-              });
-        },
-        child: PokeTypes(width: width, index: index),
-      ),
-    );
   }
 }

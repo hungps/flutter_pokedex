@@ -9,7 +9,6 @@ List<String> normalTypeReturner(List<String> combined) {
       normalSet.remove(combined[i].toLowerCase());
     }
   } // Removes the types that are already present as super/weak/nil effective from the set
-  print(normalSet);
   return normalSet.toList();
 }
 

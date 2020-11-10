@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/configs/images.dart';
-import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/routes.dart';
 import 'package:pokedex/ui/screens/types/type_grid.dart';
 import 'package:pokedex/ui/widgets/poke_container.dart';
@@ -67,7 +64,7 @@ class TypeEffectScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              TypeEffectGrid()
+              TypeEffectGrid() // type_grid
             ],
           ),
         ];
