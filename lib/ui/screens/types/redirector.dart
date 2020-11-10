@@ -21,7 +21,7 @@ class Redirection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: func,
         child: Container(
           height: 50,
           child: Row(
