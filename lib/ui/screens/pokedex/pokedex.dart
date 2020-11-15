@@ -28,8 +28,7 @@ class PokedexScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _PokedexScreenState();
 }
 
-class _PokedexScreenState extends State<PokedexScreen>
-    with SingleTickerProviderStateMixin {
+class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProviderStateMixin {
   static const double _endReachedThreshold = 200;
 
   final ScrollController _scrollController = ScrollController();
@@ -80,8 +79,7 @@ class _PokedexScreenState extends State<PokedexScreen>
   void _onScroll() {
     if (!_scrollController.hasClients) return;
 
-    final thresholdReached =
-        _scrollController.position.extentAfter < _endReachedThreshold;
+    final thresholdReached = _scrollController.position.extentAfter < _endReachedThreshold;
     final isLoading = pokemonsStateProvider.read(context).loading;
     final canLoadMore = pokemonsStateProvider.read(context).canLoadMore;
 
@@ -140,9 +138,7 @@ class _PokedexScreenState extends State<PokedexScreen>
           controller: _scrollController,
           onRefresh: _onRefresh,
           onSelectPokemon: (index, pokemon) {
-            currentPokemonStateProvider
-                .read(context)
-                .setPokemon(index, pokemon);
+            currentPokemonStateProvider.read(context).setPokemon(index, pokemon);
             AppNavigator.push(Routes.pokemonInfo, pokemon);
           },
         );
@@ -155,8 +151,7 @@ class _PokedexScreenState extends State<PokedexScreen>
     return Scaffold(
       body: PokeballBackground(
         buildChildren: (props) {
-          final appBarTop =
-              props.size / 2 + props.top - IconTheme.of(context).size / 2;
+          final appBarTop = props.size / 2 + props.top - IconTheme.of(context).size / 2;
 
           return [
             Column(
