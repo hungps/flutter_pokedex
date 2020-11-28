@@ -4,6 +4,8 @@ import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
+import 'package:pokedex/core/extensions/context.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
 
 class PokemonCard extends StatelessWidget {
   static const double _pokeballFraction = 0.75;
@@ -123,17 +125,13 @@ class _CardContent extends StatelessWidget {
 
   final Pokemon pokemon;
 
-  List<Widget> _buildTypes() {
+  List<Widget> _buildTypes(BuildContext context) {
     return pokemon.types
+        .take(2)
         .map(
-          (type) => Flexible(
-            child: Hero(
-              tag: pokemon.number + type.value,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 3),
-                child: PokemonType(type),
-              ),
-            ),
+          (type) => Padding(
+            padding: EdgeInsets.symmetric(vertical: context.responsive(3)),
+            child: PokemonType(type),
           ),
         )
         .toList();
@@ -144,9 +142,15 @@ class _CardContent extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        padding: EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: context.responsive(24),
+          bottom: context.responsive(16),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Hero(
               tag: pokemon.number + pokemon.name,
@@ -160,8 +164,8 @@ class _CardContent extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            ..._buildTypes(),
+            VSpacer(context.responsive(10)),
+            ..._buildTypes(context),
           ],
         ),
       ),

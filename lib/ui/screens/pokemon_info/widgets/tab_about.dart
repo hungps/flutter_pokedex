@@ -4,6 +4,8 @@ import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class PokemonAbout extends StatelessWidget {
   const PokemonAbout(this._pokemon, this._animation);
@@ -11,7 +13,7 @@ class PokemonAbout extends StatelessWidget {
   final Pokemon _pokemon;
   final Animation _animation;
 
-  Widget _buildSection(String text, {List<Widget> children, Widget child}) {
+  Widget _buildSection(BuildContext context, String text, {List<Widget> children, Widget child}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -23,7 +25,7 @@ class PokemonAbout extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 22),
+        VSpacer(context.responsive(22)),
         if (child != null) child,
         if (children != null) ...children
       ],
@@ -47,16 +49,19 @@ class PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildHeightWeight() {
+  Widget _buildHeightWeight(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: context.responsive(16),
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
-            offset: Offset(0, 8),
+            offset: Offset(0, context.responsive(8)),
             blurRadius: 23,
           )
         ],
@@ -69,7 +74,7 @@ class PokemonAbout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 _buildLabel('Height'),
-                SizedBox(height: 11),
+                VSpacer(context.responsive(11)),
                 Text('${_pokemon.height}', style: TextStyle(height: 0.8))
               ],
             ),
@@ -79,7 +84,7 @@ class PokemonAbout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 _buildLabel('Weight'),
-                SizedBox(height: 11),
+                VSpacer(context.responsive(11)),
                 Text('${_pokemon.weight}', style: TextStyle(height: 0.8))
               ],
             ),
@@ -89,8 +94,8 @@ class PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildBreeding() {
-    return _buildSection('Breeding', children: [
+  Widget _buildBreeding(BuildContext context) {
+    return _buildSection(context, 'Breeding', children: [
       Row(
         children: <Widget>[
           Expanded(child: _buildLabel('Gender')),
@@ -99,9 +104,8 @@ class PokemonAbout extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Image(image: AppImages.male, width: 12, height: 12),
-                  SizedBox(width: 4),
-                  Text('${_pokemon.gender.male}%',
-                      style: TextStyle(height: 0.8)),
+                  HSpacer(4),
+                  Text('${_pokemon.gender.male}%', style: TextStyle(height: 0.8)),
                 ],
               ),
             ),
@@ -109,16 +113,9 @@ class PokemonAbout extends StatelessWidget {
               flex: 2,
               child: Row(
                 children: <Widget>[
-                  Image(
-                    image: AppImages.female,
-                    width: 12,
-                    height: 12,
-                  ),
-                  SizedBox(width: 4),
-                  Text(
-                    '${_pokemon.gender.female}%',
-                    style: TextStyle(height: 0.8),
-                  ),
+                  Image(image: AppImages.female, width: 12, height: 12),
+                  HSpacer(4),
+                  Text('${_pokemon.gender.female}%', style: TextStyle(height: 0.8)),
                 ],
               ),
             ),
@@ -132,42 +129,48 @@ class PokemonAbout extends StatelessWidget {
             ),
         ],
       ),
-      SizedBox(height: 18),
+      VSpacer(context.responsive(18)),
       Row(
         children: <Widget>[
           Expanded(child: _buildLabel('Egg Groups')),
           Expanded(
             flex: 2,
             child: Text(
-              _pokemon.eggGroups.map((e) => e.value).join(', '),
+              _pokemon.eggGroups.join(', '),
               style: TextStyle(height: 0.8),
             ),
           ),
           Expanded(flex: 1, child: SizedBox()),
         ],
       ),
-      SizedBox(height: 18),
+      VSpacer(context.responsive(18)),
       Row(
         children: <Widget>[
-          Expanded(child: _buildLabel('Egg Cycle')),
+          Expanded(
+            child: _buildLabel('Egg Cycle'),
+          ),
           Expanded(
             flex: 2,
             child: Text(
-              _pokemon.eggGroups.map((e) => e.value).join(', '),
+              _pokemon.eggGroups.join(', '),
               style: TextStyle(height: 0.8),
             ),
           ),
-          Expanded(flex: 1, child: SizedBox()),
+          Expanded(
+            flex: 1,
+            child: SizedBox(),
+          ),
         ],
       ),
     ]);
   }
 
-  Widget _buildLocation() {
+  Widget _buildLocation(BuildContext context) {
     return _buildSection(
+      context,
       'Location',
       child: AspectRatio(
-        aspectRatio: 2.253,
+        aspectRatio: 2.2,
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.teal,
@@ -178,8 +181,9 @@ class PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildTraining() {
+  Widget _buildTraining(BuildContext context) {
     return _buildSection(
+      context,
       'Training',
       child: Row(
         children: <Widget>[
@@ -197,24 +201,25 @@ class PokemonAbout extends StatelessWidget {
       child: Column(
         children: <Widget>[
           _buildDescription(),
-          SizedBox(height: 28),
-          _buildHeightWeight(),
-          SizedBox(height: 31),
-          _buildBreeding(),
-          SizedBox(height: 35),
-          _buildLocation(),
-          SizedBox(height: 26),
-          _buildTraining(),
+          VSpacer(context.responsive(28)),
+          _buildHeightWeight(context),
+          VSpacer(context.responsive(31)),
+          _buildBreeding(context),
+          VSpacer(context.responsive(35)),
+          _buildLocation(context),
+          VSpacer(context.responsive(26)),
+          _buildTraining(context),
         ],
       ),
       builder: (context, child) {
         final scrollable = _animation.value.floor() == 1;
 
         return SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 19, horizontal: 27),
-          physics: scrollable
-              ? BouncingScrollPhysics()
-              : NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.symmetric(
+            vertical: context.responsive(19),
+            horizontal: 27,
+          ),
+          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
           child: child,
         );
       },

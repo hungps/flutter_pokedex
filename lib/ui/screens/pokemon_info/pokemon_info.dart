@@ -75,8 +75,8 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
   }
 
   Widget _buildBackground() {
-    return Consumer((_, read) {
-      final currentPokemon = read(currentPokemonStateProvider).pokemon;
+    return Consumer(builder: (_, watch, __) {
+      final currentPokemon = watch(currentPokemonStateProvider).pokemon;
 
       return AnimatedContainer(
         duration: Duration(milliseconds: 300),
@@ -100,7 +100,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     final screenSize = context.screenSize;
 
     return Positioned(
-      top: 4,
+      top: context.responsive(4),
       left: screenSize.height * 0.3,
       child: AnimatedFade(
         animation: Tween(begin: 1.0, end: 0.0).animate(_cardController),

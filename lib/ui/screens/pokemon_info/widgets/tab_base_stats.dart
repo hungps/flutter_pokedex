@@ -4,7 +4,9 @@ import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/progress.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
 import 'package:pokedex/utils/string.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class Stat extends StatelessWidget {
   const Stat({
@@ -44,6 +46,7 @@ class Stat extends StatelessWidget {
             builder: (context, widget) => ProgressBar(
               progress: animation.value * currentProgress,
               color: currentProgress < 0.5 ? AppColors.red : AppColors.teal,
+              enableAnimation: animation.value == 1,
             ),
           ),
         ),
@@ -53,9 +56,10 @@ class Stat extends StatelessWidget {
 }
 
 class PokemonBaseStats extends StatefulWidget {
-  final Pokemon _pokemon;
+  final Pokemon pokemon;
+  final Animation<double> scrollAnimation;
 
-  const PokemonBaseStats(this._pokemon);
+  const PokemonBaseStats(this.pokemon, this.scrollAnimation);
 
   @override
   _PokemonBaseStatsState createState() => _PokemonBaseStatsState();
@@ -65,7 +69,8 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
   Animation<double> _animation;
   AnimationController _controller;
 
-  Pokemon get pokemon => widget._pokemon;
+  Pokemon get pokemon => widget.pokemon;
+  Animation<double> get scrollAnimation => widget.scrollAnimation;
 
   @override
   void dispose() {
@@ -96,17 +101,17 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
   List<Widget> generateStatWidget() {
     return [
       Stat(animation: _animation, label: 'Hp', value: pokemon.stats.hp),
-      SizedBox(height: 14),
+      VSpacer(context.responsive(14)),
       Stat(animation: _animation, label: 'Atttack', value: pokemon.stats.attack),
-      SizedBox(height: 14),
+      VSpacer(context.responsive(14)),
       Stat(animation: _animation, label: 'Defense', value: pokemon.stats.defense),
-      SizedBox(height: 14),
+      VSpacer(context.responsive(14)),
       Stat(animation: _animation, label: 'Sp. Atk', value: pokemon.stats.specialAttack),
-      SizedBox(height: 14),
+      VSpacer(context.responsive(14)),
       Stat(animation: _animation, label: 'Sp. Def', value: pokemon.stats.specialDefense),
-      SizedBox(height: 14),
+      VSpacer(context.responsive(14)),
       Stat(animation: _animation, label: 'Speed', value: pokemon.stats.speed),
-      SizedBox(height: 14),
+      VSpacer(context.responsive(14)),
       Stat(
         animation: _animation,
         label: 'Total',
@@ -133,14 +138,14 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(24),
+    return AnimatedBuilder(
+      animation: scrollAnimation,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           ...generateStatWidget(),
-          SizedBox(height: 27),
+          VSpacer(context.responsive(27)),
           Text(
             'Type defenses',
             style: TextStyle(
@@ -149,19 +154,31 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
               height: 0.8,
             ),
           ),
-          SizedBox(height: 15),
+          VSpacer(context.responsive(15)),
           Text(
             'The effectiveness of each type on ${pokemon.name}.',
             style: TextStyle(color: AppColors.black.withOpacity(0.6)),
           ),
-          SizedBox(height: 15),
+          VSpacer(context.responsive(15)),
           Wrap(
-            spacing: 5,
-            runSpacing: 5,
+            spacing: context.responsive(8),
+            runSpacing: context.responsive(8),
             children: _buildEffectivenesses(),
           ),
         ],
       ),
+      builder: (context, child) {
+        final scrollable = scrollAnimation.value.floor() == 1;
+
+        return SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            vertical: context.responsive(24),
+            horizontal: 24,
+          ),
+          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          child: child,
+        );
+      },
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/category.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class PokeCategoryCard extends StatelessWidget {
   const PokeCategoryCard(
@@ -49,19 +51,14 @@ class PokeCategoryCard extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: _Shadows(color: category.color, width: itemWidth * 0.82),
             ),
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
-              padding: EdgeInsets.all(0),
+            Material(
               color: category.color,
-              splashColor: Colors.white10,
-              highlightColor: Colors.white10,
-              elevation: 0,
-              highlightElevation: 2,
-              disabledColor: category.color,
-              onPressed: onPress,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                splashColor: Colors.white10,
+                highlightColor: Colors.white10,
+                onTap: onPress,
                 child: Stack(
                   children: [
                     _buildPokemonDecoration(height: itemHeight),
@@ -70,7 +67,7 @@ class PokeCategoryCard extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            )
           ],
         );
       },
@@ -112,12 +109,12 @@ class _Shadows extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width * 0.82,
-      height: 11,
+      height: context.responsive(11),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: color,
-            offset: Offset(0, 3),
+            offset: Offset(0, context.responsive(3)),
             blurRadius: 23,
           ),
         ],

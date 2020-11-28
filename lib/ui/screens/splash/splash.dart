@@ -10,10 +10,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  static const double _splashIconSize = 50;
+
   @override
   void initState() {
     scheduleMicrotask(() async {
       await AppImages.precacheAssets(context);
+      await Future.delayed(Duration(milliseconds: 400));
       await AppNavigator.replaceWith(Routes.home);
     });
 
@@ -24,17 +27,25 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image(
-            image: AppImages.pikloader,
-            width: 100,
-          ),
-          Text(
-            'Pokedex',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
-          )
-        ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image(
+              image: AppImages.pikloader,
+              width: _splashIconSize,
+              height: _splashIconSize,
+              fit: BoxFit.contain,
+            ),
+            Text(
+              'Pokedex',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

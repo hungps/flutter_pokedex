@@ -15,7 +15,7 @@ extension PokemonHiveModelX on PokemonHiveModel {
         height: height?.trim() ?? '',
         weight: weight?.trim() ?? '',
         genera: genera?.trim() ?? '',
-        eggGroups: eggGroups.map((e) => PokemonTypesX.parse(e)).toList(),
+        eggGroups: eggGroups.map((e) => e?.trim() ?? '').where((e) => e.isNotEmpty).toList(),
         gender: gender.toEntity(),
         stats: stats.toEntity(),
         baseExp: baseExp ?? 0.0,

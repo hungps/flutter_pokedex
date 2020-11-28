@@ -5,9 +5,8 @@ import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/context.dart';
 
 class PokeBackgroundProperties {
-  static const double _sizeFraction = 0.66;
-  static const double _topFraction = 0.154;
-  static const double _rightFraction = 0.23;
+  static const double _padding = 24;
+  static const double _sizeFraction = 0.664;
 
   const PokeBackgroundProperties._({this.size, this.top, this.right});
 
@@ -15,10 +14,13 @@ class PokeBackgroundProperties {
   final double top;
   final double right;
 
-  factory PokeBackgroundProperties(Size screenSize) {
+  factory PokeBackgroundProperties(BuildContext context) {
+    final screenSize = context.screenSize;
+    final iconSize = context.iconSize;
+
     final size = screenSize.width * _sizeFraction;
-    final top = -screenSize.width * _topFraction;
-    final right = -screenSize.width * _rightFraction;
+    final top = -(size / 2 - iconSize / 2 - context.responsive(_padding) - context.padding.top);
+    final right = -(size / 2 - iconSize / 2 - _padding);
 
     return PokeBackgroundProperties._(size: size, top: top, right: right);
   }
@@ -27,12 +29,11 @@ class PokeBackgroundProperties {
 class PokeballBackground extends StatelessWidget {
   final List<Widget> Function(PokeBackgroundProperties) buildChildren;
 
-  const PokeballBackground({Key key, @required this.buildChildren})
-      : super(key: key);
+  const PokeballBackground({Key key, @required this.buildChildren}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final properties = PokeBackgroundProperties(context.screenSize);
+    final properties = PokeBackgroundProperties(context);
 
     return Stack(
       children: <Widget>[

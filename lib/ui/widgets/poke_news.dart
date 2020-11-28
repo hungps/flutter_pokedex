@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class PokeNews extends StatelessWidget {
   const PokeNews({
@@ -12,7 +13,7 @@ class PokeNews extends StatelessWidget {
   final String time;
   final String title;
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -23,7 +24,7 @@ class PokeNews extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 6),
+        SizedBox(height: context.responsive(6)),
         Text(
           time,
           style: TextStyle(
@@ -38,13 +39,16 @@ class PokeNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+      padding: EdgeInsets.symmetric(
+        horizontal: 28,
+        vertical: context.responsive(16),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Flexible(
             flex: 2,
-            child: _buildContent(),
+            child: _buildContent(context),
           ),
           SizedBox(width: 36),
           Flexible(
