@@ -1,7 +1,8 @@
-import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/configs/constants.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/data/categories.dart';
@@ -28,12 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    scheduleMicrotask(() {
-      setState(() {
-        appBarHeight = context.screenSize.height * _HeaderAppBar.heightFraction;
-      });
-    });
-
     _scrollController.addListener(_onScroll);
 
     super.initState();
@@ -58,6 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    appBarHeight = context.screenSize.height * _HeaderAppBar.heightFraction;
+
     return Scaffold(
       body: NestedScrollView(
         controller: _scrollController,

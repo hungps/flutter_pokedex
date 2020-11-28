@@ -17,7 +17,7 @@ class _PokemonGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paddingBottom = max(context.padding.bottom, 28.0);
+    final paddingBottom = context.responsive(max(context.padding.bottom, 28));
 
     return CustomScrollView(
       controller: controller,
@@ -25,15 +25,21 @@ class _PokemonGrid extends StatelessWidget {
       slivers: [
         CupertinoSliverRefreshControl(
           onRefresh: onRefresh,
+          builder: (_, __, ___, ____, _____) => Image(
+            image: AppImages.pikloader,
+          ),
         ),
         SliverPadding(
-          padding: EdgeInsets.all(28),
+          padding: EdgeInsets.symmetric(
+            horizontal: 28,
+            vertical: context.responsive(28),
+          ),
           sliver: SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 1.4,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              crossAxisSpacing: context.responsive(10),
+              mainAxisSpacing: context.responsive(10),
             ),
             delegate: SliverChildBuilderDelegate(
               (context, index) => PokemonCard(

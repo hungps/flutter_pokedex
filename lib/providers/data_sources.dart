@@ -1,7 +1,7 @@
 part of 'providers.dart';
 
 final githubSourceProvider = Provider<GithubDataSource>((ref) {
-  final networkManager = ref.read(networkProvider);
+  final networkManager = ref.watch(networkProvider);
 
   return GithubDataSource(networkManager);
 });

@@ -12,14 +12,17 @@ class _HeaderAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: top, bottom: 16),
+      padding: EdgeInsets.only(top: top, bottom: context.responsive(16)),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
             left: 0,
             child: IconButton(
-              padding: EdgeInsets.all(24),
+              padding: EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: context.responsive(24),
+              ),
               icon: Icon(Icons.arrow_back),
               onPressed: AppNavigator.pop,
             ),
@@ -36,7 +39,10 @@ class _HeaderAppBar extends StatelessWidget {
           Positioned(
             right: 0,
             child: IconButton(
-              padding: EdgeInsets.all(24),
+              padding: EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: context.responsive(24),
+              ),
               icon: Icon(Icons.menu),
               onPressed: AppNavigator.pop,
             ),

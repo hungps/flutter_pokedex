@@ -1,13 +1,12 @@
 part of '../home.dart';
 
 class _PokemonNews extends StatelessWidget {
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         left: 28,
         right: 28,
-        top: 0,
-        bottom: 22,
+        bottom: context.responsive(22),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -38,7 +37,7 @@ class _PokemonNews extends StatelessWidget {
     return ListView(
       physics: BouncingScrollPhysics(),
       children: <Widget>[
-        _buildHeader(),
+        _buildHeader(context),
         ListView.separated(
           shrinkWrap: true,
           itemCount: 9,

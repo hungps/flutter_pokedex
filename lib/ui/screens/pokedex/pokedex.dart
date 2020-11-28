@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/configs/durations.dart';
+import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/animation.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
@@ -52,7 +53,7 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
     _scrollController.addListener(_onScroll);
 
     scheduleMicrotask(() {
-      pokemonsStateProvider.read(context).getPokemons(reset: true);
+      context.read(pokemonsStateProvider).getPokemons(reset: true);
     });
 
     super.initState();
@@ -80,17 +81,17 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
     if (!_scrollController.hasClients) return;
 
     final thresholdReached = _scrollController.position.extentAfter < _endReachedThreshold;
-    final isLoading = pokemonsStateProvider.read(context).loading;
-    final canLoadMore = pokemonsStateProvider.read(context).canLoadMore;
+    final isLoading = context.read(pokemonsStateProvider).loading;
+    final canLoadMore = context.read(pokemonsStateProvider).canLoadMore;
 
     if (thresholdReached && !isLoading && canLoadMore) {
       // Load more!
-      pokemonsStateProvider.read(context).getPokemons();
+      context.read(pokemonsStateProvider).getPokemons();
     }
   }
 
   Future _onRefresh() async {
-    pokemonsStateProvider.read(context).getPokemons(reset: true);
+    context.read(pokemonsStateProvider).getPokemons(reset: true);
   }
 
   void _showSearchModal() {
@@ -112,10 +113,10 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
   Widget _buildTitle() {
     return Padding(
       padding: EdgeInsets.only(
-        top: 18,
         left: 26,
         right: 26,
-        bottom: 4,
+        top: context.responsive(18),
+        bottom: context.responsive(4),
       ),
       child: Text(
         'Pokedex',
@@ -129,8 +130,8 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
 
   Widget _buildPokemonGrid() {
     return Expanded(
-      child: Consumer((context, read) {
-        final pokemonState = read(pokemonsStateProvider);
+      child: Consumer(builder: (_, watch, __) {
+        final pokemonState = watch(pokemonsStateProvider);
 
         return _PokemonGrid(
           pokemons: pokemonState.pokemons,
@@ -138,7 +139,7 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
           controller: _scrollController,
           onRefresh: _onRefresh,
           onSelectPokemon: (index, pokemon) {
-            currentPokemonStateProvider.read(context).setPokemon(index, pokemon);
+            context.read(currentPokemonStateProvider).setPokemon(index, pokemon);
             AppNavigator.push(Routes.pokemonInfo, pokemon);
           },
         );

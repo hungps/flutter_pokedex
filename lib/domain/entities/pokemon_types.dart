@@ -25,7 +25,7 @@ enum PokemonTypes {
   dragon,
   dark,
   monster,
-  unknown
+  unknown,
 }
 
 extension PokemonTypesX on PokemonTypes {

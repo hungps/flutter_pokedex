@@ -28,7 +28,7 @@ class PokemonTabInfo extends StatelessWidget {
     ),
     TabData(
       label: 'Base Stats',
-      builder: (pokemon, animation) => PokemonBaseStats(pokemon),
+      builder: (pokemon, animation) => PokemonBaseStats(pokemon, animation),
     ),
     TabData(
       label: 'Evolution',
@@ -45,11 +45,14 @@ class PokemonTabInfo extends StatelessWidget {
 
   PokemonTabInfo(this._animation);
 
-  Widget _buildTabBar() {
+  Widget _buildTabBar(BuildContext context) {
     return TabBar(
       labelColor: AppColors.black,
       unselectedLabelColor: AppColors.grey,
-      labelPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 16),
+      labelPadding: EdgeInsets.symmetric(
+        horizontal: 0,
+        vertical: context.responsive(16),
+      ),
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,
       indicatorColor: AppColors.indigo,
@@ -59,13 +62,11 @@ class PokemonTabInfo extends StatelessWidget {
 
   Widget _buildTabContent() {
     return Expanded(
-      child: Consumer((context, read) {
-        final currentPokemon = read(currentPokemonStateProvider).pokemon;
+      child: Consumer(builder: (_, watch, __) {
+        final currentPokemon = watch(currentPokemonStateProvider).pokemon;
 
         return TabBarView(
-          children: _tabs
-              .map((tab) => tab.builder(currentPokemon, _animation))
-              .toList(),
+          children: _tabs.map((tab) => tab.builder(currentPokemon, _animation)).toList(),
         );
       }),
     );
@@ -93,9 +94,9 @@ class PokemonTabInfo extends StatelessWidget {
             AnimatedBuilder(
               animation: _animation,
               builder: (context, _) =>
-                  SizedBox(height: (1 - _animation.value) * 16 + 6),
+                  SizedBox(height: context.responsive((1 - _animation.value) * 16 + 6)),
             ),
-            _buildTabBar(),
+            _buildTabBar(context),
             _buildTabContent(),
           ],
         ),

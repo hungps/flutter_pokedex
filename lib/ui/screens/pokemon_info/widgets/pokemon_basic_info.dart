@@ -11,6 +11,7 @@ import 'package:pokedex/ui/widgets/animated_fade.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';
 import 'package:pokedex/ui/widgets/poke_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
 
 class PokemonOverallInfo extends StatefulWidget {
   final Pokemon pokemon;
@@ -56,7 +57,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   void didChangeDependencies() {
     _pageController ??= PageController(
       viewportFraction: _pokemonSliderViewportFraction,
-      initialPage: currentPokemonStateProvider.read(context).index,
+      initialPage: context.read(currentPokemonStateProvider).index,
     );
 
     super.didChangeDependencies();
@@ -93,11 +94,11 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   AppBar _buildAppBar() {
     return PokeAppBar(
       // A placeholder for easily calculate the translate of the pokemon name
-      title: Consumer((_, read) {
+      title: Consumer(builder: (_, watch, __) {
         _calculatePokemonNamePosition();
 
         return Text(
-          read(currentPokemonStateProvider).pokemon.name,
+          watch(currentPokemonStateProvider).pokemon.name,
           key: _targetTextKey,
           style: TextStyle(
             color: Colors.transparent,
@@ -127,8 +128,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
 
               return Transform.translate(
                 offset: Offset(textDiffLeft * value, textDiffTop * value),
-                child: Consumer((_, read) {
-                  final pokemonName = read(currentPokemonStateProvider).pokemon.name;
+                child: Consumer(builder: (_, watch, __) {
+                  final pokemonName = watch(currentPokemonStateProvider).pokemon.name;
 
                   return Hero(
                     tag: pokemonName,
@@ -153,8 +154,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
             animation: _slideController,
             child: AnimatedFade(
               animation: fadeAnimation,
-              child: Consumer((_, read) {
-                final tag = read(currentPokemonStateProvider).pokemon;
+              child: Consumer(builder: (_, watch, __) {
+                final tag = watch(currentPokemonStateProvider).pokemon;
 
                 return Hero(
                   tag: tag.number,
@@ -185,23 +186,27 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
       animation: fadeAnimation,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 26),
-        child: Consumer((_, read) {
-          final pokemon = read(currentPokemonStateProvider).pokemon;
+        child: Consumer(builder: (_, watch, __) {
+          final pokemon = watch(currentPokemonStateProvider).pokemon;
 
           return Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Row(
-                children: pokemon.types
-                    .map(
-                      (type) => Hero(
-                        tag: type,
-                        child: PokemonType(type, large: true),
-                      ),
-                    )
-                    .toList(),
+              Expanded(
+                child: Wrap(
+                  spacing: context.responsive(8),
+                  runSpacing: context.responsive(8),
+                  children: pokemon.types
+                      .map(
+                        (type) => Hero(
+                          tag: type,
+                          child: PokemonType(type, large: true),
+                        ),
+                      )
+                      .toList(),
+                ),
               ),
               AnimatedSlide(
                 animation: _slideController,
@@ -249,9 +254,9 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 ),
               ),
             ),
-            Consumer((context, read) {
-              final pokemonsState = read(pokemonsStateProvider);
-              final currentPokemonState = read(currentPokemonStateProvider);
+            Consumer(builder: (context, watch, __) {
+              final pokemonsState = watch(pokemonsStateProvider);
+              final currentPokemonState = watch(currentPokemonStateProvider);
 
               final pokemons = pokemonsState.pokemons;
 
@@ -268,27 +273,32 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                     pokemonsState.getPokemons();
                   }
                 },
-                itemBuilder: (context, index) => Hero(
-                  tag: pokemons[index].image,
-                  child: AnimatedPadding(
-                    duration: Duration(milliseconds: 600),
-                    curve: Curves.easeOutQuint,
-                    padding: EdgeInsets.only(
-                      top: currentPokemonState.index == index ? 0 : screenSize.height * 0.04,
-                      bottom: currentPokemonState.index == index ? 0 : screenSize.height * 0.04,
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: pokemons[index].image,
-                      imageBuilder: (context, image) => Image(
-                        image: image,
-                        width: screenSize.height * 0.28,
-                        height: screenSize.height * 0.28,
-                        alignment: Alignment.bottomCenter,
-                        color: currentPokemonState.index == index ? null : Colors.black26,
+                itemBuilder: (context, index) {
+                  final selected = currentPokemonState.index == index;
+
+                  return Hero(
+                    tag: selected ? pokemons[index].image : index,
+                    child: AnimatedPadding(
+                      duration: Duration(milliseconds: 600),
+                      curve: Curves.easeOutQuint,
+                      padding: EdgeInsets.only(
+                        top: selected ? 0 : screenSize.height * 0.04,
+                        bottom: selected ? 0 : screenSize.height * 0.04,
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: pokemons[index].image,
+                        imageBuilder: (context, image) => Image(
+                          image: image,
+                          width: screenSize.height * 0.3,
+                          height: screenSize.height * 0.3,
+                          alignment: Alignment.bottomCenter,
+                          color: selected ? null : Colors.black26,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               );
             }),
           ],
@@ -303,11 +313,11 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _buildAppBar(),
-        SizedBox(height: 9),
+        VSpacer(context.responsive(9)),
         _buildPokemonName(),
-        SizedBox(height: 9),
+        VSpacer(context.responsive(9)),
         _buildPokemonTypes(),
-        SizedBox(height: 25),
+        VSpacer(context.responsive(25)),
         _buildPokemonSlider(),
       ],
     );

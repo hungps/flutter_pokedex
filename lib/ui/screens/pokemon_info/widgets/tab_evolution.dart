@@ -4,6 +4,7 @@ import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
 
 class PokemonBall extends StatelessWidget {
   const PokemonBall(this.pokemon);
@@ -37,7 +38,7 @@ class PokemonBall extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(height: 3),
+        VSpacer(context.responsive(3)),
         Text(pokemon.name),
       ],
     );
@@ -63,7 +64,7 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
           child: Column(
             children: <Widget>[
               Icon(Icons.arrow_forward, color: AppColors.lightGrey),
-              SizedBox(height: 7),
+              VSpacer(context.responsive(7)),
               Text(
                 reason,
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
@@ -79,9 +80,9 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
   Widget _buildDivider() {
     return Column(
       children: <Widget>[
-        SizedBox(height: 21),
+        VSpacer(context.responsive(21)),
         Divider(),
-        SizedBox(height: 21),
+        VSpacer(context.responsive(21)),
       ],
     );
   }
@@ -114,10 +115,9 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
         children: <Widget>[
           Text(
             'Evolution Chain',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
           ),
-          SizedBox(height: 28),
+          VSpacer(context.responsive(28)),
           ...buildEvolutionList(widget.pokemon.evolutions),
         ],
       ),
@@ -125,10 +125,11 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
         final scrollable = widget.animation.value.floor() == 1;
 
         return SingleChildScrollView(
-          physics: scrollable
-              ? BouncingScrollPhysics()
-              : NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.symmetric(vertical: 31, horizontal: 28),
+          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.symmetric(
+            vertical: context.responsive(31),
+            horizontal: 28,
+          ),
           child: child,
         );
       },

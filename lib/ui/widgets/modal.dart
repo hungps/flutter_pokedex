@@ -16,7 +16,7 @@ class Modal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 14),
+      padding: EdgeInsets.only(top: context.responsive(14)),
       decoration: BoxDecoration(
         color: AppColors.whiteGrey,
         borderRadius: BorderRadius.only(
@@ -43,7 +43,7 @@ class _DragLine extends StatelessWidget {
 
     return Container(
       width: width,
-      height: 3,
+      height: context.responsive(3),
       decoration: ShapeDecoration(
         shape: StadiumBorder(),
         color: AppColors.lighterGrey,
@@ -64,7 +64,10 @@ class _Title extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.only(top: 18, bottom: 8),
+      padding: EdgeInsets.only(
+        top: context.responsive(18),
+        bottom: context.responsive(8),
+      ),
       child: Text(
         text,
         style: TextStyle(

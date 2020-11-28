@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/generation.dart';
+import 'package:pokedex/core/extensions/context.dart';
 
 class GenerationCard extends StatelessWidget {
   const GenerationCard(this.generation);
@@ -20,7 +21,7 @@ class GenerationCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 8),
+              offset: Offset(0, context.responsive(8)),
               blurRadius: 15,
               color: AppColors.black.withOpacity(0.12),
             ),
@@ -30,7 +31,10 @@ class GenerationCard extends StatelessWidget {
           children: <Widget>[
             Container(
               constraints: BoxConstraints.expand(),
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: context.responsive(16),
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,13 +46,18 @@ class GenerationCard extends StatelessWidget {
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: generation.pokemons
-                        .map((pokemon) => Image.asset(
+                        .map(
+                          (pokemon) => Expanded(
+                            child: Image.asset(
                               pokemon,
                               fit: BoxFit.contain,
                               width: height * 0.41,
                               height: height * 0.41,
-                            ))
+                            ),
+                          ),
+                        )
                         .toList(),
                   ),
                 ],

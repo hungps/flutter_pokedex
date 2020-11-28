@@ -1,7 +1,7 @@
 part of '../home.dart';
 
 class _HeaderAppBar extends StatelessWidget {
-  static const double heightFraction = 0.75;
+  static const double heightFraction = 0.66;
 
   const _HeaderAppBar({
     @required this.height,
@@ -24,30 +24,26 @@ class _HeaderAppBar extends StatelessWidget {
     );
   }
 
-  Widget _buildCategories() {
+  Widget _buildCategories(BuildContext context) {
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 2.44,
+        childAspectRatio: 2.48,
         crossAxisSpacing: 10,
-        mainAxisSpacing: 12,
+        mainAxisSpacing: context.responsive(12),
       ),
-      padding: EdgeInsets.only(
-        left: 28,
-        right: 28,
-        bottom: 28,
-      ),
+      padding: EdgeInsets.only(left: 28, right: 28),
       itemCount: categories.length,
-      itemBuilder: (context, index) => PokeCategoryCard(categories[index],
-          onPress: () => AppNavigator.push(categories[index].route)),
+      itemBuilder: (context, index) => PokeCategoryCard(
+        categories[index],
+        onPress: () => AppNavigator.push(categories[index].route),
+      ),
     );
   }
 
   Widget _buildCard(BuildContext context) {
-    final screenHeight = context.screenSize.height;
-
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -56,27 +52,28 @@ class _HeaderAppBar extends StatelessWidget {
         ),
       ),
       child: PokeballBackground(
-        buildChildren: (props) => [
+        buildChildren: (_) => [
           Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              VSpacer(screenHeight * 0.144),
+              VSpacer(context.responsive(60) + context.padding.top),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 28),
                 child: Text(
                   'What Pokemon\nare you looking for?',
                   style: TextStyle(
                     fontSize: 30,
-                    height: 0.9,
+                    height: (context.responsive(30) * 1.4 / 30),
                     fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
-              VSpacer(screenHeight * 0.049),
+              VSpacer(context.responsive(28)),
               SearchBar(),
-              VSpacer(screenHeight * 0.051),
-              _buildCategories(),
+              VSpacer(context.responsive(40)),
+              _buildCategories(context),
             ],
           ),
         ],

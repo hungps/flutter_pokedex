@@ -33,7 +33,7 @@ class Pokemon {
   final String height;
   final String weight;
   final String genera;
-  final List<PokemonTypes> eggGroups;
+  final List<String> eggGroups;
   final PokemonGender gender;
   final PokemonStats stats;
   final double baseExp;

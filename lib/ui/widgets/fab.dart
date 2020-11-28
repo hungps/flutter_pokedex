@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/core/extensions/context.dart';
+import 'package:pokedex/ui/widgets/spacer.dart';
 
 class FabItem {
   const FabItem(this.title, this.icon, {this.onPress});
@@ -19,7 +20,12 @@ class FabMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       shape: StadiumBorder(),
-      padding: EdgeInsets.only(top: 8, bottom: 8, left: 24, right: 16),
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 16,
+        top: context.responsive(8),
+        bottom: context.responsive(8),
+      ),
       color: Colors.white,
       splashColor: Colors.grey.withOpacity(0.1),
       highlightColor: Colors.grey.withOpacity(0.1),
@@ -31,7 +37,7 @@ class FabMenuItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(item.title),
-          SizedBox(width: 8),
+          HSpacer(8),
           Icon(item.icon, color: AppColors.indigo),
         ],
       ),
@@ -55,8 +61,7 @@ class ExpandedAnimationFab extends AnimatedWidget {
     final screenWidth = context.screenSize.width;
 
     final transform = Matrix4.translationValues(
-      -(screenWidth - animation.value * screenWidth) *
-          ((items.length - index) / 4),
+      -(screenWidth - animation.value * screenWidth) * ((items.length - index) / 4),
       0.0,
       0.0,
     );
@@ -84,8 +89,8 @@ class ExpandedAnimationFab extends AnimatedWidget {
           child: ListView.separated(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (_, __) => SizedBox(height: 9),
-            padding: EdgeInsets.symmetric(vertical: 12),
+            separatorBuilder: (_, __) => SizedBox(height: context.responsive(9)),
+            padding: EdgeInsets.symmetric(vertical: context.responsive(12)),
             itemCount: items.length,
             itemBuilder: _buildItem,
           ),
