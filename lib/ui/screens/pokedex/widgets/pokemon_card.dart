@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/domain/entities/pokemon_types.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
@@ -48,6 +47,8 @@ class PokemonCard extends StatelessWidget {
           imageUrl: pokemon.image,
           width: pokemonSize,
           height: pokemonSize,
+          imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
+          useOldImageOnUrlChange: true,
           fit: BoxFit.contain,
           alignment: Alignment.bottomRight,
           placeholder: (context, url) => Image(
