@@ -7,21 +7,20 @@
 
 Pokedex app built with Flutter
 
-## Download
-
-Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) to download the latest available apk.
-
 ## App preview
 
 ![Home](screenshots/home.png "Home")
+![News](screenshots/home-news.png "News")
 ![Pokedex](screenshots/pokedex.png "Pokedex")
 ![Pokedex FAB](screenshots/pokedex-fab.png "Pokedex FAB")
-![Pokedex Search](screenshots/pokedex-fab-search.png "Pokedex Search")
 ![Pokedex Generation](screenshots/pokedex-fab-generation.png "Pokedex Generation")
 ![Pokemon Info - About](screenshots/pokemon-info-about.png "Pokemon Info - About")
 ![Pokemon Info - Base Stats](screenshots/pokemon-info-base-stats.png "Pokemon Info - Base Stats")
 ![Pokemon Info - Evolution](screenshots/pokemon-info-evolution.png "Pokemon Info - Evolution")
-![Pokemon Info - About (Expanded)](screenshots/pokemon-info-about-expanded.png "Pokemon Info - About (Expanded)")
+![Pokemon Info - Base Stats (Expanded)](screenshots/pokemon-info-expanded.png "Pokemon Info - Base Stats (Expanded)")
+
+## Video demo
+[![Demo](screenshots/thumbnail.png)](https://www.youtube.com/watch?v=qKrFWerjoV8)
 
 ## Installation
 
@@ -40,7 +39,7 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 - [x] Pokedex - Add FAB animation
 - [ ] Pokedex - Add grid loading animation
 - [x] Pokedex - Add more Pokemons by [balvinderz](https://github.com/balvinderz)
-- [ ] Pokedex - Add load more
+- [x] Pokedex - Add load more
 - [x] Pokemon Info
 - [x] Pokemon Info - About
 - [x] Pokemon Info - Base Stats
@@ -56,7 +55,7 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 ## Thanks
 
 - [Saepul Nahwan](https://dribbble.com/saepulnahwan23) for his [Pokedex App design](https://dribbble.com/shots/6545819-Pokedex-App)
-- [Sabri Bey](https://www.deviantart.com/sabribey) for the splash gif
+- [Sabri Bey](https://www.deviantart.com/sabribey) for the Pikachu gif
 - [Flutter](https://flutter.dev) for the great cross platform framework
 
 ## License
