@@ -2,6 +2,7 @@ part of '../home.dart';
 
 class _HeaderAppBar extends StatelessWidget {
   static const double heightFraction = 0.66;
+  static const double minHeight = 480;
 
   const _HeaderAppBar({
     @required this.height,
@@ -25,20 +26,39 @@ class _HeaderAppBar extends StatelessWidget {
   }
 
   Widget _buildCategories(BuildContext context) {
-    return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 2.48,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: context.responsive(12),
-      ),
-      padding: EdgeInsets.only(left: 28, right: 28),
-      itemCount: categories.length,
-      itemBuilder: (context, index) => PokeCategoryCard(
-        categories[index],
-        onPress: () => AppNavigator.push(categories[index].route),
+    final spacing = context.responsive(10);
+
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 28,
+          vertical: context.responsive(40),
+        ),
+        child: LayoutBuilder(
+          builder: (_, constrains) {
+            final width = constrains.maxWidth;
+            final height = constrains.maxHeight;
+            final itemHeight = (height - 2 * spacing) / 3;
+
+            return Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runAlignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: categories
+                  .map(
+                    (e) => SizedBox(
+                      width: (width - spacing) / 2,
+                      height: itemHeight,
+                      child: PokeCategoryCard(
+                        e,
+                        onPress: () => AppNavigator.push(e.route),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            );
+          },
+        ),
       ),
     );
   }
@@ -65,14 +85,13 @@ class _HeaderAppBar extends StatelessWidget {
                   'What Pokemon\nare you looking for?',
                   style: TextStyle(
                     fontSize: 30,
-                    height: (context.responsive(30) * 1.4 / 30),
+                    height: 1.4 * context.responsive(30) / 30,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
               VSpacer(context.responsive(28)),
               SearchBar(),
-              VSpacer(context.responsive(40)),
               _buildCategories(context),
             ],
           ),

@@ -56,7 +56,9 @@ class _PokemonGrid extends StatelessWidget {
               ? Container(
                   padding: EdgeInsets.only(bottom: paddingBottom),
                   alignment: Alignment.center,
-                  child: CircularProgressIndicator(),
+                  child: Image(
+                    image: AppImages.pikloader,
+                  ),
                 )
               : SizedBox(),
         ),

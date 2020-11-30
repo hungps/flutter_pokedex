@@ -38,7 +38,7 @@ class PokedexApp extends StatelessWidget {
       builder: (context, child) {
         final data = MediaQuery.of(context);
         final smallestSize = min(data.size.width, data.size.height);
-        final textScaleFactor = min(smallestSize / AppConstants.designScreenSize.width, 1);
+        final textScaleFactor = min(smallestSize / AppConstants.designScreenSize.width, 1.0);
 
         return MediaQuery(
           data: data.copyWith(
