@@ -30,10 +30,28 @@ class PokemonBall extends StatelessWidget {
             ),
             CachedNetworkImage(
               imageUrl: pokemon.image,
+              imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
+              useOldImageOnUrlChange: true,
               imageBuilder: (_, image) => Image(
                 image: image,
                 width: pokemonSize,
                 height: pokemonSize,
+              ),
+              errorWidget: (_, __, error) => Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image(
+                    image: AppImages.bulbasaur,
+                    width: pokemonSize,
+                    height: pokemonSize,
+                    color: Colors.black12,
+                  ),
+                  Icon(
+                    Icons.warning_amber_rounded,
+                    size: pokemonSize * 0.3,
+                    color: Colors.black26,
+                  ),
+                ],
               ),
             )
           ],
