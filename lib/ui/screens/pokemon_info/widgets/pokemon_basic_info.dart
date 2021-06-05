@@ -275,6 +275,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 },
                 itemBuilder: (context, index) {
                   final selected = currentPokemonState.index == index;
+                  final imageSize = screenSize.height * 0.3;
 
                   return Hero(
                     tag: selected ? pokemons[index].image : index,
@@ -287,13 +288,31 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                       ),
                       child: CachedNetworkImage(
                         imageUrl: pokemons[index].image,
+                        imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
+                        useOldImageOnUrlChange: true,
                         imageBuilder: (context, image) => Image(
                           image: image,
-                          width: screenSize.height * 0.3,
-                          height: screenSize.height * 0.3,
+                          width: imageSize,
+                          height: imageSize,
                           alignment: Alignment.bottomCenter,
                           color: selected ? null : Colors.black26,
                           fit: BoxFit.contain,
+                        ),
+                        errorWidget: (_, __, error) => Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Image(
+                              image: AppImages.bulbasaur,
+                              width: imageSize,
+                              height: imageSize,
+                              color: Colors.black12,
+                            ),
+                            Icon(
+                              Icons.warning_amber_rounded,
+                              size: imageSize * 0.3,
+                              color: Colors.black26,
+                            ),
+                          ],
                         ),
                       ),
                     ),

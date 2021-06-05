@@ -57,7 +57,22 @@ class PokemonCard extends StatelessWidget {
             height: pokemonSize,
             color: Colors.black12,
           ),
-          errorWidget: (_, __, error) => Icon(Icons.error),
+          errorWidget: (_, __, error) => Stack(
+            alignment: Alignment.center,
+            children: [
+              Image(
+                image: AppImages.bulbasaur,
+                width: pokemonSize,
+                height: pokemonSize,
+                color: Colors.black12,
+              ),
+              Icon(
+                Icons.warning_amber_rounded,
+                size: pokemonSize * 0.4,
+                color: Colors.black45,
+              ),
+            ],
+          ),
         ),
       ),
     );
