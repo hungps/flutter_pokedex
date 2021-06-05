@@ -9,7 +9,6 @@ import 'package:pokedex/ui/screens/pokemon_info/widgets/decoration_box.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/pokemon_basic_info.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
-import 'package:pokedex/ui/widgets/poke_app_bar.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PokemonInfo extends StatefulWidget {
@@ -61,12 +60,11 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final screenHeight = context.screenSize.height;
-      final appBarHeight = PokeAppBar().preferredSize.height;
 
       final pokemonInfoBox = _pokemonInfoKey.currentContext.findRenderObject() as RenderBox;
 
       _cardMinHeight = screenHeight - pokemonInfoBox.size.height;
-      _cardMaxHeight = screenHeight - appBarHeight - context.padding.top;
+      _cardMaxHeight = screenHeight - kToolbarHeight - context.padding.top;
 
       _cardHeightController.forward();
     });
@@ -115,12 +113,11 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
   }
 
   Widget _buildAppBarPokeballDecoration() {
-    final appBarHeight = PokeAppBar().preferredSize.height;
     final screenSize = context.screenSize;
     final iconSize = context.iconSize;
 
     final pokeSize = screenSize.width * 0.448;
-    final pokeTop = -(pokeSize / 2 - (iconSize / 2 + appBarHeight));
+    final pokeTop = -(pokeSize / 2 - (iconSize / 2 + kToolbarHeight));
     final pokeRight = -(pokeSize / 2 - (iconSize / 2 + 28));
 
     return Positioned(

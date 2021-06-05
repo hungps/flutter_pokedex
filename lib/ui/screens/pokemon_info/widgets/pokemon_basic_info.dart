@@ -9,7 +9,7 @@ import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/providers/providers.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';
-import 'package:pokedex/ui/widgets/poke_app_bar.dart';
+import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
@@ -92,7 +92,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   }
 
   AppBar _buildAppBar() {
-    return PokeAppBar(
+    return MainAppBar(
       // A placeholder for easily calculate the translate of the pokemon name
       title: Consumer(builder: (_, watch, __) {
         _calculatePokemonNamePosition();

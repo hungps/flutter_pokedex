@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/domain/entities/pokemon_types.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 import 'package:pokedex/core/extensions/context.dart';
 

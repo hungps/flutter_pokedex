@@ -71,30 +71,28 @@ class _HeaderAppBar extends StatelessWidget {
         ),
       ),
       child: PokeballBackground(
-        buildChildren: (_) => [
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              VSpacer(context.responsive(60) + context.padding.top),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 28),
-                child: Text(
-                  'What Pokemon\nare you looking for?',
-                  style: TextStyle(
-                    fontSize: 30,
-                    height: 1.4 * context.responsive(30) / 30,
-                    fontWeight: FontWeight.w900,
-                  ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            VSpacer(context.responsive(60) + context.padding.top),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 28),
+              child: Text(
+                'What Pokemon\nare you looking for?',
+                style: TextStyle(
+                  fontSize: 30,
+                  height: 1.4 * context.responsive(30) / 30,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
-              VSpacer(context.responsive(28)),
-              SearchBar(),
-              _buildCategories(context),
-            ],
-          ),
-        ],
+            ),
+            VSpacer(context.responsive(28)),
+            SearchBar(),
+            _buildCategories(context),
+          ],
+        ),
       ),
     );
   }

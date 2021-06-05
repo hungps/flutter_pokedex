@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/domain/entities/type_color.dart';
 
 import '../../configs/colors.dart';
 import 'pokemon_props.dart';

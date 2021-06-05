@@ -1,68 +1,121 @@
-part of '../pokedex.dart';
+import 'dart:async';
 
-class _PokemonGrid extends StatelessWidget {
-  _PokemonGrid({
-    @required this.pokemons,
-    @required this.canLoadMore,
-    @required this.controller,
-    @required this.onRefresh,
-    @required this.onSelectPokemon,
-  });
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/providers/providers.dart';
+import 'package:pokedex/ui/screens/pokedex/widgets/pokemon_card.dart';
+import 'package:pokedex/ui/widgets/main_app_bar.dart';
+import 'package:pokedex/ui/widgets/pokemon_refresh_control.dart';
+import 'package:pokedex/routes.dart';
 
-  final ScrollController controller;
-  final List<Pokemon> pokemons;
-  final bool canLoadMore;
-  final Future Function() onRefresh;
-  final Function(int, Pokemon) onSelectPokemon;
+class PokemonGrid extends StatefulWidget {
+  @override
+  _PokemonGridState createState() => _PokemonGridState();
+}
+
+class _PokemonGridState extends State<PokemonGrid> {
+  static const double _endReachedThreshold = 200;
+
+  final GlobalKey<NestedScrollViewState> _scrollKey = GlobalKey();
+
+  ScrollController get innerController => _scrollKey.currentState?.innerController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    scheduleMicrotask(() {
+      context.read(pokemonsStateProvider).getPokemons(reset: true);
+      innerController?.addListener(_onScroll);
+    });
+  }
+
+  @override
+  void dispose() {
+    innerController?.dispose();
+
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (innerController != null && !innerController.hasClients) return;
+
+    final thresholdReached = innerController.position.extentAfter < _endReachedThreshold;
+    final isLoading = context.read(pokemonsStateProvider).loading;
+    final canLoadMore = context.read(pokemonsStateProvider).canLoadMore;
+
+    if (thresholdReached && !isLoading && canLoadMore) {
+      // Load more!
+      context.read(pokemonsStateProvider).getPokemons();
+    }
+  }
+
+  Future _onRefresh() async {
+    context.read(pokemonsStateProvider).getPokemons(reset: true);
+  }
+
+  void _onPokemonPress(int index, Pokemon pokemon) {
+    context.read(currentPokemonStateProvider).setPokemon(index, pokemon);
+
+    AppNavigator.push(Routes.pokemonInfo, pokemon);
+  }
+
+  List<Widget> _buildHeader(BuildContext context, bool innerBoxIsScrolled) {
+    return [
+      MainSliverAppBar(),
+    ];
+  }
+
+  Widget _buildGrid({List<Pokemon> pokemons = const []}) {
+    return SliverPadding(
+      padding: EdgeInsets.all(28),
+      sliver: SliverGrid(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1.4,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        delegate: SliverChildBuilderDelegate(
+          (context, index) => PokemonCard(
+            pokemons[index],
+            index: index,
+            onPress: () => _onPokemonPress(index, pokemons[index]),
+          ),
+          childCount: pokemons.length,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLoadMoreIndicator() {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.only(bottom: 28),
+        alignment: Alignment.center,
+        child: Image(image: AppImages.pikloader),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final paddingBottom = context.responsive(max(context.padding.bottom, 28));
+    return NestedScrollView(
+      key: _scrollKey,
+      headerSliverBuilder: _buildHeader,
+      body: Consumer(builder: (_, watch, __) {
+        final pokemonState = watch(pokemonsStateProvider);
 
-    return CustomScrollView(
-      controller: controller,
-      physics: BouncingScrollPhysics(),
-      slivers: [
-        CupertinoSliverRefreshControl(
-          onRefresh: onRefresh,
-          builder: (_, __, ___, ____, _____) => Image(
-            image: AppImages.pikloader,
-          ),
-        ),
-        SliverPadding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 28,
-            vertical: context.responsive(28),
-          ),
-          sliver: SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1.4,
-              crossAxisSpacing: context.responsive(10),
-              mainAxisSpacing: context.responsive(10),
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => PokemonCard(
-                pokemons[index],
-                index: index,
-                onPress: () => onSelectPokemon(index, pokemons[index]),
-              ),
-              childCount: pokemons?.length ?? 0,
-            ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: canLoadMore
-              ? Container(
-                  padding: EdgeInsets.only(bottom: paddingBottom),
-                  alignment: Alignment.center,
-                  child: Image(
-                    image: AppImages.pikloader,
-                  ),
-                )
-              : SizedBox(),
-        ),
-      ],
+        return CustomScrollView(
+          slivers: [
+            PokemonRefreshControl(onRefresh: _onRefresh),
+            _buildGrid(pokemons: pokemonState.pokemons),
+            if (pokemonState.canLoadMore) _buildLoadMoreIndicator(),
+          ],
+        );
+      }),
     );
   }
 }
