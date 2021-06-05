@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
@@ -7,8 +5,8 @@ import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/data/categories.dart';
 import 'package:pokedex/routes.dart';
 import 'package:pokedex/ui/widgets/poke_category_card.dart';
-import 'package:pokedex/ui/widgets/poke_container.dart';
 import 'package:pokedex/ui/widgets/poke_news.dart';
+import 'package:pokedex/ui/widgets/pokeball_background.dart';
 import 'package:pokedex/ui/widgets/search_bar.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
