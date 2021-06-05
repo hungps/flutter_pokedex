@@ -100,6 +100,20 @@ class _PokemonGridState extends State<PokemonGrid> {
     );
   }
 
+  Widget _buildError() {
+    return SliverFillRemaining(
+      child: Container(
+        padding: EdgeInsets.only(bottom: 28),
+        alignment: Alignment.center,
+        child: Icon(
+          Icons.warning_amber_rounded,
+          size: 60,
+          color: Colors.black26,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
@@ -111,8 +125,12 @@ class _PokemonGridState extends State<PokemonGrid> {
         return CustomScrollView(
           slivers: [
             PokemonRefreshControl(onRefresh: _onRefresh),
-            _buildGrid(pokemons: pokemonState.pokemons),
-            if (pokemonState.canLoadMore) _buildLoadMoreIndicator(),
+            if (pokemonState.isError)
+              _buildError()
+            else ...[
+              _buildGrid(pokemons: pokemonState.pokemons),
+              if (pokemonState.canLoadMore) _buildLoadMoreIndicator(),
+            ]
           ],
         );
       }),

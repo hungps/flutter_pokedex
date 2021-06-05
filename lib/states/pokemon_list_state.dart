@@ -10,6 +10,7 @@ class PokemonListState with ChangeNotifier {
   int page = 1;
   bool loading = true;
   bool canLoadMore = true;
+  bool isError = false;
   List<Pokemon> pokemons = [];
 
   void getPokemons({bool reset = false}) async {
@@ -19,20 +20,28 @@ class PokemonListState with ChangeNotifier {
       pokemons = [];
     }
 
+    isError = false;
     loading = true;
     notifyListeners();
 
-    final newPokemons = await _getPokemonsUseCase(
-      GetPokemonsParams(page: page, limit: _itemsPerPage),
-    );
+    try {
+      final newPokemons = await _getPokemonsUseCase(
+        GetPokemonsParams(page: page, limit: _itemsPerPage),
+      );
 
-    pokemons = [...pokemons, ...newPokemons];
-    canLoadMore = newPokemons.length >= _itemsPerPage;
+      pokemons = [...pokemons, ...newPokemons];
+      canLoadMore = newPokemons.length >= _itemsPerPage;
+
+      if (canLoadMore) {
+        page++;
+      }
+    } catch (e) {
+      isError = true;
+      canLoadMore = false;
+    }
+
     loading = false;
 
-    if (canLoadMore) {
-      page++;
-    }
     notifyListeners();
   }
 }
