@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/ui/widgets/main_app_bar.dart';
 
 class PokeballBackground extends StatelessWidget {
   static const double _pokeballWidthFraction = 0.664;
@@ -19,7 +20,7 @@ class PokeballBackground extends StatelessWidget {
     final safeAreaTop = MediaQuery.of(context).padding.top;
     final pokeballSize = MediaQuery.of(context).size.width * _pokeballWidthFraction;
     final appBarHeight = AppBar().preferredSize.height;
-    final iconButtonPadding = 8.0;
+    final iconButtonPadding = mainAppbarPadding;
     final iconSize = IconTheme.of(context).size;
 
     final pokeballTopMargin = -(pokeballSize / 2 - safeAreaTop - appBarHeight / 2);

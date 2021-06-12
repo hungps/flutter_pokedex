@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/routes.dart';
 import 'package:pokedex/utils/size.dart';
 
+const double mainAppbarPadding = 28;
+
 class MainSliverAppBar extends SliverAppBar {
   static const TextStyle _textStyle = TextStyle(
     color: Colors.black,
@@ -13,7 +15,7 @@ class MainSliverAppBar extends SliverAppBar {
   MainSliverAppBar({
     GlobalKey appBarKey,
     String title = 'Pokedex',
-    double height = kToolbarHeight + 20 + 20,
+    double height = kToolbarHeight + mainAppbarPadding * 2,
     double expandedFontSize = 30,
     void Function() onLeadingPress = AppNavigator.pop,
     void Function() onTrailingPress,
@@ -25,11 +27,13 @@ class MainSliverAppBar extends SliverAppBar {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
+            padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
             onPressed: onLeadingPress,
             icon: Icon(Icons.arrow_back, color: Colors.black),
           ),
           actions: [
             IconButton(
+              padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
               icon: Icon(Icons.favorite_border_outlined, color: Colors.black),
               onPressed: onTrailingPress,
             ),
@@ -47,7 +51,7 @@ class MainSliverAppBar extends SliverAppBar {
               );
 
               final textWidth = getTextSize(context, title, currentTextStyle).width;
-              final startX = 20;
+              final startX = mainAppbarPadding;
               final endX = MediaQuery.of(context).size.width / 2 - textWidth / 2 - startX;
               final dx = startX + endX - endX * percent;
 
@@ -57,7 +61,7 @@ class MainSliverAppBar extends SliverAppBar {
                   fit: StackFit.expand,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(top: kToolbarHeight / 3, left: 0.0),
+                      padding: const EdgeInsets.only(top: kToolbarHeight / 3),
                       child: Transform.translate(
                         child: Text(
                           title,
@@ -81,13 +85,13 @@ class MainAppBar extends AppBar {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            padding: EdgeInsets.symmetric(horizontal: 28),
+            padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
             icon: Icon(Icons.arrow_back),
             onPressed: AppNavigator.pop,
           ),
           actions: <Widget>[
             Padding(
-              padding: EdgeInsets.only(right: 28),
+              padding: EdgeInsets.only(right: mainAppbarPadding),
               child: Icon(rightIcon),
             ),
           ],

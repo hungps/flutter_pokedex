@@ -9,6 +9,7 @@ import 'package:pokedex/ui/screens/pokemon_info/widgets/decoration_box.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/pokemon_basic_info.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
+import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PokemonInfo extends StatefulWidget {
@@ -114,15 +115,19 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
 
   Widget _buildAppBarPokeballDecoration() {
     final screenSize = context.screenSize;
-    final iconSize = context.iconSize;
+    final safeAreaTop = MediaQuery.of(context).padding.top;
 
-    final pokeSize = screenSize.width * 0.448;
-    final pokeTop = -(pokeSize / 2 - (iconSize / 2 + kToolbarHeight));
-    final pokeRight = -(pokeSize / 2 - (iconSize / 2 + 28));
+    final pokeSize = screenSize.width * 0.5;
+    final appBarHeight = AppBar().preferredSize.height;
+    final iconButtonPadding = mainAppbarPadding;
+    final iconSize = IconTheme.of(context).size;
+
+    final pokeballTopMargin = -(pokeSize / 2 - safeAreaTop - appBarHeight / 2);
+    final pokeballRightMargin = -(pokeSize / 2 - iconButtonPadding - iconSize / 2);
 
     return Positioned(
-      top: pokeTop,
-      right: pokeRight,
+      top: pokeballTopMargin,
+      right: pokeballRightMargin,
       child: IgnorePointer(
         ignoring: true,
         child: AnimatedFade(

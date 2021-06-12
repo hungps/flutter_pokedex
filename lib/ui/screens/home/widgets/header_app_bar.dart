@@ -64,6 +64,7 @@ class _HeaderAppBar extends StatelessWidget {
 
   Widget _buildCard(BuildContext context) {
     return Container(
+      clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(
