@@ -7,10 +7,10 @@ import 'package:pokedex/ui/screens/types/type_entities/widget_list.dart';
 // Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
 class ModalContents extends StatelessWidget {
   const ModalContents({
-    Key key,
-    @required this.index,
-    @required this.width,
-    @required this.scroller,
+    Key? key,
+    required this.index,
+    required this.width,
+    required this.scroller,
   }) : super(key: key);
 
   final int index;

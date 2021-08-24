@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/fade_page_route.dart';
+import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/ui/screens/home/home.dart';
 import 'package:pokedex/ui/screens/pokedex/pokedex.dart';
 import 'package:pokedex/ui/screens/pokemon_info/pokemon_info.dart';
@@ -22,7 +23,7 @@ class _Paths {
     Routes.typeEffects: _Paths.typeEffectsScreen,
   };
 
-  static String of(Routes route) => _pathMap[route];
+  static String? of(Routes route) => _pathMap[route];
 }
 
 class AppNavigator {
@@ -37,7 +38,7 @@ class AppNavigator {
         return FadeRoute(page: PokedexScreen());
 
       case _Paths.pokemonInfo:
-        return FadeRoute(page: PokemonInfo(settings.arguments));
+        return FadeRoute(page: PokemonInfo(settings.arguments as Pokemon));
 
       case _Paths.typeEffectsScreen:
         return FadeRoute(page: TypeEffectScreen());
@@ -48,13 +49,13 @@ class AppNavigator {
     }
   }
 
-  static Future push<T>(Routes route, [T arguments]) =>
-      state.pushNamed(_Paths.of(route), arguments: arguments);
+  static Future push<T>(Routes route, [T? arguments]) =>
+      state.pushNamed(_Paths.of(route)!, arguments: arguments);
 
-  static Future replaceWith<T>(Routes route, [T arguments]) =>
-      state.pushReplacementNamed(_Paths.of(route), arguments: arguments);
+  static Future replaceWith<T>(Routes route, [T? arguments]) =>
+      state.pushReplacementNamed(_Paths.of(route)!, arguments: arguments);
 
   static void pop() => state.pop();
 
-  static NavigatorState get state => navigatorKey.currentState;
+  static NavigatorState get state => navigatorKey.currentState!;
 }

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
@@ -6,21 +7,23 @@ import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
+// import 'cached_ne';
+
 class PokemonCard extends StatelessWidget {
   static const double _pokeballFraction = 0.75;
   static const double _pokemonFraction = 0.76;
 
   const PokemonCard(
     this.pokemon, {
-    this.onPress,
-    @required this.index,
+    // this.onPress,
+    required this.index,
   });
 
   final int index;
-  final Function onPress;
+  // final Function? onPress;
   final Pokemon pokemon;
 
-  Widget _buildPokeballDecoration({@required double height}) {
+  Widget _buildPokeballDecoration({required double height}) {
     final pokeballSize = height * _pokeballFraction;
 
     return Positioned(
@@ -35,16 +38,16 @@ class PokemonCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPokemon({@required double height}) {
+  Widget _buildPokemon({required double height}) {
     final pokemonSize = height * _pokemonFraction;
 
     return Positioned(
       bottom: -2,
       right: 2,
       child: Hero(
-        tag: pokemon.image,
+        tag: pokemon.image!,
         child: CachedNetworkImage(
-          imageUrl: pokemon.image,
+          imageUrl: pokemon.image!,
           width: pokemonSize,
           height: pokemonSize,
           imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
@@ -105,7 +108,7 @@ class PokemonCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: pokemon.color.withOpacity(0.12),
+                color: pokemon.color!.withOpacity(0.12),
                 blurRadius: 30,
                 offset: Offset(0, 8),
               ),
@@ -116,7 +119,7 @@ class PokemonCard extends StatelessWidget {
             child: Material(
               color: pokemon.color,
               child: InkWell(
-                onTap: onPress,
+                // onTap: () => onPress,
                 splashColor: Colors.white10,
                 highlightColor: Colors.white10,
                 child: Stack(
@@ -137,12 +140,12 @@ class PokemonCard extends StatelessWidget {
 }
 
 class _CardContent extends StatelessWidget {
-  const _CardContent(this.pokemon, {Key key}) : super(key: key);
+  const _CardContent(this.pokemon, {Key? key}) : super(key: key);
 
   final Pokemon pokemon;
 
   List<Widget> _buildTypes(BuildContext context) {
-    return pokemon.types
+    return pokemon.types!
         .take(2)
         .map(
           (type) => Padding(

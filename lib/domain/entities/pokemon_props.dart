@@ -1,10 +1,10 @@
 class PokemonGender {
-  final bool genderless;
-  final double male;
-  final double female;
+  final bool? genderless;
+  final double? male;
+  final double? female;
 
   PokemonGender({
-    this.genderless,
+    required this.genderless,
     this.male,
     this.female,
   });
@@ -20,10 +20,10 @@ class PokemonStats {
     this.speed,
   });
 
-  final int attack;
-  final int specialAttack;
-  final int defense;
-  final int specialDefense;
-  final int hp;
-  final int speed;
+  final int? attack;
+  final int? specialAttack;
+  final int? defense;
+  final int? specialDefense;
+  final int? hp;
+  final int? speed;
 }

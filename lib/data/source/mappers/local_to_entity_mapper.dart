@@ -6,20 +6,20 @@ import 'package:pokedex/domain/entities/pokemon_props.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
 
 extension PokemonHiveModelX on PokemonHiveModel {
-  Pokemon toEntity({List<PokemonHiveModel> evolutions = const []}) => Pokemon(
-        number: number?.trim() ?? '',
-        name: name?.trim() ?? '',
-        description: description?.trim() ?? '',
-        types: types.map((e) => PokemonTypesX.parse(e)).toList(),
-        image: image?.trim() ?? '',
-        height: height?.trim() ?? '',
+  Pokemon toEntity({List<PokemonHiveModel?> evolutions = const []}) => Pokemon(
+        number: number!.trim(),
+        name: name!.trim(),
+        description: description!.trim(),
+        types: types!.map((e) => PokemonTypesX.parse(e)).toList(),
+        image: image!.trim(),
+        height: height!.trim(),
         weight: weight?.trim() ?? '',
         genera: genera?.trim() ?? '',
-        eggGroups: eggGroups.map((e) => e?.trim() ?? '').where((e) => e.isNotEmpty).toList(),
-        gender: gender.toEntity(),
-        stats: stats.toEntity(),
+        eggGroups: eggGroups!.map((e) => e.trim()).where((e) => e.isNotEmpty).toList(),
+        gender: gender!.toEntity(),
+        stats: stats!.toEntity(),
         baseExp: baseExp ?? 0.0,
-        evolutions: evolutions.map((e) => e.toEntity()).toList(),
+        evolutions: evolutions.map((e) => e!.toEntity()).toList(),
         evolutionReason: evolutionReason ?? '',
       );
 }

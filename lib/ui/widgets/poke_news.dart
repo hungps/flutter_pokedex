@@ -4,9 +4,9 @@ import 'package:pokedex/core/extensions/context.dart';
 
 class PokeNews extends StatelessWidget {
   const PokeNews({
-    @required this.title,
-    @required this.time,
-    @required this.thumbnail,
+    required this.title,
+    required this.time,
+    required this.thumbnail,
   });
 
   final ImageProvider thumbnail;

@@ -12,7 +12,7 @@ class PokemonAbout extends StatelessWidget {
   final Pokemon _pokemon;
   final Animation _animation;
 
-  Widget _buildSection(BuildContext context, String text, {List<Widget> children, Widget child}) {
+  Widget _buildSection(BuildContext context, String text, {List<Widget>? children, Widget? child}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -43,7 +43,7 @@ class PokemonAbout extends StatelessWidget {
 
   Widget _buildDescription() {
     return Text(
-      _pokemon.description,
+      _pokemon.description!,
       style: TextStyle(height: 1.3),
     );
   }
@@ -98,13 +98,13 @@ class PokemonAbout extends StatelessWidget {
       Row(
         children: <Widget>[
           Expanded(child: _buildLabel('Gender')),
-          if (!_pokemon.gender.genderless) ...[
+          if (!_pokemon.gender!.genderless!) ...[
             Expanded(
               child: Row(
                 children: <Widget>[
                   Image(image: AppImages.male, width: 12, height: 12),
                   HSpacer(4),
-                  Text('${_pokemon.gender.male}%', style: TextStyle(height: 0.8)),
+                  Text('${_pokemon.gender!.male}%', style: TextStyle(height: 0.8)),
                 ],
               ),
             ),
@@ -114,7 +114,7 @@ class PokemonAbout extends StatelessWidget {
                 children: <Widget>[
                   Image(image: AppImages.female, width: 12, height: 12),
                   HSpacer(4),
-                  Text('${_pokemon.gender.female}%', style: TextStyle(height: 0.8)),
+                  Text('${_pokemon.gender!.female}%', style: TextStyle(height: 0.8)),
                 ],
               ),
             ),
@@ -135,7 +135,7 @@ class PokemonAbout extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Text(
-              _pokemon.eggGroups.join(', '),
+              _pokemon.eggGroups!.join(', '),
               style: TextStyle(height: 0.8),
             ),
           ),
@@ -151,7 +151,7 @@ class PokemonAbout extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Text(
-              _pokemon.eggGroups.join(', '),
+              _pokemon.eggGroups!.join(', '),
               style: TextStyle(height: 0.8),
             ),
           ),

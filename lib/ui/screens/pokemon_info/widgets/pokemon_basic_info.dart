@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,8 +34,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
 
   double textDiffLeft = 0.0;
   double textDiffTop = 0.0;
-  PageController _pageController;
-  AnimationController _slideController;
+  PageController? _pageController;
+  AnimationController? _slideController;
 
   Pokemon get pokemon => widget.pokemon;
 
@@ -46,7 +47,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
       vsync: this,
       duration: animationDuration,
     );
-    _slideController.forward();
+    _slideController!.forward();
 
     _calculatePokemonNamePosition();
 
@@ -57,7 +58,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   void didChangeDependencies() {
     _pageController ??= PageController(
       viewportFraction: _pokemonSliderViewportFraction,
-      initialPage: context.read(currentPokemonStateProvider).index,
+      initialPage: context.read(currentPokemonStateProvider).index!,
     );
 
     super.didChangeDependencies();
@@ -72,11 +73,13 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   }
 
   void _calculatePokemonNamePosition() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox targetTextBox = _targetTextKey.currentContext.findRenderObject();
-      final targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      // ignore: omit_local_variable_types
+      final RenderBox? targetTextBox =
+          _targetTextKey.currentContext!.findRenderObject() as RenderBox?;
+      final targetTextPosition = targetTextBox!.localToGlobal(Offset.zero);
 
-      final currentTextBox = _currentTextKey.currentContext.findRenderObject() as RenderBox;
+      final currentTextBox = _currentTextKey.currentContext!.findRenderObject() as RenderBox;
       final currentTextPosition = currentTextBox.localToGlobal(Offset.zero);
 
       final newDiffLeft = targetTextPosition.dx - currentTextPosition.dx;
@@ -98,7 +101,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
         _calculatePokemonNamePosition();
 
         return Text(
-          watch(currentPokemonStateProvider).pokemon.name,
+          watch(currentPokemonStateProvider).pokemon!.name,
           key: _targetTextKey,
           style: TextStyle(
             color: Colors.transparent,
@@ -124,12 +127,12 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
           AnimatedBuilder(
             animation: controller,
             builder: (context, child) {
-              final value = controller.value ?? 0.0;
+              final value = controller.value;
 
               return Transform.translate(
                 offset: Offset(textDiffLeft * value, textDiffTop * value),
                 child: Consumer(builder: (_, watch, __) {
-                  final pokemonName = watch(currentPokemonStateProvider).pokemon.name;
+                  final pokemonName = watch(currentPokemonStateProvider).pokemon!.name;
 
                   return Hero(
                     tag: pokemonName,
@@ -151,14 +154,14 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
             },
           ),
           AnimatedSlide(
-            animation: _slideController,
+            animation: _slideController!,
             child: AnimatedFade(
               animation: fadeAnimation,
               child: Consumer(builder: (_, watch, __) {
                 final tag = watch(currentPokemonStateProvider).pokemon;
 
                 return Hero(
-                  tag: tag.number,
+                  tag: tag!.number,
                   child: Material(
                     color: Colors.transparent,
                     child: Text(
@@ -198,7 +201,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 child: Wrap(
                   spacing: context.responsive(8),
                   runSpacing: context.responsive(8),
-                  children: pokemon.types
+                  children: pokemon!.types!
                       .map(
                         (type) => Hero(
                           tag: type,
@@ -209,9 +212,9 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 ),
               ),
               AnimatedSlide(
-                animation: _slideController,
+                animation: _slideController!,
                 child: Text(
-                  pokemon.genera,
+                  pokemon.genera!,
                   style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ),
@@ -278,7 +281,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                   final imageSize = screenSize.height * 0.3;
 
                   return Hero(
-                    tag: selected ? pokemons[index].image : index,
+                    tag: selected ? pokemons[index].image! : index,
                     child: AnimatedPadding(
                       duration: Duration(milliseconds: 600),
                       curve: Curves.easeOutQuint,
@@ -287,7 +290,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                         bottom: selected ? 0 : screenSize.height * 0.04,
                       ),
                       child: CachedNetworkImage(
-                        imageUrl: pokemons[index].image,
+                        imageUrl: pokemons[index].image!,
                         imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
                         useOldImageOnUrlChange: true,
                         imageBuilder: (context, image) => Image(

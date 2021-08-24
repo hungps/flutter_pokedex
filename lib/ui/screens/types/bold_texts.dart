@@ -4,8 +4,8 @@ import 'package:pokedex/configs/colors.dart';
 // A class that generates Bold Texts required for the individual types icon
 class BoldText extends StatelessWidget {
   const BoldText({
-    Key key,
-    @required this.text,
+    Key? key,
+    required this.text,
   }) : super(key: key);
 
   final String text;

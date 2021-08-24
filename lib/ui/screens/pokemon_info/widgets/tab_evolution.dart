@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
@@ -29,7 +30,7 @@ class PokemonBall extends StatelessWidget {
               color: AppColors.lightGrey,
             ),
             CachedNetworkImage(
-              imageUrl: pokemon.image,
+              imageUrl: pokemon.image!,
               imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
               useOldImageOnUrlChange: true,
               imageBuilder: (_, image) => Image(
@@ -74,23 +75,23 @@ class PokemonEvolution extends StatefulWidget {
 }
 
 class _PokemonEvolutionState extends State<PokemonEvolution> {
-  Widget _buildRow({Pokemon current, Pokemon next, String reason}) {
+  Widget _buildRow({Pokemon? current, Pokemon? next, String? reason}) {
     return Row(
       children: <Widget>[
-        Expanded(child: PokemonBall(current)),
+        Expanded(child: PokemonBall(current!)),
         Expanded(
           child: Column(
             children: <Widget>[
               Icon(Icons.arrow_forward, color: AppColors.lightGrey),
               VSpacer(context.responsive(7)),
               Text(
-                reason,
+                reason!,
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
             ],
           ),
         ),
-        Expanded(child: PokemonBall(next)),
+        Expanded(child: PokemonBall(next!)),
       ],
     );
   }
@@ -136,7 +137,7 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
           ),
           VSpacer(context.responsive(28)),
-          ...buildEvolutionList(widget.pokemon.evolutions),
+          ...buildEvolutionList(widget.pokemon.evolutions!),
         ],
       ),
       builder: (context, child) {

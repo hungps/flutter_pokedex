@@ -20,7 +20,7 @@ class _PokemonGridState extends State<PokemonGrid> {
 
   final GlobalKey<NestedScrollViewState> _scrollKey = GlobalKey();
 
-  ScrollController get innerController => _scrollKey.currentState?.innerController;
+  ScrollController? get innerController => _scrollKey.currentState?.innerController;
 
   @override
   void initState() {
@@ -40,9 +40,9 @@ class _PokemonGridState extends State<PokemonGrid> {
   }
 
   void _onScroll() {
-    if (innerController != null && !innerController.hasClients) return;
+    if (innerController != null && !innerController!.hasClients) return;
 
-    final thresholdReached = innerController.position.extentAfter < _endReachedThreshold;
+    final thresholdReached = innerController!.position.extentAfter < _endReachedThreshold;
     final isLoading = context.read(pokemonsStateProvider).loading;
     final canLoadMore = context.read(pokemonsStateProvider).canLoadMore;
 
@@ -79,11 +79,17 @@ class _PokemonGridState extends State<PokemonGrid> {
           mainAxisSpacing: 10,
         ),
         delegate: SliverChildBuilderDelegate(
-          (context, index) => PokemonCard(
-            pokemons[index],
-            index: index,
-            onPress: () => _onPokemonPress(index, pokemons[index]),
-          ),
+          (context, index) {
+            return GestureDetector(
+              onTap: () {
+                _onPokemonPress(index, pokemons[index]);
+              },
+              child: PokemonCard(
+                pokemons[index],
+                index: index,
+              ),
+            );
+          },
           childCount: pokemons.length,
         ),
       ),

@@ -3,11 +3,11 @@ import 'package:pokedex/domain/entities/pokemon_types.dart';
 
 class PokeTypes {
   const PokeTypes({
-    @required this.type,
-    @required this.superEffective,
-    @required this.notEffective,
-    @required this.nilEffective,
-    @required this.color,
+    required this.type,
+    required this.superEffective,
+    required this.notEffective,
+    required this.nilEffective,
+    required this.color,
   });
   final PokemonTypes type;
   final List<String> superEffective;

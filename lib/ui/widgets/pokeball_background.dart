@@ -7,11 +7,11 @@ class PokeballBackground extends StatelessWidget {
   static const double _pokeballWidthFraction = 0.664;
 
   final Widget child;
-  final Widget floatingActionButton;
+  final Widget? floatingActionButton;
 
   const PokeballBackground({
-    Key key,
-    this.child,
+    Key? key,
+    required this.child,
     this.floatingActionButton,
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class PokeballBackground extends StatelessWidget {
     final iconSize = IconTheme.of(context).size;
 
     final pokeballTopMargin = -(pokeballSize / 2 - safeAreaTop - appBarHeight / 2);
-    final pokeballRightMargin = -(pokeballSize / 2 - iconButtonPadding - iconSize / 2);
+    final pokeballRightMargin = -(pokeballSize / 2 - iconButtonPadding - iconSize! / 2);
 
     return Scaffold(
       backgroundColor: Colors.white,

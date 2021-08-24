@@ -7,12 +7,12 @@ class FabItem {
   const FabItem(this.title, this.icon, {this.onPress});
 
   final IconData icon;
-  final Function onPress;
+  final Function? onPress;
   final String title;
 }
 
 class FabMenuItem extends StatelessWidget {
-  const FabMenuItem(this.item, {Key key}) : super(key: key);
+  const FabMenuItem(this.item, {Key? key}) : super(key: key);
 
   final FabItem item;
 
@@ -32,7 +32,9 @@ class FabMenuItem extends StatelessWidget {
       elevation: 0,
       highlightElevation: 2,
       disabledColor: Colors.white,
-      onPressed: item.onPress,
+      onPressed: () {
+        item.onPress!();
+      },
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -47,15 +49,15 @@ class FabMenuItem extends StatelessWidget {
 
 class ExpandedAnimationFab extends AnimatedWidget {
   const ExpandedAnimationFab({
-    @required this.items,
-    @required Animation animation,
-    this.onPress,
+    required this.items,
+    required Animation<double> animation,
+    required this.onPress,
   }) : super(listenable: animation);
 
   final List<FabItem> items;
   final Function onPress;
 
-  Animation<double> get animation => listenable;
+  Animation<double> get animation => listenable as Animation<double>;
 
   Widget _buildItem(BuildContext context, int index) {
     final screenWidth = context.screenSize.width;
@@ -101,7 +103,9 @@ class ExpandedAnimationFab extends AnimatedWidget {
             icon: AnimatedIcons.menu_close,
             progress: animation,
           ),
-          onPressed: onPress,
+          onPressed: () {
+            onPress();
+          },
         ),
       ],
     );

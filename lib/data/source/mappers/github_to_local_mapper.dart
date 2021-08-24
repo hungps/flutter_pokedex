@@ -6,19 +6,15 @@ import 'package:pokedex/data/source/local/models/pokemon_stats.dart';
 
 extension GithubPokemonModelToLocalX on GithubPokemonModel {
   PokemonHiveModel toHiveModel() => PokemonHiveModel()
-    ..number = id?.trim() ?? ''
-    ..name = name?.trim() ?? ''
+    ..number = id.trim()
+    ..name = name.trim()
     ..description = xDescription?.trim() ?? ''
     ..types = types?.toList(growable: false) ?? []
     ..image = imageUrl?.trim() ?? ''
     ..height = height?.trim() ?? ''
     ..weight = weight?.trim() ?? ''
     ..genera = category?.trim() ?? ''
-    ..eggGroups = eggGroups
-            ?.split(RegExp(r',\s*?'))
-            ?.map((e) => e?.trim() ?? '')
-            ?.toList() ??
-        []
+    ..eggGroups = eggGroups?.split(RegExp(r',\s*?')).map((e) => e.trim()).toList() ?? []
     ..gender = (PokemonGenderHiveModel()
       ..male = genderMalePercentage?.parseDouble() ?? 0.0
       ..female = genderFemalePercentage?.parseDouble() ?? 0.0
@@ -30,7 +26,7 @@ extension GithubPokemonModelToLocalX on GithubPokemonModel {
       ..defense = defense?.toInt() ?? 0
       ..specialAttack = specialAttack?.toInt() ?? 0
       ..specialDefense = specialDefense?.toInt() ?? 0)
-    ..baseExp = baseExp?.parseDouble()
+    ..baseExp = baseExp!.parseDouble()
     ..evolutions = evolutions ?? []
     ..evolutionReason = reason ?? '';
 }

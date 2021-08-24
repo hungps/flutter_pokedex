@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AnimatedFade extends AnimatedWidget {
   const AnimatedFade({
-    @required this.child,
-    @required this.animation,
+    required this.child,
+    required this.animation,
   }) : super(listenable: animation);
 
   final Animation<double> animation;

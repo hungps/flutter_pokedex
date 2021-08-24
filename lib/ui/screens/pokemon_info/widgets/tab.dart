@@ -14,8 +14,8 @@ class TabData {
     this.builder,
   });
 
-  final Widget Function(Pokemon pokemon, Animation animation) builder;
-  final String label;
+  final Widget Function(Pokemon pokemon, Animation animation)? builder;
+  final String? label;
 }
 
 class PokemonTabInfo extends StatelessWidget {
@@ -28,7 +28,7 @@ class PokemonTabInfo extends StatelessWidget {
     ),
     TabData(
       label: 'Base Stats',
-      builder: (pokemon, animation) => PokemonBaseStats(pokemon, animation),
+      builder: (pokemon, animation) => PokemonBaseStats(pokemon, animation as Animation<double>),
     ),
     TabData(
       label: 'Evolution',
@@ -56,7 +56,7 @@ class PokemonTabInfo extends StatelessWidget {
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,
       indicatorColor: AppColors.indigo,
-      tabs: _tabs.map((tab) => Text(tab.label)).toList(),
+      tabs: _tabs.map((tab) => Text(tab.label!)).toList(),
     );
   }
 
@@ -66,7 +66,7 @@ class PokemonTabInfo extends StatelessWidget {
         final currentPokemon = watch(currentPokemonStateProvider).pokemon;
 
         return TabBarView(
-          children: _tabs.map((tab) => tab.builder(currentPokemon, _animation)).toList(),
+          children: _tabs.map((tab) => tab.builder!(currentPokemon!, _animation)).toList(),
         );
       }),
     );

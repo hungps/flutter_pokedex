@@ -1,13 +1,11 @@
-import 'package:flutter/material.dart';
-
 import '../../core/usecase.dart';
 import '../../data/repositories/pokemon_repository.dart';
 import '../entities/pokemon.dart';
 
 class GetPokemonsParams {
   const GetPokemonsParams({
-    @required this.page,
-    @required this.limit,
+    required this.page,
+    required this.limit,
   });
 
   final int page;

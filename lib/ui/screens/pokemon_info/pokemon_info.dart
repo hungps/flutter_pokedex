@@ -28,9 +28,9 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
 
   double _cardMinHeight = 0.0;
   double _cardMaxHeight = 0.0;
-  AnimationController _cardController;
-  AnimationController _cardHeightController;
-  AnimationController _rotateController;
+  late AnimationController _cardController;
+  late AnimationController _cardHeightController;
+  late AnimationController _rotateController;
 
   @override
   void dispose() {
@@ -59,10 +59,10 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     );
     _rotateController.repeat();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       final screenHeight = context.screenSize.height;
 
-      final pokemonInfoBox = _pokemonInfoKey.currentContext.findRenderObject() as RenderBox;
+      final pokemonInfoBox = _pokemonInfoKey.currentContext!.findRenderObject() as RenderBox;
 
       _cardMinHeight = screenHeight - pokemonInfoBox.size.height;
       _cardMaxHeight = screenHeight - kToolbarHeight - context.padding.top;
@@ -80,7 +80,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
       return AnimatedContainer(
         duration: Duration(milliseconds: 300),
         constraints: BoxConstraints.expand(),
-        color: currentPokemon.color ?? AppColors.teal,
+        color: currentPokemon!.color ?? AppColors.teal,
       );
     });
   }
@@ -123,7 +123,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     final iconSize = IconTheme.of(context).size;
 
     final pokeballTopMargin = -(pokeSize / 2 - safeAreaTop - appBarHeight / 2);
-    final pokeballRightMargin = -(pokeSize / 2 - iconButtonPadding - iconSize / 2);
+    final pokeballRightMargin = -(pokeSize / 2 - iconButtonPadding - iconSize! / 2);
 
     return Positioned(
       top: pokeballTopMargin,

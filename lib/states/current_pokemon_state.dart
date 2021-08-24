@@ -5,8 +5,8 @@ class CurrentPokemonState with ChangeNotifier {
 
   final GetPokemonUseCase _getPokemonUseCase;
 
-  int index;
-  Pokemon pokemon;
+  int? index;
+  Pokemon? pokemon;
 
   void setPokemon(int newIndex, Pokemon newPokemon) async {
     index = newIndex;
