@@ -7,20 +7,20 @@ class PokemonStatsHiveModel extends HiveObject {
   static const String boxKey = 'pokemonStats';
 
   @HiveField(0)
-  int? attack;
+  int attack = 0;
 
   @HiveField(1)
-  int? specialAttack;
+  int specialAttack = 0;
 
   @HiveField(2)
-  int? defense;
+  int defense = 0;
 
   @HiveField(3)
-  int? specialDefense;
+  int specialDefense = 0;
 
   @HiveField(4)
-  int? hp;
+  int hp = 0;
 
   @HiveField(5)
-  int? speed;
+  int speed = 0;
 }

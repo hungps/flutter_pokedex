@@ -44,7 +44,7 @@ class PokedexApp extends StatelessWidget {
           data: data.copyWith(
             textScaleFactor: textScaleFactor,
           ),
-          child: child!,
+          child: child ?? Container(),
         );
       },
     );

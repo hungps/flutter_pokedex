@@ -10,45 +10,45 @@ class Pokemon {
   const Pokemon({
     required this.number,
     required this.name,
-    this.description,
-    this.types,
+    required this.description,
+    required this.types,
     required this.image,
-    this.height,
-    this.weight,
-    this.genera,
-    this.eggGroups,
-    this.gender,
-    this.stats,
-    this.baseExp,
-    this.evolutions,
-    this.evolutionReason,
+    required this.height,
+    required this.weight,
+    required this.genera,
+    required this.eggGroups,
+    required this.gender,
+    required this.stats,
+    required this.baseExp,
+    required this.evolutions,
+    required this.evolutionReason,
   });
 
   final String number;
   final String name;
-  final String? description;
-  final List<PokemonTypes>? types;
-  final String? image;
-  final String? height;
-  final String? weight;
-  final String? genera;
-  final List<String>? eggGroups;
-  final PokemonGender? gender;
-  final PokemonStats? stats;
-  final double? baseExp;
-  final List<Pokemon>? evolutions;
-  final String? evolutionReason;
+  final String description;
+  final List<PokemonTypes> types;
+  final String image;
+  final String height;
+  final String weight;
+  final String genera;
+  final List<String> eggGroups;
+  final PokemonGender gender;
+  final PokemonStats stats;
+  final double baseExp;
+  final List<Pokemon> evolutions;
+  final String evolutionReason;
 }
 
 extension PokemonX on Pokemon {
-  Color? get color => types?.first.color ?? AppColors.lightBlue;
+  Color? get color => types.first.color;
 
   Map<PokemonTypes, double> get typeEffectiveness {
     final effectiveness =
         PokemonTypes.values.where((element) => element != PokemonTypes.unknown).map(
               (type) => MapEntry(
                 type,
-                types!
+                types
                     .map((pokemonType) => pokemonType.effectiveness![type] ?? 1.0)
                     .reduce((total, effectiveness) => total * effectiveness),
               ),

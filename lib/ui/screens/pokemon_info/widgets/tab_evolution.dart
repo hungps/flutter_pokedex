@@ -30,7 +30,7 @@ class PokemonBall extends StatelessWidget {
               color: AppColors.lightGrey,
             ),
             CachedNetworkImage(
-              imageUrl: pokemon.image!,
+              imageUrl: pokemon.image,
               imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
               useOldImageOnUrlChange: true,
               imageBuilder: (_, image) => Image(
@@ -137,7 +137,7 @@ class _PokemonEvolutionState extends State<PokemonEvolution> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, height: 0.8),
           ),
           VSpacer(context.responsive(28)),
-          ...buildEvolutionList(widget.pokemon.evolutions!),
+          ...buildEvolutionList(widget.pokemon.evolutions),
         ],
       ),
       builder: (context, child) {

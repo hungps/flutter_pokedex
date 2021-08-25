@@ -66,15 +66,15 @@ class PokemonBaseStats extends StatefulWidget {
 }
 
 class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerProviderStateMixin {
-  Animation<double>? _animation;
-  AnimationController? _controller;
+  late Animation<double> _animation;
+  late AnimationController _controller;
 
   Pokemon get pokemon => widget.pokemon;
   Animation<double> get scrollAnimation => widget.scrollAnimation;
 
   @override
   void dispose() {
-    _controller!.dispose();
+    _controller.dispose();
 
     super.dispose();
   }
@@ -90,30 +90,30 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
 
     final curvedAnimation = CurvedAnimation(
       curve: Curves.easeInOut,
-      parent: _controller!,
+      parent: _controller,
     );
 
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(curvedAnimation);
 
-    _controller!.forward();
+    _controller.forward();
   }
 
   List<Widget> generateStatWidget() {
     return [
-      Stat(animation: _animation!, label: 'Hp', value: pokemon.stats!.hp),
+      Stat(animation: _animation, label: 'Hp', value: pokemon.stats.hp),
       VSpacer(context.responsive(14)),
-      Stat(animation: _animation!, label: 'Atttack', value: pokemon.stats!.attack),
+      Stat(animation: _animation, label: 'Atttack', value: pokemon.stats.attack),
       VSpacer(context.responsive(14)),
-      Stat(animation: _animation!, label: 'Defense', value: pokemon.stats!.defense),
+      Stat(animation: _animation, label: 'Defense', value: pokemon.stats.defense),
       VSpacer(context.responsive(14)),
-      Stat(animation: _animation!, label: 'Sp. Atk', value: pokemon.stats!.specialAttack),
+      Stat(animation: _animation, label: 'Sp. Atk', value: pokemon.stats.specialAttack),
       VSpacer(context.responsive(14)),
-      Stat(animation: _animation!, label: 'Sp. Def', value: pokemon.stats!.specialDefense),
+      Stat(animation: _animation, label: 'Sp. Def', value: pokemon.stats.specialDefense),
       VSpacer(context.responsive(14)),
-      Stat(animation: _animation!, label: 'Speed', value: pokemon.stats!.speed),
+      Stat(animation: _animation, label: 'Speed', value: pokemon.stats.speed),
       VSpacer(context.responsive(14)),
       Stat(
-        animation: _animation!,
+        animation: _animation,
         label: 'Total',
         value: 100,
         progress: 100 / 600,

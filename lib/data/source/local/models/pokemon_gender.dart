@@ -7,11 +7,11 @@ class PokemonGenderHiveModel extends HiveObject {
   static const String boxKey = 'pokemonGender';
 
   @HiveField(0)
-  bool? genderless;
+  bool genderless = false;
 
   @HiveField(1)
-  double? male;
+  double male = 0;
 
   @HiveField(2)
-  double? female;
+  double female = 0;
 }

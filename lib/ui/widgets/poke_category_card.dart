@@ -5,10 +5,10 @@ import 'package:pokedex/domain/entities/category.dart';
 import 'package:pokedex/core/extensions/context.dart';
 
 class PokeCategoryCard extends StatelessWidget {
-  const PokeCategoryCard({required this.category, this.onPress});
+  const PokeCategoryCard({required this.category, required this.onPress});
 
   final Category category;
-  final Function? onPress;
+  final Function onPress;
 
   Widget _buildCircleDecoration({required double height}) {
     return Positioned(
@@ -55,7 +55,7 @@ class PokeCategoryCard extends StatelessWidget {
                 splashColor: Colors.white10,
                 highlightColor: Colors.white10,
                 onTap: () {
-                  onPress!();
+                  onPress();
                 },
                 child: Stack(
                   children: [
@@ -98,20 +98,20 @@ class _CardContent extends StatelessWidget {
 }
 
 class _Shadows extends StatelessWidget {
-  const _Shadows({this.color, this.width});
+  const _Shadows({required this.color, required this.width});
 
-  final Color? color;
-  final double? width;
+  final Color color;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width! * 0.82,
+      width: width * 0.82,
       height: context.responsive(11),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: color!,
+            color: color,
             offset: Offset(0, context.responsive(3)),
             blurRadius: 23,
           ),

@@ -3,10 +3,10 @@ part of '../pokedex.dart';
 class _FabOverlayBackground extends AnimatedWidget {
   const _FabOverlayBackground({
     required Animation animation,
-    this.onPressOut,
+    required this.onPressOut,
   }) : super(listenable: animation);
 
-  final Function? onPressOut;
+  final Function onPressOut;
 
   Animation<double> get animation => listenable as Animation<double>;
 
@@ -15,7 +15,9 @@ class _FabOverlayBackground extends AnimatedWidget {
     return IgnorePointer(
       ignoring: animation.value == 0,
       child: InkWell(
-        onTap: () => onPressOut,
+        onTap: () {
+          onPressOut();
+        },
         child: Container(
           color: Colors.black.withOpacity(animation.value * 0.5),
         ),

@@ -4,10 +4,10 @@ import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
 class FabItem {
-  const FabItem(this.title, this.icon, {this.onPress});
+  const FabItem(this.title, this.icon, {required this.onPress});
 
   final IconData icon;
-  final Function? onPress;
+  final Function onPress;
   final String title;
 }
 
@@ -33,7 +33,7 @@ class FabMenuItem extends StatelessWidget {
       highlightElevation: 2,
       disabledColor: Colors.white,
       onPressed: () {
-        item.onPress!();
+        item.onPress();
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,

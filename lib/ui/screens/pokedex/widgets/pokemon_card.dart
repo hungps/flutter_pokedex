@@ -45,9 +45,9 @@ class PokemonCard extends StatelessWidget {
       bottom: -2,
       right: 2,
       child: Hero(
-        tag: pokemon.image!,
+        tag: pokemon.image,
         child: CachedNetworkImage(
-          imageUrl: pokemon.image!,
+          imageUrl: pokemon.image,
           width: pokemonSize,
           height: pokemonSize,
           imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
@@ -145,7 +145,7 @@ class _CardContent extends StatelessWidget {
   final Pokemon pokemon;
 
   List<Widget> _buildTypes(BuildContext context) {
-    return pokemon.types!
+    return pokemon.types
         .take(2)
         .map(
           (type) => Padding(

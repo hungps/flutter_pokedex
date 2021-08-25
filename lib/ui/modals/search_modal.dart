@@ -21,6 +21,7 @@ class SearchBottomModal extends StatelessWidget {
           child: SearchBar(margin: EdgeInsets.zero),
         ),
       ),
+      title: '',
     );
   }
 }

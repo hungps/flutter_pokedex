@@ -6,11 +6,11 @@ class Modal extends StatelessWidget {
   static const Radius _borderRadius = Radius.circular(30.0);
 
   const Modal({
-    this.title,
+    required this.title,
     required this.child,
   });
 
-  final String? title;
+  final String title;
   final Widget child;
 
   @override
@@ -28,7 +28,7 @@ class Modal extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _DragLine(),
-          if (title != null) _Title(title!),
+          _Title(title),
           child,
         ],
       ),
@@ -55,11 +55,11 @@ class _DragLine extends StatelessWidget {
 class _Title extends StatelessWidget {
   const _Title(this.text);
 
-  final String? text;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    if (text == null) {
+    if (text == '') {
       return SizedBox();
     }
 
@@ -69,7 +69,7 @@ class _Title extends StatelessWidget {
         bottom: context.responsive(8),
       ),
       child: Text(
-        text!,
+        text,
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w900,

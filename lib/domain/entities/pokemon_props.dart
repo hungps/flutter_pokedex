@@ -1,5 +1,5 @@
 class PokemonGender {
-  final bool? genderless;
+  final bool genderless;
   final double? male;
   final double? female;
 

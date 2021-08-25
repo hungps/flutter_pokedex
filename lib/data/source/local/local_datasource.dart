@@ -34,11 +34,11 @@ class LocalDataSource {
     await pokemonBox.putAll(pokemonsMap);
   }
 
-  Future<List<PokemonHiveModel?>> getPokemons({required int page, int? limit}) async {
+  Future<List<PokemonHiveModel?>> getPokemons({required int page, required int limit}) async {
     final pokemonBox = Hive.box<PokemonHiveModel>(PokemonHiveModel.boxKey);
     final totalPokemons = pokemonBox.length;
 
-    final start = (page - 1) * limit!;
+    final start = (page - 1) * limit;
     final newPokemonCount = min(totalPokemons - start, limit);
 
     final pokemons = List.generate(newPokemonCount, (index) => pokemonBox.getAt(start + index));
@@ -53,7 +53,7 @@ class LocalDataSource {
   }
 
   Future<List<PokemonHiveModel?>> getEvolutions(PokemonHiveModel pokemon) async {
-    final pokemonFutures = pokemon.evolutions!.map((pokemonNumber) => getPokemon(pokemonNumber));
+    final pokemonFutures = pokemon.evolutions.map((pokemonNumber) => getPokemon(pokemonNumber));
 
     final pokemons = await Future.wait(pokemonFutures);
 

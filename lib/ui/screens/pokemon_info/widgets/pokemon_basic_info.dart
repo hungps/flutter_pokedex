@@ -201,7 +201,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 child: Wrap(
                   spacing: context.responsive(8),
                   runSpacing: context.responsive(8),
-                  children: pokemon!.types!
+                  children: pokemon!.types
                       .map(
                         (type) => Hero(
                           tag: type,
@@ -214,7 +214,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
               AnimatedSlide(
                 animation: _slideController!,
                 child: Text(
-                  pokemon.genera!,
+                  pokemon.genera,
                   style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ),
@@ -281,7 +281,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                   final imageSize = screenSize.height * 0.3;
 
                   return Hero(
-                    tag: selected ? pokemons[index].image! : index,
+                    tag: selected ? pokemons[index].image : index,
                     child: AnimatedPadding(
                       duration: Duration(milliseconds: 600),
                       curve: Curves.easeOutQuint,
@@ -290,7 +290,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                         bottom: selected ? 0 : screenSize.height * 0.04,
                       ),
                       child: CachedNetworkImage(
-                        imageUrl: pokemons[index].image!,
+                        imageUrl: pokemons[index].image,
                         imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
                         useOldImageOnUrlChange: true,
                         imageBuilder: (context, image) => Image(

@@ -1,53 +1,77 @@
-// part of '../pokedex.dart';
+part of '../pokedex.dart';
 
-// class _FabMenu extends StatelessWidget {
-//   const _FabMenu({
-//     required this.animation,
-//     required this.toggle,
-//     required this.onAllGenPress,
-//     required this.onSearchPress,
-//   });
+// ignore: must_be_immutable
+class _FabMenu extends StatelessWidget {
+  _FabMenu(
+      {required this.animation,
+      // required this.toggle,
+      required this.onAllGenPress,
+      required this.onSearchPress,
+      this.fabController,
+      required this.isFabMenuVisible});
 
-//   final Animation animation;
-//   final Function onAllGenPress;
-//   // final Function onAllTypePress;
-//   // final Function onFavouritePress;
-//   final Function onSearchPress;
-//   final Function toggle;
+  final Animation animation;
+  final AnimationController? fabController;
+  bool isFabMenuVisible;
+  final Function onAllGenPress;
+  // final Function onAllTypePress;
+  // final Function onFavouritePress
+  final Function onSearchPress;
+  // final Function toggle;
 
-//   void onPress(Function callback) {
-//     toggle();
+  void _toggleFabMenu() {
+    isFabMenuVisible = !isFabMenuVisible;
 
-//     if (callback != null) callback();
-//   }
+    if (isFabMenuVisible) {
+      fabController!.forward();
+    } else {
+      fabController!.reverse();
+    }
+    return;
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return ExpandedAnimationFab(
-//       animation: animation as Animation<double>,
-//       onPress: toggle,
-//       items: [
-//         FabItem(
-//           'Favourite Pokemon',
-//           Icons.favorite,
-//           // onPress: () => onPress(onFavouritePress),
-//         ),
-//         FabItem(
-//           'All Type',
-//           Icons.filter_vintage,
-//           // onPress: () => onPress(onAllTypePress),
-//         ),
-//         FabItem(
-//           'All Gen',
-//           Icons.flash_on,
-//           onPress: () => onPress(onAllGenPress),
-//         ),
-//         FabItem(
-//           'Search',
-//           Icons.search,
-//           onPress: () => onPress(onSearchPress),
-//         ),
-//       ],
-//     );
-//   }
-// }
+  void onPress(Function? callback) {
+    _toggleFabMenu();
+
+    if (callback != null) callback();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpandedAnimationFab(
+      animation: animation as Animation<double>,
+      onPress: () {
+        _toggleFabMenu();
+      },
+      items: [
+        FabItem('Favourite Pokemon', Icons.favorite, onPress: () {
+          _toggleFabMenu();
+        }),
+        FabItem(
+          'All Type',
+          Icons.filter_vintage,
+          onPress: () {
+            _toggleFabMenu();
+            // onAllTypePress();
+          },
+        ),
+        FabItem(
+          'All Gen',
+          Icons.flash_on,
+          onPress: () {
+            _toggleFabMenu();
+            onAllGenPress();
+          },
+        ),
+        FabItem(
+          'Search',
+          Icons.search,
+          onPress: () {
+            _toggleFabMenu();
+            onSearchPress();
+          },
+        ),
+      ],
+    );
+  }
+}
