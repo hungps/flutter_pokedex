@@ -35,7 +35,7 @@ class _PokemonNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      physics: BouncingScrollPhysics(),
+      physics: ClampingScrollPhysics(),
       children: <Widget>[
         _buildHeader(context),
         ListView.separated(

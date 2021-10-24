@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide AnimatedSlide;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/configs/images.dart';
