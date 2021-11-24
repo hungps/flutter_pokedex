@@ -9,3 +9,13 @@ final pokemonRepositoryProvider = Provider<PokemonRepository>((ref) {
     localDataSource: localDataSource,
   );
 });
+
+final itemRepositoryProvider = Provider<ItemRepository>((ref) {
+  final githubDataSource = ref.watch(githubSourceProvider);
+  final localDataSource = ref.watch(localSourceProvider);
+
+  return ItemDefaultRepository(
+    githubDataSource: githubDataSource,
+    localDataSource: localDataSource,
+  );
+});

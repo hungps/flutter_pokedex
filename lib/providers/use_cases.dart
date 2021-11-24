@@ -11,3 +11,9 @@ final getPokemonsUseCaseProvider = Provider<GetPokemonsUseCase>((ref) {
 
   return GetPokemonsUseCase(pokemonRepository);
 });
+
+final getItemsUseCaseProvider = Provider<GetItemUseCase>((ref) {
+  final itemRepository = ref.watch(itemRepositoryProvider);
+
+  return GetItemUseCase(itemRepository);
+});

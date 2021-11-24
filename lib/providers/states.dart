@@ -11,3 +11,9 @@ final pokemonsStateProvider = ChangeNotifierProvider<PokemonListState>((ref) {
 
   return PokemonListState(getPokemonsUseCase);
 });
+
+final itemStateProvider = ChangeNotifierProvider<ItemListState>((ref) {
+  final getItemUseCase = ref.watch(getItemsUseCaseProvider);
+
+  return ItemListState(getItemUseCase);
+});

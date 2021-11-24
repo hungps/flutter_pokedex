@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pokedex/core/network.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
+import 'package:pokedex/data/repositories/item_repository.dart';
 import 'package:pokedex/data/source/github/github_datasource.dart';
 import 'package:pokedex/data/source/local/local_datasource.dart';
 import 'package:pokedex/domain/usecases/pokemon_usecases.dart';
+import 'package:pokedex/domain/usecases/item_usecases.dart';
 import 'package:pokedex/states/states.dart';
 
 part 'data_sources.dart';
