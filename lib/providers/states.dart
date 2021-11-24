@@ -8,6 +8,7 @@ final currentPokemonStateProvider = ChangeNotifierProvider<CurrentPokemonState>(
 
 final pokemonsStateProvider = ChangeNotifierProvider<PokemonListState>((ref) {
   final getPokemonsUseCase = ref.watch(getPokemonsUseCaseProvider);
+  final getAllPokemonsUseCase = ref.watch(getAllPokemonsUseCaseProvider);
 
-  return PokemonListState(getPokemonsUseCase);
+  return PokemonListState(getPokemonsUseCase, getAllPokemonsUseCase);
 });
