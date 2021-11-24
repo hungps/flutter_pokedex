@@ -25,7 +25,6 @@ class SearchBottomModal extends StatelessWidget {
           child: SearchBar(margin: EdgeInsets.zero, onSubmit: (content) {
               scheduleMicrotask(() {
                 context.read(pokemonsStateProvider).searchPokemon(content);
-                print("Content: ${content}");
               });
           },),
         ),

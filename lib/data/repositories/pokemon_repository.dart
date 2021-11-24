@@ -29,17 +29,12 @@ class PokemonDefaultRepository extends PokemonRepository {
       await localDataSource.savePokemons(pokemonHiveModels);
     }
 
-    print("Before Search pokemon in localStore");
     final pokemonHiveModels = await localDataSource.searchPokemon(pokemonName: pokemonName);
-    print("After Search pokemon in localStore");
 
-    print("Before Convert to Entities");
     final pokemonEntities = pokemonHiveModels
         .where((element) => element != null)
         .map((e) => e.toEntity())
         .toList();
-
-    print("pokemon_repository - searchPokemon: ${pokemonEntities.length}");
 
     return pokemonEntities;
   }
