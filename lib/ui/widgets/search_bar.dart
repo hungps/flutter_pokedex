@@ -6,9 +6,11 @@ import 'package:pokedex/core/extensions/context.dart';
 class SearchBar extends StatelessWidget {
   const SearchBar({
     this.margin = const EdgeInsets.symmetric(horizontal: 28),
+    @required this.onSubmit
   });
 
   final EdgeInsets margin;
+  final Function onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class SearchBar extends StatelessWidget {
           HSpacer(13),
           Expanded(
             child: TextFormField(
+              onFieldSubmitted: (content) => onSubmit(content),
               decoration: InputDecoration(
                 isDense: true,
                 hintText: 'Search Pokemon, Move, Ability etc',

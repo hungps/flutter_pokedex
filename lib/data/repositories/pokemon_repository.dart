@@ -5,6 +5,8 @@ import 'package:pokedex/data/source/mappers/local_to_entity_mapper.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 
 abstract class PokemonRepository {
+  Future<List<Pokemon>> searchPokemon(String pokemon);
+
   Future<List<Pokemon>> getPokemons({int limit, int page});
 
   Future<Pokemon> getPokemon(String number);
@@ -15,6 +17,32 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   final GithubDataSource githubDataSource;
   final LocalDataSource localDataSource;
+
+  @override
+  Future<List<Pokemon>> searchPokemon(String pokemonName) async {
+    final hasCachedData = await localDataSource.hasData();
+
+    if (!hasCachedData) {
+      final pokemonGithubModels = await githubDataSource.getPokemons();
+      final pokemonHiveModels = pokemonGithubModels.map((e) => e.toHiveModel());
+
+      await localDataSource.savePokemons(pokemonHiveModels);
+    }
+
+    print("Before Search pokemon in localStore");
+    final pokemonHiveModels = await localDataSource.searchPokemon(pokemonName: pokemonName);
+    print("After Search pokemon in localStore");
+
+    print("Before Convert to Entities");
+    final pokemonEntities = pokemonHiveModels
+        .where((element) => element != null)
+        .map((e) => e.toEntity())
+        .toList();
+
+    print("pokemon_repository - searchPokemon: ${pokemonEntities.length}");
+
+    return pokemonEntities;
+  }
 
   @override
   Future<List<Pokemon>> getPokemons({int limit, int page}) async {

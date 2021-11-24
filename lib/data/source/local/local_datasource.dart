@@ -35,6 +35,16 @@ class LocalDataSource {
     await pokemonBox.putAll(pokemonsMap);
   }
 
+  Future<List<PokemonHiveModel>> searchPokemon({String pokemonName}) async {
+    final pokemonBox = Hive.box<PokemonHiveModel>(PokemonHiveModel.boxKey);
+
+    final pokemons = List.generate(pokemonBox.length, (index) => pokemonBox.getAt(index));
+
+    final filteredPokemons = pokemons.where((pokemon) => pokemon.name.contains(pokemonName)).toList();
+
+    return filteredPokemons;
+  }
+
   Future<List<PokemonHiveModel>> getPokemons({int page, int limit}) async {
     final pokemonBox = Hive.box<PokemonHiveModel>(PokemonHiveModel.boxKey);
     final totalPokemons = pokemonBox.length;
