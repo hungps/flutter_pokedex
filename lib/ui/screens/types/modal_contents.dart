@@ -33,18 +33,28 @@ class ModalContents extends StatefulWidget {
 class _ModalContentsState extends State<ModalContents> {
   final List<bool> _isOpen = [false, false, false];
 
+  @override
+  void initState() {
+    super.initState();
+
+    scheduleMicrotask(() {
+      context.read(pokemonsStateProvider).getAllPokemons();
+    });
+  }
+
   void _onPokemonPress(int index, Pokemon pokemon) {
     context.read(currentPokemonStateProvider).setPokemon(index, pokemon);
-
-    print(pokemon.name);
 
     AppNavigator.push(Routes.pokemonInfo, pokemon);
   }
 
+  PokeTypes get pokeType => types[widget.index];
+
   ExpansionPanel _buildTypePokemonPanel(List<Pokemon> pokemons) {
-    final pokemonsFiltered = pokemons
-        .where((pokemon) => pokemon.types.contains(types[widget.index].type))
+    final filteredPokemons = pokemons
+        .where((pokemon) => pokemon.types.contains(pokeType.type))
         .toList();
+
     return ExpansionPanel(
       headerBuilder: (context, isOpen) {
         return Row(
@@ -61,7 +71,7 @@ class _ModalContentsState extends State<ModalContents> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text(
-                  "${getEnumValue(types[widget.index].type)[0].toUpperCase() + getEnumValue(types[widget.index].type).substring(1)} Type " +
+                  "${getEnumValue(pokeType.type)[0].toUpperCase() + getEnumValue(pokeType.type).substring(1)} Type " +
                       "Pokemons"),
             )
           ],
@@ -70,52 +80,61 @@ class _ModalContentsState extends State<ModalContents> {
       canTapOnHeader: true,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: 2,
-          childAspectRatio: 1.4,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          physics: const NeverScrollableScrollPhysics(),
-          children: pokemonsFiltered.map((pokemon) {
-            return PokemonCard(
-              pokemon,
-              index: pokemons.indexOf(pokemon),
-              onPress: () => _onPokemonPress(pokemons.indexOf(pokemon), pokemon),
-            );
-          }).toList(),
-        ),
+        child: filteredPokemons.isNotEmpty
+            ? GridView.count(
+                shrinkWrap: true,
+                crossAxisCount: 2,
+                childAspectRatio: 1.4,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                physics: const NeverScrollableScrollPhysics(),
+                children: filteredPokemons.map((pokemon) {
+                  return PokemonCard(
+                    pokemon,
+                    index: pokemons.indexOf(pokemon),
+                    onPress: () =>
+                        _onPokemonPress(pokemons.indexOf(pokemon), pokemon),
+                  );
+                }).toList(),
+              )
+            : Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: Text("No Pokemon found",
+                    style: TextStyle(fontSize: 16, color: Colors.black54)),
+              ),
       ),
       isExpanded: _isOpen[0],
     );
   }
 
-  ExpansionPanel _buildTypeItemsPanel() => ExpansionPanel(
-        headerBuilder: (context, isOpen) {
-          return Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Image(
-                  image: AppImages.pokeball,
-                  width: 30,
-                  height: 30,
-                  color: types[widget.index].color.withOpacity(0.5),
-                ),
+  ExpansionPanel _buildTypeItemsPanel() {
+    return ExpansionPanel(
+      headerBuilder: (context, isOpen) {
+        return Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Image(
+                image: AppImages.pokeball,
+                width: 30,
+                height: 30,
+                color: types[widget.index].color.withOpacity(0.5),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                    "${getEnumValue(types[widget.index].type)[0].toUpperCase() + getEnumValue(types[widget.index].type).substring(1)} Type " +
-                        "Items"),
-              )
-            ],
-          );
-        },
-        canTapOnHeader: true,
-        body: Text("Under development"),
-        isExpanded: _isOpen[1],
-      );
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text(
+                  "${getEnumValue(pokeType.type)[0].toUpperCase() + getEnumValue(pokeType.type).substring(1)} Type " +
+                      "Items"),
+            )
+          ],
+        );
+      },
+      canTapOnHeader: true,
+      body: Text("Under development"),
+      isExpanded: _isOpen[1],
+    );
+  }
 
   Widget _buildTypePanelList(List<Pokemon> pokemons) => ExpansionPanelList(
         animationDuration: const Duration(milliseconds: 500),
@@ -135,15 +154,6 @@ class _ModalContentsState extends State<ModalContents> {
           color: Colors.black26,
         ),
       );
-
-  @override
-  void initState() {
-    super.initState();
-
-    scheduleMicrotask(() {
-      context.read(pokemonsStateProvider).getAllPokemons();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
