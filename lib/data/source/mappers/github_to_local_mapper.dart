@@ -37,6 +37,6 @@ extension GithubItemModelToLocalX on GithubItemModel {
   ItemHiveModel toHiveModel() => ItemHiveModel()
     ..name = name?.trim() ?? ''
     ..category = category?.trim() ?? ''
-    ..imageurl = name?.trim() ?? ''
-    ..effect = category?.trim() ?? '';
+    ..imageurl = imageurl?.trim() ?? ''
+    ..effect = effect?.trim() ?? '';
 }

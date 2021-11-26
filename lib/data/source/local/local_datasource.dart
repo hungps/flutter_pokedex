@@ -25,7 +25,7 @@ class LocalDataSource {
   Future<bool> hasData() async {
     final pokemonBox = Hive.box<PokemonHiveModel>(PokemonHiveModel.boxKey);
     final itemBox = Hive.box<ItemHiveModel>(ItemHiveModel.boxKey);
-    return pokemonBox.length + itemBox.length > 0;
+    return pokemonBox.length > 0 && itemBox.length > 0;
   }
 
   Future<void> savePokemons(Iterable<PokemonHiveModel> pokemons) async {
@@ -61,7 +61,6 @@ class LocalDataSource {
     final itemBox = Hive.box<ItemHiveModel>(ItemHiveModel.boxKey);
 
     final items = List.generate(itemBox.length, (index) => itemBox.getAt(index));
-
     return items;
   }
 

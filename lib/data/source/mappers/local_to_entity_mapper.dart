@@ -46,9 +46,9 @@ extension PokemonStatsHiveModelX on PokemonStatsHiveModel {
 }
 
 extension ItemHiveModelX on ItemHiveModel {
-  Item toEntity({List<ItemHiveModel> evolutions = const []}) => Item(
+  Item toEntity({List<ItemHiveModel> items = const []}) => Item(
         name: name?.trim() ?? '',
-        category: name?.trim() ?? '',
+        category: category?.trim() ?? '',
         image: imageurl?.trim() ?? '',
         effect: effect?.trim() ?? '',
       );

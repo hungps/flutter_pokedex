@@ -7,6 +7,7 @@ import 'package:pokedex/data/repositories/item_repository.dart';
 import 'package:pokedex/domain/entities/item.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/providers/providers.dart';
+import 'package:pokedex/ui/screens/items_list/widgets/item_card.dart';
 import 'package:pokedex/ui/screens/pokedex/widgets/pokemon_card.dart';
 import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_refresh_control.dart';
@@ -62,7 +63,7 @@ class _ItemsGridState extends State<ItemsGrid> {
 
   List<Widget> _buildHeader(BuildContext context, bool innerBoxIsScrolled) {
     return [
-      MainSliverAppBar(),
+      MainSliverAppBar(title: "Items"),
     ];
   }
 
@@ -77,12 +78,9 @@ class _ItemsGridState extends State<ItemsGrid> {
           mainAxisSpacing: 10,
         ),
         delegate: SliverChildBuilderDelegate(
-          (context, index) => Text(items[index].name),
-          /*PokemonCard(
-            pokemons[index],
-            index: index,
-            onPress: () => _onPokemonPress(index, pokemons[index]),
-          ),*/
+          (context, index) => ItemCard(items[index], index: index),
+          //Text(items[index].name),
+
           childCount: items.length,
         ),
       ),
