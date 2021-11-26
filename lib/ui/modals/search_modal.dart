@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/src/provider.dart';
 import 'package:pokedex/providers/providers.dart';
@@ -23,9 +21,7 @@ class SearchBottomModal extends StatelessWidget {
             bottom: context.responsive(14) + viewInsets + safeAreaBottom,
           ),
           child: SearchBar(margin: EdgeInsets.zero, onSubmit: (content) {
-              scheduleMicrotask(() {
-                context.read(pokemonsStateProvider).searchPokemon(content);
-              });
+            context.read(pokemonsStateProvider).searchPokemon(content);
           },),
         ),
       ),

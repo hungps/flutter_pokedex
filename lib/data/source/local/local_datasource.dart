@@ -40,7 +40,7 @@ class LocalDataSource {
 
     final pokemons = List.generate(pokemonBox.length, (index) => pokemonBox.getAt(index));
 
-    final filteredPokemons = pokemons.where((pokemon) => pokemon.name.contains(pokemonName)).toList();
+    final filteredPokemons = pokemons.where((pokemon) => pokemon.name.toLowerCase().contains(pokemonName.toLowerCase())).toList();
 
     return filteredPokemons;
   }

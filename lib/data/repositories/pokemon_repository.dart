@@ -18,8 +18,8 @@ class PokemonDefaultRepository extends PokemonRepository {
   final GithubDataSource githubDataSource;
   final LocalDataSource localDataSource;
 
-  @override
-  Future<List<Pokemon>> searchPokemon(String pokemonName) async {
+  void _fetchAndCachePokemons(GithubDataSource githubDataSource,
+      LocalDataSource localDataSource) async {
     final hasCachedData = await localDataSource.hasData();
 
     if (!hasCachedData) {
@@ -28,8 +28,14 @@ class PokemonDefaultRepository extends PokemonRepository {
 
       await localDataSource.savePokemons(pokemonHiveModels);
     }
+  }
 
-    final pokemonHiveModels = await localDataSource.searchPokemon(pokemonName: pokemonName);
+  @override
+  Future<List<Pokemon>> searchPokemon(String pokemonName) async {
+    await _fetchAndCachePokemons(githubDataSource, localDataSource);
+
+    final pokemonHiveModels =
+        await localDataSource.searchPokemon(pokemonName: pokemonName);
 
     final pokemonEntities = pokemonHiveModels
         .where((element) => element != null)
@@ -41,14 +47,7 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<List<Pokemon>> getPokemons({int limit, int page}) async {
-    final hasCachedData = await localDataSource.hasData();
-
-    if (!hasCachedData) {
-      final pokemonGithubModels = await githubDataSource.getPokemons();
-      final pokemonHiveModels = pokemonGithubModels.map((e) => e.toHiveModel());
-
-      await localDataSource.savePokemons(pokemonHiveModels);
-    }
+    await _fetchAndCachePokemons(githubDataSource, localDataSource);
 
     final pokemonHiveModels = await localDataSource.getPokemons(
       page: page,

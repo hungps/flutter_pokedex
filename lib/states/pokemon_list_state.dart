@@ -21,7 +21,8 @@ class PokemonListState with ChangeNotifier {
 
     try {
       pokemons = await _searchPokemonUseCase(
-          SearchPokemonParams(pokemonName: pokemonName));
+        SearchPokemonParams(pokemonName: pokemonName),
+      );
     } catch (e) {
       isError = true;
     }
