@@ -38,7 +38,7 @@ class _ModalContentsState extends State<ModalContents> {
     super.initState();
 
     scheduleMicrotask(() {
-      context.read(pokemonsStateProvider).getAllPokemons();
+      context.read(allPokemonsStateProvider).getAllPokemons();
     });
   }
 
@@ -89,11 +89,12 @@ class _ModalContentsState extends State<ModalContents> {
                 mainAxisSpacing: 10,
                 physics: const NeverScrollableScrollPhysics(),
                 children: filteredPokemons.map((pokemon) {
+                  var index = pokemons.indexWhere((element) => element.name == pokemon.name);
                   return PokemonCard(
                     pokemon,
-                    index: pokemons.indexOf(pokemon),
+                    index: index,
                     onPress: () =>
-                        _onPokemonPress(pokemons.indexOf(pokemon), pokemon),
+                        _onPokemonPress(index, pokemon),
                   );
                 }).toList(),
               )
@@ -207,7 +208,7 @@ class _ModalContentsState extends State<ModalContents> {
                 "No Effect Against".toUpperCase()),
           ),
         Consumer(builder: (_, watch, __) {
-          final pokemonState = watch(pokemonsStateProvider);
+          final pokemonState = watch(allPokemonsStateProvider);
           if (pokemonState.isError) {
             return _buildError();
           } else {

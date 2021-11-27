@@ -47,18 +47,6 @@ class PokemonDefaultRepository extends PokemonRepository {
   }
 
   @override
-  Future<List<Pokemon>> getPokemons({int limit, int page}) async {
-    final hasCachedData = await localDataSource.hasData();
-
-    if (!hasCachedData) {
-      final pokemonGithubModels = await githubDataSource.getPokemons();
-      final pokemonHiveModels = pokemonGithubModels.map((e) => e.toHiveModel());
-
-      await localDataSource.savePokemons(pokemonHiveModels);
-    }
-  }
-
-  @override
   Future<List<Pokemon>> searchPokemons(String pokemonName) async {
     await _fetchAndCachePokemons(githubDataSource, localDataSource);
 
