@@ -7,6 +7,8 @@ import 'package:pokedex/domain/entities/pokemon.dart';
 abstract class PokemonRepository {
   Future<List<Pokemon>> searchPokemons(String pokemon);
 
+  Future<List<Pokemon>> getAllPokemons();
+
   Future<List<Pokemon>> getPokemons({int limit, int page});
 
   Future<Pokemon> getPokemon(String number);
@@ -20,6 +22,32 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   void _fetchAndCachePokemons(GithubDataSource githubDataSource,
       LocalDataSource localDataSource) async {
+    final hasCachedData = await localDataSource.hasData();
+
+    if (!hasCachedData) {
+      final pokemonGithubModels = await githubDataSource.getPokemons();
+      final pokemonHiveModels = pokemonGithubModels.map((e) => e.toHiveModel());
+
+      await localDataSource.savePokemons(pokemonHiveModels);
+    }
+  }
+
+  @override
+  Future<List<Pokemon>> getAllPokemons() async {
+    await _fetchAndCachePokemons(githubDataSource, localDataSource);
+
+    final pokemonHiveModels = await localDataSource.getAllPokemons();
+
+    final pokemonEntities = pokemonHiveModels
+        .where((element) => element != null)
+        .map((e) => e.toEntity())
+        .toList();
+
+    return pokemonEntities;
+  }
+
+  @override
+  Future<List<Pokemon>> getPokemons({int limit, int page}) async {
     final hasCachedData = await localDataSource.hasData();
 
     if (!hasCachedData) {

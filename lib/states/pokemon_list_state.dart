@@ -3,10 +3,10 @@ part of 'states.dart';
 class PokemonListState with ChangeNotifier {
   static const int _itemsPerPage = 20;
 
-  PokemonListState(this._getPokemonsUseCase, this._SearchPokemonsUseCase);
+  PokemonListState(this._getPokemonsUseCase, this._getAllPokemonsUseCase);
 
   final GetPokemonsUseCase _getPokemonsUseCase;
-  final SearchPokemonsUseCase _SearchPokemonsUseCase;
+  final GetAllPokemonsUseCase _getAllPokemonsUseCase;
 
   int page = 1;
   bool loading = true;
@@ -14,15 +14,13 @@ class PokemonListState with ChangeNotifier {
   bool isError = false;
   List<Pokemon> pokemons = [];
 
-  void searchPokemons(String pokemonName) async {
+  void getAllPokemons() async {
     isError = false;
     loading = true;
     notifyListeners();
 
     try {
-      pokemons = await _SearchPokemonsUseCase(
-        SearchPokemonsParams(pokemonName: pokemonName),
-      );
+      pokemons = await _getAllPokemonsUseCase();
     } catch (e) {
       isError = true;
     }
