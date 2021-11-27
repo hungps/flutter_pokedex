@@ -1,9 +1,9 @@
 part of 'providers.dart';
 
-final searchPokemonUseCaseProvider = Provider<SearchPokemonUseCase>((ref) {
+final SearchPokemonsUseCaseProvider = Provider<SearchPokemonsUseCase>((ref) {
   final pokemonRepository = ref.watch(pokemonRepositoryProvider);
 
-  return SearchPokemonUseCase(pokemonRepository);
+  return SearchPokemonsUseCase(pokemonRepository);
 });
 
 final getPokemonUseCaseProvider = Provider<GetPokemonUseCase>((ref) {

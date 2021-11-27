@@ -21,7 +21,7 @@ class SearchBottomModal extends StatelessWidget {
             bottom: context.responsive(14) + viewInsets + safeAreaBottom,
           ),
           child: SearchBar(margin: EdgeInsets.zero, onSubmit: (content) {
-            context.read(pokemonsStateProvider).searchPokemon(content);
+            context.read(pokemonsStateProvider).searchPokemons(content);
           },),
         ),
       ),

@@ -4,20 +4,20 @@ import '../../core/usecase.dart';
 import '../../data/repositories/pokemon_repository.dart';
 import '../entities/pokemon.dart';
 
-class SearchPokemonParams {
-  const SearchPokemonParams({@required this.pokemonName});
+class SearchPokemonsParams {
+  const SearchPokemonsParams({@required this.pokemonName});
 
   final String pokemonName;
 }
 
-class SearchPokemonUseCase extends UseCase<List<Pokemon>, SearchPokemonParams> {
-  const SearchPokemonUseCase(this.repository);
+class SearchPokemonsUseCase extends UseCase<List<Pokemon>, SearchPokemonsParams> {
+  const SearchPokemonsUseCase(this.repository);
 
   final PokemonRepository repository;
 
   @override
-  Future<List<Pokemon>> call(SearchPokemonParams params) {
-    return repository.searchPokemon(params.pokemonName);
+  Future<List<Pokemon>> call(SearchPokemonsParams params) {
+    return repository.searchPokemons(params.pokemonName);
   }
 
 }

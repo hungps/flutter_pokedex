@@ -5,7 +5,7 @@ import 'package:pokedex/data/source/mappers/local_to_entity_mapper.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 
 abstract class PokemonRepository {
-  Future<List<Pokemon>> searchPokemon(String pokemon);
+  Future<List<Pokemon>> searchPokemons(String pokemon);
 
   Future<List<Pokemon>> getPokemons({int limit, int page});
 
@@ -31,11 +31,11 @@ class PokemonDefaultRepository extends PokemonRepository {
   }
 
   @override
-  Future<List<Pokemon>> searchPokemon(String pokemonName) async {
+  Future<List<Pokemon>> searchPokemons(String pokemonName) async {
     await _fetchAndCachePokemons(githubDataSource, localDataSource);
 
     final pokemonHiveModels =
-        await localDataSource.searchPokemon(pokemonName: pokemonName);
+        await localDataSource.searchPokemons(pokemonName: pokemonName);
 
     final pokemonEntities = pokemonHiveModels
         .where((element) => element != null)
