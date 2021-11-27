@@ -118,7 +118,7 @@ class _ModalContentsState extends State<ModalContents> {
                 image: AppImages.pokeball,
                 width: 30,
                 height: 30,
-                color: types[widget.index].color.withOpacity(0.5),
+                color: pokeType.color.withOpacity(0.5),
               ),
             ),
             Padding(
@@ -183,7 +183,7 @@ class _ModalContentsState extends State<ModalContents> {
             color: Colors.black12,
           ),
         ),
-        if (types[widget.index].superEffective.isNotEmpty)
+        if (pokeType.superEffective.isNotEmpty)
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: lister(widget.index, 2, widget.width,
@@ -199,7 +199,7 @@ class _ModalContentsState extends State<ModalContents> {
           children: lister(
               widget.index, 1, widget.width, "Normal Against".toUpperCase()),
         ),
-        if (types[widget.index].nilEffective.isNotEmpty)
+        if (pokeType.nilEffective.isNotEmpty)
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
