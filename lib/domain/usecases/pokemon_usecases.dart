@@ -4,6 +4,17 @@ import '../../core/usecase.dart';
 import '../../data/repositories/pokemon_repository.dart';
 import '../entities/pokemon.dart';
 
+class GetAllPokemonsUseCase extends NoParamsUseCase<List<Pokemon>> {
+  const GetAllPokemonsUseCase(this.repository);
+
+  final PokemonRepository repository;
+
+  @override
+  Future<List<Pokemon>> call() {
+    return repository.getAllPokemons();
+  }
+}
+
 class GetPokemonsParams {
   const GetPokemonsParams({
     @required this.page,

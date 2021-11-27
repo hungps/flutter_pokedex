@@ -18,7 +18,7 @@ class ModalDraggable extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
         initialChildSize: 0.25,
-        maxChildSize: 1,
+        maxChildSize: 0.92,
         expand: false,
         builder: (b, s) {
           return Container(

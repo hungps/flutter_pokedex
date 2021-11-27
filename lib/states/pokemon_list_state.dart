@@ -3,15 +3,31 @@ part of 'states.dart';
 class PokemonListState with ChangeNotifier {
   static const int _itemsPerPage = 20;
 
-  PokemonListState(this._getPokemonsUseCase);
+  PokemonListState(this._getPokemonsUseCase, this._getAllPokemonsUseCase);
 
   final GetPokemonsUseCase _getPokemonsUseCase;
+  final GetAllPokemonsUseCase _getAllPokemonsUseCase;
 
   int page = 1;
   bool loading = true;
   bool canLoadMore = true;
   bool isError = false;
   List<Pokemon> pokemons = [];
+
+  void getAllPokemons() async {
+    isError = false;
+    loading = true;
+    notifyListeners();
+
+    try {
+      pokemons = await _getAllPokemonsUseCase();
+    } catch (e) {
+      isError = true;
+    }
+
+    loading = false;
+    notifyListeners();
+  }
 
   void getPokemons({bool reset = false}) async {
     if (reset) {
