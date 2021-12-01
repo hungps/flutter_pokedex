@@ -61,6 +61,7 @@ class LocalDataSource {
     final itemBox = Hive.box<ItemHiveModel>(ItemHiveModel.boxKey);
 
     final items = List.generate(itemBox.length, (index) => itemBox.getAt(index));
+
     return items;
   }
 

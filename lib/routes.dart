@@ -47,6 +47,7 @@ class AppNavigator {
 
       case _Paths.itemsList:
         return FadeRoute(page: ItemsListScreen());
+
       case _Paths.home:
       default:
         return FadeRoute(page: HomeScreen());

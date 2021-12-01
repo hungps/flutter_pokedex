@@ -29,7 +29,6 @@ class _ItemsGridState extends State<ItemsGrid> {
     super.initState();
     scheduleMicrotask(() {
       context.read(itemStateProvider).getItems(reset: true);
-      innerController?.addListener(_onScroll);
     });
   }
 
@@ -38,17 +37,6 @@ class _ItemsGridState extends State<ItemsGrid> {
     innerController?.dispose();
 
     super.dispose();
-  }
-
-  void _onScroll() {
-    if (innerController != null && !innerController.hasClients) return;
-
-    final thresholdReached = innerController.position.extentAfter < _endReachedThreshold;
-
-    if (thresholdReached) {
-      // Load more!
-      context.read(itemStateProvider).getItems();
-    }
   }
 
   Future _onRefresh() async {
@@ -79,8 +67,6 @@ class _ItemsGridState extends State<ItemsGrid> {
         ),
         delegate: SliverChildBuilderDelegate(
           (context, index) => ItemCard(items[index], index: index),
-          //Text(items[index].name),
-
           childCount: items.length,
         ),
       ),

@@ -22,11 +22,6 @@ class _ItemsListScreenState extends State<ItemsListScreen> with SingleTickerProv
       duration: animationDuration,
     );
 
-    /*_fabAnimation = _fabController.curvedTweenAnimation(
-      begin: 0.0,
-      end: 1.0,
-    );*/
-
     super.initState();
   }
 
