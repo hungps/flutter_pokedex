@@ -65,7 +65,7 @@ class _ModalContentsState extends State<ModalContents> {
                 image: AppImages.pokeball,
                 width: 30,
                 height: 30,
-                color: types[widget.index].color.withOpacity(0.5),
+                color: pokeType.color.withOpacity(0.5),
               ),
             ),
             Padding(
