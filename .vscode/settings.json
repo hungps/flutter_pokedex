@@ -4,6 +4,7 @@
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
   "dart.lineLength": 100,
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.rulers": [100],
@@ -13,5 +14,13 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false,
     "files.insertFinalNewline": true
+  },
+  "search.exclude": {
+    "**/.fvm": true,
+    "**/build": true
+  },
+  "files.watcherExclude": {
+    "**/.fvm": true,
+    "**/build": true
   }
 }

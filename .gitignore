@@ -64,6 +64,7 @@
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/build/
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
@@ -73,3 +74,6 @@
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 .flutter-plugins-dependencies
+
+# Fvm
+.fvm/flutter_sdk
