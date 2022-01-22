@@ -4,20 +4,20 @@ class PokemonGender {
   final double female;
 
   PokemonGender({
-    this.genderless,
-    this.male,
-    this.female,
+    required this.genderless,
+    required this.male,
+    required this.female,
   });
 }
 
 class PokemonStats {
   const PokemonStats({
-    this.attack,
-    this.specialAttack,
-    this.defense,
-    this.specialDefense,
-    this.hp,
-    this.speed,
+    required this.attack,
+    required this.specialAttack,
+    required this.defense,
+    required this.specialDefense,
+    required this.hp,
+    required this.speed,
   });
 
   final int attack;

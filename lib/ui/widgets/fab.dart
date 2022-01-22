@@ -7,12 +7,12 @@ class FabItem {
   const FabItem(this.title, this.icon, {this.onPress});
 
   final IconData icon;
-  final Function onPress;
+  final void Function()? onPress;
   final String title;
 }
 
 class FabMenuItem extends StatelessWidget {
-  const FabMenuItem(this.item, {Key key}) : super(key: key);
+  const FabMenuItem(this.item, {Key? key}) : super(key: key);
 
   final FabItem item;
 
@@ -47,15 +47,15 @@ class FabMenuItem extends StatelessWidget {
 
 class ExpandedAnimationFab extends AnimatedWidget {
   const ExpandedAnimationFab({
-    @required this.items,
-    @required Animation animation,
+    required this.items,
+    required Animation animation,
     this.onPress,
   }) : super(listenable: animation);
 
   final List<FabItem> items;
-  final Function onPress;
+  final void Function()? onPress;
 
-  Animation<double> get animation => listenable;
+  Animation<double> get animation => listenable as Animation<double>;
 
   Widget _buildItem(BuildContext context, int index) {
     final screenWidth = context.screenSize.width;

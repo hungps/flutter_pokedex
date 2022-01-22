@@ -13,12 +13,12 @@ import 'package:pokedex/ui/screens/types/type_container.dart';
 import 'package:pokedex/ui/screens/types/type_entities/widget_list.dart';
 
 // Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
-class ModalContents extends StatefulWidget {
+class ModalContents extends ConsumerStatefulWidget {
   const ModalContents({
-    Key key,
-    @required this.index,
-    @required this.width,
-    @required this.scroller,
+    Key? key,
+    required this.index,
+    required this.width,
+    required this.scroller,
   }) : super(key: key);
 
   final int index;
@@ -26,10 +26,10 @@ class ModalContents extends StatefulWidget {
   final ScrollController scroller;
 
   @override
-  State<ModalContents> createState() => _ModalContentsState();
+  _ModalContentsState createState() => _ModalContentsState();
 }
 
-class _ModalContentsState extends State<ModalContents> {
+class _ModalContentsState extends ConsumerState<ModalContents> {
   final List<bool> _isOpen = [false, false, false];
 
   @override
@@ -37,12 +37,12 @@ class _ModalContentsState extends State<ModalContents> {
     super.initState();
 
     scheduleMicrotask(() {
-      context.read(pokemonsStateProvider).getAllPokemons();
+      ref.read(pokemonsStateProvider).getAllPokemons();
     });
   }
 
   void _onPokemonPress(int index, Pokemon pokemon) {
-    context.read(currentPokemonStateProvider).setPokemon(index, pokemon);
+    ref.read(currentPokemonStateProvider).setPokemon(index, pokemon);
 
     AppNavigator.push(Routes.pokemonInfo, pokemon);
   }
@@ -199,8 +199,8 @@ class _ModalContentsState extends State<ModalContents> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: lister(widget.index, 0, widget.width, "No Effect Against".toUpperCase()),
           ),
-        Consumer(builder: (_, watch, __) {
-          final pokemonState = watch(pokemonsStateProvider);
+        Consumer(builder: (_, ref, __) {
+          final pokemonState = ref.watch(pokemonsStateProvider);
           if (pokemonState.isError) {
             return _buildError();
           } else {

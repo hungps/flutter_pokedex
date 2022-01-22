@@ -36,6 +36,8 @@ class PokedexApp extends StatelessWidget {
       navigatorKey: AppNavigator.navigatorKey,
       onGenerateRoute: AppNavigator.onGenerateRoute,
       builder: (context, child) {
+        if (child == null) return SizedBox.shrink();
+
         final data = MediaQuery.of(context);
         final smallestSize = min(data.size.width, data.size.height);
         final textScaleFactor = min(smallestSize / AppConstants.designScreenSize.width, 1.0);

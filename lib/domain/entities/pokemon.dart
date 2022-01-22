@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 
-import '../../configs/colors.dart';
 import 'pokemon_props.dart';
 import 'pokemon_types.dart';
 
 class Pokemon {
   const Pokemon({
-    @required this.number,
-    @required this.name,
-    this.description,
-    this.types,
-    @required this.image,
-    this.height,
-    this.weight,
-    this.genera,
-    this.eggGroups,
-    this.gender,
-    this.stats,
-    this.baseExp,
-    this.evolutions,
-    this.evolutionReason,
+    required this.number,
+    required this.name,
+    required this.description,
+    required this.types,
+    required this.image,
+    required this.height,
+    required this.weight,
+    required this.genera,
+    required this.eggGroups,
+    required this.gender,
+    required this.stats,
+    required this.baseExp,
+    required this.evolutions,
+    required this.evolutionReason,
   });
 
   final String number;
@@ -39,7 +38,7 @@ class Pokemon {
 }
 
 extension PokemonX on Pokemon {
-  Color get color => types?.first?.color ?? AppColors.lightBlue;
+  Color get color => types.first.color;
 
   Map<PokemonTypes, double> get typeEffectiveness {
     final effectiveness =

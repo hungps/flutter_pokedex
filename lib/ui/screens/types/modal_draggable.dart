@@ -6,9 +6,9 @@ import 'package:pokedex/ui/screens/types/modal_contents.dart';
 // Class responsible for generating the modal page when clicked on a type
 class ModalDraggable extends StatelessWidget {
   const ModalDraggable({
-    Key key,
-    @required this.width,
-    @required this.index,
+    Key? key,
+    required this.width,
+    required this.index,
   }) : super(key: key);
 
   final double width;

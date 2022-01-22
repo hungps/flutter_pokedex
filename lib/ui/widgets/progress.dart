@@ -7,7 +7,7 @@ class ProgressBar extends StatelessWidget {
     this.color = AppColors.red,
     this.backgroundColor = AppColors.lighterGrey,
     this.enableAnimation = true,
-    @required this.progress,
+    required this.progress,
   });
 
   final Color backgroundColor;

@@ -4,14 +4,14 @@ class _HeaderAppBar extends StatelessWidget {
   static const double heightFraction = 0.66;
 
   const _HeaderAppBar({
-    @required this.height,
-    @required this.showTitle,
+    required this.height,
+    required this.showTitle,
   });
 
   final double height;
   final bool showTitle;
 
-  Widget _buildTitle(visible) {
+  Widget? _buildTitle(visible) {
     if (!visible) {
       return null;
     }

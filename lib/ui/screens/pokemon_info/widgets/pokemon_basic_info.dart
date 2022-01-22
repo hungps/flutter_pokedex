@@ -13,7 +13,7 @@ import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
-class PokemonOverallInfo extends StatefulWidget {
+class PokemonOverallInfo extends ConsumerStatefulWidget {
   final Pokemon pokemon;
   final AnimationController controller;
   final AnimationController rotateController;
@@ -24,7 +24,8 @@ class PokemonOverallInfo extends StatefulWidget {
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
-class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
+class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
+    with TickerProviderStateMixin {
   static const double _pokemonSliderViewportFraction = 0.6;
   static const int _endReachedThreshold = 4;
 
@@ -33,8 +34,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
 
   double textDiffLeft = 0.0;
   double textDiffTop = 0.0;
-  PageController _pageController;
-  AnimationController _slideController;
+  PageController? _pageController;
+  late AnimationController _slideController;
 
   Pokemon get pokemon => widget.pokemon;
 
@@ -55,28 +56,34 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
 
   @override
   void didChangeDependencies() {
-    _pageController ??= PageController(
-      viewportFraction: _pokemonSliderViewportFraction,
-      initialPage: context.read(currentPokemonStateProvider).index,
-    );
+    final pageIndex = ref.read(currentPokemonStateProvider).index;
+
+    if (pageIndex != null) {
+      _pageController ??= PageController(
+        viewportFraction: _pokemonSliderViewportFraction,
+        initialPage: pageIndex,
+      );
+    }
 
     super.didChangeDependencies();
   }
 
   @override
   void dispose() {
-    _slideController?.dispose();
+    _slideController.dispose();
     _pageController?.dispose();
 
     super.dispose();
   }
 
   void _calculatePokemonNamePosition() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final RenderBox targetTextBox = _targetTextKey.currentContext.findRenderObject();
-      final targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      final targetTextBox = _targetTextKey.currentContext?.findRenderObject() as RenderBox?;
+      final currentTextBox = _currentTextKey.currentContext?.findRenderObject() as RenderBox?;
 
-      final currentTextBox = _currentTextKey.currentContext.findRenderObject() as RenderBox;
+      if (targetTextBox == null || currentTextBox == null) return;
+
+      final targetTextPosition = targetTextBox.localToGlobal(Offset.zero);
       final currentTextPosition = currentTextBox.localToGlobal(Offset.zero);
 
       final newDiffLeft = targetTextPosition.dx - currentTextPosition.dx;
@@ -94,11 +101,11 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
   AppBar _buildAppBar() {
     return MainAppBar(
       // A placeholder for easily calculate the translate of the pokemon name
-      title: Consumer(builder: (_, watch, __) {
+      title: Consumer(builder: (_, ref, __) {
         _calculatePokemonNamePosition();
 
         return Text(
-          watch(currentPokemonStateProvider).pokemon.name,
+          ref.watch(currentPokemonStateProvider).pokemon?.name ?? '',
           key: _targetTextKey,
           style: TextStyle(
             color: Colors.transparent,
@@ -124,12 +131,12 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
           AnimatedBuilder(
             animation: controller,
             builder: (context, child) {
-              final value = controller.value ?? 0.0;
+              final value = controller.value;
 
               return Transform.translate(
                 offset: Offset(textDiffLeft * value, textDiffTop * value),
-                child: Consumer(builder: (_, watch, __) {
-                  final pokemonName = watch(currentPokemonStateProvider).pokemon.name;
+                child: Consumer(builder: (_, ref, __) {
+                  final pokemonName = ref.watch(currentPokemonStateProvider).pokemon?.name ?? '';
 
                   return Hero(
                     tag: pokemonName,
@@ -154,15 +161,15 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
             animation: _slideController,
             child: AnimatedFade(
               animation: fadeAnimation,
-              child: Consumer(builder: (_, watch, __) {
-                final tag = watch(currentPokemonStateProvider).pokemon;
+              child: Consumer(builder: (_, ref, __) {
+                final tag = ref.watch(currentPokemonStateProvider).pokemon;
 
                 return Hero(
-                  tag: tag.number,
+                  tag: tag?.number ?? '',
                   child: Material(
                     color: Colors.transparent,
                     child: Text(
-                      tag.number,
+                      tag?.number ?? '',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w900,
@@ -186,8 +193,8 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
       animation: fadeAnimation,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 26),
-        child: Consumer(builder: (_, watch, __) {
-          final pokemon = watch(currentPokemonStateProvider).pokemon;
+        child: Consumer(builder: (_, ref, __) {
+          final pokemon = ref.watch(currentPokemonStateProvider).pokemon;
 
           return Row(
             mainAxisSize: MainAxisSize.max,
@@ -198,7 +205,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 child: Wrap(
                   spacing: context.responsive(8),
                   runSpacing: context.responsive(8),
-                  children: pokemon.types
+                  children: (pokemon?.types ?? [])
                       .map(
                         (type) => Hero(
                           tag: type,
@@ -211,7 +218,7 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
               AnimatedSlide(
                 animation: _slideController,
                 child: Text(
-                  pokemon.genera,
+                  pokemon?.genera ?? '',
                   style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ),
@@ -254,9 +261,9 @@ class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProv
                 ),
               ),
             ),
-            Consumer(builder: (context, watch, __) {
-              final pokemonsState = watch(pokemonsStateProvider);
-              final currentPokemonState = watch(currentPokemonStateProvider);
+            Consumer(builder: (context, ref, __) {
+              final pokemonsState = ref.watch(pokemonsStateProvider);
+              final currentPokemonState = ref.watch(currentPokemonStateProvider);
 
               final pokemons = pokemonsState.pokemons;
 

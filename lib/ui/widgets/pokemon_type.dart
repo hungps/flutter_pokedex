@@ -6,7 +6,7 @@ import 'package:pokedex/ui/widgets/spacer.dart';
 class PokemonType extends StatelessWidget {
   const PokemonType(
     this.type, {
-    Key key,
+    Key? key,
     this.large = false,
     this.colored = false,
     this.extra = '',

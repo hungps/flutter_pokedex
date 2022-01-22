@@ -9,35 +9,35 @@ import 'bold_texts.dart';
 // The Class that is responsible for the type images
 class TypeDisplayContainer extends StatelessWidget {
   const TypeDisplayContainer(
-      {Key key,
-      @required this.index,
-      @required this.path,
-      @required this.value,
-      @required this.width,
-      @required this.height,
-      @required this.typeList,
-      @required this.j})
+      {Key? key,
+      required this.index,
+      required this.path,
+      required this.value,
+      required this.width,
+      required this.height,
+      required this.typeList,
+      required this.j})
       : super(key: key);
 
   final int index;
-  final int j;
+  final int? j;
   final String path;
   final List<String> typeList;
   final dynamic value;
-  final double width;
+  final double? width;
   final double height;
 
   @override
   Widget build(BuildContext context) {
-    Color col;
-    String text;
+    var col = Colors.black;
+    var text = '';
     void assigner() {
       if (path == "name") {
         col = types[index].color;
         text = getEnumValue(types[index].type).toUpperCase();
-      } else {
-        col = types[typeIndices[typeList[j].toLowerCase()]].color;
-        text = getEnumValue(types[typeIndices[typeList[j].toLowerCase()]].type).toUpperCase();
+      } else if (j != null) {
+        col = types[typeIndices[typeList[j!].toLowerCase()]!].color;
+        text = getEnumValue(types[typeIndices[typeList[j!].toLowerCase()]!].type).toUpperCase();
       }
     }
 

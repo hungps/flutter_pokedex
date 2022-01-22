@@ -10,24 +10,24 @@ import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_refresh_control.dart';
 import 'package:pokedex/routes.dart';
 
-class PokemonGrid extends StatefulWidget {
+class PokemonGrid extends ConsumerStatefulWidget {
   @override
   _PokemonGridState createState() => _PokemonGridState();
 }
 
-class _PokemonGridState extends State<PokemonGrid> {
+class _PokemonGridState extends ConsumerState<PokemonGrid> {
   static const double _endReachedThreshold = 200;
 
   final GlobalKey<NestedScrollViewState> _scrollKey = GlobalKey();
 
-  ScrollController get innerController => _scrollKey.currentState?.innerController;
+  ScrollController? get innerController => _scrollKey.currentState?.innerController;
 
   @override
   void initState() {
     super.initState();
 
     scheduleMicrotask(() {
-      context.read(pokemonsStateProvider).getPokemons(reset: true);
+      ref.read(pokemonsStateProvider).getPokemons(reset: true);
       innerController?.addListener(_onScroll);
     });
   }
@@ -40,24 +40,24 @@ class _PokemonGridState extends State<PokemonGrid> {
   }
 
   void _onScroll() {
-    if (innerController != null && !innerController.hasClients) return;
+    if (innerController == null || !innerController!.hasClients) return;
 
-    final thresholdReached = innerController.position.extentAfter < _endReachedThreshold;
-    final isLoading = context.read(pokemonsStateProvider).loading;
-    final canLoadMore = context.read(pokemonsStateProvider).canLoadMore;
+    final thresholdReached = innerController!.position.extentAfter < _endReachedThreshold;
+    final isLoading = ref.read(pokemonsStateProvider).loading;
+    final canLoadMore = ref.read(pokemonsStateProvider).canLoadMore;
 
     if (thresholdReached && !isLoading && canLoadMore) {
       // Load more!
-      context.read(pokemonsStateProvider).getPokemons();
+      ref.read(pokemonsStateProvider).getPokemons();
     }
   }
 
   Future _onRefresh() async {
-    context.read(pokemonsStateProvider).getPokemons(reset: true);
+    ref.read(pokemonsStateProvider).getPokemons(reset: true);
   }
 
   void _onPokemonPress(int index, Pokemon pokemon) {
-    context.read(currentPokemonStateProvider).setPokemon(index, pokemon);
+    ref.read(currentPokemonStateProvider).setPokemon(index, pokemon);
 
     AppNavigator.push(Routes.pokemonInfo, pokemon);
   }
@@ -119,8 +119,8 @@ class _PokemonGridState extends State<PokemonGrid> {
     return NestedScrollView(
       key: _scrollKey,
       headerSliverBuilder: _buildHeader,
-      body: Consumer(builder: (_, watch, __) {
-        final pokemonState = watch(pokemonsStateProvider);
+      body: Consumer(builder: (_, ref, __) {
+        final pokemonState = ref.watch(pokemonsStateProvider);
 
         return CustomScrollView(
           slivers: [

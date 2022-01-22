@@ -7,10 +7,10 @@ class Modal extends StatelessWidget {
 
   const Modal({
     this.title,
-    @required this.child,
+    required this.child,
   });
 
-  final String title;
+  final String? title;
   final Widget child;
 
   @override
@@ -55,7 +55,7 @@ class _DragLine extends StatelessWidget {
 class _Title extends StatelessWidget {
   const _Title(this.text);
 
-  final String text;
+  final String? text;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _Title extends StatelessWidget {
         bottom: context.responsive(8),
       ),
       child: Text(
-        text,
+        text ?? '',
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w900,

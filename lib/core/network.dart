@@ -22,8 +22,8 @@ class NetworkManager {
     RequestMethod method,
     String url, {
     data,
-    Map<String, dynamic> headers,
-    Map<String, dynamic> queryParameters,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? queryParameters,
   }) {
     return dio.request(
       url,

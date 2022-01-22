@@ -6,6 +6,8 @@ import 'package:pokedex/ui/screens/pokemon_info/pokemon_info.dart';
 import 'package:pokedex/ui/screens/splash/splash.dart';
 import 'package:pokedex/ui/screens/types/type_screen.dart';
 
+import 'domain/entities/pokemon.dart';
+
 enum Routes { splash, home, pokedex, pokemonInfo, typeEffects }
 
 class _Paths {
@@ -22,7 +24,7 @@ class _Paths {
     Routes.typeEffects: _Paths.typeEffectsScreen,
   };
 
-  static String of(Routes route) => _pathMap[route];
+  static String of(Routes route) => _pathMap[route] ?? splash;
 }
 
 class AppNavigator {
@@ -37,7 +39,7 @@ class AppNavigator {
         return FadeRoute(page: PokedexScreen());
 
       case _Paths.pokemonInfo:
-        return FadeRoute(page: PokemonInfo(settings.arguments));
+        return FadeRoute(page: PokemonInfo(settings.arguments as Pokemon));
 
       case _Paths.typeEffectsScreen:
         return FadeRoute(page: TypeEffectScreen());
@@ -48,13 +50,13 @@ class AppNavigator {
     }
   }
 
-  static Future push<T>(Routes route, [T arguments]) =>
-      state.pushNamed(_Paths.of(route), arguments: arguments);
+  static Future? push<T>(Routes route, [T? arguments]) =>
+      state?.pushNamed(_Paths.of(route), arguments: arguments);
 
-  static Future replaceWith<T>(Routes route, [T arguments]) =>
-      state.pushReplacementNamed(_Paths.of(route), arguments: arguments);
+  static Future? replaceWith<T>(Routes route, [T? arguments]) =>
+      state?.pushReplacementNamed(_Paths.of(route), arguments: arguments);
 
-  static void pop() => state.pop();
+  static void pop() => state?.pop();
 
-  static NavigatorState get state => navigatorKey.currentState;
+  static NavigatorState? get state => navigatorKey.currentState;
 }

@@ -75,7 +75,7 @@ class PokemonEvolution extends StatefulWidget {
 }
 
 class _PokemonEvolutionState extends State<PokemonEvolution> {
-  Widget _buildRow({Pokemon current, Pokemon next, String reason}) {
+  Widget _buildRow({required Pokemon current, required Pokemon next, required String reason}) {
     return Row(
       children: <Widget>[
         Expanded(child: PokemonBall(current)),

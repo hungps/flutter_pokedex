@@ -10,44 +10,44 @@ class PokemonHiveModel extends HiveObject {
   static const String boxKey = 'pokemon';
 
   @HiveField(0)
-  String number;
+  late String number;
 
   @HiveField(1)
-  String name;
+  late String name;
 
   @HiveField(2)
-  String description;
+  late String description;
 
   @HiveField(3)
-  List<String> types;
+  late List<String> types;
 
   @HiveField(4)
-  String image;
+  late String image;
 
   @HiveField(5)
-  String height;
+  late String height;
 
   @HiveField(6)
-  String weight;
+  late String weight;
 
   @HiveField(7)
-  String genera;
+  late String genera;
 
   @HiveField(8)
-  List<String> eggGroups;
+  late List<String> eggGroups;
 
   @HiveField(9)
-  PokemonGenderHiveModel gender;
+  late PokemonGenderHiveModel gender;
 
   @HiveField(10)
-  PokemonStatsHiveModel stats;
+  late PokemonStatsHiveModel stats;
 
   @HiveField(11)
-  double baseExp;
+  late double baseExp;
 
   @HiveField(12)
-  List<String> evolutions;
+  late List<String> evolutions;
 
   @HiveField(13)
-  String evolutionReason;
+  late String evolutionReason;
 }
