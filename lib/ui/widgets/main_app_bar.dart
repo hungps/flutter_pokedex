@@ -13,12 +13,12 @@ class MainSliverAppBar extends SliverAppBar {
   );
 
   MainSliverAppBar({
-    GlobalKey appBarKey,
+    GlobalKey? appBarKey,
     String title = 'Pokedex',
     double height = kToolbarHeight + mainAppbarPadding * 2,
     double expandedFontSize = 30,
-    void Function() onLeadingPress = AppNavigator.pop,
-    void Function() onTrailingPress,
+    void Function()? onLeadingPress = AppNavigator.pop,
+    void Function()? onTrailingPress,
   }) : super(
           centerTitle: true,
           expandedHeight: height,
@@ -45,9 +45,9 @@ class MainSliverAppBar extends SliverAppBar {
               final maxHeight = height + safeAreaTop;
 
               final percent = (constraints.maxHeight - minHeight) / (maxHeight - minHeight);
-
+              final fontSize = _textStyle.fontSize ?? 16;
               final currentTextStyle = _textStyle.copyWith(
-                fontSize: _textStyle.fontSize + (expandedFontSize - _textStyle.fontSize) * percent,
+                fontSize: fontSize + (expandedFontSize - fontSize) * percent,
               );
 
               final textWidth = getTextSize(context, title, currentTextStyle).width;
@@ -79,7 +79,7 @@ class MainSliverAppBar extends SliverAppBar {
 }
 
 class MainAppBar extends AppBar {
-  MainAppBar({Widget title, IconData rightIcon})
+  MainAppBar({Widget? title, IconData? rightIcon})
       : super(
           title: title,
           backgroundColor: Colors.transparent,

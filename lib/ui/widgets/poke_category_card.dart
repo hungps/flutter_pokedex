@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/category.dart';
@@ -11,9 +10,9 @@ class PokeCategoryCard extends StatelessWidget {
   });
 
   final Category category;
-  final Function onPress;
+  final void Function()? onPress;
 
-  Widget _buildCircleDecoration({@required double height}) {
+  Widget _buildCircleDecoration({required double height}) {
     return Positioned(
       top: -height * 0.616,
       left: -height * 0.53,
@@ -24,7 +23,7 @@ class PokeCategoryCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPokemonDecoration({@required double height}) {
+  Widget _buildPokemonDecoration({required double height}) {
     return Positioned(
       top: -height * 0.16,
       right: -height * 0.25,
@@ -99,7 +98,7 @@ class _CardContent extends StatelessWidget {
 }
 
 class _Shadows extends StatelessWidget {
-  const _Shadows({this.color, this.width});
+  const _Shadows({required this.color, required this.width});
 
   final Color color;
   final double width;

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
@@ -74,7 +75,7 @@ class PokemonEvolution extends StatefulWidget {
 }
 
 class _PokemonEvolutionState extends State<PokemonEvolution> {
-  Widget _buildRow({Pokemon current, Pokemon next, String reason}) {
+  Widget _buildRow({required Pokemon current, required Pokemon next, required String reason}) {
     return Row(
       children: <Widget>[
         Expanded(child: PokemonBall(current)),

@@ -10,15 +10,15 @@ import 'package:pokedex/core/extensions/context.dart';
 
 class Stat extends StatelessWidget {
   const Stat({
-    @required this.animation,
-    @required this.label,
-    @required this.value,
+    required this.animation,
+    required this.label,
+    required this.value,
     this.progress,
   });
 
   final Animation animation;
   final String label;
-  final double progress;
+  final double? progress;
   final num value;
 
   @override
@@ -57,7 +57,7 @@ class Stat extends StatelessWidget {
 
 class PokemonBaseStats extends StatefulWidget {
   final Pokemon pokemon;
-  final Animation<double> scrollAnimation;
+  final Animation scrollAnimation;
 
   const PokemonBaseStats(this.pokemon, this.scrollAnimation);
 
@@ -66,18 +66,11 @@ class PokemonBaseStats extends StatefulWidget {
 }
 
 class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerProviderStateMixin {
-  Animation<double> _animation;
-  AnimationController _controller;
+  late Animation<double> _animation;
+  late AnimationController _controller;
 
   Pokemon get pokemon => widget.pokemon;
-  Animation<double> get scrollAnimation => widget.scrollAnimation;
-
-  @override
-  void dispose() {
-    _controller.dispose();
-
-    super.dispose();
-  }
+  Animation get scrollAnimation => widget.scrollAnimation;
 
   @override
   void initState() {
@@ -96,6 +89,13 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(curvedAnimation);
 
     _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
   }
 
   List<Widget> generateStatWidget() {
@@ -129,7 +129,7 @@ class _PokemonBaseStatsState extends State<PokemonBaseStats> with SingleTickerPr
             type,
             large: true,
             colored: true,
-            extra: 'x' + removeTrailingZero(effectiveness[type]),
+            extra: 'x' + removeTrailingZero(effectiveness[type] ?? 0),
           ),
         )
         .toList();

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
@@ -13,14 +14,14 @@ class PokemonCard extends StatelessWidget {
   const PokemonCard(
     this.pokemon, {
     this.onPress,
-    @required this.index,
+    required this.index,
   });
 
   final int index;
-  final Function onPress;
+  final void Function()? onPress;
   final Pokemon pokemon;
 
-  Widget _buildPokeballDecoration({@required double height}) {
+  Widget _buildPokeballDecoration({required double height}) {
     final pokeballSize = height * _pokeballFraction;
 
     return Positioned(
@@ -35,7 +36,7 @@ class PokemonCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPokemon({@required double height}) {
+  Widget _buildPokemon({required double height}) {
     final pokemonSize = height * _pokemonFraction;
 
     return Positioned(
@@ -137,7 +138,7 @@ class PokemonCard extends StatelessWidget {
 }
 
 class _CardContent extends StatelessWidget {
-  const _CardContent(this.pokemon, {Key key}) : super(key: key);
+  const _CardContent(this.pokemon, {Key? key}) : super(key: key);
 
   final Pokemon pokemon;
 

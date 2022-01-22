@@ -9,13 +9,13 @@ import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_base_stats.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_evolution.dart';
 
 class TabData {
-  const TabData({
-    this.label,
-    this.builder,
-  });
-
   final Widget Function(Pokemon pokemon, Animation animation) builder;
   final String label;
+
+  const TabData({
+    required this.label,
+    required this.builder,
+  });
 }
 
 class PokemonTabInfo extends StatelessWidget {
@@ -62,8 +62,12 @@ class PokemonTabInfo extends StatelessWidget {
 
   Widget _buildTabContent() {
     return Expanded(
-      child: Consumer(builder: (_, watch, __) {
-        final currentPokemon = watch(currentPokemonStateProvider).pokemon;
+      child: Consumer(builder: (_, ref, __) {
+        final currentPokemon = ref.watch(currentPokemonStateProvider).pokemon;
+
+        if (currentPokemon == null) {
+          return SizedBox.shrink();
+        }
 
         return TabBarView(
           children: _tabs.map((tab) => tab.builder(currentPokemon, _animation)).toList(),

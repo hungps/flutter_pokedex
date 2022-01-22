@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
@@ -12,7 +11,7 @@ class PokemonAbout extends StatelessWidget {
   final Pokemon _pokemon;
   final Animation _animation;
 
-  Widget _buildSection(BuildContext context, String text, {List<Widget> children, Widget child}) {
+  Widget _buildSection(BuildContext context, String text, {List<Widget>? children, Widget? child}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

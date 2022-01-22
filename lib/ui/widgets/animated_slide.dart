@@ -3,8 +3,8 @@ import 'package:pokedex/core/extensions/context.dart';
 
 class AnimatedSlide extends AnimatedWidget {
   const AnimatedSlide({
-    @required this.child,
-    @required this.animation,
+    required this.child,
+    required this.animation,
   }) : super(listenable: animation);
 
   final Animation<double> animation;

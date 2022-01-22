@@ -2,8 +2,8 @@ part of '../pokedex.dart';
 
 class _FabMenu extends StatelessWidget {
   const _FabMenu({
-    @required this.animation,
-    @required this.toggle,
+    required this.animation,
+    required this.toggle,
     this.onFavouritePress,
     this.onAllTypePress,
     this.onAllGenPress,
@@ -11,16 +11,15 @@ class _FabMenu extends StatelessWidget {
   });
 
   final Animation animation;
-  final Function onAllGenPress;
-  final Function onAllTypePress;
-  final Function onFavouritePress;
-  final Function onSearchPress;
-  final Function toggle;
+  final void Function()? onAllGenPress;
+  final void Function()? onAllTypePress;
+  final void Function()? onFavouritePress;
+  final void Function()? onSearchPress;
+  final void Function()? toggle;
 
-  void onPress(Function callback) {
-    toggle();
-
-    if (callback != null) callback();
+  void onPress(Function? callback) {
+    toggle?.call();
+    callback?.call();
   }
 
   @override

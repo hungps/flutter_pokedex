@@ -20,16 +20,16 @@ class PokemonHiveModelAdapter extends TypeAdapter<PokemonHiveModel> {
       ..number = fields[0] as String
       ..name = fields[1] as String
       ..description = fields[2] as String
-      ..types = (fields[3] as List)?.cast<String>()
+      ..types = (fields[3] as List).cast<String>()
       ..image = fields[4] as String
       ..height = fields[5] as String
       ..weight = fields[6] as String
       ..genera = fields[7] as String
-      ..eggGroups = (fields[8] as List)?.cast<String>()
+      ..eggGroups = (fields[8] as List).cast<String>()
       ..gender = fields[9] as PokemonGenderHiveModel
       ..stats = fields[10] as PokemonStatsHiveModel
       ..baseExp = fields[11] as double
-      ..evolutions = (fields[12] as List)?.cast<String>()
+      ..evolutions = (fields[12] as List).cast<String>()
       ..evolutionReason = fields[13] as String;
   }
 

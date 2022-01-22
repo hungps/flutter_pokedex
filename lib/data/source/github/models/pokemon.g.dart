@@ -28,15 +28,18 @@ GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
     json['name'] as String,
     json['id'] as String,
     json['imageurl'] as String,
-    json['xdescription'] as String ?? '',
-    json['ydescription'] as String ?? '',
-    json['height'] as String ?? '',
-    json['category'] as String ?? '',
-    json['weight'] as String ?? '',
-    (json['typeofpokemon'] as List)?.map((e) => e as String)?.toList(),
-    (json['weaknesses'] as List)?.map((e) => e as String)?.toList() ?? [],
-    (json['evolutions'] as List)?.map((e) => e as String)?.toList() ?? [],
-    (json['abilities'] as List)?.map((e) => e as String)?.toList() ?? [],
+    json['xdescription'] as String? ?? '',
+    json['ydescription'] as String? ?? '',
+    json['height'] as String? ?? '',
+    json['category'] as String? ?? '',
+    json['weight'] as String? ?? '',
+    (json['typeofpokemon'] as List<dynamic>).map((e) => e as String).toList(),
+    (json['weaknesses'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+        [],
+    (json['evolutions'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+        [],
+    (json['abilities'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+        [],
     json['hp'] as num,
     json['attack'] as num,
     json['defense'] as num,
@@ -47,49 +50,41 @@ GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
     json['male_percentage'] as String,
     json['female_percentage'] as String,
     json['genderless'] as num,
-    json['cycles'] as String ?? '',
+    json['cycles'] as String? ?? '',
     json['egg_groups'] as String,
     json['evolvedfrom'] as String,
-    json['reason'] as String ?? '',
-    json['base_exp'] as String ?? '0',
+    json['reason'] as String? ?? '',
+    json['base_exp'] as String? ?? '0',
   );
 }
 
-Map<String, dynamic> _$GithubPokemonModelToJson(GithubPokemonModel instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('id', instance.id);
-  writeNotNull('imageurl', instance.imageUrl);
-  val['xdescription'] = instance.xDescription;
-  val['ydescription'] = instance.yDescription;
-  val['height'] = instance.height;
-  val['category'] = instance.category;
-  val['weight'] = instance.weight;
-  writeNotNull('typeofpokemon', instance.types);
-  val['weaknesses'] = instance.weaknesses;
-  val['evolutions'] = instance.evolutions;
-  val['abilities'] = instance.abilities;
-  writeNotNull('hp', instance.hp);
-  writeNotNull('attack', instance.attack);
-  writeNotNull('defense', instance.defense);
-  writeNotNull('special_attack', instance.specialAttack);
-  writeNotNull('special_defense', instance.specialDefense);
-  writeNotNull('speed', instance.speed);
-  writeNotNull('total', instance.total);
-  writeNotNull('male_percentage', instance.genderMalePercentage);
-  writeNotNull('female_percentage', instance.genderFemalePercentage);
-  writeNotNull('genderless', instance.genderless);
-  val['cycles'] = instance.cycles;
-  writeNotNull('egg_groups', instance.eggGroups);
-  val['evolvedfrom'] = instance.evolvedFrom;
-  val['reason'] = instance.reason;
-  val['base_exp'] = instance.baseExp;
-  return val;
-}
+Map<String, dynamic> _$GithubPokemonModelToJson(GithubPokemonModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'id': instance.id,
+      'imageurl': instance.imageUrl,
+      'xdescription': instance.xDescription,
+      'ydescription': instance.yDescription,
+      'height': instance.height,
+      'category': instance.category,
+      'weight': instance.weight,
+      'typeofpokemon': instance.types,
+      'weaknesses': instance.weaknesses,
+      'evolutions': instance.evolutions,
+      'abilities': instance.abilities,
+      'hp': instance.hp,
+      'attack': instance.attack,
+      'defense': instance.defense,
+      'special_attack': instance.specialAttack,
+      'special_defense': instance.specialDefense,
+      'speed': instance.speed,
+      'total': instance.total,
+      'male_percentage': instance.genderMalePercentage,
+      'female_percentage': instance.genderFemalePercentage,
+      'genderless': instance.genderless,
+      'cycles': instance.cycles,
+      'egg_groups': instance.eggGroups,
+      'evolvedfrom': instance.evolvedFrom,
+      'reason': instance.reason,
+      'base_exp': instance.baseExp,
+    };

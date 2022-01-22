@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/core/extensions/animation.dart';
@@ -19,8 +18,8 @@ class PokedexScreen extends StatefulWidget {
 }
 
 class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProviderStateMixin {
-  Animation<double> _fabAnimation;
-  AnimationController _fabController;
+  late Animation<double> _fabAnimation;
+  late AnimationController _fabController;
   bool _isFabMenuVisible = false;
 
   @override
@@ -40,7 +39,7 @@ class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProvider
 
   @override
   void dispose() {
-    _fabController?.dispose();
+    _fabController.dispose();
 
     super.dispose();
   }

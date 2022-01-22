@@ -40,7 +40,7 @@ extension PokemonTypesX on PokemonTypes {
     return type;
   }
 
-  Map<PokemonTypes, double> get effectiveness => _pokemonEffectivenessMap[this];
+  Map<PokemonTypes, double> get effectiveness => _pokemonEffectivenessMap[this] ?? {};
 
   Color get color {
     switch (this) {
