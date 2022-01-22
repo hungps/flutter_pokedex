@@ -19,23 +19,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^2.3.3
-  sliding_up_panel: ^1.0.2
-  hive: ^1.4.4
-  hive_flutter: ^0.3.1
-  dio: ^3.0.10
-  dio_http_cache: ^0.2.11
-  json_annotation: ^3.1.1
-  flutter_riverpod: ^0.12.1
-  intl: ^0.16.1
+  cached_network_image: ^3.2.0
+  sliding_up_panel: ^2.0.0+1
+  hive: ^2.0.5
+  hive_flutter: ^1.1.0
+  dio: ^4.0.4
+  dio_http_cache: ^0.3.0
+  json_annotation: ^4.1.0
+  flutter_riverpod: ^0.13.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.10.6
-  json_serializable: ^3.5.0
-  hive_generator: ^0.8.2
-  pedantic: ^1.9.2
+  build_runner: ^2.1.7
+  json_serializable: ^4.1.4
+  hive_generator: ^1.1.2
+  pedantic: ^1.11.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

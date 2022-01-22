@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/src/provider.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/configs/types.dart';
