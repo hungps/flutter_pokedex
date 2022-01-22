@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/src/provider.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/core/utils.dart';
@@ -51,9 +50,8 @@ class _ModalContentsState extends State<ModalContents> {
   PokeTypes get pokeType => types[widget.index];
 
   ExpansionPanel _buildTypePokemonPanel(List<Pokemon> pokemons) {
-    final filteredPokemons = pokemons
-        .where((pokemon) => pokemon.types.contains(pokeType.type))
-        .toList();
+    final filteredPokemons =
+        pokemons.where((pokemon) => pokemon.types.contains(pokeType.type)).toList();
 
     return ExpansionPanel(
       headerBuilder: (context, isOpen) {
@@ -71,8 +69,8 @@ class _ModalContentsState extends State<ModalContents> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text(
-                  "${getEnumValue(pokeType.type)[0].toUpperCase() + getEnumValue(pokeType.type).substring(1)} Type " +
-                      "Pokemons"),
+                  "${getEnumValue(pokeType.type)[0].toUpperCase() + getEnumValue(pokeType.type).substring(1)} Type "
+                  "Pokemons"),
             )
           ],
         );
@@ -92,15 +90,14 @@ class _ModalContentsState extends State<ModalContents> {
                   return PokemonCard(
                     pokemon,
                     index: pokemons.indexOf(pokemon),
-                    onPress: () =>
-                        _onPokemonPress(pokemons.indexOf(pokemon), pokemon),
+                    onPress: () => _onPokemonPress(pokemons.indexOf(pokemon), pokemon),
                   );
                 }).toList(),
               )
             : Padding(
                 padding: const EdgeInsets.only(bottom: 10.0),
-                child: Text("No Pokemon found",
-                    style: TextStyle(fontSize: 16, color: Colors.black54)),
+                child:
+                    Text("No Pokemon found", style: TextStyle(fontSize: 16, color: Colors.black54)),
               ),
       ),
       isExpanded: _isOpen[0],
@@ -124,8 +121,8 @@ class _ModalContentsState extends State<ModalContents> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text(
-                  "${getEnumValue(pokeType.type)[0].toUpperCase() + getEnumValue(pokeType.type).substring(1)} Type " +
-                      "Items"),
+                  "${getEnumValue(pokeType.type)[0].toUpperCase() + getEnumValue(pokeType.type).substring(1)} Type "
+                  "Items"),
             )
           ],
         );
@@ -186,25 +183,21 @@ class _ModalContentsState extends State<ModalContents> {
         if (pokeType.superEffective.isNotEmpty)
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: lister(widget.index, 2, widget.width,
-                "Effective Against".toUpperCase()),
+            children: lister(widget.index, 2, widget.width, "Effective Against".toUpperCase()),
           ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: lister(
-              widget.index, 0.5, widget.width, "Weak Against".toUpperCase()),
+          children: lister(widget.index, 0.5, widget.width, "Weak Against".toUpperCase()),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: lister(
-              widget.index, 1, widget.width, "Normal Against".toUpperCase()),
+          children: lister(widget.index, 1, widget.width, "Normal Against".toUpperCase()),
         ),
         if (pokeType.nilEffective.isNotEmpty)
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: lister(widget.index, 0, widget.width,
-                "No Effect Against".toUpperCase()),
+            children: lister(widget.index, 0, widget.width, "No Effect Against".toUpperCase()),
           ),
         Consumer(builder: (_, watch, __) {
           final pokemonState = watch(pokemonsStateProvider);

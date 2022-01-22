@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/core/extensions/animation.dart';

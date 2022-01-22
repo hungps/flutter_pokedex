@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pokedex/data/source/local/models/pokemon.dart';
 import 'package:pokedex/data/source/local/models/pokemon_gender.dart';
@@ -11,8 +10,7 @@ class LocalDataSource {
     await Hive.initFlutter();
 
     Hive.registerAdapter<PokemonHiveModel>(PokemonHiveModelAdapter());
-    Hive.registerAdapter<PokemonGenderHiveModel>(
-        PokemonGenderHiveModelAdapter());
+    Hive.registerAdapter<PokemonGenderHiveModel>(PokemonGenderHiveModelAdapter());
     Hive.registerAdapter<PokemonStatsHiveModel>(PokemonStatsHiveModelAdapter());
 
     await Hive.openBox<PokemonHiveModel>(PokemonHiveModel.boxKey);
@@ -38,8 +36,7 @@ class LocalDataSource {
   Future<List<PokemonHiveModel>> getAllPokemons() async {
     final pokemonBox = Hive.box<PokemonHiveModel>(PokemonHiveModel.boxKey);
 
-    final pokemons = List.generate(
-        pokemonBox.length, (index) => pokemonBox.getAt(index));
+    final pokemons = List.generate(pokemonBox.length, (index) => pokemonBox.getAt(index));
 
     return pokemons;
   }
@@ -51,8 +48,7 @@ class LocalDataSource {
     final start = (page - 1) * limit;
     final newPokemonCount = min(totalPokemons - start, limit);
 
-    final pokemons = List.generate(
-        newPokemonCount, (index) => pokemonBox.getAt(start + index));
+    final pokemons = List.generate(newPokemonCount, (index) => pokemonBox.getAt(start + index));
 
     return pokemons;
   }
@@ -64,8 +60,7 @@ class LocalDataSource {
   }
 
   Future<List<PokemonHiveModel>> getEvolutions(PokemonHiveModel pokemon) async {
-    final pokemonFutures =
-        pokemon.evolutions.map((pokemonNumber) => getPokemon(pokemonNumber));
+    final pokemonFutures = pokemon.evolutions.map((pokemonNumber) => getPokemon(pokemonNumber));
 
     final pokemons = await Future.wait(pokemonFutures);
 
