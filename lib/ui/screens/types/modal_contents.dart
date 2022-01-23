@@ -10,7 +10,7 @@ import 'package:pokedex/routes.dart';
 import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
-import 'package:pokedex/ui/screens/pokedex/widgets/pokemon_card.dart';
+import 'package:pokedex/ui/widgets/pokemon_card.dart';
 import 'package:pokedex/ui/screens/types/type_container.dart';
 import 'package:pokedex/ui/screens/types/type_entities/widget_list.dart';
 
@@ -91,7 +91,6 @@ class _ModalContentsState extends State<ModalContents> {
                 children: filteredPokemons.map((pokemon) {
                   return PokemonCard(
                     pokemon,
-                    index: pokemons.indexOf(pokemon),
                     onPress: () => _onPokemonPress(pokemons.indexOf(pokemon), pokemon),
                   );
                 }).toList(),

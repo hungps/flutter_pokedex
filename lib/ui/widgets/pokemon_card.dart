@@ -4,22 +4,60 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
-import 'package:pokedex/core/extensions/context.dart';
-import 'package:pokedex/ui/widgets/spacer.dart';
 
 class PokemonCard extends StatelessWidget {
   static const double _pokeballFraction = 0.75;
   static const double _pokemonFraction = 0.76;
 
+  final Pokemon pokemon;
+  final void Function()? onPress;
+
   const PokemonCard(
     this.pokemon, {
     this.onPress,
-    required this.index,
   });
 
-  final int index;
-  final void Function()? onPress;
-  final Pokemon pokemon;
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constrains) {
+        final itemHeight = constrains.maxHeight;
+
+        return Container(
+          decoration: BoxDecoration(
+            color: pokemon.color,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: pokemon.color.withOpacity(0.4),
+                blurRadius: 15,
+                offset: Offset(0, 8),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Material(
+              color: pokemon.color,
+              child: InkWell(
+                onTap: onPress,
+                splashColor: Colors.white10,
+                highlightColor: Colors.white10,
+                child: Stack(
+                  children: [
+                    _buildPokeballDecoration(height: itemHeight),
+                    _buildPokemon(height: itemHeight),
+                    _buildPokemonNumber(),
+                    _CardContent(pokemon),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   Widget _buildPokeballDecoration({required double height}) {
     final pokeballSize = height * _pokeballFraction;
@@ -38,6 +76,7 @@ class PokemonCard extends StatelessWidget {
 
   Widget _buildPokemon({required double height}) {
     final pokemonSize = height * _pokemonFraction;
+    final pokemonCachedSize = (pokemonSize * 2).toInt();
 
     return Positioned(
       bottom: -2,
@@ -48,6 +87,8 @@ class PokemonCard extends StatelessWidget {
           imageUrl: pokemon.image,
           width: pokemonSize,
           height: pokemonSize,
+          memCacheWidth: pokemonCachedSize,
+          memCacheHeight: pokemonCachedSize,
           imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
           useOldImageOnUrlChange: true,
           fit: BoxFit.contain,
@@ -93,78 +134,19 @@ class PokemonCard extends StatelessWidget {
       ),
     );
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constrains) {
-        final itemHeight = constrains.maxHeight;
-
-        return Container(
-          decoration: BoxDecoration(
-            color: pokemon.color,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: pokemon.color.withOpacity(0.12),
-                blurRadius: 30,
-                offset: Offset(0, 8),
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Material(
-              color: pokemon.color,
-              child: InkWell(
-                onTap: onPress,
-                splashColor: Colors.white10,
-                highlightColor: Colors.white10,
-                child: Stack(
-                  children: [
-                    _buildPokeballDecoration(height: itemHeight),
-                    _buildPokemon(height: itemHeight),
-                    _buildPokemonNumber(),
-                    _CardContent(pokemon),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
 }
 
 class _CardContent extends StatelessWidget {
-  const _CardContent(this.pokemon, {Key? key}) : super(key: key);
-
   final Pokemon pokemon;
 
-  List<Widget> _buildTypes(BuildContext context) {
-    return pokemon.types
-        .take(2)
-        .map(
-          (type) => Padding(
-            padding: EdgeInsets.symmetric(vertical: context.responsive(3)),
-            child: PokemonType(type),
-          ),
-        )
-        .toList();
-  }
+  const _CardContent(this.pokemon, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.only(
-          left: 16,
-          right: 16,
-          top: context.responsive(24),
-          bottom: context.responsive(16),
-        ),
+        padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -181,11 +163,23 @@ class _CardContent extends StatelessWidget {
                 ),
               ),
             ),
-            VSpacer(context.responsive(10)),
+            SizedBox(height: 10),
             ..._buildTypes(context),
           ],
         ),
       ),
     );
+  }
+
+  List<Widget> _buildTypes(BuildContext context) {
+    return pokemon.types
+        .take(2)
+        .map(
+          (type) => Padding(
+            padding: EdgeInsets.only(bottom: 6),
+            child: PokemonType(type),
+          ),
+        )
+        .toList();
   }
 }

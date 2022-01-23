@@ -50,10 +50,6 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   void _onSelectChanged(PokemonSelectChanged event, Emitter<PokemonState> emit) async {
     final pokemonIndex = state.pokemons.indexWhere((pokemon) => pokemon.number == event.pokemonId);
 
-    print(event.pokemonId);
-    print(state.pokemons[0].number);
-    print(pokemonIndex);
-
     if (pokemonIndex < 0 || pokemonIndex >= state.pokemons.length) return;
 
     emit(state.copyWith(selectedPokemonIndex: pokemonIndex));

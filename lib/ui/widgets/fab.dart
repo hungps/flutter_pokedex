@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/core/extensions/context.dart';
-import 'package:pokedex/ui/widgets/spacer.dart';
 
-class FabItem {
-  const FabItem(this.title, this.icon, {this.onPress});
-
+class FabItemData {
   final IconData icon;
   final void Function()? onPress;
   final String title;
+
+  const FabItemData(this.title, this.icon, {this.onPress});
 }
 
-class FabMenuItem extends StatelessWidget {
-  const FabMenuItem(this.item, {Key? key}) : super(key: key);
+class FabItem extends StatelessWidget {
+  final FabItemData item;
 
-  final FabItem item;
+  const FabItem(this.item, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
       shape: StadiumBorder(),
-      padding: EdgeInsets.only(
-        left: 24,
-        right: 16,
-        top: context.responsive(8),
-        bottom: context.responsive(8),
-      ),
+      padding: EdgeInsets.fromLTRB(24, 8, 16, 8),
       color: Colors.white,
-      splashColor: Colors.grey.withOpacity(0.1),
-      highlightColor: Colors.grey.withOpacity(0.1),
+      splashColor: Colors.grey[100],
+      highlightColor: Colors.grey[100],
       elevation: 0,
       highlightElevation: 2,
       disabledColor: Colors.white,
@@ -37,7 +31,7 @@ class FabMenuItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(item.title),
-          HSpacer(8),
+          SizedBox(width: 8),
           Icon(item.icon, color: AppColors.indigo),
         ],
       ),
@@ -46,16 +40,45 @@ class FabMenuItem extends StatelessWidget {
 }
 
 class ExpandedAnimationFab extends AnimatedWidget {
+  final List<FabItemData> items;
+  final void Function()? onPress;
+
   const ExpandedAnimationFab({
     required this.items,
     required Animation animation,
     this.onPress,
   }) : super(listenable: animation);
 
-  final List<FabItem> items;
-  final void Function()? onPress;
-
   Animation<double> get animation => listenable as Animation<double>;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        IgnorePointer(
+          ignoring: animation.value == 0,
+          child: ListView.separated(
+            shrinkWrap: true,
+            padding: EdgeInsets.symmetric(vertical: 12),
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: items.length,
+            separatorBuilder: (_, __) => SizedBox(height: 9),
+            itemBuilder: _buildItem,
+          ),
+        ),
+        FloatingActionButton(
+          backgroundColor: AppColors.indigo,
+          child: AnimatedIcon(
+            icon: AnimatedIcons.menu_close,
+            progress: animation,
+          ),
+          onPressed: onPress,
+        ),
+      ],
+    );
+  }
 
   Widget _buildItem(BuildContext context, int index) {
     final screenWidth = context.screenSize.width;
@@ -72,38 +95,9 @@ class ExpandedAnimationFab extends AnimatedWidget {
         transform: transform,
         child: Opacity(
           opacity: animation.value,
-          child: FabMenuItem(items[index]),
+          child: FabItem(items[index]),
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        IgnorePointer(
-          ignoring: animation.value == 0,
-          child: ListView.separated(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (_, __) => SizedBox(height: context.responsive(9)),
-            padding: EdgeInsets.symmetric(vertical: context.responsive(12)),
-            itemCount: items.length,
-            itemBuilder: _buildItem,
-          ),
-        ),
-        FloatingActionButton(
-          backgroundColor: AppColors.indigo,
-          child: AnimatedIcon(
-            icon: AnimatedIcons.menu_close,
-            progress: animation,
-          ),
-          onPressed: onPress,
-        ),
-      ],
     );
   }
 }

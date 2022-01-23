@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/generation.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class GenerationCard extends StatelessWidget {
   const GenerationCard(this.generation);
@@ -20,7 +19,7 @@ class GenerationCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, context.responsive(8)),
+              offset: Offset(0, 8),
               blurRadius: 15,
               color: AppColors.black.withOpacity(0.12),
             ),
@@ -30,10 +29,7 @@ class GenerationCard extends StatelessWidget {
           children: <Widget>[
             Container(
               constraints: BoxConstraints.expand(),
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: context.responsive(16),
-              ),
+              padding: EdgeInsets.all(16),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
