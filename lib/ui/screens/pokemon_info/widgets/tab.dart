@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/providers/providers.dart';
+import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
+import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_about.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_base_stats.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab_evolution.dart';
@@ -62,15 +63,9 @@ class PokemonTabInfo extends StatelessWidget {
 
   Widget _buildTabContent() {
     return Expanded(
-      child: Consumer(builder: (_, ref, __) {
-        final currentPokemon = ref.watch(currentPokemonStateProvider).pokemon;
-
-        if (currentPokemon == null) {
-          return SizedBox.shrink();
-        }
-
+      child: BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
         return TabBarView(
-          children: _tabs.map((tab) => tab.builder(currentPokemon, _animation)).toList(),
+          children: _tabs.map((tab) => tab.builder(state.selectedPokemon, _animation)).toList(),
         );
       }),
     );

@@ -1,54 +1,58 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/configs/constants.dart';
-import 'package:pokedex/configs/fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/app.dart';
+import 'package:pokedex/core/network.dart';
+import 'package:pokedex/data/repositories/pokemon_repository.dart';
+import 'package:pokedex/data/source/github/github_datasource.dart';
 import 'package:pokedex/data/source/local/local_datasource.dart';
-import 'package:pokedex/routes.dart';
+import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await LocalDataSource.initialize();
 
-  runApp(ProviderScope(child: PokedexApp()));
-}
-
-class PokedexApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return MaterialApp(
-      color: Colors.white,
-      title: 'Flutter Pokedex',
-      theme: ThemeData(
-        fontFamily: AppFonts.circularStd,
-        textTheme: theme.textTheme.apply(
-          fontFamily: AppFonts.circularStd,
-          displayColor: AppColors.black,
+  runApp(
+    MultiRepositoryProvider(
+      providers: [
+        ///
+        /// Services
+        ///
+        RepositoryProvider<NetworkManager>(
+          create: (context) => NetworkManager(),
         ),
-        scaffoldBackgroundColor: AppColors.lightGrey,
-        primarySwatch: Colors.blue,
-      ),
-      navigatorKey: AppNavigator.navigatorKey,
-      onGenerateRoute: AppNavigator.onGenerateRoute,
-      builder: (context, child) {
-        if (child == null) return SizedBox.shrink();
 
-        final data = MediaQuery.of(context);
-        final smallestSize = min(data.size.width, data.size.height);
-        final textScaleFactor = min(smallestSize / AppConstants.designScreenSize.width, 1.0);
+        ///
+        /// Data sources
+        ///
+        RepositoryProvider<LocalDataSource>(
+          create: (context) => LocalDataSource(),
+        ),
+        RepositoryProvider<GithubDataSource>(
+          create: (context) => GithubDataSource(context.read<NetworkManager>()),
+        ),
 
-        return MediaQuery(
-          data: data.copyWith(
-            textScaleFactor: textScaleFactor,
+        ///
+        /// Repositories
+        ///
+        RepositoryProvider<PokemonRepository>(
+          create: (context) => PokemonDefaultRepository(
+            localDataSource: context.read<LocalDataSource>(),
+            githubDataSource: context.read<GithubDataSource>(),
           ),
-          child: child,
-        );
-      },
-    );
-  }
+        ),
+      ],
+      child: MultiBlocProvider(
+        providers: [
+          ///
+          /// BLoCs
+          ///
+          BlocProvider<PokemonBloc>(
+            create: (context) => PokemonBloc(context.read<PokemonRepository>()),
+          ),
+        ],
+        child: PokedexApp(),
+      ),
+    ),
+  );
 }

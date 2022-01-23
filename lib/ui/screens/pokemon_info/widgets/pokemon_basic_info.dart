@@ -1,19 +1,21 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart' hide AnimatedSlide;
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/providers/providers.dart';
+import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
+import 'package:pokedex/states/pokemon/pokemon_event.dart';
+import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';
 import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
-class PokemonOverallInfo extends ConsumerStatefulWidget {
+class PokemonOverallInfo extends StatefulWidget {
   final Pokemon pokemon;
   final AnimationController controller;
   final AnimationController rotateController;
@@ -24,8 +26,7 @@ class PokemonOverallInfo extends ConsumerStatefulWidget {
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
-class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
-    with TickerProviderStateMixin {
+class _PokemonOverallInfoState extends State<PokemonOverallInfo> with TickerProviderStateMixin {
   static const double _pokemonSliderViewportFraction = 0.6;
   static const int _endReachedThreshold = 4;
 
@@ -56,14 +57,12 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
 
   @override
   void didChangeDependencies() {
-    final pageIndex = ref.read(currentPokemonStateProvider).index;
+    final pageIndex = context.read<PokemonBloc>().state.selectedPokemonIndex;
 
-    if (pageIndex != null) {
-      _pageController ??= PageController(
-        viewportFraction: _pokemonSliderViewportFraction,
-        initialPage: pageIndex,
-      );
-    }
+    _pageController ??= PageController(
+      viewportFraction: _pokemonSliderViewportFraction,
+      initialPage: pageIndex,
+    );
 
     super.didChangeDependencies();
   }
@@ -98,14 +97,24 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
     });
   }
 
+  void _onSelectPokemon(Pokemon pokemon, bool needLoadMore) {
+    final pokemonBloc = context.read<PokemonBloc>();
+
+    pokemonBloc.add(PokemonSelectChanged(pokemonId: pokemon.number));
+
+    if (needLoadMore) {
+      pokemonBloc.add(PokemonLoadMoreStarted());
+    }
+  }
+
   AppBar _buildAppBar() {
     return MainAppBar(
       // A placeholder for easily calculate the translate of the pokemon name
-      title: Consumer(builder: (_, ref, __) {
+      title: BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
         _calculatePokemonNamePosition();
 
         return Text(
-          ref.watch(currentPokemonStateProvider).pokemon?.name ?? '',
+          state.selectedPokemon.name,
           key: _targetTextKey,
           style: TextStyle(
             color: Colors.transparent,
@@ -135,8 +144,8 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
 
               return Transform.translate(
                 offset: Offset(textDiffLeft * value, textDiffTop * value),
-                child: Consumer(builder: (_, ref, __) {
-                  final pokemonName = ref.watch(currentPokemonStateProvider).pokemon?.name ?? '';
+                child: BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
+                  final pokemonName = state.selectedPokemon.name;
 
                   return Hero(
                     tag: pokemonName,
@@ -161,15 +170,15 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
             animation: _slideController,
             child: AnimatedFade(
               animation: fadeAnimation,
-              child: Consumer(builder: (_, ref, __) {
-                final tag = ref.watch(currentPokemonStateProvider).pokemon;
+              child: BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
+                final pokemon = state.selectedPokemon;
 
                 return Hero(
-                  tag: tag?.number ?? '',
+                  tag: pokemon.number,
                   child: Material(
                     color: Colors.transparent,
                     child: Text(
-                      tag?.number ?? '',
+                      pokemon.number,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w900,
@@ -193,8 +202,8 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
       animation: fadeAnimation,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 26),
-        child: Consumer(builder: (_, ref, __) {
-          final pokemon = ref.watch(currentPokemonStateProvider).pokemon;
+        child: BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
+          final pokemon = state.selectedPokemon;
 
           return Row(
             mainAxisSize: MainAxisSize.max,
@@ -205,7 +214,7 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
                 child: Wrap(
                   spacing: context.responsive(8),
                   runSpacing: context.responsive(8),
-                  children: (pokemon?.types ?? [])
+                  children: pokemon.types
                       .map(
                         (type) => Hero(
                           tag: type,
@@ -218,7 +227,7 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
               AnimatedSlide(
                 animation: _slideController,
                 child: Text(
-                  pokemon?.genera ?? '',
+                  pokemon.genera,
                   style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ),
@@ -261,27 +270,19 @@ class _PokemonOverallInfoState extends ConsumerState<PokemonOverallInfo>
                 ),
               ),
             ),
-            Consumer(builder: (context, ref, __) {
-              final pokemonsState = ref.watch(pokemonsStateProvider);
-              final currentPokemonState = ref.watch(currentPokemonStateProvider);
-
-              final pokemons = pokemonsState.pokemons;
+            BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
+              final pokemons = state.pokemons;
 
               return PageView.builder(
                 physics: BouncingScrollPhysics(),
                 controller: _pageController,
                 itemCount: pokemons.length,
                 onPageChanged: (index) {
-                  currentPokemonState.setPokemon(index, pokemons[index]);
-
-                  final thresholdReached = index >= pokemons.length - _endReachedThreshold;
-
-                  if (pokemonsState.canLoadMore && thresholdReached) {
-                    pokemonsState.getPokemons();
-                  }
+                  final needLoadMore = index >= pokemons.length - _endReachedThreshold;
+                  _onSelectPokemon(pokemons[index], needLoadMore);
                 },
                 itemBuilder: (context, index) {
-                  final selected = currentPokemonState.index == index;
+                  final selected = state.selectedPokemonIndex == index;
                   final imageSize = screenSize.height * 0.3;
 
                   return Hero(
