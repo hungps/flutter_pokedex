@@ -3,38 +3,14 @@ import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/category.dart';
 import 'package:pokedex/core/extensions/context.dart';
 
-class PokeCategoryCard extends StatelessWidget {
-  const PokeCategoryCard(
-    this.category, {
-    this.onPress,
-  });
-
+class CategoryCard extends StatelessWidget {
   final Category category;
   final void Function()? onPress;
 
-  Widget _buildCircleDecoration({required double height}) {
-    return Positioned(
-      top: -height * 0.616,
-      left: -height * 0.53,
-      child: CircleAvatar(
-        radius: (height * 1.03) / 2,
-        backgroundColor: Colors.white.withOpacity(0.14),
-      ),
-    );
-  }
-
-  Widget _buildPokemonDecoration({required double height}) {
-    return Positioned(
-      top: -height * 0.16,
-      right: -height * 0.25,
-      child: Image(
-        image: AppImages.pokeball,
-        width: height * 1.388,
-        height: height * 1.388,
-        color: Colors.white.withOpacity(0.14),
-      ),
-    );
-  }
+  const CategoryCard(
+    this.category, {
+    this.onPress,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +35,7 @@ class PokeCategoryCard extends StatelessWidget {
                 onTap: onPress,
                 child: Stack(
                   children: [
-                    _buildPokemonDecoration(height: itemHeight),
+                    _buildPokeballDecoration(height: itemHeight),
                     _buildCircleDecoration(height: itemHeight),
                     _CardContent(category.name),
                   ],
@@ -71,6 +47,30 @@ class PokeCategoryCard extends StatelessWidget {
       },
     );
   }
+
+  Widget _buildCircleDecoration({required double height}) {
+    return Positioned(
+      top: -height * 0.616,
+      left: -height * 0.53,
+      child: CircleAvatar(
+        radius: (height * 1.03) / 2,
+        backgroundColor: Colors.white.withOpacity(0.14),
+      ),
+    );
+  }
+
+  Widget _buildPokeballDecoration({required double height}) {
+    return Positioned(
+      top: -height * 0.16,
+      right: -height * 0.25,
+      child: Image(
+        image: AppImages.pokeball,
+        width: height * 1.388,
+        height: height * 1.388,
+        color: Colors.white.withOpacity(0.14),
+      ),
+    );
+  }
 }
 
 class _CardContent extends StatelessWidget {
@@ -80,17 +80,15 @@ class _CardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return Container(
       alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: Text(
-          name,
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Text(
+        name,
+        style: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
       ),
     );
@@ -107,7 +105,7 @@ class _Shadows extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width * 0.82,
-      height: context.responsive(11),
+      height: 11,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
