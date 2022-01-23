@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pokedex/configs/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/providers/providers.dart';
+import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
+import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/decoration_box.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/pokemon_basic_info.dart';
 import 'package:pokedex/ui/screens/pokemon_info/widgets/tab.dart';
@@ -76,13 +76,11 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
   }
 
   Widget _buildBackground() {
-    return Consumer(builder: (_, ref, __) {
-      final currentPokemon = ref.watch(currentPokemonStateProvider).pokemon;
-
+    return BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
       return AnimatedContainer(
         duration: Duration(milliseconds: 300),
         constraints: BoxConstraints.expand(),
-        color: currentPokemon?.color ?? AppColors.teal,
+        color: state.selectedPokemon.color,
       );
     });
   }

@@ -1,19 +1,21 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/configs/types.dart';
 import 'package:pokedex/core/utils.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/providers/providers.dart';
 import 'package:pokedex/routes.dart';
+import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
+import 'package:pokedex/states/pokemon/pokemon_event.dart';
+import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/screens/pokedex/widgets/pokemon_card.dart';
 import 'package:pokedex/ui/screens/types/type_container.dart';
 import 'package:pokedex/ui/screens/types/type_entities/widget_list.dart';
 
 // Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
-class ModalContents extends ConsumerStatefulWidget {
+class ModalContents extends StatefulWidget {
   const ModalContents({
     Key? key,
     required this.index,
@@ -29,7 +31,7 @@ class ModalContents extends ConsumerStatefulWidget {
   _ModalContentsState createState() => _ModalContentsState();
 }
 
-class _ModalContentsState extends ConsumerState<ModalContents> {
+class _ModalContentsState extends State<ModalContents> {
   final List<bool> _isOpen = [false, false, false];
 
   @override
@@ -37,12 +39,12 @@ class _ModalContentsState extends ConsumerState<ModalContents> {
     super.initState();
 
     scheduleMicrotask(() {
-      ref.read(pokemonsStateProvider).getAllPokemons();
+      context.read<PokemonBloc>().add(PokemonLoadStarted(loadAll: true));
     });
   }
 
   void _onPokemonPress(int index, Pokemon pokemon) {
-    ref.read(currentPokemonStateProvider).setPokemon(index, pokemon);
+    context.read<PokemonBloc>().add(PokemonSelectChanged(pokemonId: pokemon.number));
 
     AppNavigator.push(Routes.pokemonInfo, pokemon);
   }
@@ -199,13 +201,12 @@ class _ModalContentsState extends ConsumerState<ModalContents> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: lister(widget.index, 0, widget.width, "No Effect Against".toUpperCase()),
           ),
-        Consumer(builder: (_, ref, __) {
-          final pokemonState = ref.watch(pokemonsStateProvider);
-          if (pokemonState.isError) {
+        BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
+          if (state.error != null) {
             return _buildError();
-          } else {
-            return _buildTypePanelList(pokemonState.pokemons);
           }
+
+          return _buildTypePanelList(state.pokemons);
         }),
       ],
     );
