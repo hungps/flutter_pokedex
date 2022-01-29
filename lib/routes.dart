@@ -6,8 +6,6 @@ import 'package:pokedex/ui/screens/pokemon_info/pokemon_info.dart';
 import 'package:pokedex/ui/screens/splash/splash.dart';
 import 'package:pokedex/ui/screens/types/type_screen.dart';
 
-import 'domain/entities/pokemon.dart';
-
 enum Routes { splash, home, pokedex, pokemonInfo, typeEffects }
 
 class _Paths {
@@ -39,7 +37,7 @@ class AppNavigator {
         return FadeRoute(page: PokedexScreen());
 
       case _Paths.pokemonInfo:
-        return FadeRoute(page: PokemonInfo(settings.arguments as Pokemon));
+        return FadeRoute(page: PokemonInfo());
 
       case _Paths.typeEffectsScreen:
         return FadeRoute(page: TypeEffectScreen());

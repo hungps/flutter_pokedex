@@ -29,7 +29,7 @@ class PokedexScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _PokedexScreenState();
 }
 
-class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProviderStateMixin {
+class _PokedexScreenState extends State<PokedexScreen> {
   @override
   Widget build(BuildContext context) {
     return PokeballBackground(

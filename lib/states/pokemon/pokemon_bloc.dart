@@ -32,6 +32,8 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
   void _onLoadMoreStarted(PokemonLoadMoreStarted event, Emitter<PokemonState> emit) async {
     try {
+      if (!state.canLoadMore) return;
+
       emit(state.asLoadingMore());
 
       final pokemons = await _pokemonRepository.getPokemons(
@@ -48,10 +50,23 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   }
 
   void _onSelectChanged(PokemonSelectChanged event, Emitter<PokemonState> emit) async {
-    final pokemonIndex = state.pokemons.indexWhere((pokemon) => pokemon.number == event.pokemonId);
+    try {
+      final pokemonIndex = state.pokemons.indexWhere(
+        (pokemon) => pokemon.number == event.pokemonId,
+      );
 
-    if (pokemonIndex < 0 || pokemonIndex >= state.pokemons.length) return;
+      if (pokemonIndex < 0 || pokemonIndex >= state.pokemons.length) return;
 
-    emit(state.copyWith(selectedPokemonIndex: pokemonIndex));
+      final pokemon = await _pokemonRepository.getPokemon(event.pokemonId);
+
+      if (pokemon == null) return;
+
+      emit(state.copyWith(
+        pokemons: state.pokemons..setAll(pokemonIndex, [pokemon]),
+        selectedPokemonIndex: pokemonIndex,
+      ));
+    } on Exception catch (e) {
+      emit(state.asLoadMoreFailure(e));
+    }
   }
 }
