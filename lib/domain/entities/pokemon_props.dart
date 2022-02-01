@@ -26,4 +26,6 @@ class PokemonStats {
   final int specialDefense;
   final int hp;
   final int speed;
+
+  int get total => attack + specialAttack + defense + specialDefense + hp + speed;
 }

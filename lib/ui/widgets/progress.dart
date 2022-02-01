@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class ProgressBar extends StatelessWidget {
   const ProgressBar({
@@ -26,7 +25,7 @@ class ProgressBar extends StatelessWidget {
 
     return Container(
       clipBehavior: Clip.hardEdge,
-      height: context.responsive(3),
+      height: 3,
       alignment: Alignment.centerLeft,
       decoration: ShapeDecoration(
         shape: StadiumBorder(),

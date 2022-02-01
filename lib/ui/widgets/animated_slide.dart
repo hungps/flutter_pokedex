@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class AnimatedSlide extends AnimatedWidget {
   const AnimatedSlide({
@@ -12,7 +11,7 @@ class AnimatedSlide extends AnimatedWidget {
 
   @override
   Widget build(BuildContext context) {
-    final slideWidth = context.screenSize.width * 0.3;
+    final slideWidth = MediaQuery.of(context).size.width * 0.3;
 
     return Transform.translate(
       offset: Offset(slideWidth * (1 - animation.value), 0),

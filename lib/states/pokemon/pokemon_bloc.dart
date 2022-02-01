@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_transform/stream_transform.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
@@ -9,8 +10,14 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   final PokemonRepository _pokemonRepository;
 
   PokemonBloc(this._pokemonRepository) : super(PokemonState.initial()) {
-    on<PokemonLoadStarted>(_onLoadStarted);
-    on<PokemonLoadMoreStarted>(_onLoadMoreStarted);
+    on<PokemonLoadStarted>(
+      _onLoadStarted,
+      transformer: (events, mapper) => events.switchMap(mapper),
+    );
+    on<PokemonLoadMoreStarted>(
+      _onLoadMoreStarted,
+      transformer: (events, mapper) => events.switchMap(mapper),
+    );
     on<PokemonSelectChanged>(_onSelectChanged);
   }
 
@@ -32,6 +39,8 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
   void _onLoadMoreStarted(PokemonLoadMoreStarted event, Emitter<PokemonState> emit) async {
     try {
+      if (!state.canLoadMore) return;
+
       emit(state.asLoadingMore());
 
       final pokemons = await _pokemonRepository.getPokemons(
@@ -48,14 +57,23 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   }
 
   void _onSelectChanged(PokemonSelectChanged event, Emitter<PokemonState> emit) async {
-    final pokemonIndex = state.pokemons.indexWhere((pokemon) => pokemon.number == event.pokemonId);
+    try {
+      final pokemonIndex = state.pokemons.indexWhere(
+        (pokemon) => pokemon.number == event.pokemonId,
+      );
 
-    print(event.pokemonId);
-    print(state.pokemons[0].number);
-    print(pokemonIndex);
+      if (pokemonIndex < 0 || pokemonIndex >= state.pokemons.length) return;
 
-    if (pokemonIndex < 0 || pokemonIndex >= state.pokemons.length) return;
+      final pokemon = await _pokemonRepository.getPokemon(event.pokemonId);
 
-    emit(state.copyWith(selectedPokemonIndex: pokemonIndex));
+      if (pokemon == null) return;
+
+      emit(state.copyWith(
+        pokemons: state.pokemons..setAll(pokemonIndex, [pokemon]),
+        selectedPokemonIndex: pokemonIndex,
+      ));
+    } on Exception catch (e) {
+      emit(state.asLoadMoreFailure(e));
+    }
   }
 }

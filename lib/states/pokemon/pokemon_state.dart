@@ -62,6 +62,7 @@ class PokemonState {
       status: PokemonStateStatus.loadMoreSuccess,
       pokemons: [...pokemons, ...newPokemons],
       page: canLoadMore ? page + 1 : page,
+      canLoadMore: canLoadMore,
     );
   }
 

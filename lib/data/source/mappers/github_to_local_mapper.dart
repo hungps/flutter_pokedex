@@ -14,10 +14,10 @@ extension GithubPokemonModelToLocalX on GithubPokemonModel {
     ..height = height.trim()
     ..weight = weight.trim()
     ..genera = category.trim()
-    ..eggGroups = eggGroups.split(RegExp(r',\s*?')).map((e) => e.trim()).toList()
+    ..eggGroups = eggGroups?.split(RegExp(r',\s*?')).map((e) => e.trim()).toList() ?? []
     ..gender = (PokemonGenderHiveModel()
-      ..male = genderMalePercentage.parseDouble()
-      ..female = genderFemalePercentage.parseDouble()
+      ..male = genderMalePercentage?.parseDouble() ?? 0
+      ..female = genderFemalePercentage?.parseDouble() ?? 0
       ..genderless = genderless == 1)
     ..stats = (PokemonStatsHiveModel()
       ..hp = hp.toInt()
@@ -28,5 +28,5 @@ extension GithubPokemonModelToLocalX on GithubPokemonModel {
       ..specialDefense = specialDefense.toInt())
     ..baseExp = baseExp.parseDouble()
     ..evolutions = evolutions
-    ..evolutionReason = reason;
+    ..evolutionReason = reason ?? '';
 }

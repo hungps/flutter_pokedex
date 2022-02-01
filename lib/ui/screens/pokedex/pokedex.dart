@@ -1,14 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/durations.dart';
+import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/animation.dart';
+import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/routes.dart';
+import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
+import 'package:pokedex/states/pokemon/pokemon_event.dart';
+import 'package:pokedex/states/pokemon/pokemon_selector.dart';
+import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/modals/generation_modal.dart';
 import 'package:pokedex/ui/modals/search_modal.dart';
-import 'package:pokedex/ui/screens/pokedex/widgets/pokemon_grid.dart';
+import 'package:pokedex/ui/widgets/pokemon_card.dart';
+import 'package:pokedex/ui/widgets/animated_overlay.dart';
 import 'package:pokedex/ui/widgets/fab.dart';
+import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/pokeball_background.dart';
+import 'package:pokedex/ui/widgets/pokemon_refresh_control.dart';
 
-part 'package:pokedex/ui/screens/pokedex/widgets/fab_menu.dart';
-part 'package:pokedex/ui/screens/pokedex/widgets/fab_overlay_background.dart';
+part 'sections/fab_menu.dart';
+part 'sections/pokemon_grid.dart';
 
 class PokedexScreen extends StatefulWidget {
   const PokedexScreen();
@@ -17,76 +30,15 @@ class PokedexScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _PokedexScreenState();
 }
 
-class _PokedexScreenState extends State<PokedexScreen> with SingleTickerProviderStateMixin {
-  late Animation<double> _fabAnimation;
-  late AnimationController _fabController;
-  bool _isFabMenuVisible = false;
-
-  @override
-  void initState() {
-    _fabController = AnimationController(
-      vsync: this,
-      duration: animationDuration,
-    );
-
-    _fabAnimation = _fabController.curvedTweenAnimation(
-      begin: 0.0,
-      end: 1.0,
-    );
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _fabController.dispose();
-
-    super.dispose();
-  }
-
-  void _toggleFabMenu() {
-    _isFabMenuVisible = !_isFabMenuVisible;
-
-    if (_isFabMenuVisible) {
-      _fabController.forward();
-    } else {
-      _fabController.reverse();
-    }
-  }
-
-  void _showSearchModal() {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (context) => SearchBottomModal(),
-    );
-  }
-
-  void _showGenerationModal() {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (context) => GenerationModal(),
-    );
-  }
-
+class _PokedexScreenState extends State<PokedexScreen> {
   @override
   Widget build(BuildContext context) {
     return PokeballBackground(
       child: Stack(
         children: [
-          PokemonGrid(),
-          _FabOverlayBackground(
-            animation: _fabAnimation,
-            onPressOut: _toggleFabMenu,
-          ),
+          _PokemonGrid(),
+          _FabMenu(),
         ],
-      ),
-      floatingActionButton: _FabMenu(
-        animation: _fabAnimation,
-        toggle: _toggleFabMenu,
-        onAllGenPress: _showGenerationModal,
-        onSearchPress: _showSearchModal,
       ),
     );
   }

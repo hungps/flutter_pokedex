@@ -39,13 +39,13 @@ class GithubPokemonModel {
 
   Map<String, dynamic> toJson() => _$GithubPokemonModelToJson(this);
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(required: true, disallowNullValue: true)
   final String name;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(required: true, disallowNullValue: true)
   final String id;
 
-  @JsonKey(name: 'imageurl', disallowNullValue: true)
+  @JsonKey(required: true, name: 'imageurl', disallowNullValue: true)
   final String imageUrl;
 
   @JsonKey(name: 'xdescription', defaultValue: '')
@@ -63,7 +63,7 @@ class GithubPokemonModel {
   @JsonKey(defaultValue: '')
   final String weight;
 
-  @JsonKey(name: 'typeofpokemon', disallowNullValue: true)
+  @JsonKey(name: 'typeofpokemon', required: true, disallowNullValue: true)
   final List<String> types;
 
   @JsonKey(defaultValue: [])
@@ -75,47 +75,47 @@ class GithubPokemonModel {
   @JsonKey(defaultValue: [])
   final List<String> abilities;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(defaultValue: 0)
   final num hp;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(defaultValue: 0)
   final num attack;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(defaultValue: 0)
   final num defense;
 
-  @JsonKey(name: 'special_attack', disallowNullValue: true)
+  @JsonKey(name: 'special_attack', defaultValue: 0)
   final num specialAttack;
 
-  @JsonKey(name: 'special_defense', disallowNullValue: true)
+  @JsonKey(name: 'special_defense', defaultValue: 0)
   final num specialDefense;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(defaultValue: 0)
   final num speed;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(defaultValue: 0)
   final num total;
 
-  @JsonKey(name: 'male_percentage', disallowNullValue: true)
-  final String genderMalePercentage;
+  @JsonKey(name: 'male_percentage')
+  final String? genderMalePercentage;
 
-  @JsonKey(name: 'female_percentage', disallowNullValue: true)
-  final String genderFemalePercentage;
+  @JsonKey(name: 'female_percentage')
+  final String? genderFemalePercentage;
 
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(required: true, disallowNullValue: true)
   final num genderless;
 
-  @JsonKey(defaultValue: '')
-  final String cycles;
+  @JsonKey()
+  final String? cycles;
 
-  @JsonKey(name: 'egg_groups', disallowNullValue: true)
-  final String eggGroups;
+  @JsonKey(name: 'egg_groups')
+  final String? eggGroups;
 
   @JsonKey(name: 'evolvedfrom')
-  final String evolvedFrom;
+  final String? evolvedFrom;
 
-  @JsonKey(defaultValue: '')
-  final String reason;
+  @JsonKey()
+  final String? reason;
 
   @JsonKey(name: 'base_exp', defaultValue: '0')
   final String baseExp;

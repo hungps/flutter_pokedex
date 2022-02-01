@@ -7,22 +7,18 @@ part of 'pokemon.dart';
 // **************************************************************************
 
 GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, disallowNullValues: const [
+  $checkKeys(json, requiredKeys: const [
     'name',
     'id',
     'imageurl',
     'typeofpokemon',
-    'hp',
-    'attack',
-    'defense',
-    'special_attack',
-    'special_defense',
-    'speed',
-    'total',
-    'male_percentage',
-    'female_percentage',
-    'genderless',
-    'egg_groups'
+    'genderless'
+  ], disallowNullValues: const [
+    'name',
+    'id',
+    'imageurl',
+    'typeofpokemon',
+    'genderless'
   ]);
   return GithubPokemonModel(
     json['name'] as String,
@@ -40,20 +36,20 @@ GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
         [],
     (json['abilities'] as List<dynamic>?)?.map((e) => e as String).toList() ??
         [],
-    json['hp'] as num,
-    json['attack'] as num,
-    json['defense'] as num,
-    json['special_attack'] as num,
-    json['special_defense'] as num,
-    json['speed'] as num,
-    json['total'] as num,
-    json['male_percentage'] as String,
-    json['female_percentage'] as String,
+    json['hp'] as num? ?? 0,
+    json['attack'] as num? ?? 0,
+    json['defense'] as num? ?? 0,
+    json['special_attack'] as num? ?? 0,
+    json['special_defense'] as num? ?? 0,
+    json['speed'] as num? ?? 0,
+    json['total'] as num? ?? 0,
+    json['male_percentage'] as String?,
+    json['female_percentage'] as String?,
     json['genderless'] as num,
-    json['cycles'] as String? ?? '',
-    json['egg_groups'] as String,
-    json['evolvedfrom'] as String,
-    json['reason'] as String? ?? '',
+    json['cycles'] as String?,
+    json['egg_groups'] as String?,
+    json['evolvedfrom'] as String?,
+    json['reason'] as String?,
     json['base_exp'] as String? ?? '0',
   );
 }
