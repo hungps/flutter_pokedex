@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
-import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
 class PokemonType extends StatelessWidget {
@@ -24,7 +23,7 @@ class PokemonType extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: large ? 19 : 12,
-          vertical: context.responsive(large ? 6 : 4),
+          vertical: large ? 6 : 4,
         ),
         decoration: ShapeDecoration(
           shape: StadiumBorder(),

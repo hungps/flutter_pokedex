@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class FabItemData {
   final IconData icon;
@@ -81,7 +80,7 @@ class ExpandedAnimationFab extends AnimatedWidget {
   }
 
   Widget _buildItem(BuildContext context, int index) {
-    final screenWidth = context.screenSize.width;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     final transform = Matrix4.translationValues(
       -(screenWidth - animation.value * screenWidth) * ((items.length - index) / 4),

@@ -86,16 +86,13 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
   }
 
   Widget _buildBackground() {
-    return BlocSelector<PokemonBloc, PokemonState, Color>(
-      selector: (state) => state.selectedPokemon.color,
-      builder: (_, color) {
-        return AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          constraints: BoxConstraints.expand(),
-          color: color,
-        );
-      },
-    );
+    return CurrentPokemonSelector((pokemon) {
+      return AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        constraints: BoxConstraints.expand(),
+        color: pokemon.color,
+      );
+    });
   }
 
   Widget _buildBoxDecoration() {

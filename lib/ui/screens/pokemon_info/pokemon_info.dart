@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart' hide AnimatedSlide;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
@@ -11,7 +9,7 @@ import 'package:pokedex/domain/entities/pokemon_props.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
 import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
-import 'package:pokedex/states/pokemon/pokemon_state.dart';
+import 'package:pokedex/states/pokemon/pokemon_selector.dart';
 import 'package:pokedex/ui/screens/pokemon_info/state_provider.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';
@@ -19,12 +17,13 @@ import 'package:pokedex/ui/widgets/auto_slideup_panel.dart';
 import 'package:pokedex/ui/widgets/hero.dart';
 import 'package:pokedex/ui/widgets/main_app_bar.dart';
 import 'package:pokedex/ui/widgets/main_tab_view.dart';
+import 'package:pokedex/ui/widgets/pokemon_image.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/progress.dart';
 import 'package:pokedex/utils/string.dart';
 
 part 'sections/background_decoration.dart';
-part 'sections/pokemon_basic_info.dart';
+part 'sections/pokemon_overall_info.dart';
 part 'sections/pokemon_info_card.dart';
 part 'sections/pokemon_info_card_about.dart';
 part 'sections/pokemon_info_card_basestats.dart';

@@ -1,6 +1,8 @@
 part of '../pokedex.dart';
 
 class _PokemonGrid extends StatefulWidget {
+  const _PokemonGrid();
+
   @override
   _PokemonGridState createState() => _PokemonGridState();
 }
@@ -10,47 +12,47 @@ class _PokemonGridState extends State<_PokemonGrid> {
 
   final GlobalKey<NestedScrollViewState> _scrollKey = GlobalKey();
 
-  PokemonBloc get bloc => context.read<PokemonBloc>();
-  ScrollController? get innerController => _scrollKey.currentState?.innerController;
+  PokemonBloc get pokemonBloc => context.read<PokemonBloc>();
 
   @override
   void initState() {
     super.initState();
 
     scheduleMicrotask(() {
-      bloc.add(PokemonLoadStarted());
-      innerController?.addListener(_onScroll);
+      pokemonBloc.add(PokemonLoadStarted());
+      _scrollKey.currentState?.innerController.addListener(_onScroll);
     });
   }
 
   @override
   void dispose() {
-    innerController?.dispose();
+    _scrollKey.currentState?.innerController.dispose();
+    _scrollKey.currentState?.dispose();
 
     super.dispose();
   }
 
   void _onScroll() {
-    if (innerController == null || !innerController!.hasClients) return;
+    final innerController = _scrollKey.currentState?.innerController;
 
-    final status = bloc.state.status;
+    if (innerController == null || !innerController.hasClients) return;
 
-    final thresholdReached = innerController!.position.extentAfter < _endReachedThreshold;
-    final isLoading = [PokemonStateStatus.loading, PokemonStateStatus.loadingMore].contains(status);
-    final canLoadMore = bloc.state.canLoadMore;
+    final thresholdReached = innerController.position.extentAfter < _endReachedThreshold;
 
-    if (thresholdReached && !isLoading && canLoadMore) {
+    if (thresholdReached) {
       // Load more!
-      bloc.add(PokemonLoadMoreStarted());
+      pokemonBloc.add(PokemonLoadMoreStarted());
     }
   }
 
   Future _onRefresh() async {
-    bloc.add(PokemonLoadStarted());
+    pokemonBloc.add(PokemonLoadStarted());
+
+    return pokemonBloc.stream.firstWhere((e) => e.status != PokemonStateStatus.loading);
   }
 
   void _onPokemonPress(Pokemon pokemon) {
-    bloc.add(PokemonSelectChanged(pokemonId: pokemon.number));
+    pokemonBloc.add(PokemonSelectChanged(pokemonId: pokemon.number));
 
     AppNavigator.push(Routes.pokemonInfo, pokemon);
   }
@@ -62,15 +64,15 @@ class _PokemonGridState extends State<_PokemonGrid> {
       headerSliverBuilder: (_, __) => [
         MainSliverAppBar(),
       ],
-      body: BlocBuilder<PokemonBloc, PokemonState>(builder: (_, state) {
-        switch (state.status) {
+      body: PokemonStateStatusSelector((status) {
+        switch (status) {
           case PokemonStateStatus.loading:
             return _buildLoading();
 
           case PokemonStateStatus.loadSuccess:
           case PokemonStateStatus.loadMoreSuccess:
           case PokemonStateStatus.loadingMore:
-            return _buildGrid(state);
+            return _buildGrid();
 
           case PokemonStateStatus.loadFailure:
           case PokemonStateStatus.loadMoreFailure:
@@ -89,41 +91,47 @@ class _PokemonGridState extends State<_PokemonGrid> {
     );
   }
 
-  Widget _buildGrid(PokemonState state) {
-    final pokemons = state.pokemons;
-    final canLoadMore = state.canLoadMore;
-
+  Widget _buildGrid() {
     return CustomScrollView(
       slivers: [
         PokemonRefreshControl(onRefresh: _onRefresh),
         SliverPadding(
           padding: EdgeInsets.all(28),
-          sliver: SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1.4,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (_, index) {
-                return PokemonCard(
-                  pokemons[index],
-                  onPress: () => _onPokemonPress(pokemons[index]),
-                );
-              },
-              childCount: pokemons.length,
-            ),
-          ),
+          sliver: NumberOfPokemonsSelector((numberOfPokemons) {
+            return SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.4,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (_, index) {
+                  return PokemonSelector(index, (pokemon, _) {
+                    return PokemonCard(
+                      pokemon,
+                      onPress: () => _onPokemonPress(pokemon),
+                    );
+                  });
+                },
+                childCount: numberOfPokemons,
+              ),
+            );
+          }),
         ),
-        if (canLoadMore)
-          SliverToBoxAdapter(
-            child: Container(
+        SliverToBoxAdapter(
+          child: PokemonCanLoadMoreSelector((canLoadMore) {
+            if (!canLoadMore) {
+              return SizedBox.shrink();
+            }
+
+            return Container(
               padding: EdgeInsets.only(bottom: 28),
               alignment: Alignment.center,
               child: Image(image: AppImages.pikloader),
-            ),
-          ),
+            );
+          }),
+        ),
       ],
     );
   }

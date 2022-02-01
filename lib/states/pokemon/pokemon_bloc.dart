@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_transform/stream_transform.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
@@ -9,8 +10,14 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   final PokemonRepository _pokemonRepository;
 
   PokemonBloc(this._pokemonRepository) : super(PokemonState.initial()) {
-    on<PokemonLoadStarted>(_onLoadStarted);
-    on<PokemonLoadMoreStarted>(_onLoadMoreStarted);
+    on<PokemonLoadStarted>(
+      _onLoadStarted,
+      transformer: (events, mapper) => events.switchMap(mapper),
+    );
+    on<PokemonLoadMoreStarted>(
+      _onLoadMoreStarted,
+      transformer: (events, mapper) => events.switchMap(mapper),
+    );
     on<PokemonSelectChanged>(_onSelectChanged);
   }
 

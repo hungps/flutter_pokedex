@@ -10,7 +10,6 @@ class _PokemonBall extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final pokeballSize = screenHeight * 0.1;
     final pokemonSize = pokeballSize * 0.85;
-    final pokemonCachedSize = (pokemonSize * 2).toInt();
 
     return Column(
       children: [
@@ -23,34 +22,10 @@ class _PokemonBall extends StatelessWidget {
               height: pokeballSize,
               color: AppColors.lightGrey,
             ),
-            CachedNetworkImage(
-              imageUrl: pokemon.image,
-              imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
-              useOldImageOnUrlChange: true,
-              memCacheWidth: pokemonCachedSize,
-              memCacheHeight: pokemonCachedSize,
-              imageBuilder: (_, image) => Image(
-                image: image,
-                width: pokemonSize,
-                height: pokemonSize,
-              ),
-              errorWidget: (_, __, error) => Stack(
-                alignment: Alignment.center,
-                children: [
-                  Image(
-                    image: AppImages.bulbasaur,
-                    width: pokemonSize,
-                    height: pokemonSize,
-                    color: Colors.black12,
-                  ),
-                  Icon(
-                    Icons.warning_amber_rounded,
-                    size: pokemonSize * 0.3,
-                    color: Colors.black26,
-                  ),
-                ],
-              ),
-            )
+            PokemonImage(
+              pokemon: pokemon,
+              size: Size.square(pokemonSize),
+            ),
           ],
         ),
         SizedBox(height: 3),

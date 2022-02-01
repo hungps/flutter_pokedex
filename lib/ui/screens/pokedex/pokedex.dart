@@ -9,6 +9,7 @@ import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/routes.dart';
 import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
+import 'package:pokedex/states/pokemon/pokemon_selector.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/modals/generation_modal.dart';
 import 'package:pokedex/ui/modals/search_modal.dart';

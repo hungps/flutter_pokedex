@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/category.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class CategoryCard extends StatelessWidget {
   final Category category;
@@ -110,7 +109,7 @@ class _Shadows extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: color,
-            offset: Offset(0, context.responsive(3)),
+            offset: Offset(0, 3),
             blurRadius: 23,
           ),
         ],

@@ -1,8 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/ui/widgets/pokemon_image.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 
 class PokemonCard extends StatelessWidget {
@@ -76,46 +75,13 @@ class PokemonCard extends StatelessWidget {
 
   Widget _buildPokemon({required double height}) {
     final pokemonSize = height * _pokemonFraction;
-    final pokemonCachedSize = (pokemonSize * 2).toInt();
 
     return Positioned(
       bottom: -2,
       right: 2,
-      child: Hero(
-        tag: pokemon.image,
-        child: CachedNetworkImage(
-          imageUrl: pokemon.image,
-          width: pokemonSize,
-          height: pokemonSize,
-          memCacheWidth: pokemonCachedSize,
-          memCacheHeight: pokemonCachedSize,
-          imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
-          useOldImageOnUrlChange: true,
-          fit: BoxFit.contain,
-          alignment: Alignment.bottomRight,
-          placeholder: (context, url) => Image(
-            image: AppImages.bulbasaur,
-            width: pokemonSize,
-            height: pokemonSize,
-            color: Colors.black12,
-          ),
-          errorWidget: (_, __, error) => Stack(
-            alignment: Alignment.center,
-            children: [
-              Image(
-                image: AppImages.bulbasaur,
-                width: pokemonSize,
-                height: pokemonSize,
-                color: Colors.black12,
-              ),
-              Icon(
-                Icons.warning_amber_rounded,
-                size: pokemonSize * 0.4,
-                color: Colors.black45,
-              ),
-            ],
-          ),
-        ),
+      child: PokemonImage(
+        size: Size.square(pokemonSize),
+        pokemon: pokemon,
       ),
     );
   }

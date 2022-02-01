@@ -3,7 +3,6 @@ import 'package:pokedex/data/generations.dart';
 import 'package:pokedex/domain/entities/generation.dart';
 import 'package:pokedex/ui/screens/pokedex/widgets/generation_card.dart';
 import 'package:pokedex/ui/widgets/modal.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class GenerationModal extends StatelessWidget {
   Widget _buildGenerationCard(Generation generation) {
@@ -11,20 +10,17 @@ class GenerationModal extends StatelessWidget {
   }
 
   Widget _buildGenerations(BuildContext context, ScrollController scrollController) {
+    final safeAreaBottom = MediaQuery.of(context).padding.bottom;
+
     return Expanded(
       child: GridView.builder(
-        padding: EdgeInsets.only(
-          left: 26,
-          right: 26,
-          top: context.responsive(26),
-          bottom: context.responsive(26) + context.padding.bottom,
-        ),
+        padding: EdgeInsets.fromLTRB(26, 26, 26, 26 + safeAreaBottom),
         controller: scrollController,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 1.55,
           crossAxisSpacing: 10,
-          mainAxisSpacing: context.responsive(10),
+          mainAxisSpacing: 10,
         ),
         itemCount: generations.length,
         itemBuilder: (_, index) => _buildGenerationCard(generations[index]),

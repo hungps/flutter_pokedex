@@ -25,9 +25,8 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
       minHeight: cardMinHeight,
       maxHeight: cardMaxHeight,
       onPanelSlide: (position) => slideController.value = position,
-      child: BlocSelector<PokemonBloc, PokemonState, Pokemon>(
-        selector: (state) => state.selectedPokemon,
-        builder: (_, pokemon) => MainTabView(
+      child: CurrentPokemonSelector((pokemon) {
+        return MainTabView(
           paddingAnimation: slideController,
           tabs: [
             MainTabData(
@@ -50,8 +49,8 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
               ),
             ),
           ],
-        ),
-      ),
+        );
+      }),
     );
   }
 }

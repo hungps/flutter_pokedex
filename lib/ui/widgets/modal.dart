@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/core/extensions/context.dart';
 
 class Modal extends StatelessWidget {
   static const Radius _borderRadius = Radius.circular(30.0);
@@ -16,7 +15,7 @@ class Modal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: context.responsive(14)),
+      padding: EdgeInsets.only(top: 14),
       decoration: BoxDecoration(
         color: AppColors.whiteGrey,
         borderRadius: BorderRadius.only(
@@ -39,11 +38,11 @@ class Modal extends StatelessWidget {
 class _DragLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final width = context.screenSize.width * 0.2;
+    final width = MediaQuery.of(context).size.width * 0.2;
 
     return Container(
       width: width,
-      height: context.responsive(3),
+      height: 3,
       decoration: ShapeDecoration(
         shape: StadiumBorder(),
         color: AppColors.lighterGrey,
@@ -65,8 +64,8 @@ class _Title extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-        top: context.responsive(18),
-        bottom: context.responsive(8),
+        top: 18,
+        bottom: 8,
       ),
       child: Text(
         text ?? '',
