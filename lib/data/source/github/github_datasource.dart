@@ -5,7 +5,7 @@ import 'package:pokedex/data/source/github/models/pokemon.dart';
 
 class GithubDataSource {
   static const String url =
-      'https://gist.githubusercontent.com/hungps/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/pokemons.json';
+      'https://gist.githubusercontent.com/hungps/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/df752ad94d7094a6ffc7020bf8fbe25a096a870c/pokemons.json';
 
   GithubDataSource(this.networkManager);
 
