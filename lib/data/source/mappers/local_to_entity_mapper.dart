@@ -1,6 +1,8 @@
+import 'package:pokedex/data/source/local/models/item.dart';
 import 'package:pokedex/data/source/local/models/pokemon.dart';
 import 'package:pokedex/data/source/local/models/pokemon_gender.dart';
 import 'package:pokedex/data/source/local/models/pokemon_stats.dart';
+import 'package:pokedex/domain/entities/item.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/domain/entities/pokemon_props.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
@@ -40,5 +42,14 @@ extension PokemonStatsHiveModelX on PokemonStatsHiveModel {
         specialDefense: specialDefense,
         hp: hp,
         speed: speed,
+      );
+}
+
+extension ItemHiveModelX on ItemHiveModel {
+  Item toEntity({List<ItemHiveModel> evolutions = const []}) => Item(
+        name: name?.trim() ?? '',
+        category: name?.trim() ?? '',
+        image: imageurl?.trim() ?? '',
+        effect: effect?.trim() ?? '',
       );
 }

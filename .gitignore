@@ -77,3 +77,5 @@
 
 # Fvm
 .fvm/flutter_sdk
+
+generate.sh
