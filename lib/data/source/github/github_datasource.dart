@@ -8,7 +8,7 @@ class GithubDataSource {
   GithubDataSource(this.networkManager);
 
   static const String itemsURL =
-      'https://gist.githubusercontent.com/AmbujaAK/1a47a19039a4203252ed834ff65ed140/raw/4058b8ee4a4747ad7bdeb63b69eb40ce15e5abe3/items.json';
+      'https://gist.githubusercontent.com/hungps/48f4355fb1a89ddaf47f56961dc8a245/raw/pokemon-items.json';
 
   static const String url =
       'https://gist.githubusercontent.com/hungps/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/pokemons.json';
