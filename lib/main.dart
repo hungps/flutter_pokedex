@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/app.dart';
 import 'package:pokedex/core/network.dart';
+import 'package:pokedex/data/repositories/item_repository.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/data/source/github/github_datasource.dart';
 import 'package:pokedex/data/source/local/local_datasource.dart';
+import 'package:pokedex/states/item/item_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 
 void main() async {
@@ -41,6 +43,13 @@ void main() async {
             githubDataSource: context.read<GithubDataSource>(),
           ),
         ),
+
+        RepositoryProvider<ItemRepository>(
+          create: (context) => ItemDefaultRepository(
+            localDataSource: context.read<LocalDataSource>(),
+            githubDataSource: context.read<GithubDataSource>(),
+          ),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -50,6 +59,10 @@ void main() async {
           BlocProvider<PokemonBloc>(
             create: (context) => PokemonBloc(context.read<PokemonRepository>()),
           ),
+          BlocProvider<ItemBloc>(
+            create: (context) => ItemBloc(context.read<ItemRepository>()),
+          ),
+
         ],
         child: PokedexApp(),
       ),
