@@ -155,7 +155,7 @@ class _CardContent extends StatelessWidget {
             Hero(
               tag: item.name,
               child: Text(
-                item.name,
+                item.category,
                 style: TextStyle(
                   fontSize: 14,
                   height: 0.7,
