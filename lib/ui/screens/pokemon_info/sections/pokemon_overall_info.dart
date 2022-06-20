@@ -60,7 +60,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   }
 
   void _calculatePokemonNamePosition() {
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       final targetTextBox = _targetTextKey.currentContext?.findRenderObject() as RenderBox?;
       final currentTextBox = _currentTextKey.currentContext?.findRenderObject() as RenderBox?;
 
