@@ -58,7 +58,7 @@ class MainSliverAppBar extends SliverAppBar {
               final dx = startX + endX - endX * percent;
 
               return Container(
-                color: Colors.white.withOpacity(0.8 - percent * 0.8),
+                color: Theme.of(context).backgroundColor.withOpacity(0.8 - percent * 0.8),
                 child: Stack(
                   fit: StackFit.expand,
                   children: <Widget>[
