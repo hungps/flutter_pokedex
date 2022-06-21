@@ -6,7 +6,7 @@ const double mainAppbarPadding = 28;
 
 class MainSliverAppBar extends SliverAppBar {
   static const TextStyle _textStyle = TextStyle(
-    color: Colors.black,
+    // color: Colors.black,
     fontWeight: FontWeight.bold,
     fontSize: kToolbarHeight / 3,
     height: 1,
@@ -29,7 +29,9 @@ class MainSliverAppBar extends SliverAppBar {
           leading: IconButton(
             padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
             onPressed: onLeadingPress,
-            icon: Icon(Icons.arrow_back, color: Colors.black),
+            icon: Icon(
+              Icons.arrow_back,
+            ),
           ),
           actions: [
             IconButton(
