@@ -16,7 +16,7 @@ class Themings {
 
   static final ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.blue,
-    backgroundColor: Colors.black,
+    backgroundColor: AppColors.black,
     brightness: Brightness.dark,
     primaryColor: AppColors.blue,
     appBarTheme: AppBarTheme(
@@ -35,7 +35,7 @@ class Themings {
 
   static final ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.blue,
-    backgroundColor: Colors.white,
+    backgroundColor: AppColors.whiteGrey,
     brightness: Brightness.light,
     primaryColor: AppColors.blue,
     appBarTheme: AppBarTheme(
