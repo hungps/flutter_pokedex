@@ -18,6 +18,7 @@ class PokemonType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var bgColor = Theme.of(context).backgroundColor;
     return Material(
       color: Colors.transparent,
       child: Container(
@@ -27,7 +28,7 @@ class PokemonType extends StatelessWidget {
         ),
         decoration: ShapeDecoration(
           shape: StadiumBorder(),
-          color: (colored ? type.color : Colors.white).withOpacity(0.2),
+          color: (colored ? type.color : bgColor).withOpacity(0.2),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -36,11 +37,10 @@ class PokemonType extends StatelessWidget {
               type.value,
               textScaleFactor: 1,
               style: TextStyle(
-                fontSize: large ? 12 : 8,
-                height: 0.8,
-                fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                color: colored ? type.color : Colors.white,
-              ),
+                  fontSize: large ? 12 : 8,
+                  height: 0.8,
+                  fontWeight: large ? FontWeight.bold : FontWeight.normal,
+                  color: colored ? type.color : bgColor),
               textAlign: TextAlign.center,
             ),
             HSpacer(5),
@@ -51,7 +51,7 @@ class PokemonType extends StatelessWidget {
                 fontSize: large ? 12 : 8,
                 height: 0.8,
                 fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                color: colored ? type.color : Colors.white,
+                color: colored ? type.color : bgColor,
               ),
             ),
           ],
