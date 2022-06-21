@@ -32,7 +32,7 @@ class SearchBar extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 hintStyle: TextStyle(
                   fontSize: 14,
-                  color: AppColors.grey,
+                  // color: AppColors.grey,
                   height: 1,
                 ),
                 border: InputBorder.none,

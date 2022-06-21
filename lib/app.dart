@@ -2,9 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/constants.dart';
-import 'package:pokedex/configs/fonts.dart';
 import 'package:pokedex/configs/theme.dart';
 import 'package:pokedex/routes.dart';
 import 'package:pokedex/states/cubit/theme_cubit.dart';
@@ -20,7 +18,7 @@ class PokedexApp extends StatelessWidget {
     return MaterialApp(
       color: Colors.white,
       title: 'Flutter Pokedex',
-      theme: isDark ? Themings.darkTheme : Themings.lightTheme,
+      theme: !isDark ? Themings.darkTheme : Themings.lightTheme,
       navigatorKey: AppNavigator.navigatorKey,
       onGenerateRoute: AppNavigator.onGenerateRoute,
       builder: (context, child) {
