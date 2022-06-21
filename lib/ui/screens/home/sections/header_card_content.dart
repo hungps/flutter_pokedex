@@ -12,8 +12,13 @@ class _HeaderCardContent extends StatelessWidget {
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        // border: Border(
+        //   bottom: BorderSide(
+        //     color: Colors.white,
+        //   ),
+        // ),
       ),
       child: PokeballBackground(
         child: Column(

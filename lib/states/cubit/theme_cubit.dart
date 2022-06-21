@@ -5,7 +5,7 @@ part 'theme_state.dart';
 
 // Values are stored and updated here
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit() : super(ThemeLight(message: 'Light Theme'));
+  ThemeCubit() : super(ThemeLight(message: 'Dark Theme'));
 
   bool _isDark = false;
 
