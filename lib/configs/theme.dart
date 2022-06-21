@@ -18,6 +18,9 @@ class Themings {
     primarySwatch: Colors.blue,
     brightness: Brightness.dark,
     primaryColor: AppColors.blue,
+    appBarTheme: AppBarTheme(
+      toolbarTextStyle: darkText,
+    ),
     textTheme: TextTheme(
       bodyText1: darkText,
       bodyText2: darkText,
@@ -33,6 +36,9 @@ class Themings {
     primarySwatch: Colors.blue,
     brightness: Brightness.light,
     primaryColor: AppColors.blue,
+    appBarTheme: AppBarTheme(
+      toolbarTextStyle: lightText,
+    ),
     textTheme: TextTheme(
       bodyText1: lightText,
       bodyText2: lightText,

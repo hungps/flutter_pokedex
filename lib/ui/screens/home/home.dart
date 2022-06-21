@@ -76,7 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 visible: showTitle,
                 child: Text(
                   'Pokedex',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: Theme.of(context)
+                      .appBarTheme
+                      .toolbarTextStyle!
+                      .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               background: _HeaderCardContent(),
