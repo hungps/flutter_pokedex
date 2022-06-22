@@ -22,7 +22,7 @@ import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/progress.dart';
 import 'package:pokedex/utils/string.dart';
 
-import '../../../states/cubit/theme_cubit.dart';
+import '../../../states/theme/theme_cubit.dart';
 
 part 'sections/background_decoration.dart';
 part 'sections/pokemon_overall_info.dart';

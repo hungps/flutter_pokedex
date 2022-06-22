@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/constants.dart';
 import 'package:pokedex/configs/theme.dart';
 import 'package:pokedex/routes.dart';
-import 'package:pokedex/states/cubit/theme_cubit.dart';
+import 'package:pokedex/states/theme/theme_cubit.dart';
 
 class PokedexApp extends StatelessWidget {
   @override

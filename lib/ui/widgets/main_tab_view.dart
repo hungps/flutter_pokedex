@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
 
-import '../../states/cubit/theme_cubit.dart';
+import '../../states/theme/theme_cubit.dart';
 
 class MainTabData {
   final Widget child;
