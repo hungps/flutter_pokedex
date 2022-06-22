@@ -22,7 +22,7 @@ class Stat extends StatelessWidget {
           flex: 2,
           child: Text(
             label,
-            style: TextStyle(color: AppColors.black.withOpacity(0.6)),
+            style: TextStyle(color: Theme.of(context).textTheme.caption!.color!.withOpacity(0.6)),
           ),
         ),
         Expanded(

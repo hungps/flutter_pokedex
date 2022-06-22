@@ -10,8 +10,6 @@ import 'package:pokedex/states/theme/theme_cubit.dart';
 class PokedexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
     var isDark = themeCubit.isDark;
 
