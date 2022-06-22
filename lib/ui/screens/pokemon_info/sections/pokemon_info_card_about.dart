@@ -1,11 +1,11 @@
 part of '../pokemon_info.dart';
 
 class _Label extends Text {
-  _Label(String text)
+  _Label(String text, bool isDark)
       : super(
           text,
           style: TextStyle(
-            color: AppColors.black.withOpacity(0.6),
+            color: isDark ? AppColors.whiteGrey.withOpacity(0.6) : AppColors.black.withOpacity(0.6),
             height: 0.8,
           ),
         );
@@ -66,6 +66,9 @@ class _PokemonAbout extends StatelessWidget {
   Widget build(BuildContext context) {
     final slideController = PokemonInfoStateProvider.of(context).slideController;
 
+    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
+    var isDark = themeCubit.isDark;
+
     return AnimatedBuilder(
       animation: slideController,
       builder: (context, child) {
@@ -81,13 +84,13 @@ class _PokemonAbout extends StatelessWidget {
         children: <Widget>[
           _buildDescription(pokemon.description),
           SizedBox(height: 28),
-          _buildHeightWeight(pokemon.height, pokemon.weight),
+          _buildHeightWeight(pokemon.height, pokemon.weight, context, isDark),
           SizedBox(height: 31),
-          _buildBreeding(pokemon.gender, pokemon.eggGroups),
+          _buildBreeding(pokemon.gender, pokemon.eggGroups, isDark),
           SizedBox(height: 35),
           _buildLocation(),
           SizedBox(height: 26),
-          _buildTraining(pokemon.baseExp),
+          _buildTraining(pokemon.baseExp, isDark),
         ],
       ),
     );
@@ -100,12 +103,12 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildHeightWeight(String height, String weight) {
+  Widget _buildHeightWeight(String height, String weight, BuildContext context, bool isDark) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.white,
+        color: Theme.of(context).backgroundColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
@@ -121,9 +124,14 @@ class _PokemonAbout extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _Label('Height'),
+                _Label('Height', isDark),
                 SizedBox(height: 11),
-                Text('${height}', style: TextStyle(height: 0.8))
+                Text(
+                  '${height}',
+                  style: TextStyle(
+                    height: 0.8,
+                  ),
+                )
               ],
             ),
           ),
@@ -131,9 +139,12 @@ class _PokemonAbout extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _Label('Weight'),
+                _Label('Weight', isDark),
                 SizedBox(height: 11),
-                Text('${weight}', style: TextStyle(height: 0.8))
+                Text('${weight}',
+                    style: TextStyle(
+                      height: 0.8,
+                    ))
               ],
             ),
           ),
@@ -142,13 +153,13 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildBreeding(PokemonGender gender, List<String> eggGroups) {
+  Widget _buildBreeding(PokemonGender gender, List<String> eggGroups, bool isDark) {
     return _ContentSection(
       label: 'Breeding',
       children: [
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Gender')),
+            Expanded(child: _Label('Gender', isDark)),
             if (gender.genderless)
               Expanded(
                 flex: 3,
@@ -168,7 +179,7 @@ class _PokemonAbout extends StatelessWidget {
         SizedBox(height: 18),
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Egg Groups')),
+            Expanded(child: _Label('Egg Groups', isDark)),
             Expanded(
               flex: 2,
               child: Text(eggGroups.join(', '), style: TextStyle(height: 0.8)),
@@ -197,13 +208,13 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildTraining(double baseExp) {
+  Widget _buildTraining(double baseExp, bool isDark) {
     return _ContentSection(
       label: 'Training',
       children: [
         Row(
           children: <Widget>[
-            Expanded(flex: 1, child: _Label('Base EXP')),
+            Expanded(flex: 1, child: _Label('Base EXP', isDark)),
             Expanded(flex: 3, child: Text('${baseExp}')),
           ],
         ),
