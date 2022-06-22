@@ -18,7 +18,7 @@ class PokedexApp extends StatelessWidget {
     return MaterialApp(
       color: Colors.white,
       title: 'Flutter Pokedex',
-      theme: !isDark ? Themings.darkTheme : Themings.lightTheme,
+      theme: isDark ? Themings.darkTheme : Themings.lightTheme,
       navigatorKey: AppNavigator.navigatorKey,
       onGenerateRoute: AppNavigator.onGenerateRoute,
       builder: (context, child) {
