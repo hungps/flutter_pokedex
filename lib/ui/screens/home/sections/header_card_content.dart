@@ -33,6 +33,7 @@ class _HeaderCardContent extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: IconButton(
                   onPressed: () {
+                    // Function to toggle theme
                     themeCubit.toggleTheme();
                   },
                   padding: EdgeInsets.only(left: 28, top: 35),
