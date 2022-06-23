@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
@@ -8,6 +9,7 @@ import 'package:pokedex/ui/widgets/search_bar.dart';
 import 'package:pokedex/ui/widgets/pokeball_background.dart';
 import 'package:pokedex/routes.dart';
 
+import '../../../states/theme/theme_cubit.dart';
 import 'widgets/news_card.dart';
 import 'widgets/category_card.dart';
 

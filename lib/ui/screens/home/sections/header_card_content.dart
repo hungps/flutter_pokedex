@@ -9,6 +9,9 @@ class _HeaderCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
+    var isDark = themeCubit.isDark;
+
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
@@ -26,6 +29,19 @@ class _HeaderCardContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                  onPressed: () {
+                    themeCubit.toggleTheme();
+                  },
+                  padding: EdgeInsets.only(left: 28, top: 35),
+                  icon: Icon(
+                    isDark ? Icons.wb_sunny_outlined : Icons.dark_mode_outlined,
+                    color: isDark ? Colors.yellow : Colors.black,
+                    size: 25,
+                  )),
+            ),
             _buildTitle(),
             SearchBar(),
             _buildCategories(context),
