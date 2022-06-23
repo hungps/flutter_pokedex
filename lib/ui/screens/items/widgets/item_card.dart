@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/item.dart';
 import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
+import '../../../../states/theme/theme_cubit.dart';
 import 'item_category.dart';
 
 class ItemCard extends StatelessWidget {
@@ -82,13 +84,15 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
+    var isDark = themeCubit.isDark;
     return LayoutBuilder(
       builder: (context, constrains) {
         final itemHeight = constrains.maxHeight;
 
         return Container(
           decoration: BoxDecoration(
-            color: AppColors.grey,
+            color: isDark ? Colors.black12 : AppColors.grey,
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
