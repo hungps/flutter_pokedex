@@ -6,20 +6,21 @@ const double mainAppbarPadding = 28;
 
 class MainSliverAppBar extends SliverAppBar {
   static const TextStyle _textStyle = TextStyle(
-    color: Colors.black,
+    // color: Colors.black,
     fontWeight: FontWeight.bold,
     fontSize: kToolbarHeight / 3,
     height: 1,
   );
 
-  MainSliverAppBar({
-    GlobalKey? appBarKey,
-    String title = 'Pokedex',
-    double height = kToolbarHeight + mainAppbarPadding * 2,
-    double expandedFontSize = 30,
-    void Function()? onLeadingPress = AppNavigator.pop,
-    void Function()? onTrailingPress,
-  }) : super(
+  MainSliverAppBar(
+      {GlobalKey? appBarKey,
+      String title = 'Pokedex',
+      double height = kToolbarHeight + mainAppbarPadding * 2,
+      double expandedFontSize = 30,
+      void Function()? onLeadingPress = AppNavigator.pop,
+      void Function()? onTrailingPress,
+      required BuildContext context})
+      : super(
           centerTitle: true,
           expandedHeight: height,
           floating: false,
@@ -29,12 +30,16 @@ class MainSliverAppBar extends SliverAppBar {
           leading: IconButton(
             padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
             onPressed: onLeadingPress,
-            icon: Icon(Icons.arrow_back, color: Colors.black),
+            icon: Icon(
+              Icons.arrow_back,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
+            ),
           ),
           actions: [
             IconButton(
               padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
-              icon: Icon(Icons.favorite_border_outlined, color: Colors.black),
+              icon: Icon(Icons.favorite_border_outlined,
+                  color: Theme.of(context).textTheme.bodyLarge!.color),
               onPressed: onTrailingPress,
             ),
           ],
@@ -56,7 +61,7 @@ class MainSliverAppBar extends SliverAppBar {
               final dx = startX + endX - endX * percent;
 
               return Container(
-                color: Colors.white.withOpacity(0.8 - percent * 0.8),
+                color: Theme.of(context).backgroundColor.withOpacity(0.8 - percent * 0.8),
                 child: Stack(
                   fit: StackFit.expand,
                   children: <Widget>[
@@ -92,7 +97,10 @@ class MainAppBar extends AppBar {
           actions: <Widget>[
             Padding(
               padding: EdgeInsets.only(right: mainAppbarPadding),
-              child: Icon(rightIcon),
+              child: Icon(
+                rightIcon,
+                color: Colors.white,
+              ),
             ),
           ],
         );

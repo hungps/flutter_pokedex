@@ -16,15 +16,16 @@ class FabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var bgColor = Theme.of(context).backgroundColor;
     return MaterialButton(
       shape: StadiumBorder(),
       padding: EdgeInsets.fromLTRB(24, 8, 16, 8),
-      color: Colors.white,
+      color: bgColor,
       splashColor: Colors.grey[100],
       highlightColor: Colors.grey[100],
       elevation: 0,
       highlightElevation: 2,
-      disabledColor: Colors.white,
+      disabledColor: bgColor,
       onPressed: item.onPress,
       child: Row(
         mainAxisSize: MainAxisSize.min,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
 class SearchBar extends StatelessWidget {
@@ -32,7 +31,7 @@ class SearchBar extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 hintStyle: TextStyle(
                   fontSize: 14,
-                  color: AppColors.grey,
+                  // color: AppColors.grey,
                   height: 1,
                 ),
                 border: InputBorder.none,

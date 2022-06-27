@@ -60,7 +60,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   }
 
   void _calculatePokemonNamePosition() {
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       final targetTextBox = _targetTextKey.currentContext?.findRenderObject() as RenderBox?;
       final currentTextBox = _currentTextKey.currentContext?.findRenderObject() as RenderBox?;
 
@@ -131,6 +131,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   }
 
   Widget _buildPokemonName() {
+    var bgColor = Theme.of(context).backgroundColor;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 26),
       child: Row(
@@ -150,7 +151,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                     pokemon.name,
                     textKey: _currentTextKey,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: bgColor,
                       fontWeight: FontWeight.w900,
                       fontSize: 36 - (36 - 22) * value,
                     ),
@@ -167,7 +168,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 return HeroText(
                   pokemon.number,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: bgColor,
                     fontWeight: FontWeight.w900,
                     fontSize: 18,
                   ),
@@ -203,7 +204,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 animation: _horizontalSlideController,
                 child: Text(
                   pokemon.genera,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Theme.of(context).backgroundColor),
                 ),
               ),
             ],

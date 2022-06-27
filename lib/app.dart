@@ -1,28 +1,22 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/constants.dart';
-import 'package:pokedex/configs/fonts.dart';
+import 'package:pokedex/configs/theme.dart';
 import 'package:pokedex/routes.dart';
+import 'package:pokedex/states/theme/theme_cubit.dart';
 
 class PokedexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
+    var isDark = themeCubit.isDark;
 
     return MaterialApp(
       color: Colors.white,
       title: 'Flutter Pokedex',
-      theme: ThemeData(
-        fontFamily: AppFonts.circularStd,
-        textTheme: theme.textTheme.apply(
-          fontFamily: AppFonts.circularStd,
-          displayColor: AppColors.black,
-        ),
-        scaffoldBackgroundColor: AppColors.lightGrey,
-        primarySwatch: Colors.blue,
-      ),
+      theme: isDark ? Themings.darkTheme : Themings.lightTheme,
       navigatorKey: AppNavigator.navigatorKey,
       onGenerateRoute: AppNavigator.onGenerateRoute,
       builder: (context, child) {

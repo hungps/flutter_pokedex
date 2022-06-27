@@ -6,6 +6,7 @@ import 'package:pokedex/data/repositories/item_repository.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/data/source/github/github_datasource.dart';
 import 'package:pokedex/data/source/local/local_datasource.dart';
+import 'package:pokedex/states/theme/theme_cubit.dart';
 import 'package:pokedex/states/item/item_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 
@@ -63,6 +64,12 @@ void main() async {
             create: (context) => ItemBloc(context.read<ItemRepository>()),
           ),
 
+          ///
+          /// Theme Cubit
+          ///
+          BlocProvider<ThemeCubit>(
+            create: (context) => ThemeCubit(),
+          )
         ],
         child: PokedexApp(),
       ),

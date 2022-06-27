@@ -13,7 +13,10 @@ List<Widget> lister(int index, dynamic value, double width, String term) {
         child: Text(
           term,
           textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 16, color: Colors.black54),
+          style: TextStyle(
+            fontSize: 16,
+            // color: Colors.black54,
+          ),
         ),
       ),
     ),
