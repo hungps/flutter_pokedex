@@ -29,19 +29,23 @@ class _HeaderCardContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Align(
-              alignment: Alignment.topLeft,
-              child: IconButton(
-                  onPressed: () {
-                    // Function to toggle theme
-                    themeCubit.toggleTheme();
-                  },
-                  padding: EdgeInsets.only(left: 28, top: 35),
-                  icon: Icon(
-                    isDark ? Icons.wb_sunny_outlined : Icons.dark_mode_outlined,
-                    color: isDark ? Colors.yellow : Colors.black,
-                    size: 25,
-                  )),
+            SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                    onPressed: () {
+                      // Function to toggle theme
+                      themeCubit.toggleTheme();
+                    },
+                    padding: EdgeInsets.only(
+                      left: 28,
+                    ),
+                    icon: Icon(
+                      isDark ? Icons.wb_sunny_outlined : Icons.dark_mode_outlined,
+                      color: isDark ? Colors.yellow : Colors.black,
+                      size: 25,
+                    )),
+              ),
             ),
             _buildTitle(),
             SearchBar(),
