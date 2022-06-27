@@ -8,7 +8,10 @@ import 'package:pokedex/ui/widgets/pokeball_background.dart';
 class TypeEffectScreen extends StatelessWidget {
   List<Widget> _buildHeader(BuildContext context, bool innerBoxIsScrolled) {
     return [
-      MainSliverAppBar(title: 'Type Effects'),
+      MainSliverAppBar(
+        title: 'Type Effects',
+        context: context,
+      ),
     ];
   }
 

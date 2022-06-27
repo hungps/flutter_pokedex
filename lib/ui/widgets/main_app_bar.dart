@@ -12,14 +12,15 @@ class MainSliverAppBar extends SliverAppBar {
     height: 1,
   );
 
-  MainSliverAppBar({
-    GlobalKey? appBarKey,
-    String title = 'Pokedex',
-    double height = kToolbarHeight + mainAppbarPadding * 2,
-    double expandedFontSize = 30,
-    void Function()? onLeadingPress = AppNavigator.pop,
-    void Function()? onTrailingPress,
-  }) : super(
+  MainSliverAppBar(
+      {GlobalKey? appBarKey,
+      String title = 'Pokedex',
+      double height = kToolbarHeight + mainAppbarPadding * 2,
+      double expandedFontSize = 30,
+      void Function()? onLeadingPress = AppNavigator.pop,
+      void Function()? onTrailingPress,
+      required BuildContext context})
+      : super(
           centerTitle: true,
           expandedHeight: height,
           floating: false,
@@ -31,14 +32,14 @@ class MainSliverAppBar extends SliverAppBar {
             onPressed: onLeadingPress,
             icon: Icon(
               Icons.arrow_back,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
           actions: [
             IconButton(
               padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
-              icon: Icon(
-                Icons.favorite_border_outlined,
-              ),
+              icon: Icon(Icons.favorite_border_outlined,
+                  color: Theme.of(context).textTheme.bodyLarge!.color),
               onPressed: onTrailingPress,
             ),
           ],
@@ -96,7 +97,10 @@ class MainAppBar extends AppBar {
           actions: <Widget>[
             Padding(
               padding: EdgeInsets.only(right: mainAppbarPadding),
-              child: Icon(rightIcon),
+              child: Icon(
+                rightIcon,
+                color: Colors.white,
+              ),
             ),
           ],
         );
