@@ -125,7 +125,7 @@ class _CardContent extends StatelessWidget {
                   fontSize: 14,
                   height: 0.7,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Theme.of(context).backgroundColor,
                 ),
               ),
             ),
