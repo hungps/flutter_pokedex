@@ -59,7 +59,7 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
           child: Column(
             children: <Widget>[
               Icon(Icons.arrow_forward, color: AppColors.lightGrey),
-              SizedBox(height: 7),
+              7.verticalGap,
               Text(reason, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
             ],
           ),

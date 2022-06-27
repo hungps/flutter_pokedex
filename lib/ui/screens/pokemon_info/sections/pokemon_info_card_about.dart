@@ -30,7 +30,7 @@ class _ContentSection extends StatelessWidget {
           label,
           style: TextStyle(height: 0.8, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 22),
+        22.verticalGap,
         if (children != null) ...children!
       ],
     );
@@ -83,13 +83,13 @@ class _PokemonAbout extends StatelessWidget {
       child: Column(
         children: <Widget>[
           _buildDescription(pokemon.description),
-          SizedBox(height: 28),
+          28.verticalGap,
           _buildHeightWeight(pokemon.height, pokemon.weight, context, isDark),
-          SizedBox(height: 31),
+          31.verticalGap,
           _buildBreeding(pokemon.gender, pokemon.eggGroups, isDark),
-          SizedBox(height: 35),
+          35.verticalGap,
           _buildLocation(),
-          SizedBox(height: 26),
+          26.verticalGap,
           _buildTraining(pokemon.baseExp, isDark),
         ],
       ),
@@ -140,7 +140,7 @@ class _PokemonAbout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 _Label('Weight', isDark),
-                SizedBox(height: 11),
+                11.verticalGap,
                 Text('${weight}',
                     style: TextStyle(
                       height: 0.8,
@@ -176,7 +176,7 @@ class _PokemonAbout extends StatelessWidget {
             ],
           ],
         ),
-        SizedBox(height: 18),
+        18.verticalGap,
         Row(
           children: <Widget>[
             Expanded(child: _Label('Egg Groups', isDark)),
@@ -184,7 +184,7 @@ class _PokemonAbout extends StatelessWidget {
               flex: 2,
               child: Text(eggGroups.join(', '), style: TextStyle(height: 0.8)),
             ),
-            Expanded(flex: 1, child: SizedBox()),
+            Expanded(flex: 1, child: 0.sizedBox),
           ],
         ),
       ],

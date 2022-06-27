@@ -108,7 +108,7 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           buildStats(pokemon.stats),
-          SizedBox(height: 27),
+          27.verticalGap,
           Text(
             'Type defenses',
             style: TextStyle(
@@ -117,12 +117,12 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
               height: 0.8,
             ),
           ),
-          SizedBox(height: 15),
+          15.verticalGap,
           Text(
             'The effectiveness of each type on ${pokemon.name}.',
             style: TextStyle(color: AppColors.black.withOpacity(0.6)),
           ),
-          SizedBox(height: 15),
+          15.verticalGap,
           _buildEffectivenesses(pokemon.typeEffectiveness),
         ],
       ),
@@ -135,17 +135,17 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Stat(animation: _progressAnimation, label: 'Hp', value: stats.hp),
-        SizedBox(height: 14),
+        14.verticalGap,
         Stat(animation: _progressAnimation, label: 'Atttack', value: stats.attack),
-        SizedBox(height: 14),
+        14.verticalGap,
         Stat(animation: _progressAnimation, label: 'Defense', value: stats.defense),
-        SizedBox(height: 14),
+        14.verticalGap,
         Stat(animation: _progressAnimation, label: 'Sp. Atk', value: stats.specialAttack),
-        SizedBox(height: 14),
+        14.verticalGap,
         Stat(animation: _progressAnimation, label: 'Sp. Def', value: stats.specialDefense),
-        SizedBox(height: 14),
+        14.verticalGap,
         Stat(animation: _progressAnimation, label: 'Speed', value: stats.speed),
-        SizedBox(height: 14),
+        14.verticalGap,
         Stat(
           animation: _progressAnimation,
           label: 'Total',

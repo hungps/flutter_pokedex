@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/durations.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/core/extensions/animation.dart';
+import 'package:pokedex/core/extensions/number.dart';
 import 'package:pokedex/states/item/item_bloc.dart';
 import 'package:pokedex/states/item/item_event.dart';
 import 'package:pokedex/states/item/item_selector.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/number.dart';
 
 import '../../states/theme/theme_cubit.dart';
 
@@ -53,7 +54,7 @@ class MainTabView extends StatelessWidget {
 
   Widget _buildTopAnimatedPadding() {
     if (paddingAnimation == null) {
-      return SizedBox(height: 6);
+      return 6.verticalGap;
     }
 
     return AnimatedBuilder(

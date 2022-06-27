@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/number.dart';
 
 class NewsCard extends StatelessWidget {
   final ImageProvider thumbnail;
@@ -20,7 +21,7 @@ class NewsCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Expanded(child: _buildContent(context)),
-          SizedBox(width: 36),
+          36.horizontalGap,
           Image(image: thumbnail, width: 110, height: 66),
         ],
       ),

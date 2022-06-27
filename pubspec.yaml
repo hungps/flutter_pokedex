@@ -29,6 +29,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   intl: ^0.17.0
   stream_transform: ^2.0.0
+  flutter_screenutil: ^5.5.3+2
 
 dev_dependencies:
   flutter_test:

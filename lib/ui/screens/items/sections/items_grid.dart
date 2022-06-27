@@ -117,7 +117,8 @@ class _ItemGridState extends State<_ItemGrid> {
         SliverToBoxAdapter(
           child: ItemCanLoadMoreSelector((canLoadMore) {
             if (!canLoadMore) {
-              return SizedBox.shrink();
+              // ignore: dead_code
+              return 1.shrinkSpace;
             }
 
             return Container(

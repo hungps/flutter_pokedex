@@ -100,11 +100,11 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _buildAppBar(),
-        SizedBox(height: 9),
+        9.verticalGap,
         _buildPokemonName(),
-        SizedBox(height: 9),
+        9.verticalGap,
         _buildPokemonTypes(),
-        SizedBox(height: 25),
+        25.verticalGap,
         _buildPokemonSlider(),
       ],
     );

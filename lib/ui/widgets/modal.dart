@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/number.dart';
 
 class Modal extends StatelessWidget {
   static const Radius _borderRadius = Radius.circular(30.0);
@@ -59,7 +60,7 @@ class _Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (text == null) {
-      return SizedBox();
+      return 0.sizedBox;
     }
 
     return Padding(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/core/extensions/number.dart';
 
 class FabItemData {
   final IconData icon;
@@ -31,7 +32,7 @@ class FabItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(item.title),
-          SizedBox(width: 8),
+          8.horizontalGap,
           Icon(item.icon, color: AppColors.indigo),
         ],
       ),
