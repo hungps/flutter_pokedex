@@ -69,35 +69,6 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
     );
   }
 
-  Widget _buildDivider() {
-    return Column(
-      children: <Widget>[
-        SizedBox(height: 21),
-        Divider(),
-        SizedBox(height: 21),
-      ],
-    );
-  }
-
-  List<Widget> buildEvolutionList(List<Pokemon> pokemons) {
-    if (pokemons.length < 2) {
-      return [
-        Center(child: Text('No evolution')),
-      ];
-    }
-
-    return Iterable<int>.generate(pokemons.length - 1) // skip the last one
-        .map(
-          (index) => _buildRow(
-            current: pokemons[index],
-            next: pokemons[index + 1],
-            reason: pokemons[index + 1].evolutionReason,
-          ),
-        )
-        .expand((widget) => [widget, _buildDivider()])
-        .toList();
-  }
-
   @override
   Widget build(BuildContext context) {
     final slideController = PokemonInfoStateProvider.of(context).slideController;
@@ -125,7 +96,17 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
             ),
           ),
           SizedBox(height: 28),
-          ...buildEvolutionList(pokemon.evolutions),
+          ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            separatorBuilder: (_, __) => Divider(height: 58),
+            itemCount: pokemon.evolutions.length - 1,
+            itemBuilder: (_, index) => _buildRow(
+              current: pokemon.evolutions[index],
+              next: pokemon.evolutions[index + 1],
+              reason: pokemon.evolutions[index + 1].evolutionReason,
+            ),
+          ),
         ],
       ),
     );
