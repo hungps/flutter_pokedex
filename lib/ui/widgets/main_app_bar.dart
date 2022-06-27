@@ -36,7 +36,9 @@ class MainSliverAppBar extends SliverAppBar {
           actions: [
             IconButton(
               padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
-              icon: Icon(Icons.favorite_border_outlined, color: Colors.black),
+              icon: Icon(
+                Icons.favorite_border_outlined,
+              ),
               onPressed: onTrailingPress,
             ),
           ],
