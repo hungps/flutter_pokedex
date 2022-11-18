@@ -1,5 +1,4 @@
 part of '../pokemon_info.dart';
-
 class _PokemonInfoCard extends StatefulWidget {
   static const double minCardHeightFraction = 0.54;
 
@@ -9,11 +8,14 @@ class _PokemonInfoCard extends StatefulWidget {
   State<_PokemonInfoCard> createState() => _PokemonInfoCardState();
 }
 
+
+
 class _PokemonInfoCardState extends State<_PokemonInfoCard> {
   AnimationController get slideController => PokemonInfoStateProvider.of(context).slideController;
 
   @override
   Widget build(BuildContext context) {
+
     final screenHeight = MediaQuery.of(context).size.height;
     final safeArea = MediaQuery.of(context).padding;
     final appBarHeight = AppBar().preferredSize.height;
@@ -26,6 +28,8 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
       maxHeight: cardMaxHeight,
       onPanelSlide: (position) => slideController.value = position,
       child: CurrentPokemonSelector((pokemon) {
+
+
         return MainTabView(
           paddingAnimation: slideController,
           tabs: [
@@ -45,7 +49,7 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
               label: 'Moves',
               child: Align(
                 alignment: Alignment.topCenter,
-                child: Text('Under development'),
+                child: _PokemonMoves(pokemon)
               ),
             ),
           ],

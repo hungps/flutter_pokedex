@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart' hide AnimatedSlide;
@@ -21,7 +22,8 @@ import 'package:pokedex/ui/widgets/pokemon_image.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/progress.dart';
 import 'package:pokedex/utils/string.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:recase/recase.dart';
 import '../../../states/theme/theme_cubit.dart';
 
 part 'sections/background_decoration.dart';
@@ -30,6 +32,7 @@ part 'sections/pokemon_info_card.dart';
 part 'sections/pokemon_info_card_about.dart';
 part 'sections/pokemon_info_card_basestats.dart';
 part 'sections/pokemon_info_card_evolutions.dart';
+part 'sections/pokemon_info_card_moves.dart';
 
 class PokemonInfo extends StatefulWidget {
   @override
@@ -62,9 +65,9 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
 
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
+
     return PokemonInfoStateProvider(
       slideController: _slideController,
       rotateController: _rotateController,
@@ -74,6 +77,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
             _BackgroundDecoration(),
             _PokemonInfoCard(),
             _PokemonOverallInfo(),
+
           ],
         ),
       ),
