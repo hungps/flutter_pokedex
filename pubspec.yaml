@@ -27,7 +27,7 @@ dependencies:
   dio_http_cache: ^0.3.0
   json_annotation: ^4.1.0
   flutter_bloc: ^8.0.1
-  intl: ^0.17.0
+  intl: ^0.18.0
   stream_transform: ^2.0.0
 
 dev_dependencies:

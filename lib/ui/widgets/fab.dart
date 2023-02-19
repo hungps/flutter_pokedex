@@ -16,7 +16,7 @@ class FabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).backgroundColor;
+    var bgColor = Theme.of(context).colorScheme.background;
     return MaterialButton(
       shape: StadiumBorder(),
       padding: EdgeInsets.fromLTRB(24, 8, 16, 8),

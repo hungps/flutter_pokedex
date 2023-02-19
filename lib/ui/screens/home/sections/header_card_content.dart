@@ -16,7 +16,7 @@ class _HeaderCardContent extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         // color: Colors.white,
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
         // border: Border(
         //   bottom: BorderSide(
         //     color: Colors.white,

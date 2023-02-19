@@ -131,7 +131,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   }
 
   Widget _buildPokemonName() {
-    var bgColor = Theme.of(context).backgroundColor;
+    var bgColor = Theme.of(context).colorScheme.background;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 26),
       child: Row(
@@ -204,7 +204,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 animation: _horizontalSlideController,
                 child: Text(
                   pokemon.genera,
-                  style: TextStyle(color: Theme.of(context).backgroundColor),
+                  style: TextStyle(color: Theme.of(context).colorScheme.background),
                 ),
               ),
             ],

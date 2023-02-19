@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
-    _scrollController.dispose();
+    if (_scrollController != null) {
+      _scrollController.dispose();
+    }
 
     super.dispose();
   }
@@ -80,8 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Pokedex',
                   style: Theme.of(context)
                       .appBarTheme
-                      .toolbarTextStyle!
-                      .copyWith(fontWeight: FontWeight.bold),
+                      .toolbarTextStyle
+                      ?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               background: _HeaderCardContent(),

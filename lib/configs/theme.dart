@@ -15,40 +15,69 @@ class Themings {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    primarySwatch: Colors.blue,
-    backgroundColor: AppColors.black,
-    brightness: Brightness.dark,
-    primaryColor: AppColors.blue,
-    appBarTheme: AppBarTheme(
-      toolbarTextStyle: darkText,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+        .copyWith(secondary: Colors.blueAccent, brightness: Brightness.dark),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return Colors.blue;
+        }
+        return null;
+      }),
+      trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return Colors.blue;
+        }
+        return null;
+      }),
     ),
-    textTheme: TextTheme(
-      bodyText1: darkText,
-      bodyText2: darkText,
-      labelMedium: darkText,
-      caption: darkText,
-      button: darkText,
-      overline: darkText,
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return Colors.blue;
+        }
+        return null;
+      }),
     ),
-    scaffoldBackgroundColor: AppColors.black,
+    checkboxTheme: CheckboxThemeData(
+      fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return Colors.blue;
+        }
+        return null;
+      }),
+    ),
   );
 
   static final ThemeData lightTheme = ThemeData(
-    primarySwatch: Colors.blue,
-    backgroundColor: AppColors.whiteGrey,
     brightness: Brightness.light,
     primaryColor: AppColors.blue,
     appBarTheme: AppBarTheme(
       toolbarTextStyle: lightText,
     ),
     textTheme: TextTheme(
-      bodyText1: lightText,
-      bodyText2: lightText,
+      bodyLarge: lightText,
+      bodyMedium: lightText,
       labelMedium: lightText,
-      caption: lightText,
-      button: lightText,
-      overline: lightText,
+      bodySmall: lightText,
+      labelLarge: lightText,
+      labelSmall: lightText,
     ),
     scaffoldBackgroundColor: AppColors.lightGrey,
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+        .copyWith(background: AppColors.whiteGrey),
   );
 }

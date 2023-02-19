@@ -35,7 +35,7 @@ class MainTabView extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
         ),
         child: Column(
