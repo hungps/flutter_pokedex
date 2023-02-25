@@ -29,6 +29,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   intl: ^0.18.0
   stream_transform: ^2.0.0
+  flutter_web_frame: ^0.0.3
 
 dev_dependencies:
   flutter_test:

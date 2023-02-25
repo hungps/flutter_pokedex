@@ -12,47 +12,52 @@ class _HeaderCardContent extends StatelessWidget {
     var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
     var isDark = themeCubit.isDark;
 
-    return Container(
-      clipBehavior: Clip.hardEdge,
-      decoration: BoxDecoration(
-        // color: Colors.white,
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
-        // border: Border(
-        //   bottom: BorderSide(
-        //     color: Colors.white,
-        //   ),
-        // ),
-      ),
-      child: PokeballBackground(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            SafeArea(
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: IconButton(
-                    onPressed: () {
-                      // Function to toggle theme
-                      themeCubit.toggleTheme();
-                    },
-                    padding: EdgeInsets.only(
-                      left: 28,
-                    ),
-                    icon: Icon(
-                      isDark ? Icons.wb_sunny_outlined : Icons.dark_mode_outlined,
-                      color: isDark ? Colors.yellow : Colors.black,
-                      size: 25,
-                    )),
-              ),
+    return FlutterWebFrame(
+      builder: (context) {
+        return Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(
+            // color: Colors.white,
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+            // border: Border(
+            //   bottom: BorderSide(
+            //     color: Colors.white,
+            //   ),
+            // ),
+          ),
+          child: PokeballBackground(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                SafeArea(
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                        onPressed: () {
+                          // Function to toggle theme
+                          themeCubit.toggleTheme();
+                        },
+                        padding: EdgeInsets.only(
+                          left: 28,
+                        ),
+                        icon: Icon(
+                          isDark ? Icons.wb_sunny_outlined : Icons.dark_mode_outlined,
+                          color: isDark ? Colors.yellow : Colors.black,
+                          size: 25,
+                        )),
+                  ),
+                ),
+                _buildTitle(),
+                SearchBar(),
+                _buildCategories(context),
+              ],
             ),
-            _buildTitle(),
-            SearchBar(),
-            _buildCategories(context),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
+      maximumSize: Size(475.0, 500.0),
     );
   }
 
