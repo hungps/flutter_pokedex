@@ -16,7 +16,8 @@ class PokedexApp extends StatelessWidget {
     var isDark = themeCubit.isDark;
 
     return FlutterWebFrame(
-      maximumSize: Size.fromWidth(1200),
+      maximumSize: Size.fromWidth(600),
+      backgroundColor: isDark ? Colors.black12 : Colors.grey[200],
       enabled: !Platform.isAndroid && !Platform.isIOS,
       builder: (context) {
         return MaterialApp(
