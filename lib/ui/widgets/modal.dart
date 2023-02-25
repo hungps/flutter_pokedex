@@ -17,7 +17,7 @@ class Modal extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 14),
       decoration: BoxDecoration(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.only(
           topLeft: _borderRadius,
           topRight: _borderRadius,

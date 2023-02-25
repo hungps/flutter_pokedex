@@ -18,7 +18,7 @@ class PokemonType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).backgroundColor;
+    var bgColor = Theme.of(context).colorScheme.background;
     return Material(
       color: Colors.transparent,
       child: Container(

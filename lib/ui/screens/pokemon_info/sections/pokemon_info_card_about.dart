@@ -108,7 +108,7 @@ class _PokemonAbout extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.background,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
