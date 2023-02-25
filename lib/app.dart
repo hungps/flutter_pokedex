@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_frame/flutter_web_frame.dart';
@@ -18,7 +19,7 @@ class PokedexApp extends StatelessWidget {
     return FlutterWebFrame(
       maximumSize: Size.fromWidth(600),
       backgroundColor: isDark ? Colors.black12 : Colors.grey[200],
-      enabled: !Platform.isAndroid && !Platform.isIOS,
+      enabled: kIsWeb || !Platform.isAndroid && !Platform.isIOS,
       builder: (context) {
         return MaterialApp(
           color: Colors.white,
