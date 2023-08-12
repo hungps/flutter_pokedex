@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
@@ -36,7 +35,6 @@ class PokemonImage extends StatelessWidget {
           padding: padding,
           child: CachedNetworkImage(
             imageUrl: pokemon.image,
-            imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
             useOldImageOnUrlChange: true,
             maxWidthDiskCache: _cacheMaxSize.width.toInt(),
             maxHeightDiskCache: _cacheMaxSize.height.toInt(),
