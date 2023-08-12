@@ -18,6 +18,8 @@ part 'sections/header_card_content.dart';
 part 'sections/pokemon_news.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
@@ -68,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
             floating: true,
             pinned: true,
             elevation: 0,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(30),
               ),
@@ -91,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
-        body: _PokemonNews(),
+        body: const _PokemonNews(),
       ),
     );
   }

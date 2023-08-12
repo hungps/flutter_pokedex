@@ -16,8 +16,8 @@ class _BoxDecoration extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           gradient: LinearGradient(
-            begin: Alignment(-0.2, -0.2),
-            end: Alignment(1.5, -0.3),
+            begin: const Alignment(-0.2, -0.2),
+            end: const Alignment(1.5, -0.3),
             colors: [
               Colors.white.withOpacity(0.3),
               Colors.white.withOpacity(0),
@@ -88,8 +88,8 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
   Widget _buildBackground() {
     return CurrentPokemonSelector((pokemon) {
       return AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        constraints: BoxConstraints.expand(),
+        duration: const Duration(milliseconds: 300),
+        constraints: const BoxConstraints.expand(),
         color: pokemon.color,
       );
     });
@@ -99,7 +99,7 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
     return Positioned(
       top: -_BoxDecoration.size.height * 0.4,
       left: -_BoxDecoration.size.width * 0.4,
-      child: _BoxDecoration(),
+      child: const _BoxDecoration(),
     );
   }
 
@@ -117,7 +117,7 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
 
     final pokeSize = screenSize.width * 0.5;
     final appBarHeight = AppBar().preferredSize.height;
-    final iconButtonPadding = mainAppbarPadding;
+    const iconButtonPadding = mainAppbarPadding;
     final iconSize = IconTheme.of(context).size ?? 0;
 
     final pokeballTopMargin = -(pokeSize / 2 - safeAreaTop - appBarHeight / 2);

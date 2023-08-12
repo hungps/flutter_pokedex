@@ -24,7 +24,7 @@ part 'sections/fab_menu.dart';
 part 'sections/pokemon_grid.dart';
 
 class PokedexScreen extends StatefulWidget {
-  const PokedexScreen();
+  const PokedexScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _PokedexScreenState();
@@ -33,7 +33,7 @@ class PokedexScreen extends StatefulWidget {
 class _PokedexScreenState extends State<PokedexScreen> {
   @override
   Widget build(BuildContext context) {
-    return PokeballBackground(
+    return const PokeballBackground(
       child: Stack(
         children: [
           _PokemonGrid(),

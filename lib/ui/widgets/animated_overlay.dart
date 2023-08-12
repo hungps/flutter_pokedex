@@ -5,7 +5,7 @@ class AnimatedOverlay extends AnimatedWidget {
   final Widget? child;
   final void Function()? onPress;
 
-  const AnimatedOverlay({
+  const AnimatedOverlay({super.key, 
     required Animation animation,
     required this.color,
     this.child,

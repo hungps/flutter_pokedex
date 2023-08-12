@@ -12,7 +12,7 @@ class PokemonCard extends StatelessWidget {
   final void Function()? onPress;
 
   const PokemonCard(
-    this.pokemon, {
+    this.pokemon, {super.key, 
     this.onPress,
   });
 
@@ -30,7 +30,7 @@ class PokemonCard extends StatelessWidget {
               BoxShadow(
                 color: pokemon.color.withOpacity(0.4),
                 blurRadius: 15,
-                offset: Offset(0, 8),
+                offset: const Offset(0, 8),
               ),
             ],
           ),
@@ -92,7 +92,7 @@ class PokemonCard extends StatelessWidget {
       right: 14,
       child: Text(
         pokemon.number,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
           color: Colors.black12,
@@ -112,7 +112,7 @@ class _CardContent extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -129,7 +129,7 @@ class _CardContent extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ..._buildTypes(context),
           ],
         ),
@@ -142,7 +142,7 @@ class _CardContent extends StatelessWidget {
         .take(2)
         .map(
           (type) => Padding(
-            padding: EdgeInsets.only(bottom: 6),
+            padding: const EdgeInsets.only(bottom: 6),
             child: PokemonType(type),
           ),
         )

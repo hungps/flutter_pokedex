@@ -7,7 +7,7 @@ class CategoryCard extends StatelessWidget {
   final void Function()? onPress;
 
   const CategoryCard(
-    this.category, {
+    this.category, {super.key, 
     this.onPress,
   });
 
@@ -81,10 +81,10 @@ class _CardContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Text(
         name,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
           color: Colors.white,
@@ -109,7 +109,7 @@ class _Shadows extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: color,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
             blurRadius: 23,
           ),
         ],

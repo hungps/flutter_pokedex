@@ -26,14 +26,14 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   Animation<double> get textFadeAnimation => Tween(begin: 1.0, end: 0.0).animate(slideController);
   Animation<double> get sliderFadeAnimation => Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
         parent: slideController,
-        curve: Interval(0.0, 0.5, curve: Curves.ease),
+        curve: const Interval(0.0, 0.5, curve: Curves.ease),
       ));
 
   @override
   void initState() {
     _horizontalSlideController = AnimationController(
       vsync: this,
-      duration: Duration(microseconds: 300),
+      duration: const Duration(microseconds: 300),
     )..forward();
 
     super.initState();
@@ -100,11 +100,11 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _buildAppBar(),
-        SizedBox(height: 9),
+        const SizedBox(height: 9),
         _buildPokemonName(),
-        SizedBox(height: 9),
+        const SizedBox(height: 9),
         _buildPokemonTypes(),
-        SizedBox(height: 25),
+        const SizedBox(height: 25),
         _buildPokemonSlider(),
       ],
     );
@@ -119,7 +119,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
         return Text(
           pokemon.name,
           key: _targetTextKey,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.transparent,
             fontWeight: FontWeight.w900,
             fontSize: 22,
@@ -133,7 +133,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   Widget _buildPokemonName() {
     var bgColor = Theme.of(context).colorScheme.background;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 26),
+      padding: const EdgeInsets.symmetric(horizontal: 26),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,7 +185,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
     return AnimatedFade(
       animation: textFadeAnimation,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 26),
+        padding: const EdgeInsets.symmetric(horizontal: 26),
         child: CurrentPokemonSelector((pokemon) {
           return Row(
             mainAxisSize: MainAxisSize.max,
@@ -242,7 +242,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
             NumberOfPokemonsSelector((numberOfPokemons) {
               return PageView.builder(
                 allowImplicitScrolling: true,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 controller: _pageController,
                 itemCount: numberOfPokemons,
                 onPageChanged: _onSelectedPokemonChanged,

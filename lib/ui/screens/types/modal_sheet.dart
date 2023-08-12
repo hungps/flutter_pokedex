@@ -18,14 +18,14 @@ class ModalSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: types[index].color,
-      shape: CircleBorder(),
+      shape: const CircleBorder(),
       child: InkWell(
-        customBorder: CircleBorder(),
+        customBorder: const CircleBorder(),
         onTap: () {
           showModalBottomSheet(
               isScrollControlled: true,
               elevation: 10,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20), topRight: Radius.circular(20))),
               context: context,

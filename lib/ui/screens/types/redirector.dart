@@ -22,7 +22,7 @@ class Redirection extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: func,
-        child: Container(
+        child: SizedBox(
           height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,8 +41,7 @@ class Redirection extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                        "${getEnumValue(types[index].type)[0].toUpperCase() + getEnumValue(types[index].type).substring(1)} Type " +
-                            term),
+                        "${getEnumValue(types[index].type)[0].toUpperCase() + getEnumValue(types[index].type).substring(1)} Type $term"),
                   )
                 ],
               ),

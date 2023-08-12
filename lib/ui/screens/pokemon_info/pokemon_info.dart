@@ -25,18 +25,20 @@ import 'package:pokedex/utils/string.dart';
 import '../../../states/theme/theme_cubit.dart';
 
 part 'sections/background_decoration.dart';
-part 'sections/pokemon_overall_info.dart';
 part 'sections/pokemon_info_card.dart';
 part 'sections/pokemon_info_card_about.dart';
 part 'sections/pokemon_info_card_basestats.dart';
 part 'sections/pokemon_info_card_evolutions.dart';
+part 'sections/pokemon_overall_info.dart';
 
 class PokemonInfo extends StatefulWidget {
+  const PokemonInfo({super.key});
+
   @override
-  _PokemonInfoState createState() => _PokemonInfoState();
+  PokemonInfoState createState() => PokemonInfoState();
 }
 
-class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
+class PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
   late AnimationController _slideController;
   late AnimationController _rotateController;
 
@@ -44,12 +46,12 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
   void initState() {
     _slideController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
 
     _rotateController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 5000),
+      duration: const Duration(milliseconds: 5000),
     )..repeat();
 
     super.initState();
@@ -68,7 +70,7 @@ class _PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin
     return PokemonInfoStateProvider(
       slideController: _slideController,
       rotateController: _rotateController,
-      child: Scaffold(
+      child: const Scaffold(
         body: Stack(
           children: <Widget>[
             _BackgroundDecoration(),

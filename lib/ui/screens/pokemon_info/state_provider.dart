@@ -5,7 +5,7 @@ class PokemonInfoStateProvider extends InheritedWidget {
   final AnimationController rotateController;
 
   const PokemonInfoStateProvider({
-    Key? key,
+    super.key,
     required this.slideController,
     required this.rotateController,
     required Widget child,

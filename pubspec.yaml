@@ -38,6 +38,7 @@ dev_dependencies:
   json_serializable: ^4.1.4
   hive_generator: ^1.1.2
   pedantic: ^1.11.1
+  flutter_lints: ^2.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

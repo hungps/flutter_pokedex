@@ -19,7 +19,7 @@ class _PokemonGridState extends State<_PokemonGrid> {
     super.initState();
 
     scheduleMicrotask(() {
-      pokemonBloc.add(PokemonLoadStarted());
+      pokemonBloc.add(const PokemonLoadStarted());
       _scrollKey.currentState?.innerController.addListener(_onScroll);
     });
   }
@@ -46,7 +46,7 @@ class _PokemonGridState extends State<_PokemonGrid> {
   }
 
   Future _onRefresh() async {
-    pokemonBloc.add(PokemonLoadStarted());
+    pokemonBloc.add(const PokemonLoadStarted());
 
     return pokemonBloc.stream.firstWhere((e) => e.status != PokemonStateStatus.loading);
   }
@@ -88,7 +88,7 @@ class _PokemonGridState extends State<_PokemonGrid> {
   }
 
   Widget _buildLoading() {
-    return Center(
+    return const Center(
       child: Image(image: AppImages.pikloader),
     );
   }
@@ -98,10 +98,10 @@ class _PokemonGridState extends State<_PokemonGrid> {
       slivers: [
         PokemonRefreshControl(onRefresh: _onRefresh),
         SliverPadding(
-          padding: EdgeInsets.all(28),
+          padding: const EdgeInsets.all(28),
           sliver: NumberOfPokemonsSelector((numberOfPokemons) {
             return SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1.4,
                 crossAxisSpacing: 10,
@@ -124,13 +124,13 @@ class _PokemonGridState extends State<_PokemonGrid> {
         SliverToBoxAdapter(
           child: PokemonCanLoadMoreSelector((canLoadMore) {
             if (!canLoadMore) {
-              return SizedBox.shrink();
+              return const SizedBox.shrink();
             }
 
             return Container(
-              padding: EdgeInsets.only(bottom: 28),
+              padding: const EdgeInsets.only(bottom: 28),
               alignment: Alignment.center,
-              child: Image(image: AppImages.pikloader),
+              child: const Image(image: AppImages.pikloader),
             );
           }),
         ),
@@ -144,9 +144,9 @@ class _PokemonGridState extends State<_PokemonGrid> {
         PokemonRefreshControl(onRefresh: _onRefresh),
         SliverFillRemaining(
           child: Container(
-            padding: EdgeInsets.only(bottom: 28),
+            padding: const EdgeInsets.only(bottom: 28),
             alignment: Alignment.center,
-            child: Icon(
+            child: const Icon(
               Icons.warning_amber_rounded,
               size: 60,
               color: Colors.black26,

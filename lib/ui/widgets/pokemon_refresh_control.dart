@@ -13,7 +13,7 @@ class PokemonRefreshControl extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoSliverRefreshControl(
       onRefresh: onRefresh,
-      builder: (_, __, ___, ____, _____) => Image(
+      builder: (_, __, ___, ____, _____) => const Image(
         image: AppImages.pikloader,
       ),
     );

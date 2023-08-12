@@ -9,7 +9,7 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
   final PokemonRepository _pokemonRepository;
 
-  PokemonBloc(this._pokemonRepository) : super(PokemonState.initial()) {
+  PokemonBloc(this._pokemonRepository) : super(const PokemonState.initial()) {
     on<PokemonLoadStarted>(
       _onLoadStarted,
       transformer: (events, mapper) => events.switchMap(mapper),

@@ -36,7 +36,7 @@ class MainTabView extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.background,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -53,7 +53,7 @@ class MainTabView extends StatelessWidget {
 
   Widget _buildTopAnimatedPadding() {
     if (paddingAnimation == null) {
-      return SizedBox(height: 6);
+      return const SizedBox(height: 6);
     }
 
     return AnimatedBuilder(
@@ -68,7 +68,7 @@ class MainTabView extends StatelessWidget {
     return TabBar(
       labelColor: isDark ? AppColors.whiteGrey : AppColors.black,
       unselectedLabelColor: isDark ? AppColors.whiteGrey : AppColors.grey,
-      labelPadding: EdgeInsets.symmetric(vertical: 16),
+      labelPadding: const EdgeInsets.symmetric(vertical: 16),
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,
       indicatorColor: AppColors.indigo,

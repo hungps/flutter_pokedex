@@ -49,7 +49,7 @@ class _FabMenuState extends State<_FabMenu> with SingleTickerProviderStateMixin 
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (context) => SearchBottomModal(),
+      builder: (context) => const SearchBottomModal(),
     );
   }
 
@@ -57,7 +57,7 @@ class _FabMenuState extends State<_FabMenu> with SingleTickerProviderStateMixin 
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (context) => GenerationModal(),
+      builder: (context) => const GenerationModal(),
     );
   }
 

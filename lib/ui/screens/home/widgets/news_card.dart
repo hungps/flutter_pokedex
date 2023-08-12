@@ -6,7 +6,7 @@ class NewsCard extends StatelessWidget {
   final String time;
   final String title;
 
-  const NewsCard({
+  const NewsCard({super.key, 
     required this.title,
     required this.time,
     required this.thumbnail,
@@ -15,12 +15,12 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Expanded(child: _buildContent(context)),
-          SizedBox(width: 36),
+          const SizedBox(width: 36),
           Image(image: thumbnail, width: 110, height: 66),
         ],
       ),
@@ -33,14 +33,14 @@ class NewsCard extends StatelessWidget {
       children: <Widget>[
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 6),
+        const SizedBox(height: 6),
         Text(
           time,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 10,
             color: AppColors.darkGrey,
           ),

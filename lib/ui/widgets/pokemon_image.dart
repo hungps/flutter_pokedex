@@ -31,7 +31,7 @@ class PokemonImage extends StatelessWidget {
       child: Hero(
         tag: pokemon.image,
         child: AnimatedPadding(
-          duration: Duration(milliseconds: 600),
+          duration: const Duration(milliseconds: 600),
           curve: Curves.easeOutQuint,
           padding: padding,
           child: CachedNetworkImage(
@@ -40,8 +40,8 @@ class PokemonImage extends StatelessWidget {
             useOldImageOnUrlChange: true,
             maxWidthDiskCache: _cacheMaxSize.width.toInt(),
             maxHeightDiskCache: _cacheMaxSize.height.toInt(),
-            fadeInDuration: Duration(milliseconds: 120),
-            fadeOutDuration: Duration(milliseconds: 120),
+            fadeInDuration: const Duration(milliseconds: 120),
+            fadeOutDuration: const Duration(milliseconds: 120),
             imageBuilder: (_, image) => Image(
               image: image,
               width: size.width,

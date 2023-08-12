@@ -4,12 +4,12 @@ import 'package:pokedex/configs/colors.dart';
 import 'fonts.dart';
 
 class Themings {
-  static final TextStyle darkText = TextStyle(
+  static const TextStyle darkText = TextStyle(
     color: AppColors.whiteGrey,
     fontFamily: AppFonts.circularStd,
   );
 
-  static final TextStyle lightText = TextStyle(
+  static const TextStyle lightText = TextStyle(
     color: AppColors.black,
     fontFamily: AppFonts.circularStd,
   );
@@ -65,10 +65,10 @@ class Themings {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.blue,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       toolbarTextStyle: lightText,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyLarge: lightText,
       bodyMedium: lightText,
       labelMedium: lightText,

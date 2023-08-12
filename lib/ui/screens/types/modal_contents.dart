@@ -10,9 +10,9 @@ import 'package:pokedex/routes.dart';
 import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
-import 'package:pokedex/ui/widgets/pokemon_card.dart';
 import 'package:pokedex/ui/screens/types/type_container.dart';
 import 'package:pokedex/ui/screens/types/type_entities/widget_list.dart';
+import 'package:pokedex/ui/widgets/pokemon_card.dart';
 
 // Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
 class ModalContents extends StatefulWidget {
@@ -28,10 +28,10 @@ class ModalContents extends StatefulWidget {
   final ScrollController scroller;
 
   @override
-  _ModalContentsState createState() => _ModalContentsState();
+  ModalContentsState createState() => ModalContentsState();
 }
 
-class _ModalContentsState extends State<ModalContents> {
+class ModalContentsState extends State<ModalContents> {
   final List<bool> _isOpen = [false, false, false];
 
   @override
@@ -39,7 +39,7 @@ class _ModalContentsState extends State<ModalContents> {
     super.initState();
 
     scheduleMicrotask(() {
-      context.read<PokemonBloc>().add(PokemonLoadStarted(loadAll: true));
+      context.read<PokemonBloc>().add(const PokemonLoadStarted(loadAll: true));
     });
   }
 
@@ -95,8 +95,8 @@ class _ModalContentsState extends State<ModalContents> {
                   );
                 }).toList(),
               )
-            : Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
+            : const Padding(
+                padding: EdgeInsets.only(bottom: 10.0),
                 child:
                     Text("No Pokemon found", style: TextStyle(fontSize: 16, color: Colors.black54)),
               ),
@@ -129,7 +129,7 @@ class _ModalContentsState extends State<ModalContents> {
         );
       },
       canTapOnHeader: true,
-      body: Text("Under development"),
+      body: const Text("Under development"),
       isExpanded: _isOpen[1],
     );
   }
@@ -144,9 +144,9 @@ class _ModalContentsState extends State<ModalContents> {
       );
 
   Widget _buildError() => Container(
-        padding: EdgeInsets.only(bottom: 28),
+        padding: const EdgeInsets.only(bottom: 28),
         alignment: Alignment.center,
-        child: Icon(
+        child: const Icon(
           Icons.warning_amber_rounded,
           size: 60,
           color: Colors.black26,
@@ -156,11 +156,11 @@ class _ModalContentsState extends State<ModalContents> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       controller: widget.scroller,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Container(
               alignment: Alignment.center,
               child: TypeDisplayContainer(
@@ -170,12 +170,12 @@ class _ModalContentsState extends State<ModalContents> {
                 width: 200.0,
                 j: null,
                 height: 70,
-                typeList: [],
+                typeList: const [],
               )), //type_card
         ),
         Center(
           child: Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: const EdgeInsets.only(top: 20),
             height: 1,
             width: widget.width / 1.7,
             color: Colors.black12,

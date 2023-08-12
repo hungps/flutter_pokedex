@@ -25,7 +25,7 @@ class ModalDraggable extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.background,
                 borderRadius:
-                    BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                    const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
             child: Stack(
               children: [
                 Align(

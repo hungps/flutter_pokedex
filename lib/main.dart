@@ -71,7 +71,7 @@ void main() async {
             create: (context) => ThemeCubit(),
           )
         ],
-        child: PokedexApp(),
+        child: const PokedexApp(),
       ),
     ),
   );
