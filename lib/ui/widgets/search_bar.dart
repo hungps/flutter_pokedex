@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({
+class KSearchBar extends StatelessWidget {
+  const KSearchBar({
     this.margin = const EdgeInsets.symmetric(horizontal: 28),
   });
 

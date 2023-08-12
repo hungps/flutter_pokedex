@@ -48,7 +48,7 @@ class _HeaderCardContent extends StatelessWidget {
               ),
             ),
             _buildTitle(),
-            SearchBar(),
+            KSearchBar(),
             _buildCategories(context),
           ],
         ),
