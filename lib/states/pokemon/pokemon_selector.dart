@@ -5,7 +5,8 @@ import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
 
 class PokemonStateSelector<T> extends BlocSelector<PokemonBloc, PokemonState, T> {
-  PokemonStateSelector({super.key, 
+  PokemonStateSelector({
+    super.key,
     required T Function(PokemonState) selector,
     required Widget Function(T) builder,
   }) : super(
@@ -62,8 +63,4 @@ class PokemonSelectorState {
   final bool selected;
 
   const PokemonSelectorState(this.pokemon, this.selected);
-
-  @override
-  bool operator ==(Object other) =>
-      other is PokemonSelectorState && pokemon == other.pokemon && selected == other.selected;
 }
