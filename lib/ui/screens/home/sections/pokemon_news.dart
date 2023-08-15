@@ -6,7 +6,7 @@ class _PokemonNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      physics: ClampingScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       children: <Widget>[
         _buildHeader(context),
         _buildNews(),
@@ -15,7 +15,7 @@ class _PokemonNews extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.fromLTRB(28, 0, 28, 22),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -44,11 +44,11 @@ class _PokemonNews extends StatelessWidget {
   Widget _buildNews() {
     return ListView.separated(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: 9,
-      separatorBuilder: (context, index) => Divider(),
+      separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) {
-        return NewsCard(
+        return const NewsCard(
           title: 'Pokémon Rumble Rush Arrives Soon',
           time: '15 May 2019',
           thumbnail: AppImages.thumbnail,

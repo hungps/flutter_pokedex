@@ -5,6 +5,8 @@ import 'modal_sheet.dart';
 
 // Class responsible for creating the grid of pokeballs that consists of the respective types
 class TypeEffectGrid extends StatelessWidget {
+  const TypeEffectGrid({super.key});
+
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
@@ -13,9 +15,9 @@ class TypeEffectGrid extends StatelessWidget {
       return CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
 
 class ProgressBar extends StatelessWidget {
-  const ProgressBar({
+  const ProgressBar({super.key, 
     this.color = AppColors.red,
     this.backgroundColor = AppColors.lighterGrey,
     this.enableAnimation = true,
@@ -18,7 +18,7 @@ class ProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final child = Container(
       decoration: ShapeDecoration(
-        shape: StadiumBorder(),
+        shape: const StadiumBorder(),
         color: color,
       ),
     );
@@ -27,14 +27,14 @@ class ProgressBar extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       height: 3,
       alignment: Alignment.centerLeft,
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
         shape: StadiumBorder(),
         color: AppColors.lighterGrey,
       ),
       child: enableAnimation
           ? AnimatedAlign(
-              duration: Duration(milliseconds: 260),
-              alignment: Alignment(1, 0),
+              duration: const Duration(milliseconds: 260),
+              alignment: const Alignment(1, 0),
               widthFactor: progress,
               child: child,
             )

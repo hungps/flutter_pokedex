@@ -44,7 +44,7 @@ class TypeDisplayContainer extends StatelessWidget {
     assigner();
     return Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.only(left: 5, right: 5),
+        margin: const EdgeInsets.only(left: 5, right: 5),
         width: width,
         height: height,
         decoration: BoxDecoration(
@@ -52,7 +52,7 @@ class TypeDisplayContainer extends StatelessWidget {
           border: Border.all(color: AppColors.black.withAlpha(100)),
           boxShadow: [
             (width != 75)
-                ? BoxShadow(
+                ? const BoxShadow(
                     color: AppColors.grey,
                     blurRadius: 25.0, // soften the shadow
                     spreadRadius: 7.0, //extend the shadow
@@ -61,7 +61,7 @@ class TypeDisplayContainer extends StatelessWidget {
                       5.0, // Move to bottom 5 Vertically
                     ),
                   )
-                : BoxShadow()
+                : const BoxShadow()
           ],
           color: col,
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AnimatedFade extends AnimatedWidget {
-  const AnimatedFade({
+  const AnimatedFade({super.key, 
     required this.child,
     required this.animation,
   }) : super(listenable: animation);

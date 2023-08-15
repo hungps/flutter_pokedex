@@ -9,7 +9,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
 
   final ItemRepository _itemRepository;
 
-  ItemBloc(this._itemRepository) : super(ItemState.initial()) {
+  ItemBloc(this._itemRepository) : super(const ItemState.initial()) {
     on<ItemLoadStarted>(
       _onLoadStarted,
       transformer: (events, mapper) => events.switchMap(mapper),

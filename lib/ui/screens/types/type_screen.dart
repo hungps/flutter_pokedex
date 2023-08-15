@@ -6,6 +6,8 @@ import 'package:pokedex/ui/widgets/pokeball_background.dart';
 
 // Class that is related to creating the whole type-effects page
 class TypeEffectScreen extends StatelessWidget {
+  const TypeEffectScreen({super.key});
+
   List<Widget> _buildHeader(BuildContext context, bool innerBoxIsScrolled) {
     return [
       MainSliverAppBar(
@@ -20,7 +22,7 @@ class TypeEffectScreen extends StatelessWidget {
     return PokeballBackground(
       child: NestedScrollView(
         headerSliverBuilder: _buildHeader,
-        body: TypeEffectGrid(),
+        body: const TypeEffectGrid(),
       ),
     );
   }

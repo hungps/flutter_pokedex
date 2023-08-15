@@ -13,7 +13,7 @@ class ItemCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 3),
+      margin: const EdgeInsets.only(top: 3),
       child: Material(
         color: Colors.transparent,
         child: Container(
@@ -22,7 +22,7 @@ class ItemCategory extends StatelessWidget {
             vertical: context.responsive(4),
           ),
           decoration: ShapeDecoration(
-            shape: StadiumBorder(),
+            shape: const StadiumBorder(),
             color: Colors.white.withOpacity(0.2),
           ),
           child: Row(
@@ -31,7 +31,7 @@ class ItemCategory extends StatelessWidget {
               Text(
                 name,
                 textScaleFactor: 1,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 10,
                   height: 0.8,
                   fontWeight: FontWeight.normal,
@@ -39,7 +39,7 @@ class ItemCategory extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              HSpacer(5),
+              const HSpacer(5),
             ],
           ),
         ),

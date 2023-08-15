@@ -19,7 +19,7 @@ class _ItemGridState extends State<_ItemGrid> {
     super.initState();
 
     scheduleMicrotask(() {
-      itemBloc.add(ItemLoadStarted());
+      itemBloc.add(const ItemLoadStarted());
       _scrollKey.currentState?.innerController.addListener(_onScroll);
     });
   }
@@ -46,7 +46,7 @@ class _ItemGridState extends State<_ItemGrid> {
   }
 
   Future _onRefresh() async {
-    itemBloc.add(ItemLoadStarted());
+    itemBloc.add(const ItemLoadStarted());
 
     return itemBloc.stream.firstWhere((e) => e.status != ItemStateStatus.loading);
   }
@@ -80,7 +80,7 @@ class _ItemGridState extends State<_ItemGrid> {
   }
 
   Widget _buildLoading() {
-    return Center(
+    return const Center(
       child: Image(image: AppImages.pikloader),
     );
   }
@@ -90,10 +90,10 @@ class _ItemGridState extends State<_ItemGrid> {
       slivers: [
         PokemonRefreshControl(onRefresh: _onRefresh),
         SliverPadding(
-          padding: EdgeInsets.all(28),
+          padding: const EdgeInsets.all(28),
           sliver: NumberOfItemsSelector((numberOfItems) {
             return SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1.4,
                 crossAxisSpacing: 10,
@@ -117,13 +117,13 @@ class _ItemGridState extends State<_ItemGrid> {
         SliverToBoxAdapter(
           child: ItemCanLoadMoreSelector((canLoadMore) {
             if (!canLoadMore) {
-              return SizedBox.shrink();
+              return const SizedBox.shrink();
             }
 
             return Container(
-              padding: EdgeInsets.only(bottom: 28),
+              padding: const EdgeInsets.only(bottom: 28),
               alignment: Alignment.center,
-              child: Image(image: AppImages.pikloader),
+              child: const Image(image: AppImages.pikloader),
             );
           }),
         ),
@@ -137,9 +137,9 @@ class _ItemGridState extends State<_ItemGrid> {
         PokemonRefreshControl(onRefresh: _onRefresh),
         SliverFillRemaining(
           child: Container(
-            padding: EdgeInsets.only(bottom: 28),
+            padding: const EdgeInsets.only(bottom: 28),
             alignment: Alignment.center,
-            child: Icon(
+            child: const Icon(
               Icons.warning_amber_rounded,
               size: 60,
               color: Colors.black26,

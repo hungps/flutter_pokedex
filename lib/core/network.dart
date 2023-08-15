@@ -11,7 +11,7 @@ class NetworkManager {
     final dio = Dio();
 
     dio.interceptors.add(DioCacheManager(CacheConfig(
-      defaultMaxAge: Duration(days: 10),
+      defaultMaxAge: const Duration(days: 10),
       maxMemoryCacheCount: 3,
     )).interceptor);
 

@@ -5,7 +5,7 @@ import 'package:pokedex/states/item/item_bloc.dart';
 import 'package:pokedex/states/item/item_state.dart';
 
 class ItemStateSelector<T> extends BlocSelector<ItemBloc, ItemState, T> {
-  ItemStateSelector({
+  ItemStateSelector({super.key, 
     required T Function(ItemState) selector,
     required Widget Function(T) builder,
   }) : super(
@@ -15,7 +15,7 @@ class ItemStateSelector<T> extends BlocSelector<ItemBloc, ItemState, T> {
 }
 
 class ItemStateStatusSelector extends ItemStateSelector<ItemStateStatus> {
-  ItemStateStatusSelector(Widget Function(ItemStateStatus) builder)
+  ItemStateStatusSelector(Widget Function(ItemStateStatus) builder, {super.key})
       : super(
           selector: (state) => state.status,
           builder: builder,
@@ -23,7 +23,7 @@ class ItemStateStatusSelector extends ItemStateSelector<ItemStateStatus> {
 }
 
 class ItemCanLoadMoreSelector extends ItemStateSelector<bool> {
-  ItemCanLoadMoreSelector(Widget Function(bool) builder)
+  ItemCanLoadMoreSelector(Widget Function(bool) builder, {super.key})
       : super(
           selector: (state) => state.canLoadMore,
           builder: builder,
@@ -31,7 +31,7 @@ class ItemCanLoadMoreSelector extends ItemStateSelector<bool> {
 }
 
 class NumberOfItemsSelector extends ItemStateSelector<int> {
-  NumberOfItemsSelector(Widget Function(int) builder)
+  NumberOfItemsSelector(Widget Function(int) builder, {super.key})
       : super(
           selector: (state) => state.items.length,
           builder: builder,
@@ -39,7 +39,7 @@ class NumberOfItemsSelector extends ItemStateSelector<int> {
 }
 
 class CurrentItemSelector extends ItemStateSelector<Item> {
-  CurrentItemSelector(Widget Function(Item) builder)
+  CurrentItemSelector(Widget Function(Item) builder, {super.key})
       : super(
           selector: (state) => state.selectedItem,
           builder: builder,
@@ -47,7 +47,7 @@ class CurrentItemSelector extends ItemStateSelector<Item> {
 }
 
 class ItemSelector extends ItemStateSelector<ItemSelectorState> {
-  ItemSelector(int index, Widget Function(Item, bool) builder)
+  ItemSelector(int index, Widget Function(Item, bool) builder, {super.key})
       : super(
           selector: (state) => ItemSelectorState(
             state.items[index],

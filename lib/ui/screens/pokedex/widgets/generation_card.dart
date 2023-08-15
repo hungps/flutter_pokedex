@@ -7,7 +7,7 @@ import 'package:pokedex/domain/entities/generation.dart';
 import '../../../../states/theme/theme_cubit.dart';
 
 class GenerationCard extends StatelessWidget {
-  const GenerationCard(this.generation);
+  const GenerationCard(this.generation, {super.key});
 
   final Generation generation;
 
@@ -24,7 +24,7 @@ class GenerationCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 8),
+              offset: const Offset(0, 8),
               blurRadius: 15,
               color: AppColors.black.withOpacity(0.12),
             ),
@@ -33,8 +33,8 @@ class GenerationCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              constraints: BoxConstraints.expand(),
-              padding: EdgeInsets.all(16),
+              constraints: const BoxConstraints.expand(),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,7 +42,7 @@ class GenerationCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     generation.title,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,

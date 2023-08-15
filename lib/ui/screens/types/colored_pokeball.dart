@@ -46,7 +46,7 @@ class CircularContainer extends StatelessWidget {
             width: null,
             j: null,
             height: 30,
-            typeList: [],
+            typeList: const [],
           ),
         ),
       ],

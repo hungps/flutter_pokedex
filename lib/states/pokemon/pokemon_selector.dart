@@ -5,7 +5,7 @@ import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
 
 class PokemonStateSelector<T> extends BlocSelector<PokemonBloc, PokemonState, T> {
-  PokemonStateSelector({
+  PokemonStateSelector({super.key, 
     required T Function(PokemonState) selector,
     required Widget Function(T) builder,
   }) : super(
@@ -15,7 +15,7 @@ class PokemonStateSelector<T> extends BlocSelector<PokemonBloc, PokemonState, T>
 }
 
 class PokemonStateStatusSelector extends PokemonStateSelector<PokemonStateStatus> {
-  PokemonStateStatusSelector(Widget Function(PokemonStateStatus) builder)
+  PokemonStateStatusSelector(Widget Function(PokemonStateStatus) builder, {super.key})
       : super(
           selector: (state) => state.status,
           builder: builder,
@@ -23,7 +23,7 @@ class PokemonStateStatusSelector extends PokemonStateSelector<PokemonStateStatus
 }
 
 class PokemonCanLoadMoreSelector extends PokemonStateSelector<bool> {
-  PokemonCanLoadMoreSelector(Widget Function(bool) builder)
+  PokemonCanLoadMoreSelector(Widget Function(bool) builder, {super.key})
       : super(
           selector: (state) => state.canLoadMore,
           builder: builder,
@@ -31,7 +31,7 @@ class PokemonCanLoadMoreSelector extends PokemonStateSelector<bool> {
 }
 
 class NumberOfPokemonsSelector extends PokemonStateSelector<int> {
-  NumberOfPokemonsSelector(Widget Function(int) builder)
+  NumberOfPokemonsSelector(Widget Function(int) builder, {super.key})
       : super(
           selector: (state) => state.pokemons.length,
           builder: builder,
@@ -39,7 +39,7 @@ class NumberOfPokemonsSelector extends PokemonStateSelector<int> {
 }
 
 class CurrentPokemonSelector extends PokemonStateSelector<Pokemon> {
-  CurrentPokemonSelector(Widget Function(Pokemon) builder)
+  CurrentPokemonSelector(Widget Function(Pokemon) builder, {super.key})
       : super(
           selector: (state) => state.selectedPokemon,
           builder: builder,
@@ -47,7 +47,7 @@ class CurrentPokemonSelector extends PokemonStateSelector<Pokemon> {
 }
 
 class PokemonSelector extends PokemonStateSelector<PokemonSelectorState> {
-  PokemonSelector(int index, Widget Function(Pokemon, bool) builder)
+  PokemonSelector(int index, Widget Function(Pokemon, bool) builder, {super.key})
       : super(
           selector: (state) => PokemonSelectorState(
             state.pokemons[index],

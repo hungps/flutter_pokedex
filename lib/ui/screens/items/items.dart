@@ -23,16 +23,16 @@ part 'sections/fab_menu.dart';
 part 'sections/items_grid.dart';
 
 class ItemsScreen extends StatefulWidget {
-  const ItemsScreen();
+  const ItemsScreen({super.key});
 
   @override
-  _ItemsScreenState createState() => _ItemsScreenState();
+  ItemsScreenState createState() => ItemsScreenState();
 }
 
-class _ItemsScreenState extends State<ItemsScreen> {
+class ItemsScreenState extends State<ItemsScreen> {
   @override
   Widget build(BuildContext context) {
-    return PokeballBackground(
+    return const PokeballBackground(
       child: Stack(
         children: [
           _ItemGrid(),

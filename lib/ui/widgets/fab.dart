@@ -18,8 +18,8 @@ class FabItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var bgColor = Theme.of(context).colorScheme.background;
     return MaterialButton(
-      shape: StadiumBorder(),
-      padding: EdgeInsets.fromLTRB(24, 8, 16, 8),
+      shape: const StadiumBorder(),
+      padding: const EdgeInsets.fromLTRB(24, 8, 16, 8),
       color: bgColor,
       splashColor: Colors.grey[100],
       highlightColor: Colors.grey[100],
@@ -31,7 +31,7 @@ class FabItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(item.title),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Icon(item.icon, color: AppColors.indigo),
         ],
       ),
@@ -43,7 +43,7 @@ class ExpandedAnimationFab extends AnimatedWidget {
   final List<FabItemData> items;
   final void Function()? onPress;
 
-  const ExpandedAnimationFab({
+  const ExpandedAnimationFab({super.key, 
     required this.items,
     required Animation animation,
     this.onPress,
@@ -61,20 +61,20 @@ class ExpandedAnimationFab extends AnimatedWidget {
           ignoring: animation.value == 0,
           child: ListView.separated(
             shrinkWrap: true,
-            padding: EdgeInsets.symmetric(vertical: 12),
-            physics: NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: items.length,
-            separatorBuilder: (_, __) => SizedBox(height: 9),
+            separatorBuilder: (_, __) => const SizedBox(height: 9),
             itemBuilder: _buildItem,
           ),
         ),
         FloatingActionButton(
           backgroundColor: AppColors.indigo,
+          onPressed: onPress,
           child: AnimatedIcon(
             icon: AnimatedIcons.menu_close,
             progress: animation,
           ),
-          onPressed: onPress,
         ),
       ],
     );

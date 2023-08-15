@@ -6,7 +6,7 @@ class Stat extends StatelessWidget {
   final double? progress;
   final num value;
 
-  const Stat({
+  const Stat({super.key, 
     required this.animation,
     required this.label,
     required this.value,
@@ -70,7 +70,7 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
   void initState() {
     _progressController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 400),
     );
 
     _progressAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
@@ -98,8 +98,8 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
         final scrollable = slideController.value.floor() == 1;
 
         return SingleChildScrollView(
-          padding: EdgeInsets.all(24),
-          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(24),
+          physics: scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
           child: child,
         );
       },
@@ -108,8 +108,8 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           buildStats(pokemon.stats),
-          SizedBox(height: 27),
-          Text(
+          const SizedBox(height: 27),
+          const Text(
             'Type defenses',
             style: TextStyle(
               fontSize: 16,
@@ -117,12 +117,12 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
               height: 0.8,
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
             'The effectiveness of each type on ${pokemon.name}.',
             style: TextStyle(color: AppColors.black.withOpacity(0.6)),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           _buildEffectivenesses(pokemon.typeEffectiveness),
         ],
       ),
@@ -135,17 +135,17 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Stat(animation: _progressAnimation, label: 'Hp', value: stats.hp),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         Stat(animation: _progressAnimation, label: 'Atttack', value: stats.attack),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         Stat(animation: _progressAnimation, label: 'Defense', value: stats.defense),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         Stat(animation: _progressAnimation, label: 'Sp. Atk', value: stats.specialAttack),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         Stat(animation: _progressAnimation, label: 'Sp. Def', value: stats.specialDefense),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         Stat(animation: _progressAnimation, label: 'Speed', value: stats.speed),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         Stat(
           animation: _progressAnimation,
           label: 'Total',
@@ -166,7 +166,7 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
               type,
               large: true,
               colored: true,
-              extra: 'x' + removeTrailingZero(typeEffectiveness[type] ?? 1),
+              extra: 'x${removeTrailingZero(typeEffectiveness[type] ?? 1)}',
             ),
           )
           .toList(),

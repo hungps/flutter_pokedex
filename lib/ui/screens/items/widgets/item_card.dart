@@ -15,7 +15,7 @@ class ItemCard extends StatelessWidget {
   static const double _itemFraction = 0.61;
 
   const ItemCard(
-    this.item, {
+    this.item, {super.key, 
     this.onPress,
     required this.index,
   });
@@ -98,7 +98,7 @@ class ItemCard extends StatelessWidget {
               BoxShadow(
                 color: AppColors.grey.withOpacity(0.12),
                 blurRadius: 30,
-                offset: Offset(0, 8),
+                offset: const Offset(0, 8),
               ),
             ],
           ),
@@ -160,7 +160,7 @@ class _CardContent extends StatelessWidget {
               tag: item.name,
               child: Text(
                 item.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   height: 0.7,
                   fontWeight: FontWeight.bold,

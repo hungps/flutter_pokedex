@@ -28,7 +28,7 @@ class _PokemonBall extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 3),
+        const SizedBox(height: 3),
         Text(pokemon.name),
       ],
     );
@@ -58,9 +58,9 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
         Expanded(
           child: Column(
             children: <Widget>[
-              Icon(Icons.arrow_forward, color: AppColors.lightGrey),
-              SizedBox(height: 7),
-              Text(reason, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+              const Icon(Icons.arrow_forward, color: AppColors.lightGrey),
+              const SizedBox(height: 7),
+              Text(reason, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
@@ -79,15 +79,15 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
         final scrollable = slideController.value.floor() == 1;
 
         return SingleChildScrollView(
-          physics: scrollable ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.symmetric(vertical: 31, horizontal: 28),
+          physics: scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(vertical: 31, horizontal: 28),
           child: child,
         );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
+          const Text(
             'Evolution Chain',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -95,11 +95,11 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
               height: 0.8,
             ),
           ),
-          SizedBox(height: 28),
+          const SizedBox(height: 28),
           ListView.separated(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (_, __) => Divider(height: 58),
+            physics: const NeverScrollableScrollPhysics(),
+            separatorBuilder: (_, __) => const Divider(height: 58),
             itemCount: pokemon.evolutions.length - 1,
             itemBuilder: (_, index) => _buildRow(
               current: pokemon.evolutions[index],

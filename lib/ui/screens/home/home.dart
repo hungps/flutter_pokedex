@@ -2,24 +2,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_web_frame/flutter_web_frame.dart';
-
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/categories.dart';
 import 'package:pokedex/domain/entities/category.dart';
-import 'package:pokedex/ui/widgets/search_bar.dart';
-import 'package:pokedex/ui/widgets/pokeball_background.dart';
 import 'package:pokedex/routes.dart';
+import 'package:pokedex/ui/widgets/pokeball_background.dart';
+import 'package:pokedex/ui/widgets/search_bar.dart';
 
 import '../../../states/theme/theme_cubit.dart';
-import 'widgets/news_card.dart';
 import 'widgets/category_card.dart';
+import 'widgets/news_card.dart';
 
-part 'sections/pokemon_news.dart';
 part 'sections/header_card_content.dart';
+part 'sections/pokemon_news.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
             floating: true,
             pinned: true,
             elevation: 0,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(30),
               ),
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
-        body: _PokemonNews(),
+        body: const _PokemonNews(),
       ),
     );
   }

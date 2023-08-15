@@ -41,7 +41,7 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
               label: 'Evolution',
               child: _PokemonEvolution(pokemon),
             ),
-            MainTabData(
+            const MainTabData(
               label: 'Moves',
               child: Align(
                 alignment: Alignment.topCenter,

@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
@@ -31,17 +30,16 @@ class PokemonImage extends StatelessWidget {
       child: Hero(
         tag: pokemon.image,
         child: AnimatedPadding(
-          duration: Duration(milliseconds: 600),
+          duration: const Duration(milliseconds: 600),
           curve: Curves.easeOutQuint,
           padding: padding,
           child: CachedNetworkImage(
             imageUrl: pokemon.image,
-            imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
             useOldImageOnUrlChange: true,
             maxWidthDiskCache: _cacheMaxSize.width.toInt(),
             maxHeightDiskCache: _cacheMaxSize.height.toInt(),
-            fadeInDuration: Duration(milliseconds: 120),
-            fadeOutDuration: Duration(milliseconds: 120),
+            fadeInDuration: const Duration(milliseconds: 120),
+            fadeOutDuration: const Duration(milliseconds: 120),
             imageBuilder: (_, image) => Image(
               image: image,
               width: size.width,

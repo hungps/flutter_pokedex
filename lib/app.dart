@@ -11,13 +11,15 @@ import 'package:pokedex/routes.dart';
 import 'package:pokedex/states/theme/theme_cubit.dart';
 
 class PokedexApp extends StatelessWidget {
+  const PokedexApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
     var isDark = themeCubit.isDark;
 
     return FlutterWebFrame(
-      maximumSize: Size.fromWidth(600),
+      maximumSize: const Size.fromWidth(600),
       backgroundColor: isDark ? Colors.black12 : Colors.grey[200],
       enabled: kIsWeb || !Platform.isAndroid && !Platform.isIOS,
       builder: (context) {
@@ -28,7 +30,7 @@ class PokedexApp extends StatelessWidget {
           navigatorKey: AppNavigator.navigatorKey,
           onGenerateRoute: AppNavigator.onGenerateRoute,
           builder: (context, child) {
-            if (child == null) return SizedBox.shrink();
+            if (child == null) return const SizedBox.shrink();
 
             final data = MediaQuery.of(context);
             final smallestSize = min(data.size.width, data.size.height);

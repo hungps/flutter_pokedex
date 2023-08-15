@@ -14,7 +14,7 @@ class BoldText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.whiteGrey, shadows: [
+      style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.whiteGrey, shadows: [
         Shadow(
             // bottomLeft
             offset: Offset(-1, -1),

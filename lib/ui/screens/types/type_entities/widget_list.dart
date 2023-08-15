@@ -13,7 +13,7 @@ List<Widget> lister(int index, dynamic value, double width, String term) {
         child: Text(
           term,
           textAlign: TextAlign.left,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             // color: Colors.black54,
           ),
@@ -44,7 +44,7 @@ List<Widget> lister(int index, dynamic value, double width, String term) {
           ],
         )),
     Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       height: 1,
       width: width / 1.7,
       color: Colors.black12,

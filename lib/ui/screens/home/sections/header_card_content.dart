@@ -14,7 +14,7 @@ class _HeaderCardContent extends StatelessWidget {
 
     return Container(
       clipBehavior: Clip.hardEdge,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         // color: Colors.white,
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
         // border: Border(
@@ -37,7 +37,7 @@ class _HeaderCardContent extends StatelessWidget {
                       // Function to toggle theme
                       themeCubit.toggleTheme();
                     },
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 28,
                     ),
                     icon: Icon(
@@ -48,7 +48,7 @@ class _HeaderCardContent extends StatelessWidget {
               ),
             ),
             _buildTitle(),
-            SearchBar(),
+            const KSearchBar(),
             _buildCategories(context),
           ],
         ),
@@ -59,10 +59,10 @@ class _HeaderCardContent extends StatelessWidget {
   Widget _buildTitle() {
     return Expanded(
       child: Container(
-        constraints: BoxConstraints.expand(),
-        padding: EdgeInsets.all(28),
+        constraints: const BoxConstraints.expand(),
+        padding: const EdgeInsets.all(28),
         alignment: Alignment.bottomLeft,
-        child: Text(
+        child: const Text(
           'What Pokemon\nare you looking for?',
           style: TextStyle(
             fontSize: 30,
@@ -77,9 +77,9 @@ class _HeaderCardContent extends StatelessWidget {
   Widget _buildCategories(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.fromLTRB(28, 42, 28, 62),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.fromLTRB(28, 42, 28, 62),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 10,
         childAspectRatio: 2.6,

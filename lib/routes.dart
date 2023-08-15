@@ -35,23 +35,23 @@ class AppNavigator {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case _Paths.splash:
-        return FadeRoute(page: SplashScreen());
+        return FadeRoute(page: const SplashScreen());
 
       case _Paths.pokedex:
-        return FadeRoute(page: PokedexScreen());
+        return FadeRoute(page: const PokedexScreen());
 
       case _Paths.pokemonInfo:
-        return FadeRoute(page: PokemonInfo());
+        return FadeRoute(page: const PokemonInfo());
 
       case _Paths.typeEffectsScreen:
-        return FadeRoute(page: TypeEffectScreen());
+        return FadeRoute(page: const TypeEffectScreen());
 
       case _Paths.itemsList:
-        return FadeRoute(page: ItemsScreen());
+        return FadeRoute(page: const ItemsScreen());
 
       case _Paths.home:
       default:
-        return FadeRoute(page: HomeScreen());
+        return FadeRoute(page: const HomeScreen());
     }
   }
 

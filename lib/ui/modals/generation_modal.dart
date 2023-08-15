@@ -5,6 +5,8 @@ import 'package:pokedex/ui/screens/pokedex/widgets/generation_card.dart';
 import 'package:pokedex/ui/widgets/modal.dart';
 
 class GenerationModal extends StatelessWidget {
+  const GenerationModal({super.key});
+
   Widget _buildGenerationCard(Generation generation) {
     return GenerationCard(generation);
   }
@@ -16,7 +18,7 @@ class GenerationModal extends StatelessWidget {
       child: GridView.builder(
         padding: EdgeInsets.fromLTRB(26, 26, 26, 26 + safeAreaBottom),
         controller: scrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 1.55,
           crossAxisSpacing: 10,

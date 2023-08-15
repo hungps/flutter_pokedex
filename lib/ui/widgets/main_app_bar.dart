@@ -13,7 +13,7 @@ class MainSliverAppBar extends SliverAppBar {
   );
 
   MainSliverAppBar(
-      {GlobalKey? appBarKey,
+      {super.key, GlobalKey? appBarKey,
       String title = 'Pokedex',
       double height = kToolbarHeight + mainAppbarPadding * 2,
       double expandedFontSize = 30,
@@ -28,7 +28,7 @@ class MainSliverAppBar extends SliverAppBar {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
+            padding: const EdgeInsets.symmetric(horizontal: mainAppbarPadding),
             onPressed: onLeadingPress,
             icon: Icon(
               Icons.arrow_back,
@@ -37,7 +37,7 @@ class MainSliverAppBar extends SliverAppBar {
           ),
           actions: [
             IconButton(
-              padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
+              padding: const EdgeInsets.symmetric(horizontal: mainAppbarPadding),
               icon: Icon(Icons.favorite_border_outlined,
                   color: Theme.of(context).textTheme.bodyLarge!.color),
               onPressed: onTrailingPress,
@@ -56,7 +56,7 @@ class MainSliverAppBar extends SliverAppBar {
               );
 
               final textWidth = getTextSize(context, title, currentTextStyle).width;
-              final startX = mainAppbarPadding;
+              const startX = mainAppbarPadding;
               final endX = MediaQuery.of(context).size.width / 2 - textWidth / 2 - startX;
               final dx = startX + endX - endX * percent;
 
@@ -68,11 +68,11 @@ class MainSliverAppBar extends SliverAppBar {
                     Padding(
                       padding: const EdgeInsets.only(top: kToolbarHeight / 3),
                       child: Transform.translate(
+                        offset: Offset(dx, constraints.maxHeight - kToolbarHeight),
                         child: Text(
                           title,
                           style: currentTextStyle,
                         ),
-                        offset: Offset(dx, constraints.maxHeight - kToolbarHeight),
                       ),
                     ),
                   ],
@@ -84,19 +84,19 @@ class MainSliverAppBar extends SliverAppBar {
 }
 
 class MainAppBar extends AppBar {
-  MainAppBar({Widget? title, IconData? rightIcon})
+  MainAppBar({super.key, Widget? title, IconData? rightIcon})
       : super(
           title: title,
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: IconButton(
+          leading: const IconButton(
             padding: EdgeInsets.symmetric(horizontal: mainAppbarPadding),
             icon: Icon(Icons.arrow_back),
             onPressed: AppNavigator.pop,
           ),
           actions: <Widget>[
             Padding(
-              padding: EdgeInsets.only(right: mainAppbarPadding),
+              padding: const EdgeInsets.only(right: mainAppbarPadding),
               child: Icon(
                 rightIcon,
                 color: Colors.white,
