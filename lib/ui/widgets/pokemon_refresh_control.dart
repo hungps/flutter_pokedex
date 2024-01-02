@@ -5,9 +5,9 @@ class PokemonRefreshControl extends StatelessWidget {
   final Future<void> Function() onRefresh;
 
   const PokemonRefreshControl({
-    Key? key,
+    super.key,
     required this.onRefresh,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

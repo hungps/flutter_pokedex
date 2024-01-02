@@ -4,10 +4,10 @@ import 'package:pokedex/ui/screens/types/type_container.dart';
 
 class CircularContainer extends StatelessWidget {
   const CircularContainer({
-    Key? key,
+    super.key,
     required this.width,
     required this.index,
-  }) : super(key: key);
+  });
 
   final double width;
   final int index;

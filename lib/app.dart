@@ -38,7 +38,7 @@ class PokedexApp extends StatelessWidget {
 
             return MediaQuery(
               data: data.copyWith(
-                textScaleFactor: textScaleFactor,
+                textScaler: TextScaler.linear(textScaleFactor),
               ),
               child: child,
             );

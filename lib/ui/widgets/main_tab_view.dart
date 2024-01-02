@@ -19,10 +19,10 @@ class MainTabView extends StatelessWidget {
   final Animation<double>? paddingAnimation;
 
   const MainTabView({
-    Key? key,
+    super.key,
     required this.tabs,
     this.paddingAnimation,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

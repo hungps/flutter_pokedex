@@ -7,10 +7,10 @@ import 'colored_pokeball.dart';
 
 class ModalSheet extends StatelessWidget {
   const ModalSheet({
-    Key? key,
+    super.key,
     required this.width,
     required this.index,
-  }) : super(key: key);
+  });
 
   final double width;
   final int index;

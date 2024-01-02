@@ -5,11 +5,11 @@ import 'package:pokedex/states/item/item_bloc.dart';
 import 'package:pokedex/states/item/item_state.dart';
 
 class ItemStateSelector<T> extends BlocSelector<ItemBloc, ItemState, T> {
-  ItemStateSelector({super.key, 
-    required T Function(ItemState) selector,
+  ItemStateSelector({
+    super.key,
+    required super.selector,
     required Widget Function(T) builder,
   }) : super(
-          selector: selector,
           builder: (_, value) => builder(value),
         );
 }
@@ -66,4 +66,7 @@ class ItemSelectorState {
   @override
   bool operator ==(Object other) =>
       other is ItemSelectorState && item == other.item && selected == other.selected;
+
+  @override
+  int get hashCode => item.hashCode ^ selected.hashCode;
 }

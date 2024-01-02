@@ -12,7 +12,8 @@ class PokemonCard extends StatelessWidget {
   final void Function()? onPress;
 
   const PokemonCard(
-    this.pokemon, {super.key, 
+    this.pokemon, {
+    super.key,
     this.onPress,
   });
 
@@ -105,7 +106,7 @@ class PokemonCard extends StatelessWidget {
 class _CardContent extends StatelessWidget {
   final Pokemon pokemon;
 
-  const _CardContent(this.pokemon, {Key? key}) : super(key: key);
+  const _CardContent(this.pokemon);
 
   @override
   Widget build(BuildContext context) {

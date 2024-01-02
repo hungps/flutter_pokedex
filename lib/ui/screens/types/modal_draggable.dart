@@ -6,10 +6,10 @@ import 'package:pokedex/ui/screens/types/modal_contents.dart';
 // Class responsible for generating the modal page when clicked on a type
 class ModalDraggable extends StatelessWidget {
   const ModalDraggable({
-    Key? key,
+    super.key,
     required this.width,
     required this.index,
-  }) : super(key: key);
+  });
 
   final double width;
   final int index;
@@ -24,8 +24,8 @@ class ModalDraggable extends StatelessWidget {
           return Container(
             decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.background,
-                borderRadius:
-                    const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20), topRight: Radius.circular(20))),
             child: Stack(
               children: [
                 Align(

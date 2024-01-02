@@ -13,10 +13,10 @@ class PokeballBackground extends StatelessWidget {
   final Widget? floatingActionButton;
 
   const PokeballBackground({
-    Key? key,
+    super.key,
     required this.child,
     this.floatingActionButton,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

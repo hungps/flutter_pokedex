@@ -8,11 +8,11 @@ import 'package:pokedex/configs/types.dart';
 
 class Redirection extends StatelessWidget {
   const Redirection({
-    Key? key,
+    super.key,
     required this.index,
     required this.term,
     required this.func,
-  }) : super(key: key);
+  });
 
   final int index;
   final String term;

@@ -5,11 +5,11 @@ import 'package:pokedex/ui/widgets/spacer.dart';
 class PokemonType extends StatelessWidget {
   const PokemonType(
     this.type, {
-    Key? key,
+    super.key,
     this.large = false,
     this.colored = false,
     this.extra = '',
-  }) : super(key: key);
+  });
 
   final PokemonTypes type;
   final String extra;
@@ -35,7 +35,7 @@ class PokemonType extends StatelessWidget {
           children: <Widget>[
             Text(
               type.value,
-              textScaleFactor: 1,
+              textScaler: TextScaler.noScaling,
               style: TextStyle(
                   fontSize: large ? 12 : 8,
                   height: 0.8,
@@ -46,7 +46,7 @@ class PokemonType extends StatelessWidget {
             const HSpacer(5),
             Text(
               extra,
-              textScaleFactor: 1,
+              textScaler: TextScaler.noScaling,
               style: TextStyle(
                 fontSize: large ? 12 : 8,
                 height: 0.8,

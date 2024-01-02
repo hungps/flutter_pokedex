@@ -8,16 +8,16 @@ import 'bold_texts.dart';
 
 // The Class that is responsible for the type images
 class TypeDisplayContainer extends StatelessWidget {
-  const TypeDisplayContainer(
-      {Key? key,
-      required this.index,
-      required this.path,
-      required this.value,
-      required this.width,
-      required this.height,
-      required this.typeList,
-      required this.j})
-      : super(key: key);
+  const TypeDisplayContainer({
+    super.key,
+    required this.index,
+    required this.path,
+    required this.value,
+    required this.width,
+    required this.height,
+    required this.typeList,
+    required this.j,
+  });
 
   final int index;
   final int? j;

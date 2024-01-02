@@ -15,7 +15,8 @@ class ItemCard extends StatelessWidget {
   static const double _itemFraction = 0.61;
 
   const ItemCard(
-    this.item, {super.key, 
+    this.item, {
+    super.key,
     this.onPress,
     required this.index,
   });
@@ -127,7 +128,7 @@ class ItemCard extends StatelessWidget {
 }
 
 class _CardContent extends StatelessWidget {
-  const _CardContent(this.item, {Key? key}) : super(key: key);
+  const _CardContent(this.item);
 
   final Item item;
 

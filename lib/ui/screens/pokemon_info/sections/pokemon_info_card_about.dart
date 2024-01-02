@@ -1,9 +1,8 @@
 part of '../pokemon_info.dart';
 
 class _Label extends Text {
-  _Label(String text, bool isDark)
+  _Label(super.text, bool isDark)
       : super(
-          text,
           style: TextStyle(
             color: isDark ? AppColors.whiteGrey.withOpacity(0.6) : AppColors.black.withOpacity(0.6),
             height: 0.8,
@@ -16,10 +15,9 @@ class _ContentSection extends StatelessWidget {
   final List<Widget>? children;
 
   const _ContentSection({
-    Key? key,
     required this.label,
     this.children,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +74,8 @@ class _PokemonAbout extends StatelessWidget {
 
         return SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 27),
-          physics: scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics:
+              scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
           child: child,
         );
       },

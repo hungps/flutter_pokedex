@@ -13,7 +13,8 @@ class MainSliverAppBar extends SliverAppBar {
   );
 
   MainSliverAppBar(
-      {super.key, GlobalKey? appBarKey,
+      {super.key,
+      GlobalKey? appBarKey,
       String title = 'Pokedex',
       double height = kToolbarHeight + mainAppbarPadding * 2,
       double expandedFontSize = 30,
@@ -84,9 +85,11 @@ class MainSliverAppBar extends SliverAppBar {
 }
 
 class MainAppBar extends AppBar {
-  MainAppBar({super.key, Widget? title, IconData? rightIcon})
-      : super(
-          title: title,
+  MainAppBar({
+    super.key,
+    super.title,
+    IconData? rightIcon,
+  }) : super(
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: const IconButton(

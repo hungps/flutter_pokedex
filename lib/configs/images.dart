@@ -16,16 +16,4 @@ class AppImages {
   static const dotted = _Image('dotted.png');
   static const thumbnail = _Image('thumbnail.png');
   static const pikloader = _Image('pika_loader.gif');
-
-  static Future precacheAssets(BuildContext context) async {
-    await precacheImage(bulbasaur, context);
-    await precacheImage(charmander, context);
-    await precacheImage(squirtle, context);
-    await precacheImage(pokeball, context);
-    await precacheImage(male, context);
-    await precacheImage(female, context);
-    await precacheImage(dotted, context);
-    await precacheImage(thumbnail, context);
-    await precacheImage(pikloader, context);
-  }
 }
