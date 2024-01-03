@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/generation.dart';
-
-import '../../../../states/theme/theme_cubit.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
 
 class GenerationCard extends StatelessWidget {
   const GenerationCard(this.generation, {super.key});
@@ -13,14 +11,12 @@ class GenerationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
-    var isDark = themeCubit.isDark;
     return LayoutBuilder(builder: (context, constraints) {
       final height = constraints.maxHeight;
 
       return Container(
         decoration: BoxDecoration(
-          color: isDark ? Colors.black87 : Colors.white,
+          color: context.colors.background,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(

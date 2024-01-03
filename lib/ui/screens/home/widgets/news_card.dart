@@ -6,7 +6,8 @@ class NewsCard extends StatelessWidget {
   final String time;
   final String title;
 
-  const NewsCard({super.key, 
+  const NewsCard({
+    super.key,
     required this.title,
     required this.time,
     required this.thumbnail,
@@ -42,7 +43,7 @@ class NewsCard extends StatelessWidget {
           time,
           style: const TextStyle(
             fontSize: 10,
-            color: AppColors.darkGrey,
+            color: AppColors.black,
           ),
         ),
       ],

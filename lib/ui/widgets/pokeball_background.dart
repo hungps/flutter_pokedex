@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
 import 'package:pokedex/ui/widgets/main_app_bar.dart';
-
-import '../../states/theme/theme_cubit.dart';
 
 class PokeballBackground extends StatelessWidget {
   static const double _pokeballWidthFraction = 0.664;
@@ -29,10 +26,8 @@ class PokeballBackground extends StatelessWidget {
     final pokeballTopMargin = -(pokeballSize / 2 - safeAreaTop - appBarHeight / 2);
     final pokeballRightMargin = -(pokeballSize / 2 - iconButtonPadding - iconSize / 2);
 
-    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
-    var isDark = themeCubit.isDark;
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: context.colors.background,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -43,7 +38,7 @@ class PokeballBackground extends StatelessWidget {
               image: AppImages.pokeball,
               width: pokeballSize,
               height: pokeballSize,
-              color: !isDark ? AppColors.whiteGrey : Colors.black.withOpacity(0.05),
+              color: context.colors.border,
             ),
           ),
           child,

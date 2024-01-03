@@ -7,10 +7,15 @@ import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/categories.dart';
 import 'package:pokedex/domain/entities/category.dart';
 import 'package:pokedex/routes.dart';
+import 'package:pokedex/states/settings/settings_bloc.dart';
+import 'package:pokedex/states/settings/settings_event.dart';
+import 'package:pokedex/states/settings/settings_selector.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
+import 'package:pokedex/ui/themes/themes/themes.dark.dart';
+import 'package:pokedex/ui/themes/themes/themes.light.dart';
 import 'package:pokedex/ui/widgets/pokeball_background.dart';
-import 'package:pokedex/ui/widgets/search_bar.dart';
+import 'package:pokedex/ui/widgets/input.dart';
 
-import '../../../states/theme/theme_cubit.dart';
 import 'widgets/category_card.dart';
 import 'widgets/news_card.dart';
 
@@ -62,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.backgroundDark,
       body: NestedScrollView(
         controller: _scrollController,
         headerSliverBuilder: (_, __) => [

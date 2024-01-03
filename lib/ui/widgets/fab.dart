@@ -70,7 +70,6 @@ class ExpandedAnimationFab extends AnimatedWidget {
           ),
         ),
         FloatingActionButton(
-          backgroundColor: AppColors.indigo,
           onPressed: onPress,
           child: AnimatedIcon(
             icon: AnimatedIcons.menu_close,

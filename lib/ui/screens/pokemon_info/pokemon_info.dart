@@ -22,8 +22,6 @@ import 'package:pokedex/ui/widgets/pokemon_type.dart';
 import 'package:pokedex/ui/widgets/progress.dart';
 import 'package:pokedex/utils/string.dart';
 
-import '../../../states/theme/theme_cubit.dart';
-
 part 'sections/background_decoration.dart';
 part 'sections/pokemon_info_card.dart';
 part 'sections/pokemon_info_card_about.dart';
