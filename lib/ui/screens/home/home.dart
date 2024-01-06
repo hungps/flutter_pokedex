@@ -1,21 +1,22 @@
-// ignore_for_file: unnecessary_null_comparison
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/configs/images.dart';
-import 'package:pokedex/data/categories.dart';
-import 'package:pokedex/domain/entities/category.dart';
 import 'package:pokedex/routes.dart';
-import 'package:pokedex/ui/widgets/pokeball_background.dart';
-import 'package:pokedex/ui/widgets/search_bar.dart';
+import 'package:pokedex/states/settings/settings_bloc.dart';
+import 'package:pokedex/states/settings/settings_event.dart';
+import 'package:pokedex/states/settings/settings_selector.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
+import 'package:pokedex/ui/themes/themes/themes.dark.dart';
+import 'package:pokedex/ui/themes/themes/themes.light.dart';
+import 'package:pokedex/ui/widgets/app_bar.dart';
+import 'package:pokedex/ui/widgets/button.dart';
+import 'package:pokedex/ui/widgets/input.dart';
+import 'package:pokedex/ui/widgets/scaffold.dart';
 
-import '../../../states/theme/theme_cubit.dart';
-import 'widgets/category_card.dart';
-import 'widgets/news_card.dart';
-
-part 'sections/header_card_content.dart';
-part 'sections/pokemon_news.dart';
+part 'widgets/category_card.dart';
+part 'widgets/news_card.dart';
+part 'sections/header.dart';
+part 'sections/news.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,75 +26,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final ScrollController _scrollController = ScrollController();
-
-  bool showTitle = false;
-
-  @override
-  void initState() {
-    _scrollController.addListener(_onScroll);
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    if (_scrollController != null) {
-      _scrollController.dispose();
-    }
-
-    super.dispose();
-  }
-
-  void _onScroll() {
-    if (!_scrollController.hasClients) return;
-
-    final offset = _scrollController.offset;
-    final showTitle = offset > _HeaderCardContent.height - kToolbarHeight;
-
-    // Prevent unneccesary rebuild
-    if (this.showTitle == showTitle) return;
-
-    setState(() {
-      this.showTitle = showTitle;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.backgroundDark,
       body: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: (_, __) => [
-          SliverAppBar(
-            expandedHeight: _HeaderCardContent.height,
-            floating: true,
-            pinned: true,
-            elevation: 0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.circular(30),
-              ),
+        headerSliverBuilder: (_, innerBoxIsScrolled) => [
+          AppExpandableSliverAppBar(
+            backgroundColor: context.colors.primary,
+            title: Visibility(
+              visible: innerBoxIsScrolled,
+              child: const Text('Pokedex'),
             ),
-            backgroundColor: AppColors.red,
-            flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.pin,
-              centerTitle: true,
-              title: Visibility(
-                visible: showTitle,
-                child: Text(
-                  'Pokedex',
-                  style: Theme.of(context)
-                      .appBarTheme
-                      .toolbarTextStyle
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
-              ),
-              background: _HeaderCardContent(),
-            ),
+            background: const _HeaderSection(),
           ),
         ],
-        body: const _PokemonNews(),
+        body: const _NewsSection(),
       ),
     );
   }

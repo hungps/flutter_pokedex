@@ -8,12 +8,12 @@ class AutoSlideUpPanel extends StatefulWidget {
   final void Function(double)? onPanelSlide;
 
   const AutoSlideUpPanel({
-    Key? key,
+    super.key,
     required this.minHeight,
     required this.maxHeight,
     required this.child,
     this.onPanelSlide,
-  }) : super(key: key);
+  });
 
   @override
   State<AutoSlideUpPanel> createState() => _PokemonInfoCardState();

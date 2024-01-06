@@ -1,6 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "dart.flutterHotRestartOnSave": true,
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
   "dart.lineLength": 100,
@@ -12,7 +11,7 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "files.insertFinalNewline": true
   },
   "search.exclude": {

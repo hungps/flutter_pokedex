@@ -17,11 +17,11 @@ import 'package:pokedex/ui/widgets/pokemon_card.dart';
 // Class responsible for creating the list present in the modal page consisting of various effects related to the selected type
 class ModalContents extends StatefulWidget {
   const ModalContents({
-    Key? key,
+    super.key,
     required this.index,
     required this.width,
     required this.scroller,
-  }) : super(key: key);
+  });
 
   final int index;
   final double width;

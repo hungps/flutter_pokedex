@@ -14,14 +14,14 @@ class PokemonImage extends StatelessWidget {
   final Color? tintColor;
 
   const PokemonImage({
-    Key? key,
+    super.key,
     required this.pokemon,
     required this.size,
     this.padding = EdgeInsets.zero,
     this.useHero = true,
     this.placeholder = AppImages.bulbasaur,
     this.tintColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

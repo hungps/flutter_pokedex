@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
 import 'package:pokedex/ui/widgets/pokemon_image.dart';
 import 'package:pokedex/ui/widgets/pokemon_type.dart';
 
@@ -12,7 +13,8 @@ class PokemonCard extends StatelessWidget {
   final void Function()? onPress;
 
   const PokemonCard(
-    this.pokemon, {super.key, 
+    this.pokemon, {
+    super.key,
     this.onPress,
   });
 
@@ -105,33 +107,33 @@ class PokemonCard extends StatelessWidget {
 class _CardContent extends StatelessWidget {
   final Pokemon pokemon;
 
-  const _CardContent(this.pokemon, {Key? key}) : super(key: key);
+  const _CardContent(this.pokemon);
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Hero(
-              tag: pokemon.number + pokemon.name,
-              child: Text(
-                pokemon.name,
-                style: TextStyle(
-                  fontSize: 14,
-                  height: 0.7,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.background,
+    return DefaultTextStyle(
+      style: context.typographies.bodySmall.copyWith(
+        color: context.colors.textOnPrimary,
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Hero(
+                tag: pokemon.number + pokemon.name,
+                child: Text(
+                  pokemon.name,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            ..._buildTypes(context),
-          ],
+              const SizedBox(height: 10),
+              ..._buildTypes(context),
+            ],
+          ),
         ),
       ),
     );

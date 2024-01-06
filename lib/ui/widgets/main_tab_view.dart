@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/configs/colors.dart';
-
-import '../../states/theme/theme_cubit.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
 
 class MainTabData {
   final Widget child;
@@ -19,23 +17,20 @@ class MainTabView extends StatelessWidget {
   final Animation<double>? paddingAnimation;
 
   const MainTabView({
-    Key? key,
+    super.key,
     required this.tabs,
     this.paddingAnimation,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    var themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
-    var isDark = themeCubit.isDark;
-
     return DefaultTabController(
       length: tabs.length,
       initialIndex: 0,
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
+          color: context.colors.background,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         ),
         child: Column(
@@ -43,7 +38,7 @@ class MainTabView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             _buildTopAnimatedPadding(),
-            _buildTabBar(isDark),
+            _buildTabBar(),
             _buildTabContent(),
           ],
         ),
@@ -64,10 +59,8 @@ class MainTabView extends StatelessWidget {
     );
   }
 
-  Widget _buildTabBar(bool isDark) {
+  Widget _buildTabBar() {
     return TabBar(
-      labelColor: isDark ? AppColors.whiteGrey : AppColors.black,
-      unselectedLabelColor: isDark ? AppColors.whiteGrey : AppColors.grey,
       labelPadding: const EdgeInsets.symmetric(vertical: 16),
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,

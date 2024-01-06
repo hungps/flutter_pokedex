@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/ui/widgets/modal.dart';
-import 'package:pokedex/ui/widgets/search_bar.dart';
+import 'package:pokedex/ui/widgets/input.dart';
 
 class SearchBottomModal extends StatelessWidget {
   const SearchBottomModal({super.key});
@@ -14,7 +14,9 @@ class SearchBottomModal extends StatelessWidget {
       child: Flexible(
         child: Padding(
           padding: EdgeInsets.fromLTRB(26, 14, 26, 14 + viewInsets + safeAreaBottom),
-          child: const KSearchBar(margin: EdgeInsets.zero),
+          child: AppSearchBar(
+            hintText: 'Search Pokemon, Move, Ability etc',
+          ),
         ),
       ),
     );

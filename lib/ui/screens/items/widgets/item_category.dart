@@ -3,10 +3,7 @@ import 'package:pokedex/core/extensions/context.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
 class ItemCategory extends StatelessWidget {
-  const ItemCategory(
-    this.name, {
-    Key? key,
-  }) : super(key: key);
+  const ItemCategory(this.name, {super.key});
 
   final String name;
 
@@ -30,7 +27,7 @@ class ItemCategory extends StatelessWidget {
             children: <Widget>[
               Text(
                 name,
-                textScaleFactor: 1,
+                textScaler: TextScaler.noScaling,
                 style: const TextStyle(
                   fontSize: 10,
                   height: 0.8,

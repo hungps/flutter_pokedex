@@ -62,9 +62,7 @@ class _PokemonGridState extends State<_PokemonGrid> {
     return NestedScrollView(
       key: _scrollKey,
       headerSliverBuilder: (_, __) => [
-        MainSliverAppBar(
-          context: context,
-        ),
+        AppMovingTitleSliverAppBar(title: 'Pokedex'),
       ],
       body: PokemonStateStatusSelector((status) {
         switch (status) {

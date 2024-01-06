@@ -12,7 +12,7 @@ class FabItemData {
 class FabItem extends StatelessWidget {
   final FabItemData item;
 
-  const FabItem(this.item, {Key? key}) : super(key: key);
+  const FabItem(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,8 @@ class ExpandedAnimationFab extends AnimatedWidget {
   final List<FabItemData> items;
   final void Function()? onPress;
 
-  const ExpandedAnimationFab({super.key, 
+  const ExpandedAnimationFab({
+    super.key,
     required this.items,
     required Animation animation,
     this.onPress,
@@ -69,7 +70,6 @@ class ExpandedAnimationFab extends AnimatedWidget {
           ),
         ),
         FloatingActionButton(
-          backgroundColor: AppColors.indigo,
           onPressed: onPress,
           child: AnimatedIcon(
             icon: AnimatedIcons.menu_close,

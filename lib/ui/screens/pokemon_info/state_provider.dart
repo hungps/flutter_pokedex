@@ -8,8 +8,8 @@ class PokemonInfoStateProvider extends InheritedWidget {
     super.key,
     required this.slideController,
     required this.rotateController,
-    required Widget child,
-  }) : super(child: child);
+    required super.child,
+  });
 
   static PokemonInfoStateProvider of(BuildContext context) {
     final result = context.dependOnInheritedWidgetOfExactType<PokemonInfoStateProvider>();

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
 class PokemonType extends StatelessWidget {
   const PokemonType(
     this.type, {
-    Key? key,
+    super.key,
     this.large = false,
     this.colored = false,
     this.extra = '',
-  }) : super(key: key);
+  });
 
   final PokemonTypes type;
   final String extra;
@@ -18,7 +19,6 @@ class PokemonType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).colorScheme.background;
     return Material(
       color: Colors.transparent,
       child: Container(
@@ -28,30 +28,31 @@ class PokemonType extends StatelessWidget {
         ),
         decoration: ShapeDecoration(
           shape: const StadiumBorder(),
-          color: (colored ? type.color : bgColor).withOpacity(0.2),
+          color: (colored ? type.color : context.colors.background).withOpacity(0.3),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
               type.value,
-              textScaleFactor: 1,
+              textScaler: TextScaler.noScaling,
               style: TextStyle(
-                  fontSize: large ? 12 : 8,
-                  height: 0.8,
-                  fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                  color: colored ? type.color : bgColor),
+                fontSize: large ? 12 : 8,
+                height: 0.8,
+                fontWeight: large ? FontWeight.bold : FontWeight.normal,
+                color: colored ? type.color : context.colors.textOnPrimary,
+              ),
               textAlign: TextAlign.center,
             ),
             const HSpacer(5),
             Text(
               extra,
-              textScaleFactor: 1,
+              textScaler: TextScaler.noScaling,
               style: TextStyle(
                 fontSize: large ? 12 : 8,
                 height: 0.8,
                 fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                color: colored ? type.color : bgColor,
+                color: colored ? type.color : context.colors.textOnPrimary,
               ),
             ),
           ],
