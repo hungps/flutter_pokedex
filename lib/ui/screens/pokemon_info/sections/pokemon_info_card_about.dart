@@ -91,7 +91,7 @@ class _PokemonAbout extends StatelessWidget {
           const SizedBox(height: 31),
           _buildBreeding(pokemon.gender, pokemon.eggGroups),
           const SizedBox(height: 35),
-          _buildLocation(),
+          _buildLocation(context),
           const SizedBox(height: 26),
           _buildTraining(pokemon.baseExp),
         ],
@@ -111,14 +111,8 @@ class _PokemonAbout extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Theme.of(context).colorScheme.background,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.12),
-            offset: const Offset(0, 8),
-            blurRadius: 23,
-          )
-        ],
+        color: context.colors.background,
+        boxShadow: context.styles.cardShadow,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -194,7 +188,7 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildLocation() {
+  Widget _buildLocation(BuildContext context) {
     return _ContentSection(
       label: 'Location',
       children: [
@@ -202,7 +196,7 @@ class _PokemonAbout extends StatelessWidget {
           aspectRatio: 2.2,
           child: Container(
             decoration: BoxDecoration(
-              color: AppColors.teal,
+              color: context.colors.backgroundDark,
               borderRadius: BorderRadius.circular(12),
             ),
           ),

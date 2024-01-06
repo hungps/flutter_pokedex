@@ -15,8 +15,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.name,
     required this.brightness,
     required this.colors,
-    required this.typographies,
-    required this.styles,
+    this.styles = const AppThemeStyles(),
+    this.typographies = const AppThemeTypography(),
     this.fontFamily = 'CircularStd',
   });
 
@@ -33,19 +33,25 @@ class AppTheme extends ThemeExtension<AppTheme> {
         primaryColor: colors.primary,
         unselectedWidgetColor: colors.hint,
         disabledColor: colors.disabled,
-        scaffoldBackgroundColor: colors.backgroundDark,
+        scaffoldBackgroundColor: colors.background,
         hintColor: colors.hint,
         dividerColor: colors.border,
         fontFamily: fontFamily,
         colorScheme: baseColorScheme.copyWith(
           primary: colors.primary,
+          onPrimary: colors.textOnPrimary,
           secondary: colors.secondary,
+          onSecondary: colors.textOnPrimary,
           error: colors.error,
           shadow: colors.border,
         ),
         appBarTheme: AppBarTheme(
           elevation: 0,
           titleTextStyle: typographies.body,
+          centerTitle: true,
+          color: Colors.transparent,
+          foregroundColor: colors.text,
+          surfaceTintColor: colors.text,
         ),
         tabBarTheme: TabBarTheme(
           labelColor: colors.text,
@@ -110,7 +116,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
         inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 42),
           filled: true,
-          fillColor: colors.border,
+          fillColor: colors.backgroundDark,
           hintStyle: typographies.bodySmall.copyWith(
             fontWeight: FontWeight.w500,
             color: colors.text.withOpacity(0.4),
@@ -132,7 +138,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: colors.secondary,
-          foregroundColor: colors.background,
+          foregroundColor: colors.textOnPrimary,
           elevation: 0,
         ),
         dividerTheme: DividerThemeData(

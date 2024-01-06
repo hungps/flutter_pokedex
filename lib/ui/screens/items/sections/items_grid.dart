@@ -56,7 +56,7 @@ class _ItemGridState extends State<_ItemGrid> {
     return NestedScrollView(
       key: _scrollKey,
       headerSliverBuilder: (_, __) => [
-        MainSliverAppBar(context: context),
+        AppMovingTitleSliverAppBar(title: 'Items'),
       ],
       body: ItemStateStatusSelector((status) {
         switch (status) {

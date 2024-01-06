@@ -13,11 +13,11 @@ import 'package:pokedex/states/pokemon/pokemon_selector.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
 import 'package:pokedex/ui/modals/generation_modal.dart';
 import 'package:pokedex/ui/modals/search_modal.dart';
+import 'package:pokedex/ui/widgets/app_bar.dart';
 import 'package:pokedex/ui/widgets/pokemon_card.dart';
 import 'package:pokedex/ui/widgets/animated_overlay.dart';
 import 'package:pokedex/ui/widgets/fab.dart';
-import 'package:pokedex/ui/widgets/main_app_bar.dart';
-import 'package:pokedex/ui/widgets/pokeball_background.dart';
+import 'package:pokedex/ui/widgets/scaffold.dart';
 import 'package:pokedex/ui/widgets/pokemon_refresh_control.dart';
 
 part 'sections/fab_menu.dart';
@@ -33,8 +33,8 @@ class PokedexScreen extends StatefulWidget {
 class _PokedexScreenState extends State<PokedexScreen> {
   @override
   Widget build(BuildContext context) {
-    return const PokeballBackground(
-      child: Stack(
+    return PokeballScaffold(
+      body: const Stack(
         children: [
           _PokemonGrid(),
           _FabMenu(),

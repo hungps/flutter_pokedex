@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/ui/themes/colors.dart';
+import 'package:pokedex/ui/themes/styles.dart';
 import 'package:pokedex/ui/themes/themes.dart';
 import 'package:pokedex/ui/themes/themes/themes.light.dart';
 import 'package:pokedex/ui/themes/typography.dart';
@@ -10,6 +11,8 @@ extension AppThemeExtension on BuildContext {
   AppThemeTypography get typographies => appTheme.typographies;
 
   AppThemeColors get colors => appTheme.colors;
+
+  AppThemeStyles get styles => appTheme.styles;
 }
 
 extension TextStyleExtension on TextStyle {

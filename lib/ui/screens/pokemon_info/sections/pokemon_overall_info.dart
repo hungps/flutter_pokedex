@@ -111,8 +111,9 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   }
 
   AppBar _buildAppBar() {
-    return MainAppBar(
-      // A placeholder for easily calculate the translate of the pokemon name
+    return AppAppBar(
+      foregroundColor: context.colors.textOnPrimary,
+      // A placeholder for easily calculate the transformation of the pokemon name
       title: CurrentPokemonSelector((pokemon) {
         _calculatePokemonNamePosition();
 
@@ -126,12 +127,11 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
           ),
         );
       }),
-      rightIcon: Icons.favorite_border,
+      // rightIcon: Icons.favorite_border,
     );
   }
 
   Widget _buildPokemonName() {
-    var bgColor = Theme.of(context).colorScheme.background;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
       child: Row(
@@ -151,7 +151,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                     pokemon.name,
                     textKey: _currentTextKey,
                     style: TextStyle(
-                      color: bgColor,
+                      color: context.colors.textOnPrimary,
                       fontWeight: FontWeight.w900,
                       fontSize: 36 - (36 - 22) * value,
                     ),
@@ -168,7 +168,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 return HeroText(
                   pokemon.number,
                   style: TextStyle(
-                    color: bgColor,
+                    color: context.colors.textOnPrimary,
                     fontWeight: FontWeight.w900,
                     fontSize: 18,
                   ),
@@ -204,7 +204,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 animation: _horizontalSlideController,
                 child: Text(
                   pokemon.genera,
-                  style: TextStyle(color: Theme.of(context).colorScheme.background),
+                  style: TextStyle(color: context.colors.textOnPrimary),
                 ),
               ),
             ],
@@ -235,7 +235,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                   image: AppImages.pokeball,
                   width: pokeballSize,
                   height: pokeballSize,
-                  color: Colors.white12,
+                  color: context.colors.background.withOpacity(0.12),
                 ),
               ),
             ),

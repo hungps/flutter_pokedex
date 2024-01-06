@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
+import 'package:pokedex/ui/themes/extensions.dart';
 
 class MainTabData {
   final Widget child;
@@ -29,7 +30,7 @@ class MainTabView extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
+          color: context.colors.background,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         ),
         child: Column(

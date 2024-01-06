@@ -63,5 +63,7 @@ class AppNavigator {
 
   static void pop() => state?.pop();
 
+  static bool canPop() => state?.canPop() ?? false;
+
   static NavigatorState? get state => navigatorKey.currentState;
 }

@@ -117,7 +117,7 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
 
     final pokeSize = screenSize.width * 0.5;
     final appBarHeight = AppBar().preferredSize.height;
-    const iconButtonPadding = mainAppbarPadding;
+    final iconButtonPadding = AppAppBar.padding.right;
     final iconSize = IconTheme.of(context).size ?? 0;
 
     final pokeballTopMargin = -(pokeSize / 2 - safeAreaTop - appBarHeight / 2);

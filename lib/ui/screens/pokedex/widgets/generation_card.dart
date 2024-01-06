@@ -18,13 +18,7 @@ class GenerationCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.colors.background,
           borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(0, 8),
-              blurRadius: 15,
-              color: AppColors.black.withOpacity(0.12),
-            ),
-          ],
+          boxShadow: context.styles.cardShadow,
         ),
         child: Stack(
           children: <Widget>[
