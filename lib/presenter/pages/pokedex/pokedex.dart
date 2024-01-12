@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/presenter/assets.gen.dart';
+import 'package:pokedex/presenter/navigation/navigation.dart';
 import 'package:pokedex/utils/extensions/animation.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
-import 'package:pokedex/presenter/navigation/routes.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_selector.dart';
@@ -22,14 +23,15 @@ import 'package:pokedex/presenter/widgets/pokemon_refresh_control.dart';
 part 'sections/fab_menu.dart';
 part 'sections/pokemon_grid.dart';
 
-class PokedexScreen extends StatefulWidget {
-  const PokedexScreen({super.key});
+@RoutePage()
+class PokedexPage extends StatefulWidget {
+  const PokedexPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _PokedexScreenState();
+  State<StatefulWidget> createState() => _PokedexPageState();
 }
 
-class _PokedexScreenState extends State<PokedexScreen> {
+class _PokedexPageState extends State<PokedexPage> {
   @override
   Widget build(BuildContext context) {
     return PokeballScaffold(

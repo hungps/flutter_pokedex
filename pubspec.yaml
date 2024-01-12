@@ -24,6 +24,9 @@ dependencies:
   get_it: ^7.6.6
   injectable: ^2.3.2
 
+  # Navigation
+  auto_route: ^7.8.4
+
   cached_network_image: ^3.2.3
   sliding_up_panel: ^2.0.0+1
   hive: ^2.2.3
@@ -45,6 +48,7 @@ dev_dependencies:
   flutter_lints: ^3.0.1
   injectable_generator: ^2.4.1
   flutter_gen_runner: ^5.4.0
+  auto_route_generator: ^7.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

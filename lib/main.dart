@@ -8,7 +8,7 @@ void main() async {
   await configureDependencies();
 
   runApp(
-    const GlobalBlocProviders(
+    GlobalBlocProviders(
       child: PokedexApp(),
     ),
   );

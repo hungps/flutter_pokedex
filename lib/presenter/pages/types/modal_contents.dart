@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/data/types.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
 import 'package:pokedex/presenter/assets.gen.dart';
-import 'package:pokedex/presenter/navigation/routes.dart';
+import 'package:pokedex/presenter/navigation/navigation.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_state.dart';
@@ -46,7 +47,7 @@ class ModalContentsState extends State<ModalContents> {
   void _onPokemonPress(int index, Pokemon pokemon) {
     context.read<PokemonBloc>().add(PokemonSelectChanged(pokemonId: pokemon.number));
 
-    AppNavigator.push(Routes.pokemonInfo, pokemon);
+    context.router.push(PokemonInfoRoute(id: pokemon.number));
   }
 
   PokeTypes get pokeType => types[widget.index];

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/presenter/assets.gen.dart';
@@ -21,14 +22,15 @@ import 'widgets/item_card.dart';
 part 'sections/fab_menu.dart';
 part 'sections/items_grid.dart';
 
-class ItemsScreen extends StatefulWidget {
-  const ItemsScreen({super.key});
+@RoutePage()
+class ItemsPage extends StatefulWidget {
+  const ItemsPage({super.key});
 
   @override
-  ItemsScreenState createState() => ItemsScreenState();
+  ItemsPageState createState() => ItemsPageState();
 }
 
-class ItemsScreenState extends State<ItemsScreen> {
+class ItemsPageState extends State<ItemsPage> {
   @override
   Widget build(BuildContext context) {
     return PokeballScaffold(

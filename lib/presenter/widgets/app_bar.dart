@@ -1,5 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/presenter/navigation/routes.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 import 'package:pokedex/utils/size.dart';
 
@@ -14,7 +14,7 @@ class AppAppBar extends AppBar {
     Widget? trailing,
     VoidCallback? onTrailingPressed,
   }) : super(
-          leading: leading ?? const AppBarButton.back(),
+          leading: leading ?? const AppBarBackButton(),
           actions: <Widget>[
             if (trailing != null)
               AppBarButton(
@@ -96,7 +96,7 @@ class AppMovingTitleSliverAppBar extends SliverAppBar {
           expandedHeight: height,
           pinned: true,
           backgroundColor: Colors.transparent,
-          leading: leading ?? const AppBarButton.back(),
+          leading: leading ?? const AppBarBackButton(),
           actions: [
             if (trailing != null)
               AppBarButton(
@@ -145,32 +145,44 @@ class AppMovingTitleSliverAppBar extends SliverAppBar {
 }
 
 class AppBarButton extends StatelessWidget {
-  final bool isBackButton;
   final Widget icon;
   final VoidCallback? onPressed;
 
   const AppBarButton({
     super.key,
     required this.icon,
-    this.isBackButton = false,
     this.onPressed,
   });
 
-  const AppBarButton.back({
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      padding: AppAppBar.padding,
+      onPressed: onPressed,
+      icon: icon,
+    );
+  }
+}
+
+class AppBarBackButton extends StatelessWidget {
+  final Widget icon;
+  final VoidCallback? onPressed;
+
+  const AppBarBackButton({
     super.key,
-  })  : icon = const Icon(Icons.arrow_back_rounded),
-        onPressed = AppNavigator.pop,
-        isBackButton = true;
+    this.icon = const Icon(Icons.arrow_back_rounded),
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    if (isBackButton && !AppNavigator.canPop()) {
+    if (!context.router.canPop()) {
       return const SizedBox.shrink();
     }
 
     return IconButton(
       padding: AppAppBar.padding,
-      onPressed: onPressed,
+      onPressed: onPressed ?? context.router.pop,
       icon: icon,
     );
   }

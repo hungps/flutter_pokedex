@@ -57,7 +57,7 @@ class _HeaderSection extends StatelessWidget implements PreferredSizeWidget {
                   _CategoryCard(
                     title: 'Pokedex',
                     color: AppColors.teal,
-                    onPressed: () => AppNavigator.push(Routes.pokedex),
+                    onPressed: () => context.router.push(const PokedexRoute()),
                   ),
                   const _CategoryCard(
                     title: 'Moves',
@@ -70,7 +70,7 @@ class _HeaderSection extends StatelessWidget implements PreferredSizeWidget {
                   _CategoryCard(
                     title: 'Items',
                     color: AppColors.yellow,
-                    onPressed: () => AppNavigator.push(Routes.items),
+                    onPressed: () => context.router.push(const ItemsRoute()),
                   ),
                   const _CategoryCard(
                     title: 'Locations',
@@ -79,7 +79,7 @@ class _HeaderSection extends StatelessWidget implements PreferredSizeWidget {
                   _CategoryCard(
                     title: 'Type Effects',
                     color: AppColors.brown,
-                    onPressed: () => AppNavigator.push(Routes.typeEffects),
+                    onPressed: () => context.router.push(const TypeEffectRoute()),
                   ),
                 ],
               ),

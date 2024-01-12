@@ -1,6 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/presenter/navigation/routes.dart';
+import 'package:pokedex/presenter/navigation/navigation.dart';
 import 'package:pokedex/data/states/settings/settings_bloc.dart';
 import 'package:pokedex/data/states/settings/settings_event.dart';
 import 'package:pokedex/data/states/settings/settings_selector.dart';
@@ -18,14 +19,15 @@ part 'widgets/news_card.dart';
 part 'sections/header.dart';
 part 'sections/news.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+@RoutePage()
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _HomeScreenState();
+  State<StatefulWidget> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

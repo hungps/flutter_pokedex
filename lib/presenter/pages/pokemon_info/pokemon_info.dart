@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart' hide AnimatedSlide;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
@@ -30,14 +31,20 @@ part 'sections/pokemon_info_card_basestats.dart';
 part 'sections/pokemon_info_card_evolutions.dart';
 part 'sections/pokemon_overall_info.dart';
 
-class PokemonInfo extends StatefulWidget {
-  const PokemonInfo({super.key});
+@RoutePage()
+class PokemonInfoPage extends StatefulWidget {
+  final String id;
+
+  const PokemonInfoPage({
+    super.key,
+    @PathParam('id') required this.id,
+  });
 
   @override
   PokemonInfoState createState() => PokemonInfoState();
 }
 
-class PokemonInfoState extends State<PokemonInfo> with TickerProviderStateMixin {
+class PokemonInfoState extends State<PokemonInfoPage> with TickerProviderStateMixin {
   late AnimationController _slideController;
   late AnimationController _rotateController;
 
