@@ -1,4 +1,4 @@
-import 'package:pokedex/core/extensions/string.dart';
+import 'package:pokedex/utils/extensions/string.dart';
 import 'package:pokedex/data/source/github/models/item.dart';
 
 import 'package:pokedex/data/source/github/models/pokemon.dart';

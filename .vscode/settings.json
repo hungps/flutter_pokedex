@@ -5,7 +5,6 @@
   "dart.lineLength": 100,
   "dart.flutterSdkPath": ".fvm/flutter_sdk",
   "[dart]": {
-    "editor.formatOnSave": true,
     "editor.rulers": [100],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
@@ -14,6 +13,11 @@
     "editor.wordBasedSuggestions": "off",
     "files.insertFinalNewline": true
   },
+  "triggerTaskOnSave.on": true,
+  "triggerTaskOnSave.showStatusBarToggle": true,
+  "triggerTaskOnSave.tasks": {
+    "easy_localization: generate keys": ["**/translations/*"]
+  },
   "search.exclude": {
     "**/.fvm": true,
     "**/build": true
@@ -21,5 +25,13 @@
   "files.watcherExclude": {
     "**/.fvm": true,
     "**/build": true
+  },
+  "files.exclude": {
+    "**/.gitkeep": true,
+    "**/*.g.dart": true,
+    "**/*.gr.dart": true,
+    "**/*.gen.dart": true,
+    "**/*.freezed.dart": true,
+    "**/*.config.dart": true
   }
 }

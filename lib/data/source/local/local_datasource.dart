@@ -1,13 +1,18 @@
 import 'dart:math';
 
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pokedex/data/source/local/models/item.dart';
 import 'package:pokedex/data/source/local/models/pokemon.dart';
 import 'package:pokedex/data/source/local/models/pokemon_gender.dart';
 import 'package:pokedex/data/source/local/models/pokemon_stats.dart';
 
+@singleton
 class LocalDataSource {
-  static Future<void> initialize() async {
+  const LocalDataSource();
+
+  @PostConstruct(preResolve: true)
+  Future<void> initialize() async {
     await Hive.initFlutter();
 
     Hive.registerAdapter<PokemonHiveModel>(PokemonHiveModelAdapter());
