@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pokedex/core/utils.dart';
 
+@singleton
 class NetworkManager {
-  final Dio dio;
+  final Dio _dio;
 
-  const NetworkManager._(this.dio);
-
-  factory NetworkManager() {
-    final dio = Dio();
-
-    return NetworkManager._(dio);
-  }
+  const NetworkManager({
+    required Dio dio,
+  }) : _dio = dio;
 
   Future<Response<T>> request<T>(
     RequestMethod method,
@@ -19,7 +17,7 @@ class NetworkManager {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
   }) {
-    return dio.request(
+    return _dio.request(
       url,
       data: data,
       queryParameters: queryParameters,

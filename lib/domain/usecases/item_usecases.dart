@@ -1,14 +1,18 @@
+import 'package:injectable/injectable.dart';
 import 'package:pokedex/core/usecase.dart';
-import '../../data/repositories/item_repository.dart';
-import '../entities/item.dart';
+import 'package:pokedex/data/repositories/item_repository.dart';
+import 'package:pokedex/domain/entities/item.dart';
 
+@singleton
 class GetItemUseCase extends NoParamsUseCase<List<Item>> {
-  const GetItemUseCase(this.repository);
+  final ItemRepository _itemRepository;
 
-  final ItemRepository repository;
+  const GetItemUseCase({
+    required ItemRepository itemRepository,
+  }) : _itemRepository = itemRepository;
 
   @override
   Future<List<Item>> call() {
-    return repository.getAllItems();
+    return _itemRepository.getAllItems();
   }
 }

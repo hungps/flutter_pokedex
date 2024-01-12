@@ -1,15 +1,19 @@
-import '../../core/usecase.dart';
-import '../../data/repositories/pokemon_repository.dart';
-import '../entities/pokemon.dart';
+import 'package:injectable/injectable.dart';
+import 'package:pokedex/core/usecase.dart';
+import 'package:pokedex/data/repositories/pokemon_repository.dart';
+import 'package:pokedex/domain/entities/pokemon.dart';
 
+@singleton
 class GetAllPokemonsUseCase extends NoParamsUseCase<List<Pokemon>> {
-  const GetAllPokemonsUseCase(this.repository);
+  final PokemonRepository _pokemonRepository;
 
-  final PokemonRepository repository;
+  const GetAllPokemonsUseCase({
+    required PokemonRepository pokemonRepository,
+  }) : _pokemonRepository = pokemonRepository;
 
   @override
   Future<List<Pokemon>> call() {
-    return repository.getAllPokemons();
+    return _pokemonRepository.getAllPokemons();
   }
 }
 
@@ -23,14 +27,17 @@ class GetPokemonsParams {
   final int limit;
 }
 
+@singleton
 class GetPokemonsUseCase extends UseCase<List<Pokemon>, GetPokemonsParams> {
-  const GetPokemonsUseCase(this.repository);
+  final PokemonRepository _pokemonRepository;
 
-  final PokemonRepository repository;
+  const GetPokemonsUseCase({
+    required PokemonRepository pokemonRepository,
+  }) : _pokemonRepository = pokemonRepository;
 
   @override
   Future<List<Pokemon>> call(GetPokemonsParams params) {
-    return repository.getPokemons(page: params.page, limit: params.limit);
+    return _pokemonRepository.getPokemons(page: params.page, limit: params.limit);
   }
 }
 
@@ -40,13 +47,16 @@ class GetPokemonParam {
   const GetPokemonParam(this.number);
 }
 
+@singleton
 class GetPokemonUseCase extends UseCase<Pokemon?, GetPokemonParam> {
-  final PokemonRepository repository;
+  final PokemonRepository _pokemonRepository;
 
-  const GetPokemonUseCase(this.repository);
+  const GetPokemonUseCase({
+    required PokemonRepository pokemonRepository,
+  }) : _pokemonRepository = pokemonRepository;
 
   @override
   Future<Pokemon?> call(GetPokemonParam params) {
-    return repository.getPokemon(params.number);
+    return _pokemonRepository.getPokemon(params.number);
   }
 }

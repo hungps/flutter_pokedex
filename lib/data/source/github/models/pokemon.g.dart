@@ -7,19 +7,23 @@ part of 'pokemon.dart';
 // **************************************************************************
 
 GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const [
-    'name',
-    'id',
-    'imageurl',
-    'typeofpokemon',
-    'genderless'
-  ], disallowNullValues: const [
-    'name',
-    'id',
-    'imageurl',
-    'typeofpokemon',
-    'genderless'
-  ]);
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'name',
+      'id',
+      'imageurl',
+      'typeofpokemon',
+      'genderless'
+    ],
+    disallowNullValues: const [
+      'name',
+      'id',
+      'imageurl',
+      'typeofpokemon',
+      'genderless'
+    ],
+  );
   return GithubPokemonModel(
     json['name'] as String,
     json['id'] as String,

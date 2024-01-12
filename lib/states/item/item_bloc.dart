@@ -1,15 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pokedex/data/repositories/item_repository.dart';
 import 'package:pokedex/states/item/item_event.dart';
 import 'package:pokedex/states/item/item_state.dart';
 import 'package:stream_transform/stream_transform.dart';
 
+@singleton
 class ItemBloc extends Bloc<ItemEvent, ItemState> {
   static const int itemsPerPage = 20;
 
   final ItemRepository _itemRepository;
 
-  ItemBloc(this._itemRepository) : super(const ItemState.initial()) {
+  ItemBloc({
+    required ItemRepository itemRepository,
+  })  : _itemRepository = itemRepository,
+        super(const ItemState.initial()) {
     on<ItemLoadStarted>(
       _onLoadStarted,
       transformer: (events, mapper) => events.switchMap(mapper),

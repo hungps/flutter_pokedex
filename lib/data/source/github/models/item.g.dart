@@ -7,7 +7,10 @@ part of 'item.dart';
 // **************************************************************************
 
 GithubItemModel _$GithubItemModelFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, disallowNullValues: const ['name', 'imageurl', 'effect']);
+  $checkKeys(
+    json,
+    disallowNullValues: const ['name', 'imageurl', 'effect'],
+  );
   return GithubItemModel(
     json['name'] as String,
     json['category'] as String? ?? '',

@@ -1,15 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/states/pokemon/pokemon_state.dart';
 
+@singleton
 class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   static const int pokemonsPerPage = 20;
 
   final PokemonRepository _pokemonRepository;
 
-  PokemonBloc(this._pokemonRepository) : super(const PokemonState.initial()) {
+  PokemonBloc({
+    required PokemonRepository pokemonRepository,
+  })  : _pokemonRepository = pokemonRepository,
+        super(const PokemonState.initial()) {
     on<PokemonLoadStarted>(
       _onLoadStarted,
       transformer: (events, mapper) => events.switchMap(mapper),

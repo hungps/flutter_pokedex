@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pokedex/states/settings/settings_event.dart';
 import 'package:pokedex/states/settings/settings_state.dart';
 
+@singleton
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc() : super(const SettingsState()) {
     on<SettingsThemeChanged>(_onThemeChanged);
