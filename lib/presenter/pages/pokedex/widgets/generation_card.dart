@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/data/entities/generation.dart';
+import 'package:pokedex/data/entities/pokemon_generation.dart';
 import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
@@ -7,7 +7,7 @@ import 'package:pokedex/presenter/themes/extensions.dart';
 class GenerationCard extends StatelessWidget {
   const GenerationCard(this.generation, {super.key});
 
-  final Generation generation;
+  final PokemonGeneration generation;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class GenerationCard extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: generation.pokemons
+                    children: generation.pokemonImages
                         .map(
                           (pokemon) => Expanded(
                             child: Image.asset(

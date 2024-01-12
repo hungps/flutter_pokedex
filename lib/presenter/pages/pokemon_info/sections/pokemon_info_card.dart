@@ -15,7 +15,7 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final safeArea = MediaQuery.of(context).padding;
+    final safeArea = MediaQuery.paddingOf(context);
     final appBarHeight = AppBar().preferredSize.height;
 
     final cardMinHeight = screenHeight * _PokemonInfoCard.minCardHeightFraction;

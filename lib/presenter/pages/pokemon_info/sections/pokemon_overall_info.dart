@@ -90,7 +90,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
     final shouldLoadMore = index >= pokemons.length - _endReachedThreshold;
 
     if (shouldLoadMore) {
-      pokemonBloc.add(PokemonLoadMoreStarted());
+      pokemonBloc.add(const PokemonLoadMoreStarted());
     }
   }
 

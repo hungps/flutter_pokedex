@@ -12,6 +12,7 @@ import 'package:pokedex/presenter/themes/themes/themes.light.dart';
 import 'package:pokedex/presenter/widgets/app_bar.dart';
 import 'package:pokedex/presenter/widgets/button.dart';
 import 'package:pokedex/presenter/widgets/input.dart';
+import 'package:pokedex/presenter/widgets/keyboard.dart';
 import 'package:pokedex/presenter/widgets/scaffold.dart';
 
 part 'widgets/category_card.dart';
@@ -30,20 +31,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.colors.backgroundDark,
-      body: NestedScrollView(
-        headerSliverBuilder: (_, innerBoxIsScrolled) => [
-          AppExpandableSliverAppBar(
-            backgroundColor: context.colors.primary,
-            title: Visibility(
-              visible: innerBoxIsScrolled,
-              child: const Text('Pokedex'),
+    return KeyboardDismisser(
+      child: Scaffold(
+        backgroundColor: context.colors.backgroundDark,
+        body: NestedScrollView(
+          headerSliverBuilder: (_, innerBoxIsScrolled) => [
+            AppExpandableSliverAppBar(
+              backgroundColor: context.colors.primary,
+              title: Visibility(
+                visible: innerBoxIsScrolled,
+                child: const Text('Pokedex'),
+              ),
+              background: const _HeaderSection(),
             ),
-            background: const _HeaderSection(),
-          ),
-        ],
-        body: const _NewsSection(),
+          ],
+          body: const _NewsSection(),
+        ),
       ),
     );
   }

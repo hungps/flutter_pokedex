@@ -1,17 +1,13 @@
-abstract class ItemEvent {
-  const ItemEvent();
-}
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class ItemLoadStarted extends ItemEvent {
-  final bool loadAll;
+part 'item_event.freezed.dart';
 
-  const ItemLoadStarted({this.loadAll = false});
-}
+@freezed
+class ItemEvent with _$ItemEvent {
+  const factory ItemEvent.loadStarted({@Default(false) bool loadAll}) = ItemLoadStarted;
 
-class ItemLoadMoreStarted extends ItemEvent {}
+  const factory ItemEvent.loadMoreStarted() = ItemLoadMoreStarted;
 
-class ItemSelectChanged extends ItemEvent {
-  final String itemId;
-
-  const ItemSelectChanged({required this.itemId});
+  const factory ItemEvent.selectChanged({required String itemId}) = ItemSelectChanged;
 }

@@ -14,7 +14,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
   ItemBloc({
     required ItemRepository itemRepository,
   })  : _itemRepository = itemRepository,
-        super(const ItemState.initial()) {
+        super(const ItemState()) {
     on<ItemLoadStarted>(
       _onLoadStarted,
       transformer: (events, mapper) => events.switchMap(mapper),
@@ -23,12 +23,13 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
       _onLoadMoreStarted,
       transformer: (events, mapper) => events.switchMap(mapper),
     );
-    // on<ItemSelectChanged>(_onSelectChanged);
   }
 
   void _onLoadStarted(ItemLoadStarted event, Emitter<ItemState> emit) async {
     try {
-      emit(state.asLoading());
+      emit(state.copyWith(
+        status: ItemStateStatus.loading,
+      ));
 
       final items = event.loadAll
           ? await _itemRepository.getAllItems()
@@ -36,9 +37,17 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
 
       final canLoadMore = items.length >= itemsPerPage;
 
-      emit(state.asLoadSuccess(items, canLoadMore: canLoadMore));
+      emit(state.copyWith(
+        status: ItemStateStatus.success,
+        items: items,
+        page: 1,
+        canLoadMore: canLoadMore,
+      ));
     } on Exception catch (e) {
-      emit(state.asLoadFailure(e));
+      emit(state.copyWith(
+        status: ItemStateStatus.failure,
+        error: e,
+      ));
     }
   }
 
@@ -46,39 +55,28 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     try {
       if (!state.canLoadMore) return;
 
-      emit(state.asLoadingMore());
+      emit(state.copyWith(
+        status: ItemStateStatus.loadingMore,
+      ));
 
-      final pokemons = await _itemRepository.getItems(
+      final items = await _itemRepository.getItems(
         page: state.page + 1,
         limit: itemsPerPage,
       );
 
-      final canLoadMore = pokemons.length >= itemsPerPage;
+      final canLoadMore = items.length >= itemsPerPage;
 
-      emit(state.asLoadMoreSuccess(pokemons, canLoadMore: canLoadMore));
+      emit(state.copyWith(
+        status: ItemStateStatus.success,
+        items: [...state.items, ...items],
+        page: canLoadMore ? state.page + 1 : state.page,
+        canLoadMore: canLoadMore,
+      ));
     } on Exception catch (e) {
-      emit(state.asLoadMoreFailure(e));
+      emit(state.copyWith(
+        status: ItemStateStatus.failure,
+        error: e,
+      ));
     }
   }
-
-  // void _onSelectChanged(ItemSelectChanged event, Emitter<ItemState> emit) async {
-  //   try {
-  //     final itemIndex = state.items.indexWhere(
-  //       (item) => item.number == event.pokemonId,
-  //     );
-
-  //     if (itemIndex < 0 || itemIndex >= state.pokemons.length) return;
-
-  //     final item = await _itemRepository.getPokemon(event.pokemonId);
-
-  //     if (pokemon == null) return;
-
-  //     emit(state.copyWith(
-  //       pokemons: state.pokemons..setAll(itemIndex, [pokemon]),
-  //       selectedPokemonIndex: itemIndex,
-  //     ));
-  //   } on Exception catch (e) {
-  //     emit(state.asLoadMoreFailure(e));
-  //   }
-  // }
 }

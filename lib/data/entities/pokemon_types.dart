@@ -1,105 +1,40 @@
 import 'dart:ui';
 
-import 'package:pokedex/utils/extensions/string.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 
 enum PokemonTypes {
-  grass,
-  poison,
-  fire,
-  flying,
-  water,
-  bug,
-  normal,
-  electric,
-  ground,
-  fairy,
-  fighting,
-  psychic,
-  rock,
-  steel,
-  ice,
-  ghost,
-  dragon,
-  dark,
-  monster,
-  unknown,
-}
+  grass('Grass', AppColors.lightGreen),
+  poison('Poison', AppColors.lightPurple),
+  fire('Fire', AppColors.lightRed),
+  flying('Flying', AppColors.lilac),
+  water('Water', AppColors.lightBlue),
+  bug('Bug', AppColors.lightTeal),
+  normal('Normal', AppColors.beige),
+  electric('Electric', AppColors.lightYellow),
+  ground('Ground', AppColors.darkBrown),
+  fairy('Fairy', AppColors.pink),
+  fighting('Fighting', AppColors.red),
+  psychic('Psychic', AppColors.lightPink),
+  rock('Rock', AppColors.lightBrown),
+  steel('Steel', AppColors.grey),
+  ice('Ice', AppColors.lightCyan),
+  ghost('Ghost', AppColors.purple),
+  dragon('Dragon', AppColors.violet),
+  dark('Dark', AppColors.black),
+  monster('Monster', AppColors.lightBlue),
+  unknown('Unknown', AppColors.lightBlue);
 
-extension PokemonTypesX on PokemonTypes {
-  String get value => name.capitalize();
+  final String displayName;
+  final Color color;
 
-  static PokemonTypes parse(String rawValue) {
-    final type = PokemonTypes.values.firstWhere(
-      (element) => element.value.trim().toLowerCase() == rawValue.toLowerCase(),
-      orElse: () => PokemonTypes.unknown,
-    );
+  const PokemonTypes(this.displayName, this.color);
 
-    return type;
-  }
+  static PokemonTypes parse(String rawValue) => values.firstWhere(
+        (e) => e.name == rawValue.toLowerCase(),
+        orElse: () => unknown,
+      );
 
   Map<PokemonTypes, double> get effectiveness => _pokemonEffectivenessMap[this] ?? {};
-
-  Color get color {
-    switch (this) {
-      case PokemonTypes.grass:
-        return AppColors.lightGreen;
-
-      case PokemonTypes.bug:
-        return AppColors.lightTeal;
-
-      case PokemonTypes.fire:
-        return AppColors.lightRed;
-
-      case PokemonTypes.water:
-        return AppColors.lightBlue;
-
-      case PokemonTypes.fighting:
-        return AppColors.red;
-
-      case PokemonTypes.normal:
-        return AppColors.beige;
-
-      case PokemonTypes.electric:
-        return AppColors.lightYellow;
-
-      case PokemonTypes.psychic:
-        return AppColors.lightPink;
-
-      case PokemonTypes.poison:
-        return AppColors.lightPurple;
-
-      case PokemonTypes.ghost:
-        return AppColors.purple;
-
-      case PokemonTypes.ground:
-        return AppColors.darkBrown;
-
-      case PokemonTypes.rock:
-        return AppColors.lightBrown;
-
-      case PokemonTypes.dark:
-        return AppColors.black;
-
-      case PokemonTypes.dragon:
-        return AppColors.violet;
-
-      case PokemonTypes.fairy:
-        return AppColors.pink;
-
-      case PokemonTypes.flying:
-        return AppColors.lilac;
-
-      case PokemonTypes.ice:
-        return AppColors.lightCyan;
-
-      case PokemonTypes.steel:
-        return AppColors.grey;
-
-      default:
-        return AppColors.lightBlue;
-    }
-  }
 }
 
 final _pokemonEffectivenessMap = <PokemonTypes, Map<PokemonTypes, double>>{

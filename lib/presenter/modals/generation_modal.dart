@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/data/generations.dart';
-import 'package:pokedex/data/entities/generation.dart';
+import 'package:pokedex/data/entities/pokemon_generation.dart';
 import 'package:pokedex/presenter/pages/pokedex/widgets/generation_card.dart';
 import 'package:pokedex/presenter/widgets/modal.dart';
 
 class GenerationModal extends StatelessWidget {
   const GenerationModal({super.key});
 
-  Widget _buildGenerationCard(Generation generation) {
+  Widget _buildGenerationCard(PokemonGeneration generation) {
     return GenerationCard(generation);
   }
 
@@ -24,8 +24,8 @@ class GenerationModal extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
         ),
-        itemCount: generations.length,
-        itemBuilder: (_, index) => _buildGenerationCard(generations[index]),
+        itemCount: pokemonGenerations.length,
+        itemBuilder: (_, index) => _buildGenerationCard(pokemonGenerations[index]),
       ),
     );
   }

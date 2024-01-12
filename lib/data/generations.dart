@@ -1,57 +1,65 @@
-import 'package:pokedex/data/entities/generation.dart';
+import 'package:pokedex/data/entities/pokemon_generation.dart';
 
-const List<Generation> generations = [
-  Generation(
+const List<PokemonGeneration> pokemonGenerations = [
+  PokemonGeneration(
     title: 'Generation I',
-    pokemons: [
+    pokemonImages: [
       'assets/images/bulbasaur.png',
       'assets/images/charmander.png',
       'assets/images/squirtle.png'
     ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation II',
-    pokemons: [
+    pokemonImages: [
       'assets/images/chikorita.png',
       'assets/images/cyndaquil.png',
       'assets/images/totodile.png'
     ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation III',
-    pokemons: [
+    pokemonImages: [
       'assets/images/treecko.png',
       'assets/images/torchic.png',
       'assets/images/mudkip.png'
     ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation IV',
-    pokemons: [
+    pokemonImages: [
       'assets/images/turtwig.png',
       'assets/images/chimchar.png',
       'assets/images/piplup.png'
     ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation V',
-    pokemons: ['assets/images/snivy.png', 'assets/images/tepig.png', 'assets/images/oshawott.png'],
+    pokemonImages: [
+      'assets/images/snivy.png',
+      'assets/images/tepig.png',
+      'assets/images/oshawott.png'
+    ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation VI',
-    pokemons: [
+    pokemonImages: [
       'assets/images/chespin.png',
       'assets/images/fennekin.png',
       'assets/images/froakie.png'
     ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation VII',
-    pokemons: ['assets/images/rowlet.png', 'assets/images/litten.png', 'assets/images/popplio.png'],
+    pokemonImages: [
+      'assets/images/rowlet.png',
+      'assets/images/litten.png',
+      'assets/images/popplio.png'
+    ],
   ),
-  Generation(
+  PokemonGeneration(
     title: 'Generation VIII',
-    pokemons: [
+    pokemonImages: [
       'assets/images/grookey.png',
       'assets/images/scorbunny.png',
       'assets/images/sobble.png'

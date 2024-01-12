@@ -1,93 +1,29 @@
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
+
+part 'pokemon_state.freezed.dart';
 
 enum PokemonStateStatus {
   initial,
   loading,
-  loadSuccess,
-  loadFailure,
   loadingMore,
-  loadMoreSuccess,
-  loadMoreFailure,
+  success,
+  failure,
 }
 
-class PokemonState {
-  final PokemonStateStatus status;
-  final List<Pokemon> pokemons;
-  final int selectedPokemonIndex;
-  final int page;
-  final Exception? error;
-  final bool canLoadMore;
+@freezed
+class PokemonState with _$PokemonState {
+  const factory PokemonState({
+    @Default(PokemonStateStatus.initial) PokemonStateStatus status,
+    @Default([]) List<Pokemon> pokemons,
+    @Default(0) int selectedPokemonIndex,
+    @Default(1) int page,
+    @Default(true) bool canLoadMore,
+    Exception? error,
+  }) = _PokemonState;
+
+  const PokemonState._();
 
   Pokemon get selectedPokemon => pokemons[selectedPokemonIndex];
-
-  const PokemonState._({
-    this.status = PokemonStateStatus.initial,
-    this.pokemons = const [],
-    this.selectedPokemonIndex = 0,
-    this.page = 1,
-    this.canLoadMore = true,
-    this.error,
-  });
-
-  const PokemonState.initial() : this._();
-
-  PokemonState asLoading() {
-    return copyWith(
-      status: PokemonStateStatus.loading,
-    );
-  }
-
-  PokemonState asLoadSuccess(List<Pokemon> pokemons, {bool canLoadMore = true}) {
-    return copyWith(
-      status: PokemonStateStatus.loadSuccess,
-      pokemons: pokemons,
-      page: 1,
-      canLoadMore: canLoadMore,
-    );
-  }
-
-  PokemonState asLoadFailure(Exception e) {
-    return copyWith(
-      status: PokemonStateStatus.loadFailure,
-      error: e,
-    );
-  }
-
-  PokemonState asLoadingMore() {
-    return copyWith(status: PokemonStateStatus.loadingMore);
-  }
-
-  PokemonState asLoadMoreSuccess(List<Pokemon> newPokemons, {bool canLoadMore = true}) {
-    return copyWith(
-      status: PokemonStateStatus.loadMoreSuccess,
-      pokemons: [...pokemons, ...newPokemons],
-      page: canLoadMore ? page + 1 : page,
-      canLoadMore: canLoadMore,
-    );
-  }
-
-  PokemonState asLoadMoreFailure(Exception e) {
-    return copyWith(
-      status: PokemonStateStatus.loadMoreFailure,
-      error: e,
-    );
-  }
-
-  PokemonState copyWith({
-    PokemonStateStatus? status,
-    List<Pokemon>? pokemons,
-    int? selectedPokemonIndex,
-    int? page,
-    bool? canLoadMore,
-    Exception? error,
-  }) {
-    return PokemonState._(
-      status: status ?? this.status,
-      pokemons: pokemons ?? this.pokemons,
-      selectedPokemonIndex: selectedPokemonIndex ?? this.selectedPokemonIndex,
-      page: page ?? this.page,
-      canLoadMore: canLoadMore ?? this.canLoadMore,
-      error: error ?? this.error,
-    );
-  }
 }

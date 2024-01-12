@@ -41,7 +41,7 @@ class _ItemGridState extends State<_ItemGrid> {
 
     if (thresholdReached) {
       // Load more!
-      itemBloc.add(ItemLoadMoreStarted());
+      itemBloc.add(const ItemLoadMoreStarted());
     }
   }
 
@@ -63,13 +63,11 @@ class _ItemGridState extends State<_ItemGrid> {
           case ItemStateStatus.loading:
             return _buildLoading();
 
-          case ItemStateStatus.loadSuccess:
-          case ItemStateStatus.loadMoreSuccess:
+          case ItemStateStatus.success:
           case ItemStateStatus.loadingMore:
             return _buildGrid();
 
-          case ItemStateStatus.loadFailure:
-          case ItemStateStatus.loadMoreFailure:
+          case ItemStateStatus.failure:
             return _buildError();
 
           default:

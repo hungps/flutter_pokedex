@@ -1,17 +1,13 @@
-abstract class PokemonEvent {
-  const PokemonEvent();
-}
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class PokemonLoadStarted extends PokemonEvent {
-  final bool loadAll;
+part 'pokemon_event.freezed.dart';
 
-  const PokemonLoadStarted({this.loadAll = false});
-}
+@freezed
+class PokemonEvent with _$PokemonEvent {
+  const factory PokemonEvent.loadStarted({@Default(false) bool loadAll}) = PokemonLoadStarted;
 
-class PokemonLoadMoreStarted extends PokemonEvent {}
+  const factory PokemonEvent.loadMoreStarted() = PokemonLoadMoreStarted;
 
-class PokemonSelectChanged extends PokemonEvent {
-  final String pokemonId;
-
-  const PokemonSelectChanged({required this.pokemonId});
+  const factory PokemonEvent.selectChanged({required String pokemonId}) = PokemonSelectChanged;
 }

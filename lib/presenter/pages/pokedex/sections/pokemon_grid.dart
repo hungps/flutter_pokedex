@@ -41,7 +41,7 @@ class _PokemonGridState extends State<_PokemonGrid> {
 
     if (thresholdReached) {
       // Load more!
-      pokemonBloc.add(PokemonLoadMoreStarted());
+      pokemonBloc.add(const PokemonLoadMoreStarted());
     }
   }
 
@@ -69,13 +69,11 @@ class _PokemonGridState extends State<_PokemonGrid> {
           case PokemonStateStatus.loading:
             return _buildLoading();
 
-          case PokemonStateStatus.loadSuccess:
-          case PokemonStateStatus.loadMoreSuccess:
+          case PokemonStateStatus.success:
           case PokemonStateStatus.loadingMore:
             return _buildGrid();
 
-          case PokemonStateStatus.loadFailure:
-          case PokemonStateStatus.loadMoreFailure:
+          case PokemonStateStatus.failure:
             return _buildError();
 
           default:

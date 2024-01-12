@@ -1,11 +1,10 @@
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokedex/presenter/themes/themes.dart';
 
-abstract class SettingsEvent {
-  const SettingsEvent();
-}
+part 'settings_event.freezed.dart';
 
-class SettingsThemeChanged extends SettingsEvent {
-  final AppTheme theme;
-
-  const SettingsThemeChanged(this.theme);
+@freezed
+class SettingsEvent with _$SettingsEvent {
+  const factory SettingsEvent.themeChanged(AppTheme theme) = SettingsThemeChanged;
 }

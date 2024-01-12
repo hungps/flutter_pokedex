@@ -34,17 +34,18 @@ class _HeaderSection extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               const Spacer(),
-              const Padding(padding: EdgeInsets.only(top: 24)),
-              Text(
-                'What Pokemon\nare you looking for?',
-                style: context.appTheme.typographies.headingLarge,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 36),
+                child: Text(
+                  'What Pokemon\nare you looking for?',
+                  style: context.appTheme.typographies.headingLarge,
+                ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 36)),
               AppSearchBar(
                 hintText: 'Search Pokemon, Move, Ability etc',
               ),
-              const Padding(padding: EdgeInsets.only(top: 36)),
               GridView(
+                padding: const EdgeInsets.symmetric(vertical: 36),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -83,7 +84,6 @@ class _HeaderSection extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 36),
             ],
           ),
         ),

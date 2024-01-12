@@ -164,11 +164,11 @@ class _PokemonAbout extends StatelessWidget {
               )
             else ...[
               Expanded(
-                child: _TextIcon(Assets.images.male.provider(), '${gender.male}%'),
+                child: _TextIcon(Assets.images.male.provider(), '${gender.maleRate}%'),
               ),
               Expanded(
                 flex: 2,
-                child: _TextIcon(Assets.images.female.provider(), '${gender.female}%'),
+                child: _TextIcon(Assets.images.female.provider(), '${gender.femaleRate}%'),
               ),
             ],
           ],

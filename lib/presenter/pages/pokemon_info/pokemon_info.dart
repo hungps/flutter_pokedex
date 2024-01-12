@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart' hide AnimatedSlide;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
-import 'package:pokedex/data/entities/pokemon_props.dart';
+import 'package:pokedex/data/entities/pokemon_properties.dart';
 import 'package:pokedex/data/entities/pokemon_types.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_event.dart';
@@ -78,6 +78,7 @@ class PokemonInfoState extends State<PokemonInfoPage> with TickerProviderStateMi
       rotateController: _rotateController,
       child: const Scaffold(
         body: Stack(
+          fit: StackFit.expand,
           children: <Widget>[
             _BackgroundDecoration(),
             _PokemonInfoCard(),

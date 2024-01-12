@@ -14,7 +14,7 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   PokemonBloc({
     required PokemonRepository pokemonRepository,
   })  : _pokemonRepository = pokemonRepository,
-        super(const PokemonState.initial()) {
+        super(const PokemonState()) {
     on<PokemonLoadStarted>(
       _onLoadStarted,
       transformer: (events, mapper) => events.switchMap(mapper),
@@ -28,7 +28,9 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
   void _onLoadStarted(PokemonLoadStarted event, Emitter<PokemonState> emit) async {
     try {
-      emit(state.asLoading());
+      emit(state.copyWith(
+        status: PokemonStateStatus.loading,
+      ));
 
       final pokemons = event.loadAll
           ? await _pokemonRepository.getAllPokemons()
@@ -36,9 +38,17 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
       final canLoadMore = pokemons.length >= pokemonsPerPage;
 
-      emit(state.asLoadSuccess(pokemons, canLoadMore: canLoadMore));
+      emit(state.copyWith(
+        status: PokemonStateStatus.success,
+        pokemons: pokemons,
+        page: 1,
+        canLoadMore: canLoadMore,
+      ));
     } on Exception catch (e) {
-      emit(state.asLoadFailure(e));
+      emit(state.copyWith(
+        status: PokemonStateStatus.failure,
+        error: e,
+      ));
     }
   }
 
@@ -46,7 +56,9 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     try {
       if (!state.canLoadMore) return;
 
-      emit(state.asLoadingMore());
+      emit(state.copyWith(
+        status: PokemonStateStatus.loadingMore,
+      ));
 
       final pokemons = await _pokemonRepository.getPokemons(
         page: state.page + 1,
@@ -55,9 +67,17 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
       final canLoadMore = pokemons.length >= pokemonsPerPage;
 
-      emit(state.asLoadMoreSuccess(pokemons, canLoadMore: canLoadMore));
+      emit(state.copyWith(
+        status: PokemonStateStatus.success,
+        pokemons: [...state.pokemons, ...pokemons],
+        page: canLoadMore ? state.page + 1 : state.page,
+        canLoadMore: canLoadMore,
+      ));
     } on Exception catch (e) {
-      emit(state.asLoadMoreFailure(e));
+      emit(state.copyWith(
+        status: PokemonStateStatus.failure,
+        error: e,
+      ));
     }
   }
 
@@ -74,11 +94,14 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
       if (pokemon == null) return;
 
       emit(state.copyWith(
-        pokemons: state.pokemons..setAll(pokemonIndex, [pokemon]),
+        pokemons: [...state.pokemons]..setAll(pokemonIndex, [pokemon]),
         selectedPokemonIndex: pokemonIndex,
       ));
     } on Exception catch (e) {
-      emit(state.asLoadMoreFailure(e));
+      emit(state.copyWith(
+        status: PokemonStateStatus.failure,
+        error: e,
+      ));
     }
   }
 }

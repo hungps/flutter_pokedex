@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_frame/flutter_web_frame.dart';
@@ -12,17 +14,26 @@ class PokedexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterWebFrame(
-      maximumSize: const Size.fromWidth(600),
+      maximumSize: const Size(400, 800),
       backgroundColor: Colors.black12,
       enabled: kIsWeb,
       builder: (_) => SettingsThemeSelector(
         builder: (theme) => MaterialApp.router(
-          color: Colors.white,
           title: 'Flutter Pokedex',
           theme: theme.themeData,
           routerConfig: _router.config(),
+          scrollBehavior: AppScrollBehavior(),
         ),
       ),
     );
   }
+}
+
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+      };
 }
