@@ -60,8 +60,9 @@ class _ItemGridState extends State<_ItemGrid> {
       ],
       body: ItemStateStatusSelector((status) {
         switch (status) {
+          case ItemStateStatus.initial:
           case ItemStateStatus.loading:
-            return _buildLoading();
+            return const PikaLoadingIndicator();
 
           case ItemStateStatus.success:
           case ItemStateStatus.loadingMore:
@@ -69,17 +70,8 @@ class _ItemGridState extends State<_ItemGrid> {
 
           case ItemStateStatus.failure:
             return _buildError();
-
-          default:
-            return Container();
         }
       }),
-    );
-  }
-
-  Widget _buildLoading() {
-    return Center(
-      child: Image(image: Assets.images.pikaLoader.provider()),
     );
   }
 
@@ -120,8 +112,7 @@ class _ItemGridState extends State<_ItemGrid> {
 
             return Container(
               padding: const EdgeInsets.only(bottom: 28),
-              alignment: Alignment.center,
-              child: Image(image: Assets.images.pikaLoader.provider()),
+              child: const PikaLoadingIndicator(),
             );
           }),
         ),
