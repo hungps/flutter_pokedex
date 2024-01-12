@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/pages/types/modal_contents.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 
@@ -30,7 +30,7 @@ class ModalDraggable extends StatelessWidget {
               children: [
                 Align(
                   child: Image(
-                    image: AppImages.pokeball,
+                    image: Assets.images.pokeball.provider(),
                     width: width / 2,
                     height: width / 2,
                     color: AppColors.black.withOpacity(0.1),

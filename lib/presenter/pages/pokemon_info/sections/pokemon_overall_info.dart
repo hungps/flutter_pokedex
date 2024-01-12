@@ -232,7 +232,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
               child: RotationTransition(
                 turns: rotateController,
                 child: Image(
-                  image: AppImages.pokeball,
+                  image: Assets.images.pokeball.provider(),
                   width: pokeballSize,
                   height: pokeballSize,
                   color: context.colors.background.withOpacity(0.12),

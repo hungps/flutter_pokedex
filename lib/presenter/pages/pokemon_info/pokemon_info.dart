@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart' hide AnimatedSlide;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
 import 'package:pokedex/data/entities/pokemon_props.dart';
 import 'package:pokedex/data/entities/pokemon_types.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_selector.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/pages/pokemon_info/state_provider.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';

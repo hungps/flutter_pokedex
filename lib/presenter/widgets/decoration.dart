@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 import 'package:pokedex/presenter/widgets/app_bar.dart';
 
@@ -26,7 +26,7 @@ class PositionedPokeball extends StatelessWidget {
       top: pokeballTopMargin,
       right: pokeballRightMargin,
       child: Image(
-        image: AppImages.pokeball,
+        image: Assets.images.pokeball.provider(),
         width: pokeballSize,
         height: pokeballSize,
         color: context.colors.text.withOpacity(0.05),

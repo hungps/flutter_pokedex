@@ -17,7 +17,7 @@ class _PokemonBall extends StatelessWidget {
           alignment: Alignment.center,
           children: <Widget>[
             Image(
-              image: AppImages.pokeball,
+              image: Assets.images.pokeball.provider(),
               width: pokeballSize,
               height: pokeballSize,
               color: context.colors.backgroundDark,

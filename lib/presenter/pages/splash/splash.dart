@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/navigation/routes.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,18 +26,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              image: AppImages.pikloader,
+              image: Assets.images.pikaLoader.provider(),
               width: _splashIconSize,
               height: _splashIconSize,
               fit: BoxFit.contain,
             ),
-            Text(
+            const Text(
               'Pokedex',
               textAlign: TextAlign.center,
               style: TextStyle(

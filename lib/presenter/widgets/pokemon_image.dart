@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 
 class PokemonImage extends StatelessWidget {
   static const Size _cacheMaxSize = Size(700, 700);
@@ -10,7 +10,7 @@ class PokemonImage extends StatelessWidget {
   final EdgeInsets padding;
   final bool useHero;
   final Size size;
-  final ImageProvider placeholder;
+  final ImageProvider? placeholder;
   final Color? tintColor;
 
   const PokemonImage({
@@ -19,7 +19,7 @@ class PokemonImage extends StatelessWidget {
     required this.size,
     this.padding = EdgeInsets.zero,
     this.useHero = true,
-    this.placeholder = AppImages.bulbasaur,
+    this.placeholder,
     this.tintColor,
   });
 
@@ -49,7 +49,7 @@ class PokemonImage extends StatelessWidget {
               fit: BoxFit.contain,
             ),
             placeholder: (_, __) => Image(
-              image: placeholder,
+              image: placeholder ?? Assets.images.bulbasaur.provider(),
               width: size.width,
               height: size.height,
               alignment: Alignment.bottomCenter,
@@ -60,7 +60,7 @@ class PokemonImage extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Image(
-                  image: placeholder,
+                  image: placeholder ?? Assets.images.bulbasaur.provider(),
                   width: size.width,
                   height: size.height,
                   color: Colors.black12,

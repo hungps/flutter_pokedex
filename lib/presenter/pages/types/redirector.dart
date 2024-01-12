@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/types.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 import 'package:pokedex/utils/extensions/string.dart';
 
@@ -32,7 +32,7 @@ class Redirection extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Image(
-                      image: AppImages.pokeball,
+                      image: Assets.images.pokeball.provider(),
                       width: 30,
                       height: 30,
                       color: types[index].color.withOpacity(0.5),

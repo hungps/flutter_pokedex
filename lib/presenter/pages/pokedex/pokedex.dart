@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/images.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/utils/extensions/animation.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
 import 'package:pokedex/presenter/navigation/routes.dart';

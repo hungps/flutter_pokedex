@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/presenter/fonts.gen.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 import 'package:pokedex/presenter/themes/styles.dart';
 import 'package:pokedex/presenter/themes/typography.dart';
@@ -17,7 +18,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.colors,
     this.styles = const AppThemeStyles(),
     this.typographies = const AppThemeTypography(),
-    this.fontFamily = 'CircularStd',
+    this.fontFamily = FontFamily.circularStd,
   });
 
   ColorScheme get baseColorScheme => brightness == Brightness.light //

@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/types.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/navigation/routes.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_event.dart';
@@ -62,7 +62,7 @@ class ModalContentsState extends State<ModalContents> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Image(
-                image: AppImages.pokeball,
+                image: Assets.images.pokeball.provider(),
                 width: 30,
                 height: 30,
                 color: pokeType.color.withOpacity(0.5),
@@ -112,7 +112,7 @@ class ModalContentsState extends State<ModalContents> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Image(
-                image: AppImages.pokeball,
+                image: Assets.images.pokeball.provider(),
                 width: 30,
                 height: 30,
                 color: pokeType.color.withOpacity(0.5),

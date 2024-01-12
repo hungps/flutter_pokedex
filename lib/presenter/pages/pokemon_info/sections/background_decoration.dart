@@ -41,7 +41,7 @@ class _DottedDecoration extends StatelessWidget {
     return AnimatedFade(
       animation: animation,
       child: Image(
-        image: AppImages.dotted,
+        image: Assets.images.dotted.provider(),
         width: size.width,
         height: size.height,
         color: Colors.white30,
@@ -133,7 +133,7 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
           child: RotationTransition(
             turns: rotateController,
             child: Image(
-              image: AppImages.pokeball,
+              image: Assets.images.pokeball.provider(),
               width: pokeSize,
               height: pokeSize,
               color: Colors.white24,

@@ -86,8 +86,8 @@ class _PokemonGridState extends State<_PokemonGrid> {
   }
 
   Widget _buildLoading() {
-    return const Center(
-      child: Image(image: AppImages.pikloader),
+    return Center(
+      child: Image(image: Assets.images.pikaLoader.provider()),
     );
   }
 
@@ -128,7 +128,7 @@ class _PokemonGridState extends State<_PokemonGrid> {
             return Container(
               padding: const EdgeInsets.only(bottom: 28),
               alignment: Alignment.center,
-              child: const Image(image: AppImages.pikloader),
+              child: Image(image: Assets.images.pikaLoader.provider()),
             );
           }),
         ),

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/data/entities/item.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
 
 import 'item_category.dart';
@@ -28,7 +28,7 @@ class ItemCard extends StatelessWidget {
       bottom: -height * 0.13,
       right: -height * 0.03,
       child: Image(
-        image: AppImages.pokeball,
+        image: Assets.images.pokeball.provider(),
         width: pokeballSize,
         height: pokeballSize,
         color: Colors.white.withOpacity(0.14),
@@ -53,7 +53,7 @@ class ItemCard extends StatelessWidget {
           fit: BoxFit.contain,
           alignment: Alignment.bottomRight,
           placeholder: (context, url) => Image(
-            image: AppImages.bulbasaur,
+            image: Assets.images.bulbasaur.provider(),
             width: itemSize,
             height: itemSize,
             color: Colors.black12,
@@ -62,7 +62,7 @@ class ItemCard extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Image(
-                image: AppImages.bulbasaur,
+                image: Assets.images.bulbasaur.provider(),
                 width: itemSize,
                 height: itemSize,
                 color: Colors.black12,
