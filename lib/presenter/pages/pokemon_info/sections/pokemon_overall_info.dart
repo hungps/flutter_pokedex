@@ -215,7 +215,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   }
 
   Widget _buildPokemonSlider() {
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = MediaQuery.sizeOf(context);
     final sliderHeight = screenSize.height * 0.24;
     final pokeballSize = screenSize.height * 0.24;
     final pokemonSize = screenSize.height * 0.3;

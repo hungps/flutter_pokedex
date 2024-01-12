@@ -7,8 +7,8 @@ class SearchBottomModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewInsets = MediaQuery.of(context).viewInsets.bottom;
-    final safeAreaBottom = MediaQuery.of(context).padding.bottom;
+    final viewInsets = MediaQuery.viewInsetsOf(context).bottom;
+    final safeAreaBottom = MediaQuery.paddingOf(context).bottom;
 
     return Modal(
       child: Flexible(

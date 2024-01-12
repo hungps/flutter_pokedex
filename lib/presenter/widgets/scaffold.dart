@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
@@ -43,21 +45,22 @@ class PokeballScaffold extends Scaffold {
 
 class PositionedPokeball extends StatelessWidget {
   final double widthFraction;
+  final double maxSize;
 
   const PositionedPokeball({
     super.key,
     this.widthFraction = 0.664,
+    this.maxSize = 250,
   });
 
   @override
   Widget build(BuildContext context) {
-    final safeAreaTop = MediaQuery.of(context).padding.top;
-    final pokeballSize = MediaQuery.of(context).size.width * widthFraction;
-    final appBarHeight = AppBar().preferredSize.height;
+    final safeAreaTop = MediaQuery.paddingOf(context).top;
+    final pokeballSize = min(MediaQuery.sizeOf(context).width * widthFraction, maxSize);
     final iconButtonPadding = AppAppBar.padding.right;
     final iconSize = IconTheme.of(context).size ?? 0;
 
-    final pokeballTopMargin = -(pokeballSize / 2 - safeAreaTop - appBarHeight / 2);
+    final pokeballTopMargin = -(pokeballSize / 2 - safeAreaTop - kToolbarHeight / 2);
     final pokeballRightMargin = -(pokeballSize / 2 - iconButtonPadding - iconSize / 2);
 
     return Positioned(

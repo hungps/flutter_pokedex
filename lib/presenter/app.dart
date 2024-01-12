@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:pokedex/presenter/navigation/navigation.dart';
@@ -16,7 +15,7 @@ class PokedexApp extends StatelessWidget {
     return FlutterWebFrame(
       maximumSize: const Size(400, 800),
       backgroundColor: Colors.black12,
-      enabled: kIsWeb,
+      enabled: MediaQuery.sizeOf(context).shortestSide > 600,
       builder: (_) => SettingsThemeSelector(
         builder: (theme) => MaterialApp.router(
           title: 'Flutter Pokedex',

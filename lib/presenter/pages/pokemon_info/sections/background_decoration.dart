@@ -112,8 +112,8 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
   }
 
   Widget _buildAppBarPokeballDecoration() {
-    final screenSize = MediaQuery.of(context).size;
-    final safeAreaTop = MediaQuery.of(context).padding.top;
+    final screenSize = MediaQuery.sizeOf(context);
+    final safeAreaTop = MediaQuery.paddingOf(context).top;
 
     final pokeSize = screenSize.width * 0.5;
     final appBarHeight = AppBar().preferredSize.height;

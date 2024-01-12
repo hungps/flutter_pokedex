@@ -1,10 +1,14 @@
 part of '../home.dart';
 
 class _HeaderSection extends StatelessWidget implements PreferredSizeWidget {
-  const _HeaderSection();
+  final double height;
+
+  const _HeaderSection({
+    required this.height,
+  });
 
   @override
-  Size get preferredSize => const Size.fromHeight(582);
+  Size get preferredSize => Size.fromHeight(height);
 
   void _onThemeSwitcherPressed(BuildContext context) {
     final settingsBloc = context.read<SettingsBloc>();

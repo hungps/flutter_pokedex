@@ -13,8 +13,8 @@ class PositionedPokeball extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final safeAreaTop = MediaQuery.of(context).padding.top;
-    final pokeballSize = MediaQuery.of(context).size.width * widthFraction;
+    final safeAreaTop = MediaQuery.paddingOf(context).top;
+    final pokeballSize = MediaQuery.sizeOf(context).width * widthFraction;
     final appBarHeight = AppBar().preferredSize.height;
     final iconButtonPadding = AppAppBar.padding.right;
     final iconSize = IconTheme.of(context).size ?? 0;

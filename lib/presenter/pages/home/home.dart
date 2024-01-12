@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +44,9 @@ class _HomePageState extends State<HomePage> {
                 visible: innerBoxIsScrolled,
                 child: const Text('Pokedex'),
               ),
-              background: const _HeaderSection(),
+              background: _HeaderSection(
+                height: min(MediaQuery.sizeOf(context).height * 0.82, 582),
+              ),
             ),
           ],
           body: const _NewsSection(),

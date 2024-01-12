@@ -71,7 +71,7 @@ class ModalContentsState extends State<ModalContents> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
-              child: Text("${pokeType.type.name.capitalize()} Type "
+              child: Text("${pokeType.type.displayName.capitalize()} Type "
                   "Pokemons"),
             )
           ],
@@ -121,7 +121,7 @@ class ModalContentsState extends State<ModalContents> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
-              child: Text("${pokeType.type.name.capitalize()} Type "
+              child: Text("${pokeType.type.displayName.capitalize()} Type "
                   "Items"),
             )
           ],

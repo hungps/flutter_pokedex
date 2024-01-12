@@ -81,7 +81,7 @@ class ExpandedAnimationFab extends AnimatedWidget {
   }
 
   Widget _buildItem(BuildContext context, int index) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
 
     final transform = Matrix4.translationValues(
       -(screenWidth - animation.value * screenWidth) * ((items.length - index) / 4),

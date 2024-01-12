@@ -40,7 +40,7 @@ class Redirection extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Text("${types[index].type.name.capitalize()} Type $term"),
+                    child: Text("${types[index].type.displayName.capitalize()} Type $term"),
                   )
                 ],
               ),

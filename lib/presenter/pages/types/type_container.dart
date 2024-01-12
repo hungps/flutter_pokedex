@@ -33,10 +33,10 @@ class TypeDisplayContainer extends StatelessWidget {
     void assigner() {
       if (path == "name") {
         col = types[index].color;
-        text = types[index].type.name.toUpperCase();
+        text = types[index].type.displayName.toUpperCase();
       } else if (j != null) {
         col = types[typeIndices[typeList[j!].toLowerCase()]!].color;
-        text = types[typeIndices[typeList[j!].toLowerCase()]!].type.name.toUpperCase();
+        text = types[typeIndices[typeList[j!].toLowerCase()]!].type.displayName.toUpperCase();
       }
     }
 

@@ -39,7 +39,7 @@ class Modal extends StatelessWidget {
 class _DragLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width * 0.2;
+    final width = MediaQuery.sizeOf(context).width * 0.2;
 
     return Container(
       width: width,

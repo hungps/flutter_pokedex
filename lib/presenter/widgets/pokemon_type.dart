@@ -33,7 +33,7 @@ class PokemonType extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              type.name,
+              type.displayName,
               textScaler: TextScaler.noScaling,
               style: TextStyle(
                 fontSize: large ? 12 : 8,

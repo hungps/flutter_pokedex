@@ -69,7 +69,7 @@ class _FabMenuState extends State<_FabMenu> with SingleTickerProviderStateMixin 
 
   @override
   Widget build(BuildContext context) {
-    final safeAreaBottom = MediaQuery.of(context).padding.bottom;
+    final safeAreaBottom = MediaQuery.paddingOf(context).bottom;
 
     return AnimatedOverlay(
       animation: _fabAnimation,

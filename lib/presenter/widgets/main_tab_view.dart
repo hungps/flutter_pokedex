@@ -28,7 +28,7 @@ class MainTabView extends StatelessWidget {
       length: tabs.length,
       initialIndex: 0,
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
           color: context.colors.background,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),

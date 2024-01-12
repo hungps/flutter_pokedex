@@ -7,7 +7,7 @@ class _PokemonBall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.sizeOf(context).height;
     final pokeballSize = screenHeight * 0.1;
     final pokemonSize = pokeballSize * 0.85;
 

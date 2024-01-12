@@ -27,8 +27,8 @@ class _NewsSection extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: 9,
-          separatorBuilder: (context, index) => const Divider(height: 24),
-          itemBuilder: (context, index) {
+          separatorBuilder: (_, __) => const Divider(height: 24),
+          itemBuilder: (_, __) {
             return const _NewsListTile(
               title: 'Pokémon Rumble Rush Arrives Soon',
               time: '15 May 2019',

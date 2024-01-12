@@ -12,7 +12,7 @@ class GenerationModal extends StatelessWidget {
   }
 
   Widget _buildGenerations(BuildContext context, ScrollController scrollController) {
-    final safeAreaBottom = MediaQuery.of(context).padding.bottom;
+    final safeAreaBottom = MediaQuery.paddingOf(context).bottom;
 
     return Expanded(
       child: GridView.builder(
