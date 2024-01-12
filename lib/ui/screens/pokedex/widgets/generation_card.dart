@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/generation.dart';
+import 'package:pokedex/ui/themes/colors.dart';
 import 'package:pokedex/ui/themes/extensions.dart';
 
 class GenerationCard extends StatelessWidget {

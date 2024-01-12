@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart' hide AnimatedSlide;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/pokemon.dart';
 import 'package:pokedex/domain/entities/pokemon_props.dart';
@@ -11,6 +10,7 @@ import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/states/pokemon/pokemon_event.dart';
 import 'package:pokedex/states/pokemon/pokemon_selector.dart';
 import 'package:pokedex/ui/screens/pokemon_info/state_provider.dart';
+import 'package:pokedex/ui/themes/colors.dart';
 import 'package:pokedex/ui/themes/extensions.dart';
 import 'package:pokedex/ui/widgets/animated_fade.dart';
 import 'package:pokedex/ui/widgets/animated_slide.dart';

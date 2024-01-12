@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/configs/images.dart';
 import 'package:pokedex/domain/entities/item.dart';
 import 'package:pokedex/core/extensions/context.dart';
+import 'package:pokedex/ui/themes/colors.dart';
 import 'package:pokedex/ui/widgets/spacer.dart';
 
 import 'item_category.dart';

@@ -6,7 +6,8 @@ class Stat extends StatelessWidget {
   final double? progress;
   final num value;
 
-  const Stat({super.key, 
+  const Stat({
+    super.key,
     required this.animation,
     required this.label,
     required this.value,
@@ -99,7 +100,8 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
 
         return SingleChildScrollView(
           padding: const EdgeInsets.all(24),
-          physics: scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics:
+              scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
           child: child,
         );
       },

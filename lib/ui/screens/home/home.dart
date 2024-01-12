@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/routes.dart';
 import 'package:pokedex/states/settings/settings_bloc.dart';
 import 'package:pokedex/states/settings/settings_event.dart';
 import 'package:pokedex/states/settings/settings_selector.dart';
+import 'package:pokedex/ui/themes/colors.dart';
 import 'package:pokedex/ui/themes/extensions.dart';
 import 'package:pokedex/ui/themes/themes/themes.dark.dart';
 import 'package:pokedex/ui/themes/themes/themes.light.dart';

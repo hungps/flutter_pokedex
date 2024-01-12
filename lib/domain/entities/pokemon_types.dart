@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/core/extensions/string.dart';
 import 'package:pokedex/core/utils.dart';
+import 'package:pokedex/ui/themes/colors.dart';
 
 enum PokemonTypes {
   grass,

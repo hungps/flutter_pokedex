@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
 import 'package:pokedex/domain/entities/pokemon_types.dart';
+import 'package:pokedex/ui/themes/colors.dart';
 
 Color colorGenerator(PokemonTypes val) {
   switch (val) {
