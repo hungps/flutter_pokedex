@@ -1,4 +1,4 @@
-import 'package:pokedex/domain/entities/item.dart';
+import 'package:pokedex/data/entities/item.dart';
 
 abstract class ItemRepository {
   const ItemRepository();

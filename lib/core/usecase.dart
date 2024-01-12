@@ -1,15 +1,9 @@
-abstract class BaseUseCase<T> {
-  const BaseUseCase();
+import 'dart:async';
+
+abstract class UseCase<Data, Params> {
+  const UseCase();
+
+  FutureOr<Data> call(Params params);
 }
 
-abstract class UseCase<T, P> extends BaseUseCase<T> {
-  const UseCase() : super();
-
-  Future<T> call(P params);
-}
-
-abstract class NoParamsUseCase<T> extends BaseUseCase<T> {
-  const NoParamsUseCase() : super();
-
-  Future<T> call();
-}
+class NoParams {}

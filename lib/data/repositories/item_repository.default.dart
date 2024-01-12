@@ -4,7 +4,7 @@ import 'package:pokedex/data/source/github/github_datasource.dart';
 import 'package:pokedex/data/source/local/local_datasource.dart';
 import 'package:pokedex/data/source/mappers/github_to_local_mapper.dart';
 import 'package:pokedex/data/source/mappers/local_to_entity_mapper.dart';
-import 'package:pokedex/domain/entities/item.dart';
+import 'package:pokedex/data/entities/item.dart';
 
 @Singleton(as: ItemRepository)
 class DefaultItemRepository extends ItemRepository {

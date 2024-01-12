@@ -2,10 +2,10 @@ import 'package:pokedex/data/source/local/models/item.dart';
 import 'package:pokedex/data/source/local/models/pokemon.dart';
 import 'package:pokedex/data/source/local/models/pokemon_gender.dart';
 import 'package:pokedex/data/source/local/models/pokemon_stats.dart';
-import 'package:pokedex/domain/entities/item.dart';
-import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/domain/entities/pokemon_props.dart';
-import 'package:pokedex/domain/entities/pokemon_types.dart';
+import 'package:pokedex/data/entities/item.dart';
+import 'package:pokedex/data/entities/pokemon.dart';
+import 'package:pokedex/data/entities/pokemon_props.dart';
+import 'package:pokedex/data/entities/pokemon_types.dart';
 
 extension PokemonHiveModelX on PokemonHiveModel {
   Pokemon toEntity({List<PokemonHiveModel> evolutions = const []}) => Pokemon(

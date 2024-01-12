@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:pokedex/states/item/item_bloc.dart';
-import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
-import 'package:pokedex/states/settings/settings_bloc.dart';
+import 'package:pokedex/data/states/item/item_bloc.dart';
+import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
+import 'package:pokedex/data/states/settings/settings_bloc.dart';
 
 import 'di.config.dart';
 

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:pokedex/core/utils.dart';
 
 @singleton
 class NetworkManager {
@@ -42,5 +41,5 @@ enum RequestMethod {
 }
 
 extension RequestMethodX on RequestMethod {
-  String get value => getEnumValue(this).toUpperCase();
+  String get value => name.toUpperCase();
 }

@@ -1,6 +1,6 @@
-import 'package:pokedex/domain/entities/category.dart';
-import 'package:pokedex/routes.dart';
-import 'package:pokedex/ui/themes/colors.dart';
+import 'package:pokedex/data/entities/category.dart';
+import 'package:pokedex/presenter/navigation/routes.dart';
+import 'package:pokedex/presenter/themes/colors.dart';
 
 const List<Category> categories = [
   Category(name: 'Pokedex', color: AppColors.teal, route: Routes.pokedex),
