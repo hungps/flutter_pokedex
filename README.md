@@ -1,4 +1,4 @@
-# Flutter Pokedex
+# Flutter Pokedex - test
 
 [![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter)
 [![Codemagic build status](https://api.codemagic.io/apps/5d3727997dee22001bb7681c/5d3727997dee22001bb7681b/status_badge.svg)](https://codemagic.io/apps/5d3727997dee22001bb7681c/5d3727997dee22001bb7681b/latest_build)
