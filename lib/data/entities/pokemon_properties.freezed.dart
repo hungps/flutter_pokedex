@@ -12,7 +12,7 @@ part of 'pokemon_properties.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PokemonGender _$PokemonGenderFromJson(Map<String, dynamic> json) {
   return _PokemonGender.fromJson(json);
@@ -24,8 +24,12 @@ mixin _$PokemonGender {
   double get maleRate => throw _privateConstructorUsedError;
   double get femaleRate => throw _privateConstructorUsedError;
 
+  /// Serializes this PokemonGender to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PokemonGender
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PokemonGenderCopyWith<PokemonGender> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$PokemonGenderCopyWithImpl<$Res, $Val extends PokemonGender>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PokemonGender
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$PokemonGenderImplCopyWithImpl<$Res>
       _$PokemonGenderImpl _value, $Res Function(_$PokemonGenderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PokemonGender
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,12 +172,14 @@ class _$PokemonGenderImpl
                 other.femaleRate == femaleRate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, genderless, maleRate, femaleRate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PokemonGender
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PokemonGenderImplCopyWith<_$PokemonGenderImpl> get copyWith =>
@@ -198,8 +208,11 @@ abstract class _PokemonGender implements PokemonGender {
   double get maleRate;
   @override
   double get femaleRate;
+
+  /// Create a copy of PokemonGender
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PokemonGenderImplCopyWith<_$PokemonGenderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -217,8 +230,12 @@ mixin _$PokemonStats {
   int get hp => throw _privateConstructorUsedError;
   int get speed => throw _privateConstructorUsedError;
 
+  /// Serializes this PokemonStats to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PokemonStats
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PokemonStatsCopyWith<PokemonStats> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -248,6 +265,8 @@ class _$PokemonStatsCopyWithImpl<$Res, $Val extends PokemonStats>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PokemonStats
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -312,6 +331,8 @@ class __$$PokemonStatsImplCopyWithImpl<$Res>
       _$PokemonStatsImpl _value, $Res Function(_$PokemonStatsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PokemonStats
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -412,12 +433,14 @@ class _$PokemonStatsImpl extends _PokemonStats with DiagnosticableTreeMixin {
             (identical(other.speed, speed) || other.speed == speed));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, attack, specialAttack, defense, specialDefense, hp, speed);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PokemonStats
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PokemonStatsImplCopyWith<_$PokemonStatsImpl> get copyWith =>
@@ -456,8 +479,11 @@ abstract class _PokemonStats extends PokemonStats {
   int get hp;
   @override
   int get speed;
+
+  /// Create a copy of PokemonStats
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PokemonStatsImplCopyWith<_$PokemonStatsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

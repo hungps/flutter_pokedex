@@ -12,7 +12,7 @@ part of 'pokemon.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Pokemon _$PokemonFromJson(Map<String, dynamic> json) {
   return _Pokemon.fromJson(json);
@@ -35,8 +35,12 @@ mixin _$Pokemon {
   List<Pokemon> get evolutions => throw _privateConstructorUsedError;
   String get evolutionReason => throw _privateConstructorUsedError;
 
+  /// Serializes this Pokemon to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PokemonCopyWith<Pokemon> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -75,6 +79,8 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,6 +159,8 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
     ) as $Val);
   }
 
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PokemonGenderCopyWith<$Res> get gender {
@@ -161,6 +169,8 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
     });
   }
 
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PokemonStatsCopyWith<$Res> get stats {
@@ -207,6 +217,8 @@ class __$$PokemonImplCopyWithImpl<$Res>
       _$PokemonImpl _value, $Res Function(_$PokemonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -410,7 +422,7 @@ class _$PokemonImpl extends _Pokemon with DiagnosticableTreeMixin {
                 other.evolutionReason == evolutionReason));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -429,7 +441,9 @@ class _$PokemonImpl extends _Pokemon with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(_evolutions),
       evolutionReason);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PokemonImplCopyWith<_$PokemonImpl> get copyWith =>
@@ -491,8 +505,11 @@ abstract class _Pokemon extends Pokemon {
   List<Pokemon> get evolutions;
   @override
   String get evolutionReason;
+
+  /// Create a copy of Pokemon
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PokemonImplCopyWith<_$PokemonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

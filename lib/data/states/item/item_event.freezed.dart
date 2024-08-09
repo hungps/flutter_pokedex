@@ -12,7 +12,7 @@ part of 'item_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ItemEvent {
@@ -77,6 +77,9 @@ class _$ItemEventCopyWithImpl<$Res, $Val extends ItemEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -96,6 +99,8 @@ class __$$ItemLoadStartedImplCopyWithImpl<$Res>
       _$ItemLoadStartedImpl _value, $Res Function(_$ItemLoadStartedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,7 +150,9 @@ class _$ItemLoadStartedImpl
   @override
   int get hashCode => Object.hash(runtimeType, loadAll);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ItemLoadStartedImplCopyWith<_$ItemLoadStartedImpl> get copyWith =>
@@ -225,7 +232,10 @@ abstract class ItemLoadStarted implements ItemEvent {
   const factory ItemLoadStarted({final bool loadAll}) = _$ItemLoadStartedImpl;
 
   bool get loadAll;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ItemLoadStartedImplCopyWith<_$ItemLoadStartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -244,6 +254,9 @@ class __$$ItemLoadMoreStartedImplCopyWithImpl<$Res>
   __$$ItemLoadMoreStartedImplCopyWithImpl(_$ItemLoadMoreStartedImpl _value,
       $Res Function(_$ItemLoadMoreStartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -364,6 +377,8 @@ class __$$ItemSelectChangedImplCopyWithImpl<$Res>
       $Res Function(_$ItemSelectChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -412,7 +427,9 @@ class _$ItemSelectChangedImpl
   @override
   int get hashCode => Object.hash(runtimeType, itemId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ItemSelectChangedImplCopyWith<_$ItemSelectChangedImpl> get copyWith =>
@@ -493,7 +510,10 @@ abstract class ItemSelectChanged implements ItemEvent {
       _$ItemSelectChangedImpl;
 
   String get itemId;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ItemEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ItemSelectChangedImplCopyWith<_$ItemSelectChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -26,7 +26,8 @@ class AppAppBar extends AppBar {
 }
 
 class AppExpandableSliverAppBar extends SliverAppBar {
-  static const BorderRadius _borderRadius = BorderRadius.vertical(bottom: Radius.circular(30));
+  static const BorderRadius _borderRadius =
+      BorderRadius.vertical(bottom: Radius.circular(30));
 
   AppExpandableSliverAppBar({
     super.floating = true,
@@ -110,26 +111,31 @@ class AppMovingTitleSliverAppBar extends SliverAppBar {
               final minHeight = safeAreaTop + kToolbarHeight;
               final maxHeight = height + safeAreaTop;
 
-              final percent = (constraints.maxHeight - minHeight) / (maxHeight - minHeight);
+              final percent =
+                  (constraints.maxHeight - minHeight) / (maxHeight - minHeight);
               final fontSize = _textStyle.fontSize ?? 16;
               final currentTextStyle = _textStyle.copyWith(
                 fontSize: fontSize + (expandedFontSize - fontSize) * percent,
               );
 
-              final textWidth = getTextSize(context, title, currentTextStyle).width;
+              final textWidth =
+                  getTextSize(context, title, currentTextStyle).width;
               final startX = AppAppBar.padding.left;
-              final endX = MediaQuery.sizeOf(context).width / 2 - textWidth / 2 - startX;
+              final endX =
+                  MediaQuery.sizeOf(context).width / 2 - textWidth / 2 - startX;
               final dx = startX + endX - endX * percent;
 
               return Container(
-                color: context.colors.background.withOpacity(0.8 - percent * 0.8),
+                color:
+                    context.colors.background.withOpacity(0.8 - percent * 0.8),
                 child: Stack(
                   fit: StackFit.expand,
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: kToolbarHeight / 3),
                       child: Transform.translate(
-                        offset: Offset(dx, constraints.maxHeight - kToolbarHeight),
+                        offset:
+                            Offset(dx, constraints.maxHeight - kToolbarHeight),
                         child: Text(
                           title,
                           style: currentTextStyle,
@@ -182,7 +188,7 @@ class AppBarBackButton extends StatelessWidget {
 
     return IconButton(
       padding: AppAppBar.padding,
-      onPressed: onPressed ?? context.router.pop,
+      onPressed: onPressed ?? context.router.maybePop,
       icon: icon,
     );
   }

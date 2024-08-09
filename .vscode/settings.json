@@ -3,9 +3,11 @@
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
   "dart.lineLength": 100,
-  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "dart.flutterSdkPath": ".fvm/versions/3.24.0",
   "[dart]": {
-    "editor.rulers": [100],
+    "editor.rulers": [
+      100
+    ],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -16,7 +18,9 @@
   "triggerTaskOnSave.on": true,
   "triggerTaskOnSave.showStatusBarToggle": true,
   "triggerTaskOnSave.tasks": {
-    "easy_localization: generate keys": ["**/translations/*"]
+    "easy_localization: generate keys": [
+      "**/translations/*"
+    ]
   },
   "search.exclude": {
     "**/.fvm": true,

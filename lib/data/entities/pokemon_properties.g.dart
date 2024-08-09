@@ -22,12 +22,12 @@ Map<String, dynamic> _$$PokemonGenderImplToJson(_$PokemonGenderImpl instance) =>
 
 _$PokemonStatsImpl _$$PokemonStatsImplFromJson(Map<String, dynamic> json) =>
     _$PokemonStatsImpl(
-      attack: json['attack'] as int,
-      specialAttack: json['specialAttack'] as int,
-      defense: json['defense'] as int,
-      specialDefense: json['specialDefense'] as int,
-      hp: json['hp'] as int,
-      speed: json['speed'] as int,
+      attack: (json['attack'] as num).toInt(),
+      specialAttack: (json['specialAttack'] as num).toInt(),
+      defense: (json['defense'] as num).toInt(),
+      specialDefense: (json['specialDefense'] as num).toInt(),
+      hp: (json['hp'] as num).toInt(),
+      speed: (json['speed'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$PokemonStatsImplToJson(_$PokemonStatsImpl instance) =>

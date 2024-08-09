@@ -10,7 +10,7 @@ class _Label extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.6),
+        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
         height: 0.8,
       ),
     );
@@ -69,7 +69,8 @@ class _PokemonAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final slideController = PokemonInfoStateProvider.of(context).slideController;
+    final slideController =
+        PokemonInfoStateProvider.of(context).slideController;
 
     return AnimatedBuilder(
       animation: slideController,
@@ -78,8 +79,9 @@ class _PokemonAbout extends StatelessWidget {
 
         return SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 27),
-          physics:
-              scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics: scrollable
+              ? const BouncingScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
           child: child,
         );
       },
@@ -106,7 +108,8 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildHeightWeight(String height, String weight, BuildContext context) {
+  Widget _buildHeightWeight(
+      String height, String weight, BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
@@ -164,11 +167,13 @@ class _PokemonAbout extends StatelessWidget {
               )
             else ...[
               Expanded(
-                child: _TextIcon(Assets.images.male.provider(), '${gender.maleRate}%'),
+                child: _TextIcon(
+                    Assets.images.male.provider(), '${gender.maleRate}%'),
               ),
               Expanded(
                 flex: 2,
-                child: _TextIcon(Assets.images.female.provider(), '${gender.femaleRate}%'),
+                child: _TextIcon(
+                    Assets.images.female.provider(), '${gender.femaleRate}%'),
               ),
             ],
           ],
@@ -179,7 +184,8 @@ class _PokemonAbout extends StatelessWidget {
             const Expanded(child: _Label('Egg Groups')),
             Expanded(
               flex: 2,
-              child: Text(eggGroups.join(', '), style: const TextStyle(height: 0.8)),
+              child: Text(eggGroups.join(', '),
+                  style: const TextStyle(height: 0.8)),
             ),
             const Expanded(flex: 1, child: SizedBox()),
           ],

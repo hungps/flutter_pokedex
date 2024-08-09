@@ -23,9 +23,10 @@ class ModalDraggable extends StatelessWidget {
         builder: (b, s) {
           return Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20))),
             child: Stack(
               children: [
                 Align(
@@ -36,7 +37,8 @@ class ModalDraggable extends StatelessWidget {
                     color: AppColors.black.withOpacity(0.1),
                   ),
                 ),
-                ModalContents(index: index, width: width, scroller: s), //type_listview
+                ModalContents(
+                    index: index, width: width, scroller: s), //type_listview
               ],
             ),
           );

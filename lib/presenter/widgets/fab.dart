@@ -16,7 +16,7 @@ class FabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).colorScheme.background;
+    var bgColor = Theme.of(context).colorScheme.surface;
     return MaterialButton(
       shape: const StadiumBorder(),
       padding: const EdgeInsets.fromLTRB(24, 8, 16, 8),
@@ -84,7 +84,8 @@ class ExpandedAnimationFab extends AnimatedWidget {
     final screenWidth = MediaQuery.sizeOf(context).width;
 
     final transform = Matrix4.translationValues(
-      -(screenWidth - animation.value * screenWidth) * ((items.length - index) / 4),
+      -(screenWidth - animation.value * screenWidth) *
+          ((items.length - index) / 4),
       0.0,
       0.0,
     );

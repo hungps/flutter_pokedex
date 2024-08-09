@@ -7,7 +7,8 @@ class _FabMenu extends StatefulWidget {
   State<_FabMenu> createState() => _FabMenuState();
 }
 
-class _FabMenuState extends State<_FabMenu> with SingleTickerProviderStateMixin {
+class _FabMenuState extends State<_FabMenu>
+    with SingleTickerProviderStateMixin {
   late AnimationController _fabController;
   late Animation<double> _fabAnimation;
 
@@ -73,7 +74,7 @@ class _FabMenuState extends State<_FabMenu> with SingleTickerProviderStateMixin 
 
     return AnimatedOverlay(
       animation: _fabAnimation,
-      color: Theme.of(context).colorScheme.background,
+      color: Theme.of(context).colorScheme.surface,
       onPress: _toggleFabMenu,
       child: Container(
         alignment: Alignment.bottomRight,

@@ -12,7 +12,7 @@ part of 'pokemon_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PokemonEvent {
@@ -78,6 +78,9 @@ class _$PokemonEventCopyWithImpl<$Res, $Val extends PokemonEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -97,6 +100,8 @@ class __$$PokemonLoadStartedImplCopyWithImpl<$Res>
       $Res Function(_$PokemonLoadStartedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -146,7 +151,9 @@ class _$PokemonLoadStartedImpl
   @override
   int get hashCode => Object.hash(runtimeType, loadAll);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PokemonLoadStartedImplCopyWith<_$PokemonLoadStartedImpl> get copyWith =>
@@ -227,7 +234,10 @@ abstract class PokemonLoadStarted implements PokemonEvent {
       _$PokemonLoadStartedImpl;
 
   bool get loadAll;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PokemonLoadStartedImplCopyWith<_$PokemonLoadStartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -248,6 +258,9 @@ class __$$PokemonLoadMoreStartedImplCopyWithImpl<$Res>
       _$PokemonLoadMoreStartedImpl _value,
       $Res Function(_$PokemonLoadMoreStartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -368,6 +381,8 @@ class __$$PokemonSelectChangedImplCopyWithImpl<$Res>
       $Res Function(_$PokemonSelectChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -417,7 +432,9 @@ class _$PokemonSelectChangedImpl
   @override
   int get hashCode => Object.hash(runtimeType, pokemonId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PokemonSelectChangedImplCopyWith<_$PokemonSelectChangedImpl>
@@ -499,7 +516,10 @@ abstract class PokemonSelectChanged implements PokemonEvent {
       _$PokemonSelectChangedImpl;
 
   String get pokemonId;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PokemonSelectChangedImplCopyWith<_$PokemonSelectChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
