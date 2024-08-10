@@ -48,7 +48,7 @@ abstract class _$AppRouter extends RootStackRouter {
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SplashPage(),
+        child: WrappedRoute(child: const SplashPage()),
       );
     },
     TypeEffectRoute.name: (routeData) {

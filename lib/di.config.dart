@@ -25,6 +25,7 @@ import 'package:pokedex/data/states/settings/settings_bloc.dart' as _i240;
 import 'package:pokedex/data/usecases/item_usecases.dart' as _i416;
 import 'package:pokedex/data/usecases/pokemon_usecases.dart' as _i988;
 import 'package:pokedex/di.dart' as _i326;
+import 'package:pokedex/presenter/pages/splash/splash_bloc.dart' as _i841;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -38,6 +39,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final registerModule = _$RegisterModule();
+    gh.factory<_i841.SplashBloc>(() => _i841.SplashBloc());
     gh.singleton<_i361.Dio>(() => registerModule.dio);
     await gh.singletonAsync<_i880.LocalDataSource>(
       () {
