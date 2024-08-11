@@ -1,11 +1,13 @@
-part of '../home.dart';
+import 'package:flutter/material.dart';
+import 'package:pokedex/presenter/themes/extensions.dart';
 
-class _CategoryCard extends StatelessWidget {
+class HomeCategoryCard extends StatelessWidget {
   final String title;
   final Color color;
   final VoidCallback? onPressed;
 
-  const _CategoryCard({
+  const HomeCategoryCard({
+    super.key,
     required this.title,
     required this.color,
     this.onPressed,

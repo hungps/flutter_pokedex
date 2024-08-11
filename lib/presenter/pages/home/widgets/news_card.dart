@@ -1,11 +1,13 @@
-part of '../home.dart';
+import 'package:flutter/material.dart';
+import 'package:pokedex/presenter/themes/extensions.dart';
 
-class _NewsListTile extends StatelessWidget {
+class HomeNewsListTile extends StatelessWidget {
   final ImageProvider thumbnail;
   final String title;
   final String time;
 
-  const _NewsListTile({
+  const HomeNewsListTile({
+    super.key,
     required this.title,
     required this.time,
     required this.thumbnail,
@@ -27,7 +29,8 @@ class _NewsListTile extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 time,
-                style: context.typographies.caption.withColor(context.colors.hint),
+                style:
+                    context.typographies.caption.withColor(context.colors.hint),
               ),
             ],
           ),

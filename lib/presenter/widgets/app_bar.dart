@@ -61,17 +61,25 @@ class AppExpandableSliverAppBar extends SliverAppBar {
     super.stretchTriggerOffset,
     super.surfaceTintColor,
     super.systemOverlayStyle,
+    required double expandedHeight,
+    required Widget background,
     Widget title = const SizedBox.shrink(),
-    PreferredSizeWidget? background,
+    bool showTitle = true,
   }) : super(
-          expandedHeight: background?.preferredSize.height,
+          expandedHeight: expandedHeight,
           flexibleSpace: FlexibleSpaceBar(
             collapseMode: CollapseMode.pin,
-            title: title,
+            title: Visibility(
+              visible: showTitle,
+              child: title,
+            ),
             titlePadding: const EdgeInsets.symmetric(vertical: 16),
             background: ClipRRect(
               borderRadius: _borderRadius,
-              child: background,
+              child: PreferredSize(
+                preferredSize: Size.fromHeight(expandedHeight),
+                child: background,
+              ),
             ),
           ),
         );

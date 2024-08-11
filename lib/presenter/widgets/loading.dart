@@ -14,3 +14,14 @@ class PikaLoadingIndicator extends StatelessWidget {
     );
   }
 }
+
+class SliverPikaLoadingIndicator extends StatelessWidget {
+  const SliverPikaLoadingIndicator({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SliverToBoxAdapter(
+      child: PikaLoadingIndicator(),
+    );
+  }
+}
