@@ -1,102 +1,148 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/presenter/themes/colors.dart';
+import 'package:pokedex/presenter/widgets/animated_overlay.dart';
+import 'package:pokedex/utils/extensions/animation.dart';
 
-class FabItemData {
-  final IconData icon;
-  final void Function()? onPress;
+class ExpandableFabMenuItem extends StatelessWidget {
   final String title;
+  final IconData icon;
+  final VoidCallback onPressed;
 
-  const FabItemData(this.title, this.icon, {this.onPress});
-}
-
-class FabItem extends StatelessWidget {
-  final FabItemData item;
-
-  const FabItem(this.item, {super.key});
+  const ExpandableFabMenuItem({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).colorScheme.surface;
     return MaterialButton(
       shape: const StadiumBorder(),
       padding: const EdgeInsets.fromLTRB(24, 8, 16, 8),
-      color: bgColor,
-      splashColor: Colors.grey[100],
-      highlightColor: Colors.grey[100],
+      color: Theme.of(context).colorScheme.surface,
       elevation: 0,
       highlightElevation: 2,
-      disabledColor: bgColor,
-      onPressed: item.onPress,
+      onPressed: onPressed,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(item.title),
+          Text(title),
           const SizedBox(width: 8),
-          Icon(item.icon, color: AppColors.indigo),
+          Icon(icon, color: AppColors.indigo),
         ],
       ),
     );
   }
 }
 
-class ExpandedAnimationFab extends AnimatedWidget {
-  final List<FabItemData> items;
-  final void Function()? onPress;
+class ExpandableFab extends StatefulWidget {
+  final List<ExpandableFabMenuItem> menuItems;
 
-  const ExpandedAnimationFab({
+  const ExpandableFab({
     super.key,
-    required this.items,
-    required Animation animation,
-    this.onPress,
-  }) : super(listenable: animation);
-
-  Animation<double> get animation => listenable as Animation<double>;
+    required this.menuItems,
+  });
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        IgnorePointer(
-          ignoring: animation.value == 0,
-          child: ListView.separated(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: items.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 9),
-            itemBuilder: _buildItem,
-          ),
-        ),
-        FloatingActionButton(
-          onPressed: onPress,
-          child: AnimatedIcon(
-            icon: AnimatedIcons.menu_close,
-            progress: animation,
-          ),
-        ),
-      ],
+  State<ExpandableFab> createState() => _ExpandableFabState();
+}
+
+class _ExpandableFabState extends State<ExpandableFab>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  bool get isExpanded => _controller.isForwardOrCompleted;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 260),
     );
+
+    _animation = _controller.curvedTweenAnimation(begin: 0.0, end: 1.0);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void toggle() {
+    if (isExpanded) {
+      _controller.reverse();
+    } else {
+      _controller.forward();
+    }
   }
 
   Widget _buildItem(BuildContext context, int index) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
+    return AnimatedBuilder(
+      animation: _animation,
+      builder: (_, child) {
+        final screenWidth = MediaQuery.sizeOf(context).width;
 
-    final transform = Matrix4.translationValues(
-      -(screenWidth - animation.value * screenWidth) *
-          ((items.length - index) / 4),
-      0.0,
-      0.0,
+        final xTween = Tween(
+          begin: -screenWidth * (1 - index / widget.menuItems.length),
+          end: 0.0,
+        );
+
+        return Transform(
+          transform: Matrix4.translationValues(
+            xTween.evaluate(_animation),
+            0.0,
+            0.0,
+          ),
+          child: Opacity(
+            opacity: _animation.value,
+            child: Align(alignment: Alignment.centerRight, child: child),
+          ),
+        );
+      },
+      child: widget.menuItems[index],
     );
+  }
 
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Transform(
-        transform: transform,
-        child: Opacity(
-          opacity: animation.value,
-          child: FabItem(items[index]),
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedOverlay(
+      animation: _animation,
+      color: Colors.black,
+      onPress: toggle,
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            AnimatedBuilder(
+              animation: _animation,
+              builder: (_, child) => IgnorePointer(
+                ignoring: _animation.value == 0,
+                child: child,
+              ),
+              child: ListView.separated(
+                shrinkWrap: true,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: widget.menuItems.length,
+                separatorBuilder: (_, __) => const SizedBox(height: 9),
+                itemBuilder: _buildItem,
+              ),
+            ),
+            FloatingActionButton(
+              onPressed: toggle,
+              child: AnimatedIcon(
+                icon: AnimatedIcons.menu_close,
+                progress: _animation,
+              ),
+            ),
+          ],
         ),
       ),
     );

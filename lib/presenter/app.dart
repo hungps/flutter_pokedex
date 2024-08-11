@@ -18,13 +18,11 @@ class PokedexApp extends StatelessWidget {
       backgroundColor: Colors.black12,
       enabled: MediaQuery.sizeOf(context).shortestSide > 600,
       builder: (_) => SettingsThemeSelector(
-        builder: (theme) => KeyboardDismisser(
-          child: MaterialApp.router(
-            title: 'Flutter Pokedex',
-            theme: theme.themeData,
-            routerConfig: _router.config(),
-            scrollBehavior: AppScrollBehavior(),
-          ),
+        builder: (theme) => MaterialApp.router(
+          title: 'Flutter Pokedex',
+          theme: theme.themeData,
+          routerConfig: _router.config(),
+          scrollBehavior: AppScrollBehavior(),
         ),
       ),
     );

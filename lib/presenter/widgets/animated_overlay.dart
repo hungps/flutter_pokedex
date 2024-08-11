@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+// TODO: Change the class name into a more meaningful name
 class AnimatedOverlay extends AnimatedWidget {
   final Color color;
   final Widget? child;
   final void Function()? onPress;
 
-  const AnimatedOverlay({super.key, 
+  const AnimatedOverlay({
+    super.key,
     required Animation animation,
     required this.color,
     this.child,

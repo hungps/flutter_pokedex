@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/presenter/navigation/navigation.dart';
 import 'package:pokedex/presenter/widgets/loading.dart';
-import 'package:pokedex/utils/extensions/animation.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart';
 import 'package:pokedex/data/states/pokemon/pokemon_event.dart';
@@ -15,12 +14,10 @@ import 'package:pokedex/presenter/modals/generation_modal.dart';
 import 'package:pokedex/presenter/modals/search_modal.dart';
 import 'package:pokedex/presenter/widgets/app_bar.dart';
 import 'package:pokedex/presenter/widgets/pokemon_card.dart';
-import 'package:pokedex/presenter/widgets/animated_overlay.dart';
 import 'package:pokedex/presenter/widgets/fab.dart';
 import 'package:pokedex/presenter/widgets/scaffold.dart';
 import 'package:pokedex/presenter/widgets/pokemon_refresh_control.dart';
 
-part 'sections/fab_menu.dart';
 part 'sections/pokemon_grid.dart';
 
 @RoutePage()
@@ -32,13 +29,52 @@ class PokedexPage extends StatefulWidget {
 }
 
 class _PokedexPageState extends State<PokedexPage> {
+  void _showSearchModal() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const SearchBottomModal(),
+    );
+  }
+
+  void _showGenerationModal() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const GenerationModal(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return PokeballScaffold(
-      body: const Stack(
+      body: Stack(
         children: [
-          _PokemonGrid(),
-          _FabMenu(),
+          const _PokemonGrid(),
+          ExpandableFab(
+            menuItems: [
+              ExpandableFabMenuItem(
+                title: 'Favourite Pokemon',
+                icon: Icons.favorite,
+                onPressed: () {},
+              ),
+              ExpandableFabMenuItem(
+                title: 'All Type',
+                icon: Icons.filter_vintage,
+                onPressed: () {},
+              ),
+              ExpandableFabMenuItem(
+                title: 'All Gen',
+                icon: Icons.flash_on,
+                onPressed: _showGenerationModal,
+              ),
+              ExpandableFabMenuItem(
+                title: 'Search',
+                icon: Icons.search,
+                onPressed: _showSearchModal,
+              ),
+            ],
+          ),
         ],
       ),
     );
