@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:pokedex/presenter/pages/home/home_page.dart';
 import 'package:pokedex/presenter/pages/items/items.dart';
-import 'package:pokedex/presenter/pages/pokedex/pokedex.dart';
+import 'package:pokedex/presenter/pages/pokedex/pokedex_page.dart';
 import 'package:pokedex/presenter/pages/pokemon_info/pokemon_info.dart';
 import 'package:pokedex/presenter/pages/splash/splash_page.dart';
 import 'package:pokedex/presenter/pages/types/types.dart';

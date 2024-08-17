@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:pokedex/presenter/navigation/navigation.dart';
 import 'package:pokedex/data/states/settings/settings_selector.dart';
-import 'package:pokedex/presenter/widgets/keyboard.dart';
 
 class PokedexApp extends StatelessWidget {
   final AppRouter _router = AppRouter();

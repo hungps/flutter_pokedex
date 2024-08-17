@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pokedex/presenter/widgets/loading.dart';
 
-class PokemonRefreshControl extends StatelessWidget {
+class SliverPokemonRefreshControl extends StatelessWidget {
   final Future<void> Function() onRefresh;
 
-  const PokemonRefreshControl({
+  const SliverPokemonRefreshControl({
     super.key,
     required this.onRefresh,
   });

@@ -1,5 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:pokedex/data/entities/pokemon.dart';
+import 'package:pokedex/data/entities/pokemon_types.dart';
 import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 import 'package:pokedex/presenter/widgets/pokemon_image.dart';
@@ -9,13 +11,21 @@ class PokemonCard extends StatelessWidget {
   static const double _pokeballFraction = 0.75;
   static const double _pokemonFraction = 0.76;
 
-  final Pokemon pokemon;
-  final void Function()? onPress;
+  final String name;
+  final String number;
+  final List<PokemonTypes> types;
+  final Color color;
+  final String imageUrl;
+  final VoidCallback onPressed;
 
-  const PokemonCard(
-    this.pokemon, {
+  const PokemonCard({
     super.key,
-    this.onPress,
+    required this.name,
+    required this.number,
+    required this.types,
+    required this.color,
+    required this.imageUrl,
+    required this.onPressed,
   });
 
   @override
@@ -24,33 +34,60 @@ class PokemonCard extends StatelessWidget {
       builder: (context, constrains) {
         final itemHeight = constrains.maxHeight;
 
-        return Container(
-          decoration: BoxDecoration(
-            color: pokemon.color,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: pokemon.color.withOpacity(0.4),
-                blurRadius: 15,
-                offset: const Offset(0, 8),
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Material(
-              color: pokemon.color,
-              child: InkWell(
-                onTap: onPress,
-                splashColor: Colors.white10,
-                highlightColor: Colors.white10,
-                child: Stack(
-                  children: [
-                    _buildPokeballDecoration(height: itemHeight),
-                    _buildPokemon(height: itemHeight),
-                    _buildPokemonNumber(),
-                    _CardContent(pokemon),
-                  ],
+        return DefaultTextStyle.merge(
+          style: context.typographies.bodySmall
+              .copyWith(color: context.colors.textOnPrimary),
+          child: Container(
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: color.withOpacity(0.4),
+                  blurRadius: 15,
+                  offset: const Offset(0, 8),
+                ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Material(
+                color: color,
+                child: InkWell(
+                  onTap: onPressed,
+                  splashColor: Colors.white10,
+                  highlightColor: Colors.white10,
+                  child: Stack(
+                    children: [
+                      _buildPokeballDecoration(height: itemHeight),
+                      _buildPokemon(height: itemHeight),
+                      _buildPokemonNumber(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              Text(
+                                name,
+                                style: context.typographies.captionLarge,
+                              ),
+                              const SizedBox(height: 10),
+                              ListView.builder(
+                                itemCount: min(2, types.length),
+                                itemBuilder: (context, index) => Padding(
+                                  padding: const EdgeInsets.only(bottom: 6),
+                                  child: PokemonType(types[index]),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -83,7 +120,7 @@ class PokemonCard extends StatelessWidget {
       right: 2,
       child: PokemonImage(
         size: Size.square(pokemonSize),
-        pokemon: pokemon,
+        url: imageUrl,
       ),
     );
   }
@@ -93,7 +130,7 @@ class PokemonCard extends StatelessWidget {
       top: 10,
       right: 14,
       child: Text(
-        pokemon.number,
+        number,
         style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
@@ -101,53 +138,5 @@ class PokemonCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _CardContent extends StatelessWidget {
-  final Pokemon pokemon;
-
-  const _CardContent(this.pokemon);
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: context.typographies.bodySmall.copyWith(
-        color: context.colors.textOnPrimary,
-      ),
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Hero(
-                tag: pokemon.number + pokemon.name,
-                child: Text(
-                  pokemon.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              const SizedBox(height: 10),
-              ..._buildTypes(context),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  List<Widget> _buildTypes(BuildContext context) {
-    return pokemon.types
-        .take(2)
-        .map(
-          (type) => Padding(
-            padding: const EdgeInsets.only(bottom: 6),
-            child: PokemonType(type),
-          ),
-        )
-        .toList();
   }
 }

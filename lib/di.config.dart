@@ -30,6 +30,7 @@ import 'package:pokedex/data/usecases/item_usecases.dart' as _i416;
 import 'package:pokedex/data/usecases/pokemon_usecases.dart' as _i988;
 import 'package:pokedex/di.dart' as _i326;
 import 'package:pokedex/presenter/pages/home/home_bloc.dart' as _i892;
+import 'package:pokedex/presenter/pages/pokedex/pokedex_bloc.dart' as _i900;
 import 'package:pokedex/presenter/pages/splash/splash_bloc.dart' as _i841;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -83,6 +84,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i622.ItemBloc(itemRepository: gh<_i282.ItemRepository>()));
     gh.singleton<_i416.GetItemUseCase>(
         () => _i416.GetItemUseCase(itemRepository: gh<_i282.ItemRepository>()));
+    gh.factory<_i900.PokedexBloc>(() =>
+        _i900.PokedexBloc(getPokemonsUseCase: gh<_i988.GetPokemonsUseCase>()));
     return this;
   }
 }

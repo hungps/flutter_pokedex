@@ -7,7 +7,8 @@ class _PokemonOverallInfo extends StatefulWidget {
   _PokemonOverallInfoState createState() => _PokemonOverallInfoState();
 }
 
-class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerProviderStateMixin {
+class _PokemonOverallInfoState extends State<_PokemonOverallInfo>
+    with TickerProviderStateMixin {
   static const double _pokemonSliderViewportFraction = 0.56;
   static const int _endReachedThreshold = 4;
 
@@ -20,11 +21,15 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
   late AnimationController _horizontalSlideController;
 
   PokemonBloc get pokemonBloc => context.read<PokemonBloc>();
-  AnimationController get slideController => PokemonInfoStateProvider.of(context).slideController;
-  AnimationController get rotateController => PokemonInfoStateProvider.of(context).rotateController;
+  AnimationController get slideController =>
+      PokemonInfoStateProvider.of(context).slideController;
+  AnimationController get rotateController =>
+      PokemonInfoStateProvider.of(context).rotateController;
 
-  Animation<double> get textFadeAnimation => Tween(begin: 1.0, end: 0.0).animate(slideController);
-  Animation<double> get sliderFadeAnimation => Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
+  Animation<double> get textFadeAnimation =>
+      Tween(begin: 1.0, end: 0.0).animate(slideController);
+  Animation<double> get sliderFadeAnimation =>
+      Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
         parent: slideController,
         curve: const Interval(0.0, 0.5, curve: Curves.ease),
       ));
@@ -61,8 +66,10 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
 
   void _calculatePokemonNamePosition() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final targetTextBox = _targetTextKey.currentContext?.findRenderObject() as RenderBox?;
-      final currentTextBox = _currentTextKey.currentContext?.findRenderObject() as RenderBox?;
+      final targetTextBox =
+          _targetTextKey.currentContext?.findRenderObject() as RenderBox?;
+      final currentTextBox =
+          _currentTextKey.currentContext?.findRenderObject() as RenderBox?;
 
       if (targetTextBox == null || currentTextBox == null) return;
 
@@ -196,8 +203,10 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 child: Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children:
-                      pokemon.types.take(3).map((type) => PokemonType(type, large: true)).toList(),
+                  children: pokemon.types
+                      .take(3)
+                      .map((type) => PokemonType(type, large: true))
+                      .toList(),
                 ),
               ),
               AnimatedSlide(
@@ -249,7 +258,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo> with TickerPro
                 itemBuilder: (_, index) {
                   return PokemonSelector(index, (pokemon, selected) {
                     return PokemonImage(
-                      pokemon: pokemon,
+                      url: pokemon.image,
                       size: Size.square(pokemonSize),
                       padding: EdgeInsets.symmetric(
                         vertical: selected ? 0 : screenSize.height * 0.04,

@@ -31,12 +31,15 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
 
+  # State management
+  flutter_bloc: ^8.1.6
+  bloc_concurrency: ^0.2.5
+
   cached_network_image: ^3.4.0
   sliding_up_panel: ^2.0.0+1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   dio: ^5.5.0+1
-  flutter_bloc: ^8.1.6
   bloc: ^8.1.4
   intl: ^0.19.0
   stream_transform: ^2.1.0

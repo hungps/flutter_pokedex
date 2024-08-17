@@ -23,7 +23,7 @@ class _PokemonBall extends StatelessWidget {
               color: context.colors.backgroundDark,
             ),
             PokemonImage(
-              pokemon: pokemon,
+              url: pokemon.image,
               size: Size.square(pokemonSize),
             ),
           ],
@@ -60,7 +60,9 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
             children: <Widget>[
               const Icon(Icons.arrow_forward),
               const SizedBox(height: 7),
-              Text(reason, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+              Text(reason,
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
@@ -71,7 +73,8 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
 
   @override
   Widget build(BuildContext context) {
-    final slideController = PokemonInfoStateProvider.of(context).slideController;
+    final slideController =
+        PokemonInfoStateProvider.of(context).slideController;
 
     return AnimatedBuilder(
       animation: slideController,
@@ -79,8 +82,9 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
         final scrollable = slideController.value.floor() == 1;
 
         return SingleChildScrollView(
-          physics:
-              scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics: scrollable
+              ? const BouncingScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.symmetric(vertical: 31, horizontal: 28),
           child: child,
         );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/presenter/widgets/modal.dart';
 import 'package:pokedex/presenter/widgets/input.dart';
 
-void showSearchPokemonBottomSheet({
+void showSearchPokemonSheet({
   required BuildContext context,
 }) {
   showModalBottomSheet(

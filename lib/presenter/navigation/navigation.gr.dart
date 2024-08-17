@@ -30,7 +30,7 @@ abstract class _$AppRouter extends RootStackRouter {
     PokedexRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PokedexPage(),
+        child: WrappedRoute(child: const PokedexPage()),
       );
     },
     PokemonInfoRoute.name: (routeData) {
