@@ -150,6 +150,15 @@ class AppTheme extends ThemeExtension<AppTheme> {
           thickness: 1,
           space: 1,
         ),
+        bottomSheetTheme: BottomSheetThemeData(
+          showDragHandle: true,
+          dragHandleColor: colors.border,
+          dragHandleSize: const Size(300, 3),
+          backgroundColor: colors.background,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+          ),
+        ),
       );
 
   @override

@@ -29,19 +29,11 @@ class PokedexPage extends StatefulWidget {
 }
 
 class _PokedexPageState extends State<PokedexPage> {
-  void _showSearchModal() {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (context) => const SearchBottomModal(),
-    );
-  }
-
   void _showGenerationModal() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.transparent,
-      builder: (context) => const GenerationModal(),
+      isScrollControlled: true,
+      builder: (context) => const PokemonGenerationBottomSheet(),
     );
   }
 
@@ -52,6 +44,7 @@ class _PokedexPageState extends State<PokedexPage> {
         children: [
           const _PokemonGrid(),
           ExpandableFab(
+            icon: AnimatedIcons.menu_close,
             menuItems: [
               ExpandableFabMenuItem(
                 title: 'Favourite Pokemon',
@@ -66,15 +59,16 @@ class _PokedexPageState extends State<PokedexPage> {
               ExpandableFabMenuItem(
                 title: 'All Gen',
                 icon: Icons.flash_on,
-                onPressed: _showGenerationModal,
+                onPressed: () =>
+                    showPokemonGenerationBottomSheet(context: context),
               ),
               ExpandableFabMenuItem(
                 title: 'Search',
                 icon: Icons.search,
-                onPressed: _showSearchModal,
+                onPressed: () => showSearchPokemonBottomSheet(context: context),
               ),
             ],
-          ),
+          )
         ],
       ),
     );

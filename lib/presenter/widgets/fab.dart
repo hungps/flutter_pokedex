@@ -37,10 +37,12 @@ class ExpandableFabMenuItem extends StatelessWidget {
 }
 
 class ExpandableFab extends StatefulWidget {
+  final AnimatedIconData icon;
   final List<ExpandableFabMenuItem> menuItems;
 
   const ExpandableFab({
     super.key,
+    required this.icon,
     required this.menuItems,
   });
 
@@ -114,35 +116,37 @@ class _ExpandableFabState extends State<ExpandableFab>
       animation: _animation,
       color: Colors.black,
       onPress: toggle,
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            AnimatedBuilder(
-              animation: _animation,
-              builder: (_, child) => IgnorePointer(
-                ignoring: _animation.value == 0,
-                child: child,
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              AnimatedBuilder(
+                animation: _animation,
+                builder: (_, child) => IgnorePointer(
+                  ignoring: _animation.value == 0,
+                  child: child,
+                ),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: widget.menuItems.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 9),
+                  itemBuilder: _buildItem,
+                ),
               ),
-              child: ListView.separated(
-                shrinkWrap: true,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: widget.menuItems.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 9),
-                itemBuilder: _buildItem,
+              FloatingActionButton(
+                onPressed: toggle,
+                child: AnimatedIcon(
+                  icon: widget.icon,
+                  progress: _animation,
+                ),
               ),
-            ),
-            FloatingActionButton(
-              onPressed: toggle,
-              child: AnimatedIcon(
-                icon: AnimatedIcons.menu_close,
-                progress: _animation,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
