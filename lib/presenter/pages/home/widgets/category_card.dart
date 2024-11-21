@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 
-class HomeCategoryCard extends StatelessWidget {
+final class HomeCategoryCard extends StatelessWidget {
   final String title;
   final Color color;
   final VoidCallback? onPressed;
@@ -20,17 +20,19 @@ class HomeCategoryCard extends StatelessWidget {
 
       return Stack(
         children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: _CardShadow(color: color),
-          ),
+          if (onPressed != null)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: _CardShadow(color: color),
+            ),
           FilledButton(
             onPressed: onPressed,
             style: FilledButton.styleFrom(
               padding: EdgeInsets.zero,
               backgroundColor: color,
-              disabledBackgroundColor: color,
-              disabledForegroundColor: Theme.of(context).colorScheme.onPrimary,
+              foregroundColor: context.colors.textOnPrimary,
+              disabledBackgroundColor: context.colors.disabled,
+              disabledForegroundColor: context.colors.textOnPrimary,
             ),
             child: ClipRRect(
               child: Stack(
@@ -48,10 +50,8 @@ class HomeCategoryCard extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       title,
-                      style: context.typographies.body.copyWith(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: context.typographies.body
+                          .copyWith(fontWeight: FontWeight.w700),
                     ),
                   ),
                 ],

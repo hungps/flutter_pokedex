@@ -4,7 +4,7 @@ import 'package:pokedex/data/entities/news.dart';
 import 'package:pokedex/presenter/pages/home/home_bloc.dart';
 import 'package:pokedex/presenter/pages/home/home_state.dart';
 
-class HomeSelector<T> extends BlocSelector<HomeBloc, HomeState, T> {
+base class HomeSelector<T> extends BlocSelector<HomeBloc, HomeState, T> {
   HomeSelector({
     super.key,
     required super.selector,
@@ -14,7 +14,8 @@ class HomeSelector<T> extends BlocSelector<HomeBloc, HomeState, T> {
         );
 }
 
-class HomeNewsSelector extends HomeSelector<({bool loading, List<News> news})> {
+final class HomeNewsSelector
+    extends HomeSelector<({bool loading, List<News> news})> {
   HomeNewsSelector({
     super.key,
     required Widget Function(bool loading, List<News> news) builder,

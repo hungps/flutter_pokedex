@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$News {
   String get title => throw _privateConstructorUsedError;
-  DateTime get time => throw _privateConstructorUsedError;
+  DateTime get postedAt => throw _privateConstructorUsedError;
   String get thumbnail => throw _privateConstructorUsedError;
 
   /// Create a copy of News
@@ -31,7 +31,7 @@ abstract class $NewsCopyWith<$Res> {
   factory $NewsCopyWith(News value, $Res Function(News) then) =
       _$NewsCopyWithImpl<$Res, News>;
   @useResult
-  $Res call({String title, DateTime time, String thumbnail});
+  $Res call({String title, DateTime postedAt, String thumbnail});
 }
 
 /// @nodoc
@@ -50,7 +50,7 @@ class _$NewsCopyWithImpl<$Res, $Val extends News>
   @override
   $Res call({
     Object? title = null,
-    Object? time = null,
+    Object? postedAt = null,
     Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
@@ -58,9 +58,9 @@ class _$NewsCopyWithImpl<$Res, $Val extends News>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      time: null == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
+      postedAt: null == postedAt
+          ? _value.postedAt
+          : postedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       thumbnail: null == thumbnail
           ? _value.thumbnail
@@ -77,7 +77,7 @@ abstract class _$$NewsImplCopyWith<$Res> implements $NewsCopyWith<$Res> {
       __$$NewsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, DateTime time, String thumbnail});
+  $Res call({String title, DateTime postedAt, String thumbnail});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$NewsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = null,
-    Object? time = null,
+    Object? postedAt = null,
     Object? thumbnail = null,
   }) {
     return _then(_$NewsImpl(
@@ -101,9 +101,9 @@ class __$$NewsImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      time: null == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
+      postedAt: null == postedAt
+          ? _value.postedAt
+          : postedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       thumbnail: null == thumbnail
           ? _value.thumbnail
@@ -117,18 +117,18 @@ class __$$NewsImplCopyWithImpl<$Res>
 
 class _$NewsImpl with DiagnosticableTreeMixin implements _News {
   const _$NewsImpl(
-      {required this.title, required this.time, required this.thumbnail});
+      {required this.title, required this.postedAt, required this.thumbnail});
 
   @override
   final String title;
   @override
-  final DateTime time;
+  final DateTime postedAt;
   @override
   final String thumbnail;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'News(title: $title, time: $time, thumbnail: $thumbnail)';
+    return 'News(title: $title, postedAt: $postedAt, thumbnail: $thumbnail)';
   }
 
   @override
@@ -137,7 +137,7 @@ class _$NewsImpl with DiagnosticableTreeMixin implements _News {
     properties
       ..add(DiagnosticsProperty('type', 'News'))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('time', time))
+      ..add(DiagnosticsProperty('postedAt', postedAt))
       ..add(DiagnosticsProperty('thumbnail', thumbnail));
   }
 
@@ -147,13 +147,14 @@ class _$NewsImpl with DiagnosticableTreeMixin implements _News {
         (other.runtimeType == runtimeType &&
             other is _$NewsImpl &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.time, time) || other.time == time) &&
+            (identical(other.postedAt, postedAt) ||
+                other.postedAt == postedAt) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, time, thumbnail);
+  int get hashCode => Object.hash(runtimeType, title, postedAt, thumbnail);
 
   /// Create a copy of News
   /// with the given fields replaced by the non-null parameter values.
@@ -167,13 +168,13 @@ class _$NewsImpl with DiagnosticableTreeMixin implements _News {
 abstract class _News implements News {
   const factory _News(
       {required final String title,
-      required final DateTime time,
+      required final DateTime postedAt,
       required final String thumbnail}) = _$NewsImpl;
 
   @override
   String get title;
   @override
-  DateTime get time;
+  DateTime get postedAt;
   @override
   String get thumbnail;
 

@@ -7,7 +7,7 @@ part 'news.freezed.dart';
 class News with _$News {
   const factory News({
     required String title,
-    required DateTime time,
+    required DateTime postedAt,
     required String thumbnail,
   }) = _News;
 }

@@ -37,7 +37,7 @@ class PokeballScaffold extends Scaffold {
             fit: StackFit.expand,
             children: [
               const PositionedPokeball(),
-              if (body != null) body,
+              if (body != null) SafeArea(child: body),
             ],
           ),
         );
@@ -56,12 +56,15 @@ class PositionedPokeball extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final safeAreaTop = MediaQuery.paddingOf(context).top;
-    final pokeballSize = min(MediaQuery.sizeOf(context).width * widthFraction, maxSize);
+    final pokeballSize =
+        min(MediaQuery.sizeOf(context).width * widthFraction, maxSize);
     final iconButtonPadding = AppAppBar.padding.right;
     final iconSize = IconTheme.of(context).size ?? 0;
 
-    final pokeballTopMargin = -(pokeballSize / 2 - safeAreaTop - kToolbarHeight / 2);
-    final pokeballRightMargin = -(pokeballSize / 2 - iconButtonPadding - iconSize / 2);
+    final pokeballTopMargin =
+        -(pokeballSize / 2 - safeAreaTop - kToolbarHeight / 2);
+    final pokeballRightMargin =
+        -(pokeballSize / 2 - iconButtonPadding - iconSize / 2);
 
     return Positioned(
       top: pokeballTopMargin,

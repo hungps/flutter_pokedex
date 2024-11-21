@@ -30,7 +30,6 @@ class AppSearchBar extends TextFormField {
     super.maxLength,
     super.onChanged,
     super.onTap,
-    super.onTapOutside,
     super.onEditingComplete,
     super.onFieldSubmitted,
     super.onSaved,
@@ -68,10 +67,13 @@ class AppSearchBar extends TextFormField {
     super.canRequestFocus,
     InputDecoration decoration = const InputDecoration(),
     String? hintText,
+    void Function(PointerDownEvent)? onTapOutside,
   }) : super(
           decoration: decoration.copyWith(
             hintText: hintText,
             prefixIcon: const Icon(Icons.search, size: 26),
           ),
+          onTapOutside: onTapOutside ??
+              (_) => FocusManager.instance.primaryFocus?.unfocus(),
         );
 }

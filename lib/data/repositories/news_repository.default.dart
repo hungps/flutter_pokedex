@@ -10,7 +10,7 @@ class DefaultNewsRepository extends NewsRepository {
       10,
       News(
         title: 'Pokémon Rumble Rush Arrives Soon',
-        time: DateTime(2019, 5, 15),
+        postedAt: DateTime(2019, 5, 15),
         thumbnail: 'assets/images/thumbnail.png',
       ),
     );

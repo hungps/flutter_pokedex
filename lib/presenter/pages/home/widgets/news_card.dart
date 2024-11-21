@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 
-class HomeNewsListTile extends StatelessWidget {
+final class HomeNewsListTile extends StatelessWidget {
   final ImageProvider thumbnail;
   final String title;
-  final String time;
+  final DateTime postedAt;
+  final String _postedAtDateFormat;
 
   const HomeNewsListTile({
     super.key,
     required this.title,
-    required this.time,
+    required this.postedAt,
     required this.thumbnail,
-  });
+  }) : _postedAtDateFormat = "dd MMM yyyy";
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class HomeNewsListTile extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               Text(
-                time,
+                DateFormat(_postedAtDateFormat).format(postedAt),
                 style:
                     context.typographies.caption.withColor(context.colors.hint),
               ),

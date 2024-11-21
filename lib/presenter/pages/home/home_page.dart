@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:pokedex/data/states/settings/settings_bloc.dart';
 import 'package:pokedex/data/states/settings/settings_event.dart';
 import 'package:pokedex/data/states/settings/settings_selector.dart';
@@ -26,7 +25,7 @@ import 'package:pokedex/presenter/widgets/loading.dart';
 import 'package:pokedex/presenter/widgets/scaffold.dart';
 
 @RoutePage()
-class HomePage extends StatefulWidget implements AutoRouteWrapper {
+final class HomePage extends StatefulWidget implements AutoRouteWrapper {
   const HomePage({super.key});
 
   @override
@@ -41,7 +40,7 @@ class HomePage extends StatefulWidget implements AutoRouteWrapper {
   }
 }
 
-class _HomePageState extends State<HomePage> {
+final class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
@@ -51,7 +50,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _onThemeSwitcherPressed(BuildContext context) {
+  void _onThemeSwitcherPressed() {
     final settingsBloc = context.read<SettingsBloc>();
     final currentTheme = settingsBloc.state.theme;
 
@@ -74,78 +73,77 @@ class _HomePageState extends State<HomePage> {
             title: const Text('Pokedex'),
             showTitle: innerBoxIsScrolled,
             background: PokeballScaffold(
-              body: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 26),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: const Alignment(1.1, 0),
-                        child: SettingsThemeSelector(
-                          builder: (theme) => ThemeSwitcherButton(
-                            isDarkTheme: theme is DarkAppTheme,
-                            onPressed: () => _onThemeSwitcherPressed(context),
-                          ),
+              body: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: const Alignment(1.1, 0),
+                      child: SettingsThemeSelector(builder: (theme) {
+                        return ThemeSwitcherButton(
+                          isDarkTheme: theme is DarkAppTheme,
+                          onPressed: _onThemeSwitcherPressed,
+                        );
+                      }),
+                    ),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 36),
+                      child: Text(
+                        'What Pokemon\nare you looking for?',
+                        style: context.typographies.headingLarge,
+                      ),
+                    ),
+                    AppSearchBar(
+                      hintText: 'Search Pokemon, Move, Ability etc',
+                    ),
+                    GridView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(vertical: 36),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 2.58,
+                        mainAxisSpacing: 15,
+                        mainAxisExtent: 60,
+                      ),
+                      children: [
+                        HomeCategoryCard(
+                          title: 'Pokedex',
+                          color: AppColors.teal,
+                          onPressed: () =>
+                              context.router.push(const PokedexRoute()),
                         ),
-                      ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 36),
-                        child: Text(
-                          'What Pokemon\nare you looking for?',
-                          style: context.typographies.headingLarge,
+                        const HomeCategoryCard(
+                          title: 'Moves',
+                          color: AppColors.red,
                         ),
-                      ),
-                      AppSearchBar(
-                        hintText: 'Search Pokemon, Move, Ability etc',
-                      ),
-                      GridView(
-                        padding: const EdgeInsets.symmetric(vertical: 36),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          childAspectRatio: 2.58,
-                          mainAxisSpacing: 15,
+                        const HomeCategoryCard(
+                          title: 'Abilities',
+                          color: AppColors.blue,
                         ),
-                        children: [
-                          HomeCategoryCard(
-                            title: 'Pokedex',
-                            color: AppColors.teal,
-                            onPressed: () =>
-                                context.router.push(const PokedexRoute()),
-                          ),
-                          const HomeCategoryCard(
-                            title: 'Moves',
-                            color: AppColors.red,
-                          ),
-                          const HomeCategoryCard(
-                            title: 'Abilities',
-                            color: AppColors.blue,
-                          ),
-                          HomeCategoryCard(
-                            title: 'Items',
-                            color: AppColors.yellow,
-                            onPressed: () =>
-                                context.router.push(const ItemsRoute()),
-                          ),
-                          const HomeCategoryCard(
-                            title: 'Locations',
-                            color: AppColors.purple,
-                          ),
-                          HomeCategoryCard(
-                            title: 'Type Effects',
-                            color: AppColors.brown,
-                            onPressed: () =>
-                                context.router.push(const TypeEffectRoute()),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        HomeCategoryCard(
+                          title: 'Items',
+                          color: AppColors.yellow,
+                          onPressed: () =>
+                              context.router.push(const ItemsRoute()),
+                        ),
+                        const HomeCategoryCard(
+                          title: 'Locations',
+                          color: AppColors.purple,
+                        ),
+                        HomeCategoryCard(
+                          title: 'Type Effects',
+                          color: AppColors.brown,
+                          onPressed: () =>
+                              context.router.push(const TypeEffectRoute()),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -155,7 +153,7 @@ class _HomePageState extends State<HomePage> {
           physics: const ClampingScrollPhysics(),
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 24, 0, 0),
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
               sliver: SliverToBoxAdapter(
                 child: Text(
                   'Pokémon News',
@@ -163,22 +161,26 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SliverPadding(
-              padding: const EdgeInsets.all(24),
-              sliver: HomeNewsSelector(builder: (loading, news) {
-                if (loading) {
-                  return const SliverPikaLoadingIndicator();
-                }
-                return SliverList.separated(
-                  itemCount: news.length,
-                  separatorBuilder: (_, __) => const Divider(height: 24),
-                  itemBuilder: (_, index) => HomeNewsListTile(
-                    title: news[index].title,
-                    time: DateFormat("dd MMM yyyy").format(news[index].time),
-                    thumbnail: AssetImage(news[index].thumbnail),
-                  ),
-                );
-              }),
+            SliverSafeArea(
+              top: false,
+              sliver: SliverPadding(
+                padding: const EdgeInsets.all(24),
+                sliver: HomeNewsSelector(builder: (loading, news) {
+                  if (loading) {
+                    return const SliverPikaLoadingIndicator();
+                  }
+
+                  return SliverList.separated(
+                    itemCount: news.length,
+                    separatorBuilder: (_, __) => const Divider(height: 24),
+                    itemBuilder: (_, index) => HomeNewsListTile(
+                      title: news[index].title,
+                      postedAt: news[index].postedAt,
+                      thumbnail: AssetImage(news[index].thumbnail),
+                    ),
+                  );
+                }),
+              ),
             ),
           ],
         ),
