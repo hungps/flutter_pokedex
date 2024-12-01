@@ -15,6 +15,7 @@ class AppAppBar extends AppBar {
     VoidCallback? onTrailingPressed,
   }) : super(
           leading: leading ?? const AppBarBackButton(),
+          leadingWidth: 72,
           actions: <Widget>[
             if (trailing != null)
               AppBarButton(
@@ -55,7 +56,6 @@ class AppExpandableSliverAppBar extends SliverAppBar {
     super.clipBehavior,
     super.forceMaterialTransparency,
     super.foregroundColor,
-    super.leadingWidth,
     super.onStretchTrigger,
     super.scrolledUnderElevation,
     super.stretchTriggerOffset,
@@ -66,6 +66,7 @@ class AppExpandableSliverAppBar extends SliverAppBar {
     Widget title = const SizedBox.shrink(),
     bool showTitle = true,
   }) : super(
+          leadingWidth: 72,
           expandedHeight: expandedHeight,
           flexibleSpace: FlexibleSpaceBar(
             collapseMode: CollapseMode.pin,
@@ -106,6 +107,7 @@ class AppMovingTitleSliverAppBar extends SliverAppBar {
           pinned: true,
           backgroundColor: Colors.transparent,
           leading: leading ?? const AppBarBackButton(),
+          leadingWidth: 72,
           actions: [
             if (trailing != null)
               AppBarButton(
@@ -171,7 +173,7 @@ class AppBarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      padding: AppAppBar.padding,
+      splashRadius: 26,
       onPressed: onPressed,
       icon: icon,
     );
@@ -194,8 +196,7 @@ class AppBarBackButton extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return IconButton(
-      padding: AppAppBar.padding,
+    return AppBarButton(
       onPressed: onPressed ?? context.router.maybePop,
       icon: icon,
     );

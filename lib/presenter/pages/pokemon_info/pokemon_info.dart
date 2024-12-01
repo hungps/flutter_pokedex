@@ -20,7 +20,7 @@ import 'package:pokedex/presenter/widgets/auto_slideup_panel.dart';
 import 'package:pokedex/presenter/widgets/hero.dart';
 import 'package:pokedex/presenter/widgets/main_tab_view.dart';
 import 'package:pokedex/presenter/widgets/pokemon_image.dart';
-import 'package:pokedex/presenter/widgets/pokemon_type.dart';
+import 'package:pokedex/presenter/widgets/pokemon_type_chip.dart';
 import 'package:pokedex/presenter/widgets/progress.dart';
 import 'package:pokedex/utils/string.dart';
 
@@ -44,7 +44,8 @@ class PokemonInfoPage extends StatefulWidget {
   PokemonInfoState createState() => PokemonInfoState();
 }
 
-class PokemonInfoState extends State<PokemonInfoPage> with TickerProviderStateMixin {
+class PokemonInfoState extends State<PokemonInfoPage>
+    with TickerProviderStateMixin {
   late AnimationController _slideController;
   late AnimationController _rotateController;
 

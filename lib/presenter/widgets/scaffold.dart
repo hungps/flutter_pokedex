@@ -37,7 +37,7 @@ class PokeballScaffold extends Scaffold {
             fit: StackFit.expand,
             children: [
               const PositionedPokeball(),
-              if (body != null) SafeArea(child: body),
+              if (body != null) body,
             ],
           ),
         );

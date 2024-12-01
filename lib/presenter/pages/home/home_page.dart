@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,7 @@ import 'package:pokedex/presenter/widgets/loading.dart';
 import 'package:pokedex/presenter/widgets/scaffold.dart';
 
 @RoutePage()
-final class HomePage extends StatefulWidget implements AutoRouteWrapper {
+class HomePage extends StatefulWidget implements AutoRouteWrapper {
   const HomePage({super.key});
 
   @override
@@ -40,13 +39,15 @@ final class HomePage extends StatefulWidget implements AutoRouteWrapper {
   }
 }
 
-final class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
+  HomeBloc get _bloc => context.read<HomeBloc>();
+
   @override
   void initState() {
     super.initState();
 
     scheduleMicrotask(() {
-      context.read<HomeBloc>().add(const HomeLoadStarted());
+      _bloc.add(const HomeLoadStarted());
     });
   }
 
@@ -68,18 +69,19 @@ final class _HomePageState extends State<HomePage> {
       body: NestedScrollView(
         headerSliverBuilder: (_, innerBoxIsScrolled) => [
           AppExpandableSliverAppBar(
+            expandedHeight: 552,
             backgroundColor: context.colors.primary,
-            expandedHeight: min(MediaQuery.sizeOf(context).height * 0.82, 582),
             title: const Text('Pokedex'),
             showTitle: innerBoxIsScrolled,
             background: PokeballScaffold(
-              body: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 26),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: const Alignment(1.1, 0),
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SafeArea(
+                    child: Container(
+                      height: kToolbarHeight,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: SettingsThemeSelector(builder: (theme) {
                         return ThemeSwitcherButton(
                           isDarkTheme: theme is DarkAppTheme,
@@ -87,64 +89,71 @@ final class _HomePageState extends State<HomePage> {
                         );
                       }),
                     ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 36),
-                      child: Text(
-                        'What Pokemon\nare you looking for?',
-                        style: context.typographies.headingLarge,
-                      ),
+                  ),
+                  const Spacer(),
+                  const SizedBox(height: 36),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 28),
+                    child: Text(
+                      'What Pokemon\nare you looking for?',
+                      style: context.typographies.heading,
                     ),
-                    AppSearchBar(
+                  ),
+                  const SizedBox(height: 36),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 28),
+                    child: AppSearchBar(
                       hintText: 'Search Pokemon, Move, Ability etc',
                     ),
-                    GridView(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding: const EdgeInsets.symmetric(vertical: 36),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        childAspectRatio: 2.58,
-                        mainAxisSpacing: 15,
-                        mainAxisExtent: 60,
-                      ),
-                      children: [
-                        HomeCategoryCard(
-                          title: 'Pokedex',
-                          color: AppColors.teal,
-                          onPressed: () =>
-                              context.router.push(const PokedexRoute()),
-                        ),
-                        const HomeCategoryCard(
-                          title: 'Moves',
-                          color: AppColors.red,
-                        ),
-                        const HomeCategoryCard(
-                          title: 'Abilities',
-                          color: AppColors.blue,
-                        ),
-                        HomeCategoryCard(
-                          title: 'Items',
-                          color: AppColors.yellow,
-                          onPressed: () =>
-                              context.router.push(const ItemsRoute()),
-                        ),
-                        const HomeCategoryCard(
-                          title: 'Locations',
-                          color: AppColors.purple,
-                        ),
-                        HomeCategoryCard(
-                          title: 'Type Effects',
-                          color: AppColors.brown,
-                          onPressed: () =>
-                              context.router.push(const TypeEffectRoute()),
-                        ),
-                      ],
+                  ),
+                  GridView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 36,
+                      horizontal: 28,
                     ),
-                  ],
-                ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 15,
+                      mainAxisExtent: 60,
+                    ),
+                    children: [
+                      HomeCategoryCard(
+                        title: 'Pokedex',
+                        color: AppColors.teal,
+                        onPressed: () =>
+                            context.router.push(const PokedexRoute()),
+                      ),
+                      const HomeCategoryCard(
+                        title: 'Moves',
+                        color: AppColors.red,
+                      ),
+                      const HomeCategoryCard(
+                        title: 'Abilities',
+                        color: AppColors.blue,
+                      ),
+                      HomeCategoryCard(
+                        title: 'Items',
+                        color: AppColors.yellow,
+                        onPressed: () =>
+                            context.router.push(const ItemsRoute()),
+                      ),
+                      const HomeCategoryCard(
+                        title: 'Locations',
+                        color: AppColors.purple,
+                      ),
+                      HomeCategoryCard(
+                        title: 'Type Effects',
+                        color: AppColors.brown,
+                        onPressed: () =>
+                            context.router.push(const TypeEffectRoute()),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

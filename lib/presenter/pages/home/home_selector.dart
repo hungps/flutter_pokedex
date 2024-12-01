@@ -4,7 +4,8 @@ import 'package:pokedex/data/entities/news.dart';
 import 'package:pokedex/presenter/pages/home/home_bloc.dart';
 import 'package:pokedex/presenter/pages/home/home_state.dart';
 
-base class HomeSelector<T> extends BlocSelector<HomeBloc, HomeState, T> {
+abstract base class HomeSelector<T>
+    extends BlocSelector<HomeBloc, HomeState, T> {
   HomeSelector({
     super.key,
     required super.selector,

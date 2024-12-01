@@ -4,7 +4,8 @@ import 'package:pokedex/data/entities/pokemon.dart';
 import 'package:pokedex/presenter/pages/pokedex/pokedex_bloc.dart';
 import 'package:pokedex/presenter/pages/pokedex/pokedex_state.dart';
 
-class PokedexSelector<T> extends BlocSelector<PokedexBloc, PokedexState, T> {
+abstract base class PokedexSelector<T>
+    extends BlocSelector<PokedexBloc, PokedexState, T> {
   PokedexSelector({
     super.key,
     required super.selector,
@@ -14,7 +15,7 @@ class PokedexSelector<T> extends BlocSelector<PokedexBloc, PokedexState, T> {
         );
 }
 
-class PokedexStatusSelector extends PokedexSelector<PokedexStatus> {
+final class PokedexStatusSelector extends PokedexSelector<PokedexStatus> {
   PokedexStatusSelector({
     super.key,
     required super.builder,
@@ -23,7 +24,7 @@ class PokedexStatusSelector extends PokedexSelector<PokedexStatus> {
         );
 }
 
-class PokedexPokemonsSelector extends PokedexSelector<List<Pokemon>> {
+final class PokedexPokemonsSelector extends PokedexSelector<List<Pokemon>> {
   PokedexPokemonsSelector({
     super.key,
     required super.builder,
@@ -32,7 +33,7 @@ class PokedexPokemonsSelector extends PokedexSelector<List<Pokemon>> {
         );
 }
 
-class PokedexCanLoadMoreSelector extends PokedexSelector<bool> {
+final class PokedexCanLoadMoreSelector extends PokedexSelector<bool> {
   PokedexCanLoadMoreSelector({
     super.key,
     required super.builder,

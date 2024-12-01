@@ -205,7 +205,7 @@ class _PokemonOverallInfoState extends State<_PokemonOverallInfo>
                   runSpacing: 8,
                   children: pokemon.types
                       .take(3)
-                      .map((type) => PokemonType(type, large: true))
+                      .map((type) => PokemonTypeChip.large(type))
                       .toList(),
                 ),
               ),

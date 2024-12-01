@@ -23,7 +23,12 @@ class Stat extends StatelessWidget {
           flex: 2,
           child: Text(
             label,
-            style: TextStyle(color: Theme.of(context).textTheme.bodySmall!.color!.withOpacity(0.6)),
+            style: TextStyle(
+                color: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .color!
+                    .withOpacity(0.6)),
           ),
         ),
         Expanded(
@@ -59,13 +64,15 @@ class _PokemonBaseStats extends StatefulWidget {
   State<_PokemonBaseStats> createState() => _PokemonBaseStatsState();
 }
 
-class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerProviderStateMixin {
+class _PokemonBaseStatsState extends State<_PokemonBaseStats>
+    with SingleTickerProviderStateMixin {
   late Animation<double> _progressAnimation;
   late AnimationController _progressController;
 
   Pokemon get pokemon => widget.pokemon;
 
-  AnimationController get slideController => PokemonInfoStateProvider.of(context).slideController;
+  AnimationController get slideController =>
+      PokemonInfoStateProvider.of(context).slideController;
 
   @override
   void initState() {
@@ -74,7 +81,8 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
       duration: const Duration(milliseconds: 400),
     );
 
-    _progressAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    _progressAnimation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
       curve: Curves.easeInOut,
       parent: _progressController,
     ));
@@ -100,8 +108,9 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
 
         return SingleChildScrollView(
           padding: const EdgeInsets.all(24),
-          physics:
-              scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics: scrollable
+              ? const BouncingScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
           child: child,
         );
       },
@@ -138,13 +147,25 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
       children: [
         Stat(animation: _progressAnimation, label: 'Hp', value: stats.hp),
         const SizedBox(height: 14),
-        Stat(animation: _progressAnimation, label: 'Atttack', value: stats.attack),
+        Stat(
+            animation: _progressAnimation,
+            label: 'Atttack',
+            value: stats.attack),
         const SizedBox(height: 14),
-        Stat(animation: _progressAnimation, label: 'Defense', value: stats.defense),
+        Stat(
+            animation: _progressAnimation,
+            label: 'Defense',
+            value: stats.defense),
         const SizedBox(height: 14),
-        Stat(animation: _progressAnimation, label: 'Sp. Atk', value: stats.specialAttack),
+        Stat(
+            animation: _progressAnimation,
+            label: 'Sp. Atk',
+            value: stats.specialAttack),
         const SizedBox(height: 14),
-        Stat(animation: _progressAnimation, label: 'Sp. Def', value: stats.specialDefense),
+        Stat(
+            animation: _progressAnimation,
+            label: 'Sp. Def',
+            value: stats.specialDefense),
         const SizedBox(height: 14),
         Stat(animation: _progressAnimation, label: 'Speed', value: stats.speed),
         const SizedBox(height: 14),
@@ -164,9 +185,8 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
       runSpacing: 8,
       children: typeEffectiveness.keys
           .map(
-            (type) => PokemonType(
+            (type) => PokemonTypeChip.large(
               type,
-              large: true,
               colored: true,
               extra: 'x${removeTrailingZero(typeEffectiveness[type] ?? 1)}',
             ),

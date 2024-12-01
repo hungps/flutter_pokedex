@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/presenter/themes/colors.dart';
+import 'package:pokedex/presenter/themes/extensions.dart';
 import 'package:pokedex/presenter/widgets/animated_overlay.dart';
 import 'package:pokedex/utils/extensions/animation.dart';
 
 class ExpandableFabMenuItem extends StatelessWidget {
   final String title;
   final IconData icon;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const ExpandableFabMenuItem({
     super.key,
@@ -17,21 +17,22 @@ class ExpandableFabMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      shape: const StadiumBorder(),
-      padding: const EdgeInsets.fromLTRB(24, 8, 16, 8),
-      color: Theme.of(context).colorScheme.surface,
-      elevation: 0,
-      highlightElevation: 2,
-      onPressed: onPressed,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Text(title),
-          const SizedBox(width: 8),
-          Icon(icon, color: AppColors.indigo),
-        ],
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        shape: const StadiumBorder(),
+        padding: const EdgeInsets.fromLTRB(18, 8, 14, 8),
+        backgroundColor: context.colors.background,
+        foregroundColor: context.colors.text,
+        disabledForegroundColor: context.colors.text,
+        disabledBackgroundColor: context.colors.disabled,
+        disabledIconColor: context.colors.hint,
+        iconColor: context.colors.secondary,
+        elevation: 2,
       ),
+      label: Text(title),
+      icon: Icon(icon),
+      iconAlignment: IconAlignment.end,
+      onPressed: onPressed,
     );
   }
 }
@@ -126,7 +127,7 @@ class _ExpandableFabState extends State<ExpandableFab>
               AnimatedBuilder(
                 animation: _animation,
                 builder: (_, child) => IgnorePointer(
-                  ignoring: _animation.value == 0,
+                  ignoring: _animation.isDismissed,
                   child: child,
                 ),
                 child: ListView.separated(

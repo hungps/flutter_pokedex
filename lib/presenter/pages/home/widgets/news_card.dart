@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 
-final class HomeNewsListTile extends StatelessWidget {
+class HomeNewsListTile extends StatelessWidget {
   final ImageProvider thumbnail;
   final String title;
   final DateTime postedAt;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/presenter/assets.gen.dart';
 import 'package:pokedex/presenter/themes/extensions.dart';
 
-final class HomeCategoryCard extends StatelessWidget {
+class HomeCategoryCard extends StatelessWidget {
   final String title;
   final Color color;
   final VoidCallback? onPressed;
@@ -27,6 +28,7 @@ final class HomeCategoryCard extends StatelessWidget {
             ),
           FilledButton(
             onPressed: onPressed,
+            clipBehavior: Clip.hardEdge,
             style: FilledButton.styleFrom(
               padding: EdgeInsets.zero,
               backgroundColor: color,
@@ -34,28 +36,28 @@ final class HomeCategoryCard extends StatelessWidget {
               disabledBackgroundColor: context.colors.disabled,
               disabledForegroundColor: context.colors.textOnPrimary,
             ),
-            child: ClipRRect(
-              child: Stack(
-                alignment: Alignment.centerLeft,
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: _CircleDecorator(size: height),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: _PokeballDecorator(size: height),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      title,
-                      style: context.typographies.body
-                          .copyWith(fontWeight: FontWeight.w700),
+            child: Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: _CircleDecorator(size: height),
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: _PokeballDecorator(size: height),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    title,
+                    style: context.typographies.body.copyWith(
+                      fontWeight: FontWeight.w700,
+                      height: 1,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
@@ -65,11 +67,11 @@ final class HomeCategoryCard extends StatelessWidget {
 }
 
 class _CardShadow extends StatelessWidget {
+  final Color color;
+
   const _CardShadow({
     required this.color,
   });
-
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +103,7 @@ class _CircleDecorator extends StatelessWidget {
       offset: Offset(-size * 0.5, -size * 0.6),
       child: CircleAvatar(
         radius: size / 2,
-        backgroundColor: Colors.white.withOpacity(0.14),
+        backgroundColor: context.colors.background.withOpacity(0.14),
       ),
     );
   }
@@ -116,11 +118,11 @@ class _PokeballDecorator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform.scale(
       scale: 1.4,
-      child: Image.asset(
-        'assets/images/pokeball.png',
+      child: Image(
+        image: Assets.images.pokeball.provider(),
         width: size,
         height: size,
-        color: Colors.white.withOpacity(0.14),
+        color: context.colors.background.withOpacity(0.14),
         fit: BoxFit.contain,
       ),
     );

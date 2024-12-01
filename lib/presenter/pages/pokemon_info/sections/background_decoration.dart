@@ -70,8 +70,10 @@ class _BackgroundDecoration extends StatefulWidget {
 }
 
 class _BackgroundDecorationState extends State<_BackgroundDecoration> {
-  Animation<double> get slideController => PokemonInfoStateProvider.of(context).slideController;
-  Animation<double> get rotateController => PokemonInfoStateProvider.of(context).rotateController;
+  Animation<double> get slideController =>
+      PokemonInfoStateProvider.of(context).slideController;
+  Animation<double> get rotateController =>
+      PokemonInfoStateProvider.of(context).rotateController;
 
   @override
   Widget build(BuildContext context) {
@@ -117,11 +119,10 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
 
     final pokeSize = screenSize.width * 0.5;
     final appBarHeight = AppBar().preferredSize.height;
-    final iconButtonPadding = AppAppBar.padding.right;
     final iconSize = IconTheme.of(context).size ?? 0;
 
     final pokeballTopMargin = -(pokeSize / 2 - safeAreaTop - appBarHeight / 2);
-    final pokeballRightMargin = -(pokeSize / 2 - iconButtonPadding - iconSize / 2);
+    final pokeballRightMargin = -(pokeSize / 2 - iconSize / 2);
 
     return Positioned(
       top: pokeballTopMargin,

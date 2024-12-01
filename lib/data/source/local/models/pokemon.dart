@@ -1,4 +1,4 @@
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'pokemon_gender.dart';
 import 'pokemon_stats.dart';

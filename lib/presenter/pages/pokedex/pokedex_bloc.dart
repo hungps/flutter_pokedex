@@ -43,7 +43,9 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
     PokedexFetchPokemonsStarted event,
     Emitter<PokedexState> emit,
   ) async {
-    emit(state.copyWith(status: PokedexStatus.loading));
+    emit(state.copyWith(
+      status: PokedexStatus.loading,
+    ));
 
     final pokemons = await _getPokemons(GetPokemonsParams(
       page: 1,
@@ -64,7 +66,9 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
     PokedexFetchMorePokemonsStarted event,
     Emitter<PokedexState> emit,
   ) async {
-    emit(state.copyWith(status: PokedexStatus.loadingMore));
+    emit(state.copyWith(
+      status: PokedexStatus.loadingMore,
+    ));
 
     final nextPage = state.page + 1;
 

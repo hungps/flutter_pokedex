@@ -19,8 +19,8 @@ import 'package:pokedex/presenter/modals/search_modal.dart';
 import 'package:pokedex/presenter/widgets/app_bar.dart';
 import 'package:pokedex/presenter/widgets/pokemon_card.dart';
 import 'package:pokedex/presenter/widgets/fab.dart';
-import 'package:pokedex/presenter/widgets/scaffold.dart';
 import 'package:pokedex/presenter/widgets/pokemon_refresh_control.dart';
+import 'package:pokedex/presenter/widgets/scaffold.dart';
 import 'package:pokedex/utils/mixins/load_more_mixin.dart';
 
 @RoutePage()
@@ -40,8 +40,11 @@ class PokedexPage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
+  final GlobalKey<NestedScrollViewState> _nestedScrollViewKey = GlobalKey();
+
   @override
-  final ScrollController scrollController = ScrollController();
+  ScrollController? get scrollController =>
+      _nestedScrollViewKey.currentState?.innerController;
 
   PokedexBloc get _bloc => context.read<PokedexBloc>();
 
@@ -82,13 +85,14 @@ class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
       body: Stack(
         children: [
           NestedScrollView(
+            key: _nestedScrollViewKey,
             headerSliverBuilder: (_, __) => [
               AppMovingTitleSliverAppBar(title: 'Pokedex'),
             ],
             body: PokedexStatusSelector(builder: (status) {
               switch (status) {
                 case PokedexStatus.loading:
-                  return const PikaLoadingIndicator();
+                  return _buildLoading();
 
                 case PokedexStatus.failure:
                   return _buildError();
@@ -102,15 +106,15 @@ class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
           ExpandableFab(
             icon: AnimatedIcons.menu_close,
             menuItems: [
-              ExpandableFabMenuItem(
+              const ExpandableFabMenuItem(
                 title: 'Favourite Pokemon',
                 icon: Icons.favorite,
-                onPressed: () {},
+                onPressed: null,
               ),
-              ExpandableFabMenuItem(
+              const ExpandableFabMenuItem(
                 title: 'All Type',
                 icon: Icons.filter_vintage,
-                onPressed: () {},
+                onPressed: null,
               ),
               ExpandableFabMenuItem(
                 title: 'All Gen',
@@ -123,23 +127,26 @@ class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
                 onPressed: () => showSearchPokemonSheet(context: context),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 
+  Widget _buildLoading() {
+    return const PikaLoadingIndicator();
+  }
+
   Widget _buildSuccess() {
     return CustomScrollView(
-      controller: scrollController,
       slivers: [
         SliverPokemonRefreshControl(
           onRefresh: _onRefresh,
         ),
         SliverPadding(
           padding: const EdgeInsets.all(28),
-          sliver: PokedexPokemonsSelector(
-            builder: (pokemons) => SliverGrid.builder(
+          sliver: PokedexPokemonsSelector(builder: (pokemons) {
+            return SliverGrid.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1.4,
@@ -155,11 +162,11 @@ class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
                   types: pokemon.types,
                   color: pokemon.color,
                   imageUrl: pokemon.image,
-                  onPressed: () => _onPokemonPress(pokemons[index]),
+                  onPressed: () => _onPokemonPress(pokemon),
                 );
               },
-            ),
-          ),
+            );
+          }),
         ),
         PokedexCanLoadMoreSelector(builder: (canLoadMore) {
           return SliverPadding(

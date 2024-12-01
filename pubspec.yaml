@@ -35,15 +35,18 @@ dependencies:
   flutter_bloc: ^8.1.6
   bloc_concurrency: ^0.2.5
 
-  cached_network_image: ^3.4.0
-  sliding_up_panel: ^2.0.0+1
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
+  # Networking
+  retrofit: ^4.4.1
   dio: ^5.5.0+1
-  bloc: ^8.1.4
-  intl: ^0.19.0
-  stream_transform: ^2.1.0
+  cached_network_image: ^3.4.0
+
+  # Storage
+  hive_flutter: ^1.1.0
+
+  # UI
+  sliding_up_panel: ^2.0.0+1
   flutter_web_frame: ^1.0.0
+  intl: ^0.20.1
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +58,7 @@ dev_dependencies:
   injectable_generator: ^2.6.2
   flutter_gen_runner: ^5.6.0
   auto_route_generator: ^7.3.2
+  retrofit_generator: ^9.1.5
   freezed: ^2.5.7
 
 # For information on the generic Dart part of this file, see the

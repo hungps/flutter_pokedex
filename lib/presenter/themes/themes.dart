@@ -48,11 +48,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
         ),
         appBarTheme: AppBarTheme(
           elevation: 0,
-          titleTextStyle: typographies.body,
+          titleTextStyle: typographies.headingSmall,
           centerTitle: true,
-          color: Colors.transparent,
+          backgroundColor: Colors.transparent,
           foregroundColor: colors.text,
-          surfaceTintColor: colors.text,
         ),
         tabBarTheme: TabBarTheme(
           labelColor: colors.text,
@@ -116,6 +115,23 @@ class AppTheme extends ThemeExtension<AppTheme> {
             }),
           ),
         ),
+        iconButtonTheme: IconButtonThemeData(
+          style: styles.buttonLarge.copyWith(
+            shape: const WidgetStatePropertyAll(CircleBorder()),
+            backgroundColor:
+                WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+              return states.contains(WidgetState.disabled)
+                  ? colors.disabled
+                  : null; // Defer to the widget's default.
+            }),
+            foregroundColor:
+                WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+              return states.contains(WidgetState.disabled)
+                  ? colors.disabled
+                  : null; // Defer to the widget's default.
+            }),
+          ),
+        ),
         inputDecorationTheme: InputDecorationTheme(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 8, horizontal: 42),
@@ -144,6 +160,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
           backgroundColor: colors.secondary,
           foregroundColor: colors.textOnPrimary,
           elevation: 0,
+          shape: const CircleBorder(),
         ),
         dividerTheme: DividerThemeData(
           color: colors.border,

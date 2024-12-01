@@ -15,7 +15,7 @@ class DarkAppTheme extends AppTheme {
             accent: Color(0xFF27C754),
             background: Color(0xFF25272A),
             backgroundDark: Color(0xFF191A1D),
-            disabled: Color(0x64303943),
+            disabled: Color(0xFF595A5D),
             information: Color(0xFF6C79DB),
             success: Color(0xFF78C850),
             alert: Color(0xFFF6C747),

@@ -7,7 +7,7 @@ import 'package:pokedex/presenter/pages/home/home_event.dart';
 import 'package:pokedex/presenter/pages/home/home_state.dart';
 
 @injectable
-final class HomeBloc extends Bloc<HomeEvent, HomeState> {
+class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final GetAllNewsUseCase _getAllNews;
 
   HomeBloc({

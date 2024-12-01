@@ -11,7 +11,7 @@ enum HomeStatus {
 }
 
 @freezed
-final class HomeState with _$HomeState {
+class HomeState with _$HomeState {
   const factory HomeState({
     @Default(HomeStatus.initial) status,
     @Default([]) List<News> news,

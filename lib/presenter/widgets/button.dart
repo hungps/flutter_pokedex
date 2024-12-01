@@ -18,7 +18,6 @@ class ThemeSwitcherButton extends StatelessWidget {
     return IconButton(
       onPressed: onPressed,
       icon: Icon(isDarkTheme ? _darkThemeIcon : _lightThemeIcon),
-      iconSize: 25,
     );
   }
 }

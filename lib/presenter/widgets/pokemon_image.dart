@@ -8,14 +8,14 @@ class PokemonImage extends StatelessWidget {
   final String url;
   final EdgeInsets padding;
   final bool useHero;
-  final Size size;
+  final Size? size;
   final ImageProvider? placeholder;
   final Color? tintColor;
 
   const PokemonImage({
     super.key,
     required this.url,
-    required this.size,
+    this.size,
     this.padding = EdgeInsets.zero,
     this.useHero = true,
     this.placeholder,
@@ -39,19 +39,18 @@ class PokemonImage extends StatelessWidget {
             maxHeightDiskCache: _cacheMaxSize.height.toInt(),
             fadeInDuration: const Duration(milliseconds: 120),
             fadeOutDuration: const Duration(milliseconds: 120),
+            fit: BoxFit.contain,
             imageBuilder: (_, image) => Image(
               image: image,
-              width: size.width,
-              height: size.height,
-              alignment: Alignment.bottomCenter,
+              width: size?.width,
+              height: size?.height,
               color: tintColor,
               fit: BoxFit.contain,
             ),
             placeholder: (_, __) => Image(
               image: placeholder ?? Assets.images.bulbasaur.provider(),
-              width: size.width,
-              height: size.height,
-              alignment: Alignment.bottomCenter,
+              width: size?.width,
+              height: size?.height,
               color: Colors.black12,
               fit: BoxFit.contain,
             ),
@@ -60,14 +59,16 @@ class PokemonImage extends StatelessWidget {
               children: [
                 Image(
                   image: placeholder ?? Assets.images.bulbasaur.provider(),
-                  width: size.width,
-                  height: size.height,
+                  width: size?.width,
+                  height: size?.height,
                   color: Colors.black12,
+                  fit: BoxFit.contain,
                 ),
-                Icon(
-                  Icons.warning_amber_rounded,
-                  size: size.width * 0.3,
-                  color: Colors.black26,
+                const FractionallySizedBox(
+                  widthFactor: 0.3,
+                  child: Icon(
+                    Icons.warning_amber_rounded,
+                  ),
                 ),
               ],
             ),

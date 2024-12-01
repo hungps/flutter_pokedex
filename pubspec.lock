@@ -55,7 +55,7 @@ packages:
     source: hosted
     version: "7.3.2"
   bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: bloc
       sha256: "106842ad6569f0b60297619e9e0b1885c2fb9bf84812935490e6c5275777804e"
@@ -409,7 +409,7 @@ packages:
     source: hosted
     version: "2.0.0"
   hive:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hive
       sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"
@@ -484,10 +484,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      sha256: "00f33b908655e606b86d2ade4710a231b802eec6f11e87e4ea3783fd72077a50"
       url: "https://pub.dev"
     source: hosted
-    version: "0.19.0"
+    version: "0.20.1"
   io:
     dependency: transitive
     description:
@@ -720,6 +720,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      sha256: "68645b24e0716782e58948f8467fd42a880f255096a821f9e7d0ec625b00c84d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   provider:
     dependency: transitive
     description:
@@ -752,6 +760,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
+  retrofit:
+    dependency: "direct main"
+    description:
+      name: retrofit
+      sha256: "3c9885ef3dbc5dc4b3fb0a40c972ab52e4dad04d52dac9bba24dfa76cf100451"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.4.1"
+  retrofit_generator:
+    dependency: "direct dev"
+    description:
+      name: retrofit_generator
+      sha256: f76fdb2b66854690d5a332e7364d7561fc9dc2b3c924d7956ab8070495e21f6a
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.1.5"
   rxdart:
     dependency: transitive
     description:
@@ -854,7 +878,7 @@ packages:
     source: hosted
     version: "2.1.2"
   stream_transform:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: stream_transform
       sha256: "14a00e794c7c11aa145a170587321aedce29769c08d7f58b1d141da75e3b1c6f"
@@ -969,10 +993,10 @@ packages:
     dependency: transitive
     description:
       name: web
-      sha256: d43c1d6b787bf0afad444700ae7f4db8827f701bc61c255ac8d328c6f4d52062
+      sha256: cd3543bd5798f6ad290ea73d210f423502e71900302dde696f8bff84bf89a1cb
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0"
   web_socket:
     dependency: transitive
     description:
