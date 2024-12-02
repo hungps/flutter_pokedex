@@ -4,17 +4,19 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pokedex/core/exceptions.dart';
+import 'package:pokedex/data/usecases/get_basic_pokemon_use_case.dart';
 import 'package:pokedex/data/usecases/pokemon_usecases.dart';
 import 'package:pokedex/presenter/pages/pokedex/pokedex_event.dart';
 import 'package:pokedex/presenter/pages/pokedex/pokedex_state.dart';
 
 @injectable
 class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
-  final GetPokemonsUseCase _getPokemons;
+  final GetBasicPokemonsUseCase _getBasicPokemons;
 
   PokedexBloc({
     required GetPokemonsUseCase getPokemonsUseCase,
-  })  : _getPokemons = getPokemonsUseCase,
+    required GetBasicPokemonsUseCase getBasicPokemonsUseCase,
+  })  : _getBasicPokemons = getBasicPokemonsUseCase,
         super(const PokedexState()) {
     on<PokedexFetchPokemonsStarted>(_onFetchPokemonsStarted,
         transformer: droppable());
@@ -47,7 +49,7 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
       status: PokedexStatus.loading,
     ));
 
-    final pokemons = await _getPokemons(GetPokemonsParams(
+    final pokemons = await _getBasicPokemons(GetBasicPokemonsParams(
       page: 1,
       limit: state.pokemonsPerPage,
     ));
@@ -72,7 +74,7 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
 
     final nextPage = state.page + 1;
 
-    final newPokemons = await _getPokemons(GetPokemonsParams(
+    final newPokemons = await _getBasicPokemons(GetBasicPokemonsParams(
       page: nextPage,
       limit: state.pokemonsPerPage,
     ));

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PokedexState {
   PokedexStatus get status => throw _privateConstructorUsedError;
-  List<Pokemon> get pokemons => throw _privateConstructorUsedError;
+  List<BasicPokemon> get pokemons => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   int get pokemonsPerPage => throw _privateConstructorUsedError;
   bool get canLoadMore => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $PokedexStateCopyWith<$Res> {
   @useResult
   $Res call(
       {PokedexStatus status,
-      List<Pokemon> pokemons,
+      List<BasicPokemon> pokemons,
       int page,
       int pokemonsPerPage,
       bool canLoadMore,
@@ -75,7 +75,7 @@ class _$PokedexStateCopyWithImpl<$Res, $Val extends PokedexState>
       pokemons: null == pokemons
           ? _value.pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
-              as List<Pokemon>,
+              as List<BasicPokemon>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$PokedexStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {PokedexStatus status,
-      List<Pokemon> pokemons,
+      List<BasicPokemon> pokemons,
       int page,
       int pokemonsPerPage,
       bool canLoadMore,
@@ -141,7 +141,7 @@ class __$$PokedexStateImplCopyWithImpl<$Res>
       pokemons: null == pokemons
           ? _value._pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
-              as List<Pokemon>,
+              as List<BasicPokemon>,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class __$$PokedexStateImplCopyWithImpl<$Res>
 class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
   const _$PokedexStateImpl(
       {this.status = PokedexStatus.loading,
-      final List<Pokemon> pokemons = const [],
+      final List<BasicPokemon> pokemons = const [],
       this.page = 1,
       this.pokemonsPerPage = 20,
       this.canLoadMore = false,
@@ -177,10 +177,10 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
   @override
   @JsonKey()
   final PokedexStatus status;
-  final List<Pokemon> _pokemons;
+  final List<BasicPokemon> _pokemons;
   @override
   @JsonKey()
-  List<Pokemon> get pokemons {
+  List<BasicPokemon> get pokemons {
     if (_pokemons is EqualUnmodifiableListView) return _pokemons;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_pokemons);
@@ -253,7 +253,7 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
 abstract class _PokedexState implements PokedexState {
   const factory _PokedexState(
       {final PokedexStatus status,
-      final List<Pokemon> pokemons,
+      final List<BasicPokemon> pokemons,
       final int page,
       final int pokemonsPerPage,
       final bool canLoadMore,
@@ -262,7 +262,7 @@ abstract class _PokedexState implements PokedexState {
   @override
   PokedexStatus get status;
   @override
-  List<Pokemon> get pokemons;
+  List<BasicPokemon> get pokemons;
   @override
   int get page;
   @override

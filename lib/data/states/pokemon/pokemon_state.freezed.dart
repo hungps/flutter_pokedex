@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PokemonState {
   PokemonStateStatus get status => throw _privateConstructorUsedError;
   List<Pokemon> get pokemons => throw _privateConstructorUsedError;
+  List<BasicPokemon> get basicPokemons => throw _privateConstructorUsedError;
   int get selectedPokemonIndex => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   bool get canLoadMore => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $PokemonStateCopyWith<$Res> {
   $Res call(
       {PokemonStateStatus status,
       List<Pokemon> pokemons,
+      List<BasicPokemon> basicPokemons,
       int selectedPokemonIndex,
       int page,
       bool canLoadMore,
@@ -62,6 +64,7 @@ class _$PokemonStateCopyWithImpl<$Res, $Val extends PokemonState>
   $Res call({
     Object? status = null,
     Object? pokemons = null,
+    Object? basicPokemons = null,
     Object? selectedPokemonIndex = null,
     Object? page = null,
     Object? canLoadMore = null,
@@ -76,6 +79,10 @@ class _$PokemonStateCopyWithImpl<$Res, $Val extends PokemonState>
           ? _value.pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
               as List<Pokemon>,
+      basicPokemons: null == basicPokemons
+          ? _value.basicPokemons
+          : basicPokemons // ignore: cast_nullable_to_non_nullable
+              as List<BasicPokemon>,
       selectedPokemonIndex: null == selectedPokemonIndex
           ? _value.selectedPokemonIndex
           : selectedPokemonIndex // ignore: cast_nullable_to_non_nullable
@@ -107,6 +114,7 @@ abstract class _$$PokemonStateImplCopyWith<$Res>
   $Res call(
       {PokemonStateStatus status,
       List<Pokemon> pokemons,
+      List<BasicPokemon> basicPokemons,
       int selectedPokemonIndex,
       int page,
       bool canLoadMore,
@@ -128,6 +136,7 @@ class __$$PokemonStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? pokemons = null,
+    Object? basicPokemons = null,
     Object? selectedPokemonIndex = null,
     Object? page = null,
     Object? canLoadMore = null,
@@ -142,6 +151,10 @@ class __$$PokemonStateImplCopyWithImpl<$Res>
           ? _value._pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
               as List<Pokemon>,
+      basicPokemons: null == basicPokemons
+          ? _value._basicPokemons
+          : basicPokemons // ignore: cast_nullable_to_non_nullable
+              as List<BasicPokemon>,
       selectedPokemonIndex: null == selectedPokemonIndex
           ? _value.selectedPokemonIndex
           : selectedPokemonIndex // ignore: cast_nullable_to_non_nullable
@@ -168,11 +181,13 @@ class _$PokemonStateImpl extends _PokemonState with DiagnosticableTreeMixin {
   const _$PokemonStateImpl(
       {this.status = PokemonStateStatus.initial,
       final List<Pokemon> pokemons = const [],
+      final List<BasicPokemon> basicPokemons = const [],
       this.selectedPokemonIndex = 0,
       this.page = 1,
       this.canLoadMore = true,
       this.error})
       : _pokemons = pokemons,
+        _basicPokemons = basicPokemons,
         super._();
 
   @override
@@ -185,6 +200,15 @@ class _$PokemonStateImpl extends _PokemonState with DiagnosticableTreeMixin {
     if (_pokemons is EqualUnmodifiableListView) return _pokemons;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_pokemons);
+  }
+
+  final List<BasicPokemon> _basicPokemons;
+  @override
+  @JsonKey()
+  List<BasicPokemon> get basicPokemons {
+    if (_basicPokemons is EqualUnmodifiableListView) return _basicPokemons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_basicPokemons);
   }
 
   @override
@@ -201,7 +225,7 @@ class _$PokemonStateImpl extends _PokemonState with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PokemonState(status: $status, pokemons: $pokemons, selectedPokemonIndex: $selectedPokemonIndex, page: $page, canLoadMore: $canLoadMore, error: $error)';
+    return 'PokemonState(status: $status, pokemons: $pokemons, basicPokemons: $basicPokemons, selectedPokemonIndex: $selectedPokemonIndex, page: $page, canLoadMore: $canLoadMore, error: $error)';
   }
 
   @override
@@ -211,6 +235,7 @@ class _$PokemonStateImpl extends _PokemonState with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'PokemonState'))
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('pokemons', pokemons))
+      ..add(DiagnosticsProperty('basicPokemons', basicPokemons))
       ..add(DiagnosticsProperty('selectedPokemonIndex', selectedPokemonIndex))
       ..add(DiagnosticsProperty('page', page))
       ..add(DiagnosticsProperty('canLoadMore', canLoadMore))
@@ -224,6 +249,8 @@ class _$PokemonStateImpl extends _PokemonState with DiagnosticableTreeMixin {
             other is _$PokemonStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._pokemons, _pokemons) &&
+            const DeepCollectionEquality()
+                .equals(other._basicPokemons, _basicPokemons) &&
             (identical(other.selectedPokemonIndex, selectedPokemonIndex) ||
                 other.selectedPokemonIndex == selectedPokemonIndex) &&
             (identical(other.page, page) || other.page == page) &&
@@ -237,6 +264,7 @@ class _$PokemonStateImpl extends _PokemonState with DiagnosticableTreeMixin {
       runtimeType,
       status,
       const DeepCollectionEquality().hash(_pokemons),
+      const DeepCollectionEquality().hash(_basicPokemons),
       selectedPokemonIndex,
       page,
       canLoadMore,
@@ -255,6 +283,7 @@ abstract class _PokemonState extends PokemonState {
   const factory _PokemonState(
       {final PokemonStateStatus status,
       final List<Pokemon> pokemons,
+      final List<BasicPokemon> basicPokemons,
       final int selectedPokemonIndex,
       final int page,
       final bool canLoadMore,
@@ -265,6 +294,8 @@ abstract class _PokemonState extends PokemonState {
   PokemonStateStatus get status;
   @override
   List<Pokemon> get pokemons;
+  @override
+  List<BasicPokemon> get basicPokemons;
   @override
   int get selectedPokemonIndex;
   @override

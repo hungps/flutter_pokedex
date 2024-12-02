@@ -5,7 +5,15 @@ abstract class PokemonRepository {
 
   Future<List<Pokemon>> getAllPokemons();
 
-  Future<List<Pokemon>> getPokemons({required int limit, required int page});
+  Future<List<Pokemon>> getPokemons({
+    required int limit,
+    required int page,
+  });
+
+  Future<List<BasicPokemon>> getBasicPokemons({
+    required int limit,
+    required int page,
+  });
 
   Future<Pokemon?> getPokemon(String number);
 }

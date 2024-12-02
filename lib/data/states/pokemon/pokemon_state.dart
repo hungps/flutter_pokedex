@@ -17,6 +17,7 @@ class PokemonState with _$PokemonState {
   const factory PokemonState({
     @Default(PokemonStateStatus.initial) PokemonStateStatus status,
     @Default([]) List<Pokemon> pokemons,
+    @Default([]) List<BasicPokemon> basicPokemons,
     @Default(0) int selectedPokemonIndex,
     @Default(1) int page,
     @Default(true) bool canLoadMore,

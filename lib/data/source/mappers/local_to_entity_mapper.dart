@@ -8,6 +8,7 @@ import 'package:pokedex/data/entities/pokemon_properties.dart';
 import 'package:pokedex/data/entities/pokemon_types.dart';
 
 extension PokemonHiveModelX on PokemonHiveModel {
+  // TODO: remove this mapping
   Pokemon toEntity({List<PokemonHiveModel> evolutions = const []}) => Pokemon(
         number: number.trim(),
         name: name.trim(),
@@ -17,12 +18,20 @@ extension PokemonHiveModelX on PokemonHiveModel {
         height: height.trim(),
         weight: weight.trim(),
         genera: genera.trim(),
-        eggGroups: eggGroups.map((e) => e.trim()).where((e) => e.isNotEmpty).toList(),
+        eggGroups:
+            eggGroups.map((e) => e.trim()).where((e) => e.isNotEmpty).toList(),
         gender: gender.toEntity(),
         stats: stats.toEntity(),
         baseExp: baseExp,
         evolutions: evolutions.map((e) => e.toEntity()).toList(),
         evolutionReason: evolutionReason,
+      );
+
+  BasicPokemon toBasicEntity() => BasicPokemon(
+        number: number.trim(),
+        name: name.trim(),
+        types: types.map((e) => PokemonTypes.parse(e)).toList(),
+        image: image.trim(),
       );
 }
 

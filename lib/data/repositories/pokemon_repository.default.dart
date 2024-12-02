@@ -36,7 +36,10 @@ class PokemonDefaultRepository extends PokemonRepository {
   }
 
   @override
-  Future<List<Pokemon>> getPokemons({required int limit, required int page}) async {
+  Future<List<Pokemon>> getPokemons({
+    required int limit,
+    required int page,
+  }) async {
     final hasCachedData = await _localDataSource.hasData();
 
     if (!hasCachedData) {
@@ -51,6 +54,30 @@ class PokemonDefaultRepository extends PokemonRepository {
       limit: limit,
     );
     final pokemonEntities = pokemonHiveModels.map((e) => e.toEntity()).toList();
+
+    return pokemonEntities;
+  }
+
+  @override
+  Future<List<BasicPokemon>> getBasicPokemons({
+    required int limit,
+    required int page,
+  }) async {
+    final hasCachedData = await _localDataSource.hasData();
+
+    if (!hasCachedData) {
+      final pokemonGithubModels = await _githubDataSource.getPokemons();
+      final pokemonHiveModels = pokemonGithubModels.map((e) => e.toHiveModel());
+
+      await _localDataSource.savePokemons(pokemonHiveModels);
+    }
+
+    final pokemonHiveModels = await _localDataSource.getPokemons(
+      page: page,
+      limit: limit,
+    );
+    final pokemonEntities =
+        pokemonHiveModels.map((e) => e.toBasicEntity()).toList();
 
     return pokemonEntities;
   }

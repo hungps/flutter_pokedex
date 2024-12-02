@@ -24,7 +24,8 @@ final class PokedexStatusSelector extends PokedexSelector<PokedexStatus> {
         );
 }
 
-final class PokedexPokemonsSelector extends PokedexSelector<List<Pokemon>> {
+final class PokedexPokemonsSelector
+    extends PokedexSelector<List<BasicPokemon>> {
   PokedexPokemonsSelector({
     super.key,
     required super.builder,

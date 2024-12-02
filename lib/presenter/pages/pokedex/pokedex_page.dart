@@ -70,7 +70,7 @@ class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
     return _bloc.stream.firstWhere((e) => e.status != PokedexStatus.loading);
   }
 
-  void _onPokemonPress(Pokemon pokemon) {
+  void _onPokemonPress(BasicPokemon pokemon) {
     // TODO: Remove
     context
         .read<PokemonBloc>()
@@ -160,7 +160,7 @@ class _PokedexPageState extends State<PokedexPage> with LoadMoreMixin {
                   name: pokemon.name,
                   number: pokemon.number,
                   types: pokemon.types,
-                  color: pokemon.color,
+                  color: pokemon.types.first.color,
                   imageUrl: pokemon.image,
                   onPressed: () => _onPokemonPress(pokemon),
                 );

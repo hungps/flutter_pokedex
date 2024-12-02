@@ -16,7 +16,7 @@ enum PokedexStatus {
 class PokedexState with _$PokedexState {
   const factory PokedexState({
     @Default(PokedexStatus.loading) PokedexStatus status,
-    @Default([]) List<Pokemon> pokemons,
+    @Default([]) List<BasicPokemon> pokemons,
     @Default(1) int page,
     @Default(20) int pokemonsPerPage,
     @Default(false) bool canLoadMore,

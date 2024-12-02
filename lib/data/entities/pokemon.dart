@@ -9,6 +9,16 @@ part 'pokemon.freezed.dart';
 part 'pokemon.g.dart';
 
 @freezed
+class BasicPokemon with _$BasicPokemon {
+  const factory BasicPokemon({
+    required String number,
+    required String name,
+    required String image,
+    required List<PokemonTypes> types,
+  }) = _BasicPokemon;
+}
+
+@freezed
 class Pokemon with _$Pokemon {
   const factory Pokemon({
     required String number,
@@ -29,12 +39,15 @@ class Pokemon with _$Pokemon {
 
   const Pokemon._();
 
-  factory Pokemon.fromJson(Map<String, Object?> json) => _$PokemonFromJson(json);
+  factory Pokemon.fromJson(Map<String, Object?> json) =>
+      _$PokemonFromJson(json);
 
   Color get color => types.first.color;
 
   Map<PokemonTypes, double> get typeEffectiveness {
-    final effectiveness = PokemonTypes.values.where((type) => type != PokemonTypes.unknown).map(
+    final effectiveness = PokemonTypes.values
+        .where((type) => type != PokemonTypes.unknown)
+        .map(
           (type) => MapEntry(
             type,
             types

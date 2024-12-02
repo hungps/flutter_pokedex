@@ -37,7 +37,8 @@ class GetPokemonsUseCase extends UseCase<List<Pokemon>, GetPokemonsParams> {
 
   @override
   Future<List<Pokemon>> call(GetPokemonsParams params) {
-    return _pokemonRepository.getPokemons(page: params.page, limit: params.limit);
+    return _pokemonRepository.getPokemons(
+        page: params.page, limit: params.limit);
   }
 }
 
