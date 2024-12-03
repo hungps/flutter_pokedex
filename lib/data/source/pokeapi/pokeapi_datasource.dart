@@ -5,7 +5,6 @@ import 'package:pokedex/data/source/pokeapi/models/pagination.dart';
 import 'package:pokedex/data/source/pokeapi/models/pokemon.dart';
 import 'package:pokedex/data/source/pokeapi/models/pokemon_species.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:pokedex/data/source/pokeapi/pokeapi_dio.dart';
 
 part 'pokeapi_datasource.g.dart';
 
@@ -13,8 +12,7 @@ part 'pokeapi_datasource.g.dart';
 @RestApi(baseUrl: '/api/v2/')
 abstract class PokeApiDataSource {
   @factoryMethod
-  factory PokeApiDataSource(@Named.from(PokeApiDio) Dio dio) =
-      _PokeApiDataSource;
+  factory PokeApiDataSource(Dio dio) = _PokeApiDataSource;
 
   @GET('/pokemon')
   Future<PokeApiNamedApiResourceList> getPokemons(

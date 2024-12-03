@@ -13,5 +13,5 @@ abstract class PokemonRepository {
 
   Future<List<BasicPokemon>> getBasicPokemons(Pagination pagination);
 
-  Future<Pokemon?> getPokemon(String number);
+  Future<Pokemon?> getPokemon(String id);
 }

@@ -38,9 +38,12 @@ dependencies:
   # Networking
   retrofit: ^4.4.1
   dio: ^5.5.0+1
+  dio_cache_interceptor: ^3.5.0
+  dio_cache_interceptor_hive_store: ^3.2.2
   cached_network_image: ^3.4.0
 
   # Storage
+  path_provider: ^2.1.5
   hive_flutter: ^1.1.0
 
   # UI
