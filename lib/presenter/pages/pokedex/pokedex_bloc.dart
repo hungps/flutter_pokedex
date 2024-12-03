@@ -4,6 +4,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pokedex/core/exceptions.dart';
+import 'package:pokedex/data/entities/pagination.dart';
 import 'package:pokedex/data/usecases/get_basic_pokemon_use_case.dart';
 import 'package:pokedex/data/usecases/pokemon_usecases.dart';
 import 'package:pokedex/presenter/pages/pokedex/pokedex_event.dart';
@@ -49,18 +50,16 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
       status: PokedexStatus.loading,
     ));
 
-    final pokemons = await _getBasicPokemons(GetBasicPokemonsParams(
-      page: 1,
-      limit: state.pokemonsPerPage,
-    ));
+    const pagination = Pagination(page: 1);
+    final pokemons = await _getBasicPokemons(pagination);
 
     if (emit.isDone) return;
 
     emit(state.copyWith(
       status: PokedexStatus.loaded,
       pokemons: pokemons,
-      page: 1,
-      canLoadMore: pokemons.length >= state.pokemonsPerPage,
+      pagination: pagination,
+      canLoadMore: pokemons.length >= pagination.itemsPerPage,
     ));
   }
 
@@ -72,20 +71,19 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
       status: PokedexStatus.loadingMore,
     ));
 
-    final nextPage = state.page + 1;
+    final pagination = state.pagination.copyWith(
+      page: state.pagination.page + 1,
+    );
 
-    final newPokemons = await _getBasicPokemons(GetBasicPokemonsParams(
-      page: nextPage,
-      limit: state.pokemonsPerPage,
-    ));
+    final newPokemons = await _getBasicPokemons(pagination);
 
     if (emit.isDone) return;
 
     emit(state.copyWith(
       status: PokedexStatus.loaded,
       pokemons: [...state.pokemons, ...newPokemons],
-      page: nextPage,
-      canLoadMore: newPokemons.length >= state.pokemonsPerPage,
+      pagination: pagination,
+      canLoadMore: newPokemons.length >= state.pagination.itemsPerPage,
     ));
   }
 }

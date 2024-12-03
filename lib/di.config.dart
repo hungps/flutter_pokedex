@@ -8,6 +8,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'dart:ui' as _i264;
+
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -17,11 +19,14 @@ import 'package:pokedex/data/repositories/news_repository.dart' as _i216;
 import 'package:pokedex/data/repositories/news_repository.default.dart'
     as _i670;
 import 'package:pokedex/data/repositories/pokemon_repository.dart' as _i456;
-import 'package:pokedex/data/repositories/pokemon_repository.default.dart'
-    as _i525;
+import 'package:pokedex/data/repositories/pokemon_repository.pokeapi.dart'
+    as _i105;
 import 'package:pokedex/data/source/github/github_datasource.dart' as _i408;
 import 'package:pokedex/data/source/github/network.dart' as _i510;
 import 'package:pokedex/data/source/local/local_datasource.dart' as _i880;
+import 'package:pokedex/data/source/pokeapi/pokeapi_datasource.dart' as _i341;
+import 'package:pokedex/data/source/pokeapi/pokeapi_dio.dart' as _i314;
+import 'package:pokedex/data/source/pokeapi/pokeapi_mapper.dart' as _i422;
 import 'package:pokedex/data/states/item/item_bloc.dart' as _i622;
 import 'package:pokedex/data/states/pokemon/pokemon_bloc.dart' as _i577;
 import 'package:pokedex/data/states/settings/settings_bloc.dart' as _i240;
@@ -48,6 +53,7 @@ extension GetItInjectableX on _i174.GetIt {
     final registerModule = _$RegisterModule();
     gh.factory<_i841.SplashBloc>(() => _i841.SplashBloc());
     gh.singleton<_i361.Dio>(() => registerModule.dio);
+    gh.singleton<_i264.Locale>(() => registerModule.locale);
     await gh.singletonAsync<_i880.LocalDataSource>(
       () {
         final i = const _i880.LocalDataSource();
@@ -56,19 +62,27 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.singleton<_i240.SettingsBloc>(() => _i240.SettingsBloc());
+    gh.singleton<_i361.Dio>(
+      () => _i314.PokeApiDio(),
+      instanceName: 'PokeApiDio',
+    );
     gh.singleton<_i216.NewsRepository>(() => _i670.DefaultNewsRepository());
+    gh.singleton<_i422.PokeApiMapper>(
+        () => _i422.PokeApiMapper(locale: gh<_i264.Locale>()));
     gh.singleton<_i510.NetworkManager>(
         () => _i510.NetworkManager(dio: gh<_i361.Dio>()));
     gh.singleton<_i968.GetAllNewsUseCase>(() => _i968.DefaultGetAllNewsUseCase(
         newsRepository: gh<_i216.NewsRepository>()));
     gh.singleton<_i408.GithubDataSource>(() =>
         _i408.GithubDataSource(networkManager: gh<_i510.NetworkManager>()));
+    gh.singleton<_i341.PokeApiDataSource>(() =>
+        _i341.PokeApiDataSource(gh<_i361.Dio>(instanceName: 'PokeApiDio')));
+    gh.singleton<_i456.PokemonRepository>(() => _i105.PokeApiPokemonRepository(
+          pokeApiDataSource: gh<_i341.PokeApiDataSource>(),
+          pokeApiMapper: gh<_i422.PokeApiMapper>(),
+        ));
     gh.factory<_i892.HomeBloc>(
         () => _i892.HomeBloc(getAllNews: gh<_i968.GetAllNewsUseCase>()));
-    gh.singleton<_i456.PokemonRepository>(() => _i525.PokemonDefaultRepository(
-          githubDataSource: gh<_i408.GithubDataSource>(),
-          localDataSource: gh<_i880.LocalDataSource>(),
-        ));
     gh.singleton<_i282.ItemRepository>(() => _i25.DefaultItemRepository(
           githubDataSource: gh<_i408.GithubDataSource>(),
           localDataSource: gh<_i880.LocalDataSource>(),

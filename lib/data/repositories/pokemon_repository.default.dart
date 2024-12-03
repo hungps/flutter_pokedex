@@ -1,4 +1,5 @@
-import 'package:injectable/injectable.dart';
+// import 'package:injectable/injectable.dart';
+import 'package:pokedex/data/entities/pagination.dart';
 import 'package:pokedex/data/repositories/pokemon_repository.dart';
 import 'package:pokedex/data/source/github/github_datasource.dart';
 import 'package:pokedex/data/source/local/local_datasource.dart';
@@ -6,7 +7,7 @@ import 'package:pokedex/data/source/mappers/github_to_local_mapper.dart';
 import 'package:pokedex/data/source/mappers/local_to_entity_mapper.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
 
-@Singleton(as: PokemonRepository)
+// @Singleton(as: PokemonRepository)
 class PokemonDefaultRepository extends PokemonRepository {
   final GithubDataSource _githubDataSource;
   final LocalDataSource _localDataSource;
@@ -59,10 +60,7 @@ class PokemonDefaultRepository extends PokemonRepository {
   }
 
   @override
-  Future<List<BasicPokemon>> getBasicPokemons({
-    required int limit,
-    required int page,
-  }) async {
+  Future<List<BasicPokemon>> getBasicPokemons(Pagination pagination) async {
     final hasCachedData = await _localDataSource.hasData();
 
     if (!hasCachedData) {
@@ -73,8 +71,8 @@ class PokemonDefaultRepository extends PokemonRepository {
     }
 
     final pokemonHiveModels = await _localDataSource.getPokemons(
-      page: page,
-      limit: limit,
+      page: pagination.page,
+      limit: pagination.itemsPerPage,
     );
     final pokemonEntities =
         pokemonHiveModels.map((e) => e.toBasicEntity()).toList();

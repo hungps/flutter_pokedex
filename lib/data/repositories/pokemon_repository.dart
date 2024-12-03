@@ -1,3 +1,4 @@
+import 'package:pokedex/data/entities/pagination.dart';
 import 'package:pokedex/data/entities/pokemon.dart';
 
 abstract class PokemonRepository {
@@ -10,10 +11,7 @@ abstract class PokemonRepository {
     required int page,
   });
 
-  Future<List<BasicPokemon>> getBasicPokemons({
-    required int limit,
-    required int page,
-  });
+  Future<List<BasicPokemon>> getBasicPokemons(Pagination pagination);
 
   Future<Pokemon?> getPokemon(String number);
 }

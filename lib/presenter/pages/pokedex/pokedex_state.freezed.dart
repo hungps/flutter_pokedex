@@ -18,8 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PokedexState {
   PokedexStatus get status => throw _privateConstructorUsedError;
   List<BasicPokemon> get pokemons => throw _privateConstructorUsedError;
-  int get page => throw _privateConstructorUsedError;
-  int get pokemonsPerPage => throw _privateConstructorUsedError;
+  Pagination get pagination => throw _privateConstructorUsedError;
   bool get canLoadMore => throw _privateConstructorUsedError;
   AppException<dynamic>? get error => throw _privateConstructorUsedError;
 
@@ -39,10 +38,11 @@ abstract class $PokedexStateCopyWith<$Res> {
   $Res call(
       {PokedexStatus status,
       List<BasicPokemon> pokemons,
-      int page,
-      int pokemonsPerPage,
+      Pagination pagination,
       bool canLoadMore,
       AppException<dynamic>? error});
+
+  $PaginationCopyWith<$Res> get pagination;
 }
 
 /// @nodoc
@@ -62,8 +62,7 @@ class _$PokedexStateCopyWithImpl<$Res, $Val extends PokedexState>
   $Res call({
     Object? status = null,
     Object? pokemons = null,
-    Object? page = null,
-    Object? pokemonsPerPage = null,
+    Object? pagination = null,
     Object? canLoadMore = null,
     Object? error = freezed,
   }) {
@@ -76,14 +75,10 @@ class _$PokedexStateCopyWithImpl<$Res, $Val extends PokedexState>
           ? _value.pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
               as List<BasicPokemon>,
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-      pokemonsPerPage: null == pokemonsPerPage
-          ? _value.pokemonsPerPage
-          : pokemonsPerPage // ignore: cast_nullable_to_non_nullable
-              as int,
+      pagination: null == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as Pagination,
       canLoadMore: null == canLoadMore
           ? _value.canLoadMore
           : canLoadMore // ignore: cast_nullable_to_non_nullable
@@ -93,6 +88,16 @@ class _$PokedexStateCopyWithImpl<$Res, $Val extends PokedexState>
           : error // ignore: cast_nullable_to_non_nullable
               as AppException<dynamic>?,
     ) as $Val);
+  }
+
+  /// Create a copy of PokedexState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PaginationCopyWith<$Res> get pagination {
+    return $PaginationCopyWith<$Res>(_value.pagination, (value) {
+      return _then(_value.copyWith(pagination: value) as $Val);
+    });
   }
 }
 
@@ -107,10 +112,12 @@ abstract class _$$PokedexStateImplCopyWith<$Res>
   $Res call(
       {PokedexStatus status,
       List<BasicPokemon> pokemons,
-      int page,
-      int pokemonsPerPage,
+      Pagination pagination,
       bool canLoadMore,
       AppException<dynamic>? error});
+
+  @override
+  $PaginationCopyWith<$Res> get pagination;
 }
 
 /// @nodoc
@@ -128,8 +135,7 @@ class __$$PokedexStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? pokemons = null,
-    Object? page = null,
-    Object? pokemonsPerPage = null,
+    Object? pagination = null,
     Object? canLoadMore = null,
     Object? error = freezed,
   }) {
@@ -142,14 +148,10 @@ class __$$PokedexStateImplCopyWithImpl<$Res>
           ? _value._pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
               as List<BasicPokemon>,
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-      pokemonsPerPage: null == pokemonsPerPage
-          ? _value.pokemonsPerPage
-          : pokemonsPerPage // ignore: cast_nullable_to_non_nullable
-              as int,
+      pagination: null == pagination
+          ? _value.pagination
+          : pagination // ignore: cast_nullable_to_non_nullable
+              as Pagination,
       canLoadMore: null == canLoadMore
           ? _value.canLoadMore
           : canLoadMore // ignore: cast_nullable_to_non_nullable
@@ -168,8 +170,7 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
   const _$PokedexStateImpl(
       {this.status = PokedexStatus.loading,
       final List<BasicPokemon> pokemons = const [],
-      this.page = 1,
-      this.pokemonsPerPage = 20,
+      this.pagination = const Pagination(page: 1, itemsPerPage: 20),
       this.canLoadMore = false,
       this.error})
       : _pokemons = pokemons;
@@ -188,10 +189,7 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
 
   @override
   @JsonKey()
-  final int page;
-  @override
-  @JsonKey()
-  final int pokemonsPerPage;
+  final Pagination pagination;
   @override
   @JsonKey()
   final bool canLoadMore;
@@ -200,7 +198,7 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PokedexState(status: $status, pokemons: $pokemons, page: $page, pokemonsPerPage: $pokemonsPerPage, canLoadMore: $canLoadMore, error: $error)';
+    return 'PokedexState(status: $status, pokemons: $pokemons, pagination: $pagination, canLoadMore: $canLoadMore, error: $error)';
   }
 
   @override
@@ -210,8 +208,7 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
       ..add(DiagnosticsProperty('type', 'PokedexState'))
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('pokemons', pokemons))
-      ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('pokemonsPerPage', pokemonsPerPage))
+      ..add(DiagnosticsProperty('pagination', pagination))
       ..add(DiagnosticsProperty('canLoadMore', canLoadMore))
       ..add(DiagnosticsProperty('error', error));
   }
@@ -223,9 +220,8 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
             other is _$PokedexStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._pokemons, _pokemons) &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.pokemonsPerPage, pokemonsPerPage) ||
-                other.pokemonsPerPage == pokemonsPerPage) &&
+            (identical(other.pagination, pagination) ||
+                other.pagination == pagination) &&
             (identical(other.canLoadMore, canLoadMore) ||
                 other.canLoadMore == canLoadMore) &&
             (identical(other.error, error) || other.error == error));
@@ -236,8 +232,7 @@ class _$PokedexStateImpl with DiagnosticableTreeMixin implements _PokedexState {
       runtimeType,
       status,
       const DeepCollectionEquality().hash(_pokemons),
-      page,
-      pokemonsPerPage,
+      pagination,
       canLoadMore,
       error);
 
@@ -254,8 +249,7 @@ abstract class _PokedexState implements PokedexState {
   const factory _PokedexState(
       {final PokedexStatus status,
       final List<BasicPokemon> pokemons,
-      final int page,
-      final int pokemonsPerPage,
+      final Pagination pagination,
       final bool canLoadMore,
       final AppException<dynamic>? error}) = _$PokedexStateImpl;
 
@@ -264,9 +258,7 @@ abstract class _PokedexState implements PokedexState {
   @override
   List<BasicPokemon> get pokemons;
   @override
-  int get page;
-  @override
-  int get pokemonsPerPage;
+  Pagination get pagination;
   @override
   bool get canLoadMore;
   @override

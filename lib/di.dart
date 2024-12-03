@@ -20,6 +20,9 @@ FutureOr<void> configureDependencies() => getIt.init();
 abstract class RegisterModule {
   @singleton
   Dio get dio => Dio();
+
+  @singleton
+  Locale get locale => const Locale("en");
 }
 
 class GlobalBlocProviders extends StatelessWidget {

@@ -28,6 +28,7 @@ extension PokemonHiveModelX on PokemonHiveModel {
       );
 
   BasicPokemon toBasicEntity() => BasicPokemon(
+        id: name,
         number: number.trim(),
         name: name.trim(),
         types: types.map((e) => PokemonTypes.parse(e)).toList(),

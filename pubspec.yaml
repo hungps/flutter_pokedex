@@ -48,6 +48,8 @@ dependencies:
   flutter_web_frame: ^1.0.0
   intl: ^0.20.1
 
+  collection: ^1.18.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
