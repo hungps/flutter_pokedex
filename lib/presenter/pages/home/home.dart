@@ -1,5 +1,5 @@
+import 'dart:convert';
 import 'dart:math';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +16,8 @@ import 'package:pokedex/presenter/widgets/button.dart';
 import 'package:pokedex/presenter/widgets/input.dart';
 import 'package:pokedex/presenter/widgets/keyboard.dart';
 import 'package:pokedex/presenter/widgets/scaffold.dart';
+import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 part 'widgets/category_card.dart';
 part 'widgets/news_card.dart';
