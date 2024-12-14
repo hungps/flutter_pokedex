@@ -97,7 +97,7 @@ class PokemonCard extends StatelessWidget {
         style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
-          color: Colors.black12,
+          color: Colors.white70,
         ),
       ),
     );
