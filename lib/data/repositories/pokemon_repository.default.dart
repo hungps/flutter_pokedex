@@ -8,16 +8,20 @@ import 'package:pokedex/data/entities/pokemon.dart';
 
 @Singleton(as: PokemonRepository)
 class PokemonDefaultRepository extends PokemonRepository {
-  static const int maxPokemonId = 809;
-
   final PokeApiDataSource _pokeApiDataSource;
   final LocalDataSource _localDataSource;
+  int? _cachedMaxPokemonId;
 
   const PokemonDefaultRepository({
     required PokeApiDataSource pokeApiDataSource,
     required LocalDataSource localDataSource,
   })  : _pokeApiDataSource = pokeApiDataSource,
         _localDataSource = localDataSource;
+
+  Future<int> _getMaxPokemonId() async {
+    _cachedMaxPokemonId ??= await _pokeApiDataSource.getPokemonCount();
+    return _cachedMaxPokemonId!;
+  }
 
   @override
   Future<List<Pokemon>> getAllPokemons() async {
@@ -29,6 +33,7 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<List<Pokemon>> getPokemons({required int limit, required int page}) async {
+    final maxPokemonId = await _getMaxPokemonId();
     final start = (page - 1) * limit + 1;
     final end = start + limit - 1;
     final actualEnd = end > maxPokemonId ? maxPokemonId : end;
@@ -52,6 +57,7 @@ class PokemonDefaultRepository extends PokemonRepository {
     var pokemonModel = await _localDataSource.getPokemon(number);
 
     if (pokemonModel == null) {
+      final maxPokemonId = await _getMaxPokemonId();
       final id = int.tryParse(number.replaceAll('#', ''));
       if (id != null && id >= 1 && id <= maxPokemonId) {
         await _fetchAndCachePokemon(id);
@@ -70,6 +76,7 @@ class PokemonDefaultRepository extends PokemonRepository {
       if (evolution != null) {
         evolutions.add(evolution);
       } else {
+        final maxPokemonId = await _getMaxPokemonId();
         final evolutionId = int.tryParse(evolutionNumber.replaceAll('#', ''));
         if (evolutionId != null && evolutionId >= 1 && evolutionId <= maxPokemonId) {
           await _fetchAndCachePokemon(evolutionId);
