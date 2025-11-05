@@ -1,6 +1,5 @@
 import 'package:injectable/injectable.dart';
 import 'package:pokedex/data/source/github/network.dart';
-import 'package:pokedex/data/source/pokeapi/models/api_resource_list.dart';
 import 'package:pokedex/data/source/pokeapi/models/evolution_chain.dart';
 import 'package:pokedex/data/source/pokeapi/models/item.dart';
 import 'package:pokedex/data/source/pokeapi/models/pokemon.dart';
@@ -16,26 +15,6 @@ class PokeApiDataSource {
   const PokeApiDataSource({
     required NetworkManager networkManager,
   }) : _networkManager = networkManager;
-
-  Future<int> getPokemonCount() async {
-    final response = await _networkManager.request(
-      RequestMethod.get,
-      '$baseUrl/pokemon-species?limit=1',
-    );
-
-    final list = ApiResourceList.fromJson(response.data);
-    return list.count;
-  }
-
-  Future<int> getItemCount() async {
-    final response = await _networkManager.request(
-      RequestMethod.get,
-      '$baseUrl/item?limit=1',
-    );
-
-    final list = ApiResourceList.fromJson(response.data);
-    return list.count;
-  }
 
   Future<PokeApiPokemonModel> getPokemon(int id) async {
     final response =

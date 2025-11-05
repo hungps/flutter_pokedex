@@ -10,18 +10,12 @@ import 'package:pokedex/data/entities/pokemon.dart';
 class PokemonDefaultRepository extends PokemonRepository {
   final PokeApiDataSource _pokeApiDataSource;
   final LocalDataSource _localDataSource;
-  int? _cachedMaxPokemonId;
 
   const PokemonDefaultRepository({
     required PokeApiDataSource pokeApiDataSource,
     required LocalDataSource localDataSource,
   })  : _pokeApiDataSource = pokeApiDataSource,
         _localDataSource = localDataSource;
-
-  Future<int> _getMaxPokemonId() async {
-    _cachedMaxPokemonId ??= await _pokeApiDataSource.getPokemonCount();
-    return _cachedMaxPokemonId!;
-  }
 
   @override
   Future<List<Pokemon>> getAllPokemons() async {
@@ -33,14 +27,12 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<List<Pokemon>> getPokemons({required int limit, required int page}) async {
-    final maxPokemonId = await _getMaxPokemonId();
     final start = (page - 1) * limit + 1;
     final end = start + limit - 1;
-    final actualEnd = end > maxPokemonId ? maxPokemonId : end;
 
     final pokemonList = <Pokemon>[];
     
-    for (int id = start; id <= actualEnd; id++) {
+    for (int id = start; id <= end; id++) {
       final number = '#${id.toString().padLeft(3, '0')}';
       final pokemon = await getPokemon(number);
       
@@ -57,17 +49,19 @@ class PokemonDefaultRepository extends PokemonRepository {
     var pokemonModel = await _localDataSource.getPokemon(number);
 
     if (pokemonModel == null) {
-      final maxPokemonId = await _getMaxPokemonId();
       final id = int.tryParse(number.replaceAll('#', ''));
-      if (id != null && id >= 1 && id <= maxPokemonId) {
-        await _fetchAndCachePokemon(id);
-        pokemonModel = await _localDataSource.getPokemon(number);
+      if (id != null && id >= 1) {
+        try {
+          await _fetchAndCachePokemon(id);
+          pokemonModel = await _localDataSource.getPokemon(number);
+        } catch (e) {
+          return null;
+        }
       }
     }
 
     if (pokemonModel == null) return null;
 
-    // get all evolutions
     final evolutionNumbers = pokemonModel.evolutions;
     final evolutions = <dynamic>[];
     
@@ -76,13 +70,15 @@ class PokemonDefaultRepository extends PokemonRepository {
       if (evolution != null) {
         evolutions.add(evolution);
       } else {
-        final maxPokemonId = await _getMaxPokemonId();
         final evolutionId = int.tryParse(evolutionNumber.replaceAll('#', ''));
-        if (evolutionId != null && evolutionId >= 1 && evolutionId <= maxPokemonId) {
-          await _fetchAndCachePokemon(evolutionId);
-          final fetchedEvolution = await _localDataSource.getPokemon(evolutionNumber);
-          if (fetchedEvolution != null) {
-            evolutions.add(fetchedEvolution);
+        if (evolutionId != null && evolutionId >= 1) {
+          try {
+            await _fetchAndCachePokemon(evolutionId);
+            final fetchedEvolution = await _localDataSource.getPokemon(evolutionNumber);
+            if (fetchedEvolution != null) {
+              evolutions.add(fetchedEvolution);
+            }
+          } catch (e) {
           }
         }
       }

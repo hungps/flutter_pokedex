@@ -10,18 +10,12 @@ import 'package:pokedex/data/entities/item.dart';
 class ItemDefaultRepository extends ItemRepository {
   final PokeApiDataSource _pokeApiDataSource;
   final LocalDataSource _localDataSource;
-  int? _cachedMaxItemId;
 
   const ItemDefaultRepository({
     required PokeApiDataSource pokeApiDataSource,
     required LocalDataSource localDataSource,
   })  : _pokeApiDataSource = pokeApiDataSource,
         _localDataSource = localDataSource;
-
-  Future<int> _getMaxItemId() async {
-    _cachedMaxItemId ??= await _pokeApiDataSource.getItemCount();
-    return _cachedMaxItemId!;
-  }
 
   @override
   Future<List<Item>> getAllItems() async {
@@ -33,14 +27,12 @@ class ItemDefaultRepository extends ItemRepository {
 
   @override
   Future<List<Item>> getItems({required int limit, required int page}) async {
-    final maxItemId = await _getMaxItemId();
     final start = (page - 1) * limit + 1;
     final end = start + limit - 1;
-    final actualEnd = end > maxItemId ? maxItemId : end;
 
     final itemList = <Item>[];
     
-    for (int id = start; id <= actualEnd; id++) {
+    for (int id = start; id <= end; id++) {
       final item = await _getItem(id);
       
       if (item != null) {
@@ -70,7 +62,6 @@ class ItemDefaultRepository extends ItemRepository {
       
       return existingItem.toEntity();
     } catch (e) {
-      print('Error fetching Item $id: $e');
       return null;
     }
   }
