@@ -35,9 +35,9 @@ abstract class RegisterModule {
 
     final cacheOptions = CacheOptions(
       store: cacheStore,
-      policy: CachePolicy.forceCache,
-      hitCacheOnErrorExcept: [401, 403],
-      maxStale: const Duration(days: 7),
+      policy: CachePolicy.request,
+      hitCacheOnErrorExcept: [401, 403, 404],
+      maxStale: const Duration(days: 30),
       priority: CachePriority.high,
       cipher: null,
       keyBuilder: CacheOptions.defaultCacheKeyBuilder,

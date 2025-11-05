@@ -21,13 +21,7 @@ class ItemDefaultRepository extends ItemRepository {
 
   @override
   Future<List<Item>> getAllItems() async {
-    final hasCachedData = await _localDataSource.hasItemData();
-
-    if (!hasCachedData) {
-      // Fetch first batch of items to populate the cache
-      await _fetchItemBatch(1, 50);
-    }
-
+    // Return all cached items
     final itemHiveModels = await _localDataSource.getAllItems();
     final itemEntities = itemHiveModels.map((e) => e.toEntity()).toList();
 
@@ -39,54 +33,47 @@ class ItemDefaultRepository extends ItemRepository {
     // Calculate which item IDs we need
     final start = (page - 1) * limit + 1;
     final end = start + limit - 1;
+    final actualEnd = end > maxItemId ? maxItemId : end;
 
-    // Ensure we have this range cached
-    await _ensureItemRangeCached(start, end);
-
-    final itemHiveModels = await _localDataSource.getItems(
-      page: page,
-      limit: limit,
-    );
-    final itemEntities = itemHiveModels.map((e) => e.toEntity()).toList();
-
-    return itemEntities;
-  }
-
-  Future<void> _ensureItemRangeCached(int start, int end) async {
-    final endId = end > maxItemId ? maxItemId : end;
-
-    // Check if we already have this range
-    final itemCount = (await _localDataSource.getAllItems()).length;
+    // Fetch each item individually if not cached
+    final itemList = <Item>[];
     
-    // If we have fewer items than requested end, fetch more
-    if (itemCount < endId) {
-      await _fetchItemBatch(start, endId);
+    for (int id = start; id <= actualEnd; id++) {
+      final item = await _getItem(id);
+      
+      if (item != null) {
+        itemList.add(item);
+      }
     }
+
+    return itemList;
   }
 
-  Future<void> _fetchItemBatch(int startId, int endId) async {
-    final actualEndId = endId > maxItemId ? maxItemId : endId;
-
-    for (int id = startId; id <= actualEndId; id++) {
-      await _fetchAndCacheItem(id);
-    }
-  }
-
-  Future<void> _fetchAndCacheItem(int id) async {
+  Future<Item?> _getItem(int id) async {
+    // Try to find in cache by ID
+    // Since items are stored by name, we need to fetch and cache if not present
+    final allItems = await _localDataSource.getAllItems();
+    
+    // Check if we already have an item with this ID in cache
+    // We can't directly check by ID, so we fetch and cache if needed
     try {
-      final item = await _pokeApiDataSource.getItem(id);
-
-      // Convert to Hive model
-      final hiveModel = PokeApiToLocalMapper.itemToHiveModel(item);
-
-      // Save to local storage
-      final currentItems = await _localDataSource.getAllItems();
-      final itemsMap = {for (var i in currentItems) i.name: i};
-      itemsMap[hiveModel.name] = hiveModel;
-      await _localDataSource.saveItems(itemsMap.values);
+      final apiItem = await _pokeApiDataSource.getItem(id);
+      final hiveModel = PokeApiToLocalMapper.itemToHiveModel(apiItem);
+      
+      // Check if already in cache
+      final existingItem = allItems.where((i) => i.name == hiveModel.name).firstOrNull;
+      
+      if (existingItem == null) {
+        // Save to local storage
+        final itemsMap = {for (var i in allItems) i.name: i};
+        itemsMap[hiveModel.name] = hiveModel;
+        await _localDataSource.saveItems(itemsMap.values);
+      }
+      
+      return hiveModel.toEntity();
     } catch (e) {
       print('Error fetching Item $id: $e');
-      // Continue even if one item fails
+      return null;
     }
   }
 }

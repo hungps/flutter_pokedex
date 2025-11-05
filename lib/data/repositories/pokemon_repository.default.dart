@@ -21,13 +21,7 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<List<Pokemon>> getAllPokemons() async {
-    final hasCachedData = await _localDataSource.hasData();
-
-    if (!hasCachedData) {
-      // Fetch first batch of Pokemon to populate the cache
-      await _fetchPokemonBatch(1, 50);
-    }
-
+    // Return all cached Pokemon
     final pokemonHiveModels = await _localDataSource.getAllPokemons();
     final pokemonEntities = pokemonHiveModels.map((e) => e.toEntity()).toList();
 
@@ -39,17 +33,21 @@ class PokemonDefaultRepository extends PokemonRepository {
     // Calculate which Pokemon IDs we need
     final start = (page - 1) * limit + 1;
     final end = start + limit - 1;
+    final actualEnd = end > maxPokemonId ? maxPokemonId : end;
 
-    // Ensure we have this range cached
-    await _ensurePokemonRangeCached(start, end);
+    // Fetch each Pokemon individually if not cached
+    final pokemonList = <Pokemon>[];
+    
+    for (int id = start; id <= actualEnd; id++) {
+      final number = '#${id.toString().padLeft(3, '0')}';
+      final pokemon = await getPokemon(number);
+      
+      if (pokemon != null) {
+        pokemonList.add(pokemon);
+      }
+    }
 
-    final pokemonHiveModels = await _localDataSource.getPokemons(
-      page: page,
-      limit: limit,
-    );
-    final pokemonEntities = pokemonHiveModels.map((e) => e.toEntity()).toList();
-
-    return pokemonEntities;
+    return pokemonList;
   }
 
   @override
@@ -69,38 +67,30 @@ class PokemonDefaultRepository extends PokemonRepository {
 
     if (pokemonModel == null) return null;
 
-    // get all evolutions
-    final evolutions = await _localDataSource.getEvolutions(pokemonModel);
+    // get all evolutions (and fetch them if not cached)
+    final evolutionNumbers = pokemonModel.evolutions;
+    final evolutions = <dynamic>[];
+    
+    for (final evolutionNumber in evolutionNumbers) {
+      final evolution = await _localDataSource.getPokemon(evolutionNumber);
+      if (evolution != null) {
+        evolutions.add(evolution);
+      } else {
+        // Fetch evolution if not cached
+        final evolutionId = int.tryParse(evolutionNumber.replaceAll('#', ''));
+        if (evolutionId != null && evolutionId >= 1 && evolutionId <= maxPokemonId) {
+          await _fetchAndCachePokemon(evolutionId);
+          final fetchedEvolution = await _localDataSource.getPokemon(evolutionNumber);
+          if (fetchedEvolution != null) {
+            evolutions.add(fetchedEvolution);
+          }
+        }
+      }
+    }
 
     final pokemon = pokemonModel.toEntity(evolutions: evolutions);
 
     return pokemon;
-  }
-
-  Future<void> _ensurePokemonRangeCached(int start, int end) async {
-    final endId = end > maxPokemonId ? maxPokemonId : end;
-
-    // Check if we already have this range
-    final pokemonCount = (await _localDataSource.getAllPokemons()).length;
-    
-    // If we have fewer Pokemon than requested end, fetch more
-    if (pokemonCount < endId) {
-      await _fetchPokemonBatch(start, endId);
-    }
-  }
-
-  Future<void> _fetchPokemonBatch(int startId, int endId) async {
-    final actualEndId = endId > maxPokemonId ? maxPokemonId : endId;
-
-    for (int id = startId; id <= actualEndId; id++) {
-      // Check if already cached
-      final number = '#${id.toString().padLeft(3, '0')}';
-      final existing = await _localDataSource.getPokemon(number);
-      
-      if (existing == null) {
-        await _fetchAndCachePokemon(id);
-      }
-    }
   }
 
   Future<void> _fetchAndCachePokemon(int id) async {
