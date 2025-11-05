@@ -50,27 +50,28 @@ class ItemDefaultRepository extends ItemRepository {
   }
 
   Future<Item?> _getItem(int id) async {
-    // Try to find in cache by ID
-    // Since items are stored by name, we need to fetch and cache if not present
-    final allItems = await _localDataSource.getAllItems();
-    
-    // Check if we already have an item with this ID in cache
-    // We can't directly check by ID, so we fetch and cache if needed
     try {
+      // Fetch from API (will be served from HTTP cache if available)
       final apiItem = await _pokeApiDataSource.getItem(id);
       final hiveModel = PokeApiToLocalMapper.itemToHiveModel(apiItem);
       
-      // Check if already in cache
+      // Get current cached items
+      final allItems = await _localDataSource.getAllItems();
+      
+      // Check if already in cache by name
       final existingItem = allItems.where((i) => i.name == hiveModel.name).firstOrNull;
       
       if (existingItem == null) {
-        // Save to local storage
+        // Save to local storage only if not already cached
         final itemsMap = {for (var i in allItems) i.name: i};
         itemsMap[hiveModel.name] = hiveModel;
         await _localDataSource.saveItems(itemsMap.values);
+        
+        return hiveModel.toEntity();
       }
       
-      return hiveModel.toEntity();
+      // Return cached item
+      return existingItem.toEntity();
     } catch (e) {
       print('Error fetching Item $id: $e');
       return null;
