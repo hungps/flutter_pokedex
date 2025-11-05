@@ -38,10 +38,13 @@ dependencies:
   # Networking
   cached_network_image: ^3.2.3
   dio: ^5.4.0
+  dio_cache_interceptor: ^3.5.0
+  dio_cache_interceptor_hive_store: ^3.2.2
 
   # Storage
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  path_provider: ^2.1.5
 
   # Utils
   sliding_up_panel: ^2.0.0+1
