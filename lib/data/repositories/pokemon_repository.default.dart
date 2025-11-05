@@ -8,7 +8,7 @@ import 'package:pokedex/data/entities/pokemon.dart';
 
 @Singleton(as: PokemonRepository)
 class PokemonDefaultRepository extends PokemonRepository {
-  static const int maxPokemonId = 809; // Based on current dataset
+  static const int maxPokemonId = 809;
 
   final PokeApiDataSource _pokeApiDataSource;
   final LocalDataSource _localDataSource;
@@ -21,7 +21,6 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<List<Pokemon>> getAllPokemons() async {
-    // Return all cached Pokemon
     final pokemonHiveModels = await _localDataSource.getAllPokemons();
     final pokemonEntities = pokemonHiveModels.map((e) => e.toEntity()).toList();
 
@@ -30,12 +29,10 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<List<Pokemon>> getPokemons({required int limit, required int page}) async {
-    // Calculate which Pokemon IDs we need
     final start = (page - 1) * limit + 1;
     final end = start + limit - 1;
     final actualEnd = end > maxPokemonId ? maxPokemonId : end;
 
-    // Fetch each Pokemon individually if not cached
     final pokemonList = <Pokemon>[];
     
     for (int id = start; id <= actualEnd; id++) {
@@ -52,12 +49,9 @@ class PokemonDefaultRepository extends PokemonRepository {
 
   @override
   Future<Pokemon?> getPokemon(String number) async {
-    // Try to get from cache first
     var pokemonModel = await _localDataSource.getPokemon(number);
 
-    // If not in cache, fetch from API
     if (pokemonModel == null) {
-      // Extract numeric ID from number (e.g., "#001" -> 1)
       final id = int.tryParse(number.replaceAll('#', ''));
       if (id != null && id >= 1 && id <= maxPokemonId) {
         await _fetchAndCachePokemon(id);
@@ -67,7 +61,7 @@ class PokemonDefaultRepository extends PokemonRepository {
 
     if (pokemonModel == null) return null;
 
-    // get all evolutions (and fetch them if not cached)
+    // get all evolutions
     final evolutionNumbers = pokemonModel.evolutions;
     final evolutions = <dynamic>[];
     
@@ -76,7 +70,6 @@ class PokemonDefaultRepository extends PokemonRepository {
       if (evolution != null) {
         evolutions.add(evolution);
       } else {
-        // Fetch evolution if not cached
         final evolutionId = int.tryParse(evolutionNumber.replaceAll('#', ''));
         if (evolutionId != null && evolutionId >= 1 && evolutionId <= maxPokemonId) {
           await _fetchAndCachePokemon(evolutionId);

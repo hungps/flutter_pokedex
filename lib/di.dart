@@ -29,7 +29,6 @@ abstract class RegisterModule {
       receiveTimeout: const Duration(seconds: 30),
     ));
 
-    // Setup cache interceptor for API responses
     final cacheDir = await getTemporaryDirectory();
     final cacheStore = HiveCacheStore(cacheDir.path);
 
